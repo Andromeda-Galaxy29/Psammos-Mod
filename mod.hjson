@@ -1,8 +1,8 @@
-name: "psammos"
-displayName: "Psammos Mod"
-author: Andromeda-Galaxy29
-description: "A small mod that adds some content."
-version: "1.0"
-minGameVersion: "146"
-dependencies: []
-hidden: false
+"name": "psammos"
+"displayName": "Psammos Mod"
+"author": Andromeda-Galaxy29
+"description": "A small mod that adds some content."
+"version": "0.1"
+"minGameVersion": "146"
+"dependencies": []
+"hidden": false
