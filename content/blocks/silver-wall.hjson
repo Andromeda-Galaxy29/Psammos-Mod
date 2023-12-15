@@ -1,2 +1,6 @@
-"type": "wall"
-"name": "silver-wall"
+"type": wall
+"name": Silver Wall
+"health": 400
+"requirements": [
+  silver/6
+]
