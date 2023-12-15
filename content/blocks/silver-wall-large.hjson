@@ -1,4 +1,5 @@
 "type": wall
+"size": 2
 "name": Large Silver Wall
 "description": Protects structures from enemy projectiles.
 "health": 1600
