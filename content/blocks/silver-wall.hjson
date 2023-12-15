@@ -1,5 +1,6 @@
 "type": wall
 "name": Silver Wall
+"description": Protects structures from enemy projectiles.
 "health": 400
 "category": defense
 "requirements": [
