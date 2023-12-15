@@ -1,6 +1,7 @@
 "type": wall
 "name": Silver Wall
 "health": 400
+"category": defense
 "requirements": [
   silver/6
 ]
