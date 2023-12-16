@@ -7,25 +7,11 @@ mesh: [
     planet: psammos
     divisions: 6
     seed: 101
-    radius: 1.2441
+    radius: 1
     color1: babca8
     color2: c6c282
     octaves: 5.1
     persistence: 0.8
-  }
-]
-cloudMesh: [
- {
-   type: HexSkyMesh
-   planet: psammos
-   speed: 1.21
-   radius: 0.1
-   divisions: 6
-   color: 89eecaff
-   octaves: 3
-   persistence: 0.3
-   scl: 1
-   thresh: 0.6
   }
 ]
 generator: {
@@ -58,7 +44,7 @@ updateLighting: false
 sectorSeed: 1204
 bloom: false
 visible: true
-atmosphereColor: 31ffa4
+atmosphereColor: 31ffa410
 iconColor: 31ffa4
 hasAtmosphere: true
 allowWaveSimulation: true
