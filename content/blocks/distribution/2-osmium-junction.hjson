@@ -4,7 +4,7 @@ description: Acts as a bridge for two crossing conveyor belts.
   health: 30
   speed: 26
   capacity: 6
-  buildCostMultiplier: 5f
+  buildCostMultiplier: 2f
 category: distribution
 requirements: [
   1-osmium/5
