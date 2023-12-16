@@ -1,3 +1,4 @@
 type: OreBlock
 name: Osmium
 itemDrop: 1-osmium
+variants: 1
