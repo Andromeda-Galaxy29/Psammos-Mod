@@ -4,7 +4,7 @@ description: Transports items froward.
   health: 45
   speed: 0.03f
   displayedSpeed: 4.2f
-  buildCostMultiplier = 2f;
+  buildCostMultiplier: 2f
   hasItems: true
   itemCapacity: 3
 category: distribution
