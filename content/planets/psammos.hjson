@@ -11,22 +11,20 @@ mesh: [
     color1: d2ae8d
     color2: f7cba4
     octaves: 5.1
-    persistence: 0.4
+    persistence: 0.6
+  },
+  {
+    type: NoiseMesh
+    planet: psammos
+    divisions: 5
+    seed: 101
+    radius: 1.16
+    color1: ffffff
+    color2: ffffff
+    octaves: 5.1
+    persistence: 0.1
   }
 ]
-generator: {
-  type: PlanetGenerator
-  octaves: 3
-  persistence: 0.52
-  scale: 22
-  mag: 0.721
-  thresh: 1.152
-  min: 100
-  max: 100
-  radMin: 220
-  radMax: 600
-  sandChance: 0.50
-}
 sectorSize: 1
 allowLaunchToNumbered: false
 allowLaunchLoadout: false
@@ -34,10 +32,10 @@ allowSectorInvasion: false
 startSector: 0
 orbitSpacing: 4
 radius: 1.2
-minZoom: 1.5
+minZoom: 1
 drawOrbit: true
 atmosphereRadIn: 0
-atmosphereRadOut: 0.4
+atmosphereRadOut: 0.6
 accessible: true
 orbitRadius: 35
 sectorSeed: 1204
