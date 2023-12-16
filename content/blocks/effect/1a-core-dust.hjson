@@ -1,4 +1,5 @@
 type: CoreBlock
+name: Core: Dust
 health: 1600
 size: 3
   absorbLasers: true
