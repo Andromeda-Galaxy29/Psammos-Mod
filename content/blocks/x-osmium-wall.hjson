@@ -1,0 +1,8 @@
+"type": wall
+"name": Osmium Wall
+"description": Protects structures from enemy projectiles.
+"health": 360
+"category": defense
+"requirements": [
+  osmium/6
+]
