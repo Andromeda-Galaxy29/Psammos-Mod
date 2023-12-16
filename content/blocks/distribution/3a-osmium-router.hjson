@@ -1,0 +1,10 @@
+type: DuctRouter
+name: Osmium Router
+description: Distributes items equally across three directions. Only accepts items from the back side. Can be configured as an item sorter.
+  health: 40
+  speed: 4
+  buildCostMultiplier: 3f
+category: distribution
+requirements: [
+  1-osmium/6
+]
