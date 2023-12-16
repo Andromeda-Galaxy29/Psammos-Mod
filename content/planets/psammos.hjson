@@ -8,10 +8,10 @@ mesh: [
     divisions: 5
     seed: 101
     radius: 1.2
-    color1: babca8
-    color2: c6c282
+    color1: d2ae8d
+    color2: f7cba4
     octaves: 5.1
-    persistence: 0.8
+    persistence: 0.4
   }
 ]
 generator: {
@@ -44,7 +44,7 @@ updateLighting: false
 sectorSeed: 1204
 bloom: false
 visible: true
-atmosphereColor: 31ffa410
+atmosphereColor: 31ffa4
 iconColor: 31ffa4
 hasAtmosphere: true
 allowWaveSimulation: true
