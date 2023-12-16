@@ -37,7 +37,7 @@ radius: 1.2
 minZoom: 1.5
 drawOrbit: true
 atmosphereRadIn: 0
-atmosphereRadOut: 0.2
+atmosphereRadOut: 0.1
 accessible: true
 orbitRadius: 35
 sectorSeed: 1204
