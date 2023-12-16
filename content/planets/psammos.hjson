@@ -5,9 +5,9 @@ mesh: [
   {
     type: NoiseMesh
     planet: psammos
-    divisions: 6
+    divisions: 5
     seed: 101
-    radius: 1
+    radius: 1.2
     color1: babca8
     color2: c6c282
     octaves: 5.1
