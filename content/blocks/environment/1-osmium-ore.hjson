@@ -1,5 +1,5 @@
 type: OreBlock
 name: Osmium
-oreThreshold = 0.82f;
-oreScale = 25.47619f;
+oreThreshold: 0.82f
+oreScale: 25.47619f
 itemDrop: 1-osmium
