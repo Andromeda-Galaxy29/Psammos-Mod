@@ -1,0 +1,13 @@
+"type": drill
+"size": 2
+"name": Osmium Drill
+"description": The first drill on Psammos, works the same as Mechanical Drill on Serpulo
+  "hasItems": true
+  "hasLiquids": true
+  "tier": 2
+  "drillTime": 600
+  "size": 2
+"category": defense
+"requirements": [
+  osmium/16
+]
