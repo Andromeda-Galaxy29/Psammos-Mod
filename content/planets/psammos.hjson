@@ -37,13 +37,13 @@ radius: 1.2
 minZoom: 1.5
 drawOrbit: true
 atmosphereRadIn: 0
-atmosphereRadOut: 0.1
+atmosphereRadOut: 0.2
 accessible: true
 orbitRadius: 35
 sectorSeed: 1204
 bloom: false
 visible: true
-atmosphereColor: 31ffa4
+atmosphereColor: 146742
 iconColor: 31ffa4
 hasAtmosphere: true
 allowWaveSimulation: true
