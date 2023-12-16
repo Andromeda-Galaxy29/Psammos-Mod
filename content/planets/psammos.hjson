@@ -1,0 +1,75 @@
+localizedName: Psammos
+description: Almost all life which once populated this planet was wiped out by a cataclysmic event. Survive in these harsh conditions and terraform Psammos.
+alwaysUnlocked: true
+mesh: [
+  {
+    type: NoiseMesh
+    planet: psammos
+    divisions: 6
+    seed: 101
+    radius: 1.2441
+    color1: babca8
+    color2: c6c282
+    octaves: 5.1
+    persistence: 0.8
+  }
+]
+cloudMesh: [
+ {
+   type: HexSkyMesh
+   planet: psammos
+   speed: 1.21
+   radius: 0.1
+   divisions: 6
+   color: 89eeca7e
+   octaves: 3
+   persistence: 0.3
+   scl: 1
+   thresh: 0.6
+  }
+]
+generator: {
+  type: PlanetGenerator
+  octaves: 3
+  persistence: 0.52
+  scale: 22
+  mag: 0.721
+  thresh: 1.152
+  min: 100
+  max: 100
+  radMin: 220
+  radMax: 600
+  sandChance: 0.50
+}
+sectorSize: 1
+allowLaunchToNumbered: false
+allowLaunchLoadout: false
+allowSectorInvasion: false
+startSector: 0
+orbitSpacing: 4
+radius: 1.2
+minZoom: 1.5
+drawOrbit: true
+atmosphereRadIn: 0
+atmosphereRadOut: 0.4
+accessible: true
+orbitRadius: 30
+updateLighting: false
+sectorSeed: 1204
+bloom: false
+visible: true
+atmosphereColor: 31ffa4
+iconColor: 31ffa4
+hasAtmosphere: true
+allowWaveSimulation: true
+clearSectorOnLose: true
+allowWaves: true
+prebuildBase: false
+parent: sun
+solarSystem: sun
+launchCandidates: []
+itemWhitelist: [
+  "1-osmium",
+  "2-silver",
+  "sand"
+]
