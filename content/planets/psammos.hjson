@@ -43,7 +43,7 @@ orbitRadius: 35
 sectorSeed: 1204
 bloom: false
 visible: true
-atmosphereColor: 042718
+atmosphereColor: 275e46
 iconColor: 31ffa4
 hasAtmosphere: true
 allowWaveSimulation: true
