@@ -6,12 +6,9 @@
   "hasLiquids": true
   "tier": 2
   "drillTime": 600
-  "coolantMultiplier": 2.5
-  "consumes": {
-    "coolant": {
-      "amount": 3
-    }
-  }
+  "optionalConsumers": [
+    water/0.3
+  ]
 "category": production
 "requirements": [
   osmium/16
