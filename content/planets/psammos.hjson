@@ -48,6 +48,7 @@ allowWaveSimulation: true
 clearSectorOnLose: true
 allowWaves: true
 prebuildBase: false
+defaultCore: 1a-core-dust
 parent: sun
 solarSystem: sun
 launchCandidates: []
