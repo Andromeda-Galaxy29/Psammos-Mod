@@ -1,0 +1,11 @@
+type: Junction
+name: Osmium Junction
+description: Acts as a bridge for two crossing conveyor belts.
+  health: 30
+  speed: 26
+  capacity: 6
+  buildCostMultiplier: 5f
+category: distribution
+requirements: [
+  1-osmium/5
+]
