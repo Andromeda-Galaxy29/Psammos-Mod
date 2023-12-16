@@ -5,5 +5,5 @@
 "health": 1440
 "category": defense
 "requirements": [
-  osmium/24
+  1-osmium/24
 ]

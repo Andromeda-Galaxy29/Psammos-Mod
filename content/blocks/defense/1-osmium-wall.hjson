@@ -4,5 +4,5 @@
 "health": 360
 "category": defense
 "requirements": [
-  osmium/6
+  1-osmium/6
 ]
