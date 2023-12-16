@@ -6,9 +6,14 @@
   "hasLiquids": true
   "tier": 2
   "drillTime": 600
+  ambientSound: drill
+  ambientSoundVolume: 0.08
   "consumes": {
-    "water": {
+    "liquid": {
+      "liquid": water
       "amount": 0.1
+      "optional": true
+      "booster": true
     }
   }
 "category": production
