@@ -32,13 +32,12 @@ allowSectorInvasion: false
 startSector: 0
 orbitSpacing: 4
 radius: 1.2
-minZoom: 1.2
-maxZoom: 9
+minZoom: 1
 drawOrbit: true
 atmosphereRadIn: 0
 atmosphereRadOut: 0.3
 accessible: true
-orbitRadius: 37
+orbitRadius: 35
 sectorSeed: 1204
 bloom: false
 visible: true
