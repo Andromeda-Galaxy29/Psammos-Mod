@@ -1,4 +1,5 @@
 "type": wall
+"size": 2
 "name": Large Osmium Wall
 "description": Protects structures from enemy projectiles.
 "health": 1440
