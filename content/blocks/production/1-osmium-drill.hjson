@@ -6,7 +6,7 @@
   "hasLiquids": true
   "tier": 2
   "drillTime": 600
-  "optionalConsumers": {
+  "consumes": {
     "water": {
       "amount": 0.1
     }
