@@ -6,9 +6,11 @@
   "hasLiquids": true
   "tier": 2
   "drillTime": 600
-  "optionalConsumers": [
-    water/0.3
-  ]
+  "optionalConsumers": {
+    "water": {
+      "amount": 0.1
+    }
+  }
 "category": production
 "requirements": [
   osmium/16
