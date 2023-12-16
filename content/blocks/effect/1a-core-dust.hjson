@@ -5,7 +5,8 @@ size: 3
   itemCapacity: 6000
   unitCapModifier: 12
   unitType: alpha
-  category: effect
+  squareSprite: false
+category: effect
 requirements: [
   1-osmium/1000
   2-silver/800
