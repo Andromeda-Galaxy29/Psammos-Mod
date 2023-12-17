@@ -14,7 +14,7 @@ name: Gradient
     engineOffset: 6
     faceTarget: true
     controller: BuilderAI
-    mineTier: 2
+    mineTier: 1
     mineSpeed: 5
     buildSpeed: 0.5
     buildBeamOffset: 5

@@ -2,5 +2,5 @@
 "name": Osmium
 "description": Mainly used for building and ammutition
   "color": "66a4b4",
-  "hardness": 2,
+  "hardness": 1,
   "cost": 0.666
