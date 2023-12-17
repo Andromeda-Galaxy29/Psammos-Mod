@@ -16,12 +16,16 @@ size: 2
     ammoTypes: {
         1-osmium: {
             type: ArtilleryBulletType
-            width: 2
-            height: 9
-            speed: 4
+            width: 4
+            height: 16
+            speed: 6
             lifetime: 50
             splashDamage: 20
             splashDamageRadius: 3
         }
     }
 category: turret
+requirements: [
+  1-osmium/30
+  sand/10
+]
