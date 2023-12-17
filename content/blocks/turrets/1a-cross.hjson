@@ -15,13 +15,11 @@ size: 2
     }
     ammoTypes: {
         1-osmium: {
-            type: ArtilleryBulletType
+            type: BasicBulletType
             width: 4
             height: 16
             speed: 6
             lifetime: 50
-            splashDamage: 20
-            splashDamageRadius: 3
         }
     }
     drawer: {

@@ -1,5 +1,6 @@
 type: flying
 name: Gradient
+description: Defends the Dust core from enemies. Builds structures
     lowAltitude: true
     speed: 3
     rotateSpeed: 15
@@ -19,3 +20,20 @@ name: Gradient
     buildSpeed: 0.5
     buildBeamOffset: 5
     isEnemy: false
+    weapons: [
+        {
+            name: gradient-gun
+            x: 0
+            y: 0
+            reload: 9
+            bullet: {
+                type: BasicBulletType
+                width: 7
+                height: 8
+                lifetime: 60
+                shootEffect: shootSmall
+                smokeEffect: shootSmallSmoke
+                buildingDamageMultiplier: 0.01
+            }
+        }
+    ]
