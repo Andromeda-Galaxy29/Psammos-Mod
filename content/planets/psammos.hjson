@@ -1,6 +1,7 @@
 localizedName: Psammos
 description: Almost all life which once populated this planet was wiped out by a cataclysmic event. Survive in these harsh conditions and terraform Psammos.
 alwaysUnlocked: true
+generator: PlanetGenerator
 mesh: [
   {
     type: NoiseMesh
