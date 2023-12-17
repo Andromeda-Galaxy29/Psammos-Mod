@@ -5,7 +5,7 @@ size: 3
   absorbLasers: true
   itemCapacity: 6000
   unitCapModifier: 12
-  unitType: alpha
+  unitType: 1a-gradient
   squareSprite: false
 category: effect
 requirements: [

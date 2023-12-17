@@ -1,0 +1,20 @@
+type: flying
+name: Gradient
+    lowAltitude: true
+    speed: 3
+    accel: 0.1
+    drag: 0.04
+    flying: true
+    health: 300
+    hitSize: 8
+    armor: 1
+    itemCapacity: 30
+    outlineColor: 3c3835
+    engineOffset: 6
+    faceTarget: true
+    controller: BuilderAI
+    mineTier: 2
+    mineSpeed: 5
+    buildSpeed: 1
+    buildBeamOffset: 5
+    isEnemy: false
