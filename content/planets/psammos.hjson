@@ -11,7 +11,7 @@ mesh: [
     color1: d2ae8d
     color2: f7cba4
     octaves: 5.1
-    persistence: 0.6
+    persistence: 0.8
   },
   {
     type: NoiseMesh
