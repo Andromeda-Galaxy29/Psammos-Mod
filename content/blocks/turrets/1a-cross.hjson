@@ -11,7 +11,7 @@ size: 2
     velocityRnd: 0.1
     inaccuracy: 2
     shoot: {
-        shotDelay: 0.9
+        shotDelay: 0.6
     }
     ammoTypes: {
         1-osmium: {
@@ -23,6 +23,10 @@ size: 2
             splashDamage: 20
             splashDamageRadius: 3
         }
+    }
+    drawer: {
+        type: DrawTurret
+        basePrefix: base-
     }
 category: turret
 requirements: [
