@@ -25,7 +25,7 @@ description: Defends the Dust core from enemies. Builds structures
             name: gradient-gun
             x: 0
             y: 0
-            reload: 9
+            reload: 12
             bullet: {
                 type: BasicBulletType
                 x: 0
