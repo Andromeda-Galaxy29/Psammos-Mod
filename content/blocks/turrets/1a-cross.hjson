@@ -1,0 +1,27 @@
+type: ItemTurret
+name: Cross
+description: Fires fast-moving crossbow bolts at enemies.
+size: 2
+    shootSound: artillery
+    outlineColor: 534d4a
+    targetAir: true
+    targetGround: true
+    reload: 72
+    range: 200
+    velocityRnd: 0.1
+    inaccuracy: 2
+    shoot: {
+        shotDelay: 0.9
+    }
+    ammoTypes: {
+        1-osmium: {
+            type: ArtilleryBulletType
+            width: 2
+            height: 9
+            speed: 4
+            lifetime: 50
+            splashDamage: 20
+            splashDamageRadius: 3
+        }
+    }
+category: turret
