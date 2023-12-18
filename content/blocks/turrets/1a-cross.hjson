@@ -25,7 +25,7 @@ size: 2
             hitColor: 66a4b4
             backColor: 66a4b4
             frontColor: 66a4b4
-            trailColor: eeeeee
+            trailColor: 94d4db
             trailWidth: 1
             trailLength: 3
         }
