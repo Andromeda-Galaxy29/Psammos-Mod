@@ -22,6 +22,9 @@ size: 2
             speed: 10
             damage: 12
             lifetime: 30
+            hitColor:
+            backColor:
+            frontColor:
         }
     }
     drawer: {
