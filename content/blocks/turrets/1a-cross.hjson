@@ -3,7 +3,7 @@ name: Cross
 description: Fires fast-moving crossbow bolts at enemies.
 size: 2
     squareSprite: false
-    shootSound: artillery
+    shootSound: shootAlt
     outlineColor: 534d4a
     targetAir: true
     targetGround: true
