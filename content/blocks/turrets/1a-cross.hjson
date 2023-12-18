@@ -26,8 +26,8 @@ size: 2
             backColor: 66a4b4
             frontColor: 66a4b4
             trailColor: eeeeee
-            trailWidth: 3
-            trailLength: 5
+            trailWidth: 1
+            trailLength: 3
         }
     }
     drawer: {
