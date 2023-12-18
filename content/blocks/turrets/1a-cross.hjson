@@ -20,7 +20,7 @@ size: 2
             width: 6
             height: 16
             speed: 10
-            damage: 12
+            damage: 26
             lifetime: 30
             hitColor: 66a4b4
             backColor: 66a4b4
