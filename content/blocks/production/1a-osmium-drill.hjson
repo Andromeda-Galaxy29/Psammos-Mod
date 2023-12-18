@@ -18,5 +18,5 @@
   }
 "category": production
 "requirements": [
-  1-osmium/16
+  1-osmium/15
 ]
