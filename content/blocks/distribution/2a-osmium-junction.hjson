@@ -7,5 +7,5 @@ description: Acts as a bridge for two crossing conveyor belts.
   buildCostMultiplier: 2f
 category: distribution
 requirements: [
-  1-osmium/5
+  1-osmium/2
 ]

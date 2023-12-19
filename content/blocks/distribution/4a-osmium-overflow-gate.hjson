@@ -1,0 +1,11 @@
+type: OverflowDuct
+name: Osmium Overflow Gate
+description: Only outputs items to the sides if the front path is blocked.
+  health: 40
+  speed: 4
+  buildCostMultiplier: 3f
+category: distribution
+requirements: [
+  1-osmium/4
+  2-silver/2
+]

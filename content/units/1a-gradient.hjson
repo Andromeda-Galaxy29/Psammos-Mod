@@ -28,8 +28,6 @@ description: Defends the Dust core from enemies. Builds structures
             reload: 12
             bullet: {
                 type: BasicBulletType
-                x: 0
-                y: 0
                 speed: 2.5
                 damage: 9
                 width: 7
