@@ -26,6 +26,7 @@ mesh: [
     persistence: 0.1
   }
 ]
+sectorSize: 1
 allowLaunchToNumbered: false
 allowLaunchLoadout: false
 allowSectorInvasion: false
