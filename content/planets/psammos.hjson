@@ -58,6 +58,6 @@ itemWhitelist: [
   3-quartz,
   sand
 ]
-unlockedOnLand: [
+unlockedOnLand: {
   1a-core-dust
-]
+}
