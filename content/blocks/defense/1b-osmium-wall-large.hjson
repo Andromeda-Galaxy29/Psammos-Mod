@@ -7,3 +7,6 @@
 "requirements": [
   1-osmium/24
 ]
+research: {
+  parent: 1a-osmium-wall
+}

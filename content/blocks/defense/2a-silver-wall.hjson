@@ -6,3 +6,6 @@
 "requirements": [
   2-silver/6
 ]
+research: {
+  parent: 1b-osmium-wall-large
+}

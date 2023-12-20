@@ -6,3 +6,6 @@
 "requirements": [
   1-osmium/6
 ]
+research: {
+  parent: 1a-cross
+}

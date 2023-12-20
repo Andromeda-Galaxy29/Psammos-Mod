@@ -7,3 +7,6 @@
 "requirements": [
   2-silver/24
 ]
+research: {
+  parent: 2a-silver-wall
+}
