@@ -1,0 +1,5 @@
+type: OreBlock
+name: Quartz (Wall)
+itemDrop: 3-quartz
+variants: 1
+wallOre: true
