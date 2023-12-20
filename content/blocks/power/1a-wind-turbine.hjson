@@ -1,0 +1,42 @@
+type: PowerGenerator
+name: Wind Turbine
+description: Generates power from wind
+powerProduction: 1.5
+category: power
+size: 2
+squareSprite: false
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawRegion
+      suffix: -bottom
+    }
+    {
+      type: DrawDefault
+    }
+    {
+      type: DrawRegion
+      suffix: -rotator
+      spinSprite: true
+      rotateSpeed: 3
+    }
+    {
+      type: DrawRegion
+      suffix: -top
+    } 
+  ]
+}
+requirements: [
+  1-osmium/27
+  2-silver/27
+]
+research: {
+  parent: 1a-osmium-drill
+  objectives: [
+    {
+      type: OnSector
+      preset: quartz-valley
+    }
+  ]
+}
