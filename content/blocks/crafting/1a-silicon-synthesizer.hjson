@@ -1,6 +1,6 @@
 type: GenericCrafter
-name: Silicon Oven
-description: Refines silicon from sand and quartz
+name: Silicon Synthesizer
+description: Synthesizes silicon from sand and quartz
 category: crafting
 size: 3
 squareSprite: false
