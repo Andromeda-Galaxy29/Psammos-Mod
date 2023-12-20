@@ -4,6 +4,6 @@
   "color": "b9d1e1",
   "hardness": 2
 research: {
-  parent: 1-silver
+  parent: 1-osmium
   alwaysUnlocked: true
 }
