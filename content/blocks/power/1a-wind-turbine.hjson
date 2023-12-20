@@ -2,6 +2,7 @@ type: PowerGenerator
 name: Wind Turbine
 description: Generates power from wind
 powerProduction: 1.5
+hasPower: true
 category: power
 size: 2
 squareSprite: false
