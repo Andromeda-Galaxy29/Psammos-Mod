@@ -52,6 +52,9 @@ defaultCore: 1a-core-dust
 parent: sun
 solarSystem: sun
 launchCandidates: []
+unlockedOnLand: [
+  1a-core-dust
+]
 itemWhitelist: [
   1-osmium,
   2-silver,
