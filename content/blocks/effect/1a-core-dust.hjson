@@ -16,5 +16,6 @@ research: {
   planet: psammos
   root: true
   alwaysUnlocked: true
+  unlockedOnLand: true
   name: Psammos
 }
