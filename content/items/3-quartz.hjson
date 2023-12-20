@@ -1,7 +1,7 @@
 type: Item
 name: Quartz
 description: Used for production of silicon and electronics
-  color: ffffff,
+  color: d4caba,
   hardness: 2
 research: {
   parent: 2-silver
