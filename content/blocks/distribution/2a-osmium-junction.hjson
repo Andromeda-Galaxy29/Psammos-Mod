@@ -9,3 +9,7 @@ category: distribution
 requirements: [
   1-osmium/2
 ]
+alwaysUnlocked: true
+research: {
+  parent: 1a-osmium-conveyor
+}

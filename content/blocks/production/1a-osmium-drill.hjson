@@ -20,3 +20,7 @@
 "requirements": [
   1-osmium/15
 ]
+alwaysUnlocked: true
+research: {
+  parent: 1a-core-dust
+}

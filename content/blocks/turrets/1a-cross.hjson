@@ -39,3 +39,7 @@ requirements: [
   1-osmium/15
   sand/5
 ]
+alwaysUnlocked: true
+research: {
+  parent: 1a-core-dust
+}
