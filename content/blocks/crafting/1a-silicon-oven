@@ -1,6 +1,7 @@
 type: GenericCrafter
 name: Silicon Oven
-description:
+description: No description
+category: crafting
 size: 3
 consumes: {
   items: [
