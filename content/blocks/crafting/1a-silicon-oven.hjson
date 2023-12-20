@@ -4,6 +4,9 @@ description: Refines silicon from sand and quartz
 category: crafting
 size: 3
 squareSprite: false
+drawer: {
+  type: DrawFlame
+}
 consumes: {
   items: [
     3-quartz/2,
