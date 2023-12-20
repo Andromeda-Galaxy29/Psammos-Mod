@@ -8,8 +8,10 @@ consumes: {
   items: [
     3-quartz/2
   ]
+  energy: 1
 }
 outputItem: silicon/1
+craftTime: 40
 requirements: [
   1-osmium/25
   2-silver/35
