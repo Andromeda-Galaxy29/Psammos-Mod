@@ -10,3 +10,6 @@ requirements: [
   1-osmium/4
   2-silver/2
 ]
+research: {
+  parent: 5a-osmium-overflow-gate
+}

@@ -3,3 +3,6 @@ name: Quartz
 description: Used for production of silicon and electronics
   color: ffffff,
   hardness: 2
+research: {
+  parent: 2-silver
+}

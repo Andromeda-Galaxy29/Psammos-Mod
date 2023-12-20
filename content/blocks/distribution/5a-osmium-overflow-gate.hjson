@@ -9,3 +9,6 @@ requirements: [
   1-osmium/4
   2-silver/2
 ]
+research: {
+  parent: 3a-osmium-router
+}

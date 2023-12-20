@@ -8,3 +8,6 @@ category: distribution
 requirements: [
   1-osmium/4
 ]
+research: {
+  parent: 2a-osmium-junction
+}
