@@ -53,7 +53,8 @@ parent: sun
 solarSystem: sun
 launchCandidates: []
 itemWhitelist: [
-  "1-osmium",
-  "2-silver",
-  "sand"
+  1-osmium,
+  2-silver,
+  3-quartz,
+  sand
 ]
