@@ -12,6 +12,7 @@ requirements: [
   1-osmium/1000
   2-silver/800
 ]
+alwaysUnlocked: true
 research: {
   planet: psammos
   root: true
