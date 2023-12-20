@@ -1,0 +1,14 @@
+type: GenericCrafter
+name: Silicon Oven
+description:
+size: 3
+consumes: {
+  items: [
+    3-quartz/2
+  ]
+}
+outputItem: silicon/1
+requirements: [
+  1-osmium/25
+  2-silver/35
+]
