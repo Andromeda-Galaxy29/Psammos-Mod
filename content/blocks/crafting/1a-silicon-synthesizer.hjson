@@ -29,3 +29,12 @@ requirements: [
   1-osmium/25
   2-silver/35
 ]
+research: {
+  parent: 1a-osmium-drill
+  objectives: [
+    {
+      type: OnSector
+      preset: quartz-valley
+    }
+  ]
+}
