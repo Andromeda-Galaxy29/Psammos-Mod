@@ -5,7 +5,16 @@ category: crafting
 size: 3
 squareSprite: false
 drawer: {
-  type: DrawFlame
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawFlame
+      flameColor: ffef99
+    }
+  ]
 }
 consumes: {
   items: [
