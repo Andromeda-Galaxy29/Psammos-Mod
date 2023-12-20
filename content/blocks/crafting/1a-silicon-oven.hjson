@@ -8,7 +8,7 @@ consumes: {
   items: [
     3-quartz/2
   ]
-  power: 1
+  power: 0.5
 }
 outputItem: silicon/1
 craftTime: 40
