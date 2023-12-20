@@ -3,6 +3,7 @@ name: Silicon Oven
 description: No description
 category: crafting
 size: 3
+squareSprite: false
 consumes: {
   items: [
     3-quartz/2
