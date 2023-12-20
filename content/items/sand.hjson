@@ -1,0 +1,3 @@
+research: {
+  parent: 1-osmium
+}
