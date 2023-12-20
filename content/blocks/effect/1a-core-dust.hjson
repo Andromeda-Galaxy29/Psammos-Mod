@@ -15,6 +15,6 @@ requirements: [
 research: {
   planet: psammos
   root: true
-  alwaysUnlocked: true
+  requiresUnlock: false
   name: Psammos
 }
