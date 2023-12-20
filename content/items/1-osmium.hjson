@@ -4,3 +4,7 @@
   "color": "66a4b4",
   "hardness": 1,
   "cost": 0.666
+research: {
+  parent: 1a-core-dust
+  alwaysUnlocked: true
+}
