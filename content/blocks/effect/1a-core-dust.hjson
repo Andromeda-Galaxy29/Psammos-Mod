@@ -12,3 +12,8 @@ requirements: [
   1-osmium/1000
   2-silver/800
 ]
+research: {
+  planet: psammos
+  root: true
+  requiresUnlock: false
+}
