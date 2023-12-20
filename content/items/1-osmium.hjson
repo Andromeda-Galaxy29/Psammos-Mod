@@ -6,4 +6,5 @@
   "cost": 0.666
 research: {
   parent: 1a-core-dust
+  alwaysUnlocked: true
 }

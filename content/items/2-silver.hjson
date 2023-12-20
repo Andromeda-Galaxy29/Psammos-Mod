@@ -5,4 +5,5 @@
   "hardness": 2
 research: {
   parent: 1-osmium
+  alwaysUnlocked: true
 }
