@@ -1,0 +1,12 @@
+type: PowerNode
+name: Among us
+size: 1
+maxNodes: 8
+laserRange: 10
+laserColor1: b9d1e1
+laserColor2: ffffff00
+category: power
+requirements: [
+  2-silver/4
+]
+research: 3a-wind-turbine
