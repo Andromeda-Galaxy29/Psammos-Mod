@@ -34,7 +34,7 @@ research: {
   objectives: [
     {
       type: OnSector
-      preset: landing
+      preset: quartz-valley
     }
   ]
 }
