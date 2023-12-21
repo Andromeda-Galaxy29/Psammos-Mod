@@ -2,7 +2,9 @@ type: BeamNode
 name: Electric Pole
 size: 1
 laserColor1: ffffff
-laserColor2: 545454
+laserColor2: 969696
+pulseMag: 0
+laserWidth: 0.8
 maxNodes: 8
 range: 8
 category: power
