@@ -1,8 +1,7 @@
-type: ThermalGenerator
+type: ConsumeGenerator
 name: Wind Turbine
 description: Generates power from wind
 powerProduction: 1.5
-attributes: []
 hasPower: true
 outputsPower: true
 category: power
