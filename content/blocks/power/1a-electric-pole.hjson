@@ -3,8 +3,6 @@ name: Electric Pole
 size: 1
 maxNodes: 8
 laserRange: 10
-laserColor1: 000000
-laserColor2: ffffff01
 category: power
 requirements: [
   2-silver/4
