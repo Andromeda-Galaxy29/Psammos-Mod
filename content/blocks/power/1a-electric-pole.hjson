@@ -4,7 +4,7 @@ size: 1
 laserColor1: ffffff
 laserColor2: 545454
 maxNodes: 8
-laserRange: 10
+range: 8
 category: power
 requirements: [
   2-silver/4
