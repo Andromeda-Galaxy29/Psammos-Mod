@@ -4,7 +4,7 @@ description: Moves towards enemy structures and ground units and crushes them. C
     speed: 1
     omniMovement: false
     rotateSpeed: 2
-    health: 150
+    health: 180
     hitSize: 9
     armor: 1
     outlineColor: 3c3835
