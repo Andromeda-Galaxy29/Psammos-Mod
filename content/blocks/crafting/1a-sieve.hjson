@@ -24,7 +24,7 @@ drawer: {
 }
 consumes: {
   items: [
-    sand/6
+    sand/3
   ]
   power: 0.25
 }
