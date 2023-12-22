@@ -1,6 +1,6 @@
 type: GenericCrafter
 name: Silicon Synthesizer
-description: Synthesizes silicon from sand and quartz
+description: Synthesizes silicon from quartz
 category: crafting
 size: 3
 squareSprite: false
@@ -18,8 +18,7 @@ drawer: {
 }
 consumes: {
   items: [
-    3-quartz/2,
-    sand/1
+    3-quartz/2
   ]
   power: 0.5
 }
