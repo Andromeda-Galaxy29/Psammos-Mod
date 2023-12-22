@@ -2,8 +2,8 @@ type: Conveyor
 name: Osmium Conveyor
 description: Transports items froward.
   health: 45
-  speed: 0.03f
-  displayedSpeed: 4.2f
+  speed: 0.05f
+  displayedSpeed: 7f
   junctionReplacement: 2a-osmium-junction
   buildCostMultiplier: 2f
   hasItems: true
