@@ -5,7 +5,6 @@ laserColor1: ffffffff
 laserColor2: 969696ff
 pulseMag: 0
 pulseScl: 0
-laserWidth: 0.8
 range: 8
 category: power
 requirements: [
