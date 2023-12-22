@@ -30,7 +30,7 @@ requirements: [
   2-silver/35
 ]
 research: {
-  parent: 1a-osmium-drill
+  parent: 1a-sieve
   objectives: [
     {
       type: OnSector
