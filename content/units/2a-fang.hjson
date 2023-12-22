@@ -14,6 +14,7 @@ description: Moves towards enemy structures and ground units and crushes them. C
     crushDamage: 0.5
 
     segments: 3
+    drawBody: false
     segmentScl: 3
     segmentPhase: 5
     segmentMag: 0.5
