@@ -1,0 +1,19 @@
+type: crawl
+name: Fang
+description: Moves towards enemy structures and ground units and crushes them. Can crawl over most terrain
+    speed: 1.5
+    omniMovement: false
+    rotateSpeed: 2
+    health: 300
+    hitSize: 9
+    armor: 1
+    outlineColor: 3c3835
+    faceTarget: true
+    controller: HugAI
+    targetAir: false
+    crushDamage: 0.5
+
+    segments: 3
+    segmentScl: 3
+    segmentPhase: 5
+    segmentMag: 0.5
