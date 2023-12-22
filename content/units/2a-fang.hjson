@@ -1,10 +1,10 @@
 type: crawl
 name: Fang
 description: Moves towards enemy structures and ground units and crushes them. Can crawl over most terrain
-    speed: 1.5
+    speed: 1
     omniMovement: false
     rotateSpeed: 2
-    health: 300
+    health: 150
     hitSize: 9
     armor: 1
     outlineColor: 3c3835
