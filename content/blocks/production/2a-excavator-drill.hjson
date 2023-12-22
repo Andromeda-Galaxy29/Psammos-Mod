@@ -1,0 +1,27 @@
+"type": drill
+"size": 3
+"name": Excavator Drill
+"description": Drills much faster than a regular drill, but can only mine sand
+  "hasItems": true
+  "hasLiquids": true
+  "tier": 0
+  "drillTime": 200
+  ambientSound: drill
+  ambientSoundVolume: 0.08
+  "consumes": {
+    "liquid": {
+      "liquid": water
+      "amount": 0.05
+      "optional": true
+      "booster": true
+    }
+  }
+"category": production
+"requirements": [
+  1-osmium/25
+  3-quartz/15
+]
+alwaysUnlocked: true
+research: {
+  parent: 1a-osmium-drill
+}
