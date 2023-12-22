@@ -1,8 +1,8 @@
 type: BeamNode
 name: Electric Pole
 size: 1
-laserColor1: ffffff
-laserColor2: 969696
+laserColor1: ffffffff
+laserColor2: 969696ff
 pulseMag: 0
 pulseScl: 0
 laserWidth: 0.8
