@@ -1,6 +1,6 @@
 type: crawl
 name: Fang
-description: Moves towards enemy structures and ground units and crushes them. Can crawl over most terrain
+description: Moves towards enemy structures and crushes them. Can crawl over most terrain
     speed: 1
     omniMovement: false
     rotateSpeed: 2
