@@ -8,7 +8,7 @@ description: Shoots explosive projectiles at enemy buildings and ground units. C
     hitSize: 11
     armor: 5
     outlineColor: 3c3835
-    faceTarget: true
+    faceTarget: false
     controller: HugAI
     targetAir: false
     crushDamage: 0.7
@@ -23,8 +23,9 @@ description: Shoots explosive projectiles at enemy buildings and ground units. C
         {
             name: jaw-gun
             x: 0
-            y: 2
+            y: 0
             reload: 20
+            shootSound: shootAlt
             bullet: {
                 type: ArtilleryBulletType
                 width: 6
