@@ -23,7 +23,7 @@ description: Shoots explosive projectiles at enemy buildings and ground units. C
         {
             name: jaw-gun
             x: 0
-            y: 0
+            y: 2
             reload: 20
             bullet: {
                 type: ArtilleryBulletType
