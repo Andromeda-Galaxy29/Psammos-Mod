@@ -1,0 +1,20 @@
+type: crawl
+name: Jaw
+description: Moves towards enemy structures and crushes them. Can crawl over most terrain
+    speed: 1.2
+    omniMovement: false
+    rotateSpeed: 2
+    health: 480
+    hitSize: 11
+    armor: 5
+    outlineColor: 3c3835
+    faceTarget: true
+    controller: HugAI
+    targetAir: false
+    crushDamage: 0.6
+
+    segments: 3
+    drawBody: false
+    segmentScl: 3
+    segmentPhase: 5
+    segmentMag: 0.6
