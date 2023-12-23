@@ -23,7 +23,7 @@ description: Moves towards enemy structures and crushes them. Also shoots explos
         {
             name: jaw-gun
             x: 0
-            y: 2
+            y: 3
             reload: 20
             shootSound: shootAlt
             bullet: {
