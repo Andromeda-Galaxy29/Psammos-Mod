@@ -1,6 +1,6 @@
 type: crawl
 name: Jaw
-description: Moves towards enemy structures and crushes them. Can crawl over most terrain
+description: Shoots explosive projectiles at enemy buildings and ground units. Can crawl over most terrain.
     speed: 1.2
     omniMovement: false
     rotateSpeed: 2
@@ -18,3 +18,25 @@ description: Moves towards enemy structures and crushes them. Can crawl over mos
     segmentScl: 3
     segmentPhase: 5
     segmentMag: 0.5
+
+    weapons: [
+        {
+            name: jaw-gun
+            x: 0
+            y: 0
+            reload: 20
+            bullet: {
+                type: ArtilleryBulletType
+                width: 6
+                height: 6
+                speed: 2
+                hitColor: ffffff
+                backColor: ffffff
+                frontColor: ffffff
+                trailColor: cccccc
+                lifetime: 60
+                splashDamage: 34
+                splashDamageRadius: 6
+            }
+        }
+    ]
