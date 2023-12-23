@@ -8,7 +8,7 @@ description: Moves towards enemy structures and crushes them. Also shoots explos
     hitSize: 11
     armor: 5
     outlineColor: 3c3835
-    faceTarget: false
+    faceTarget: true
     controller: HugAI
     targetAir: false
     crushDamage: 0.7
