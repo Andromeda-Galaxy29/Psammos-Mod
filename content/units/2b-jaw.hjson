@@ -11,10 +11,10 @@ description: Moves towards enemy structures and crushes them. Can crawl over mos
     faceTarget: true
     controller: HugAI
     targetAir: false
-    crushDamage: 0.6
+    crushDamage: 0.7
 
     segments: 3
     drawBody: false
     segmentScl: 3
     segmentPhase: 5
-    segmentMag: 0.6
+    segmentMag: 0.5
