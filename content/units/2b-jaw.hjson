@@ -1,6 +1,6 @@
 type: crawl
 name: Jaw
-description: Shoots explosive projectiles at enemy buildings and ground units. Can crawl over most terrain.
+description: Moves towards enemy structures and crushes them. Also shoots explosive bullets at enemy units. Can crawl over most terrain.
     speed: 1.2
     omniMovement: false
     rotateSpeed: 2
