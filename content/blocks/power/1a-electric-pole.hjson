@@ -5,7 +5,7 @@ laserColor1: ffffffff
 laserColor2: 969696ff
 pulseMag: 0
 pulseScl: 0
-range: 12
+range: 6
 category: power
 requirements: [
   2-silver/4
