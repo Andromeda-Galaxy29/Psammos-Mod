@@ -1,4 +1,4 @@
-type: mech
+type: legs
 name: Tip
 description: No description
     speed: 0.75
@@ -8,7 +8,7 @@ description: No description
     health: 180
     armor: 0
     outlineColor: 3c3835
-    faceTarget: true
+    faceTarget: false
     targetAir: false
 
     legStraightness: 0.3
@@ -27,7 +27,7 @@ description: No description
     legGroupSize: 2
 
     legMoveSpace: 1
-    allowLegStep: true
+    allowLegStep: false
     hovering: false
     legPhysicsLayer: false
 
