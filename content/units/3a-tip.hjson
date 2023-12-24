@@ -11,9 +11,12 @@ description: No description
     faceTarget: false
     targetAir: false
 
+    allowLegStep: false
+    hovering: false
+    legPhysicsLayer: false
+
     legStraightness: 0.3
     stepShake: 0
-
     legCount: 4
     legLength: 8
     lockLegBase: true
@@ -25,11 +28,7 @@ description: No description
     legLengthScl: 0.96
     legForwardScl: 1.1
     legGroupSize: 2
-
     legMoveSpace: 1
-    allowLegStep: false
-    hovering: false
-    legPhysicsLayer: true
 
     weapons: [
         {
