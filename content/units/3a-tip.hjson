@@ -18,7 +18,7 @@ description: No description
     legLength: 8
     lockLegBase: true
     legContinuousMove: true
-    legExtension: -2
+    legExtension: -1
     legBaseOffset: 3
     legMaxLength: 1.1
     legMinLength: 0.2
