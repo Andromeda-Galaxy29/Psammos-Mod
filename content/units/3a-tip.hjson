@@ -15,11 +15,11 @@ description: No description
     stepShake: 0
 
     legCount: 4
-    legLength: 7
+    legLength: 8
     lockLegBase: true
     legContinuousMove: true
-    legExtension: -1.5
-    legBaseOffset: 2
+    legExtension: -2
+    legBaseOffset: 3
     legMaxLength: 1.1
     legMinLength: 0.2
     legLengthScl: 0.96
