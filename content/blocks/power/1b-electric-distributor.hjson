@@ -6,7 +6,7 @@ laserColor1: ffffffff
 laserColor2: 969696ff
 pulseMag: 0
 pulseScl: 0
-laserRange: 5
+laserRange: 6
 maxNodes: 8
 category: power
 requirements: [
