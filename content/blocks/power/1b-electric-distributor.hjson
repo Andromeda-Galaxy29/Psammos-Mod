@@ -1,11 +1,13 @@
 type: PowerNode
 name: Electric Distributor
+description: Can connect diagonally but has less range
 size: 1
 laserColor1: ffffffff
 laserColor2: 969696ff
 pulseMag: 0
 pulseScl: 0
-range: 3
+laserRange: 3
+maxNodes: 8
 category: power
 requirements: [
   2-silver/5
