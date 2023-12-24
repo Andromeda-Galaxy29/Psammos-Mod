@@ -30,3 +30,25 @@ description: No description
     allowLegStep: true
     hovering: false
     legPhysicsLayer: false
+
+    weapons: [
+        {
+            name: tip-gun
+            x: 0
+            y: 12
+            reload: 24
+            shootSound: shootAlt
+            bullet: {
+                type: BasicBulletType
+                speed: 3.5
+                damage: 16
+                width: 8
+                height: 8
+                trailWidth: 6
+                trailLength: 4
+                lifetime: 60
+                shootEffect: shootSmall
+                smokeEffect: shootSmallSmoke
+            }
+        }
+    ]
