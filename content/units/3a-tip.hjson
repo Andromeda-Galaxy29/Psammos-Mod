@@ -9,7 +9,7 @@ description: No description
     armor: 0
     outlineColor: 3c3835
     faceTarget: false
-    targetAir: false
+    targetAir: true
 
     allowLegStep: false
     hovering: false
