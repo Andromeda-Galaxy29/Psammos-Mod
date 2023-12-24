@@ -1,20 +1,32 @@
-type: crawl
+type: legs
 name: Tip
-description: Moves towards enemy structures and crushes them. Can crawl over most terrain
-    speed: 1
-    omniMovement: false
-    rotateSpeed: 2
-    health: 180
+description: No description
+    speed: 0.75
+    drag: 0.2
     hitSize: 9
-    armor: 1
+    rotateSpeed: 3
+    health: 180
+    armor: 0
     outlineColor: 3c3835
     faceTarget: true
-    controller: HugAI
     targetAir: false
-    crushDamage: 0.5
 
-    segments: 3
-    drawBody: false
-    segmentScl: 3
-    segmentPhase: 5
-    segmentMag: 0.5
+    legStraightness: 0.3
+    stepShake: 0
+
+    legCount: 4
+    legLength: 7
+    lockLegBase: true
+    legContinuousMove: true
+    legExtension: -1.5
+    legBaseOffset: 2
+    legMaxLength: 1.1
+    legMinLength: 0.2
+    legLengthScl: 0.96
+    legForwardScl: 1.1
+    legGroupSize: 2
+
+    legMoveSpace: 1
+    allowLegStep: true
+    hovering: false
+    legPhysicsLayer: false
