@@ -33,7 +33,7 @@ description: No description
 
     weapons: [
         {
-            name: 3a-tip-gun
+            name: tip-gun
             x: 0
             y: -4
             reload: 30
