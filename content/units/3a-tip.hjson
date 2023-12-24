@@ -1,8 +1,8 @@
 type: legs
 name: Tip
 description: No description
-    speed: 0.72
-    drag: 0.11
+    speed: 0.75
+    drag: 0.2
     hitSize: 9
     rotateSpeed: 3
     health: 180
