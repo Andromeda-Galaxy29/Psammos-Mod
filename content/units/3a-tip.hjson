@@ -36,7 +36,7 @@ description: No description
             name: tip-gun
             x: 0
             y: -4
-            reload: 12
+            reload: 24
             shootSound: shootAlt
             mirror: false
             rotate: true
