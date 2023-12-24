@@ -36,8 +36,10 @@ description: No description
             name: tip-gun
             x: 0
             y: -4
-            reload: 30
+            reload: 12
             shootSound: shootAlt
+            mirror: false
+            rotate: true
             bullet: {
                 type: BasicBulletType
                 speed: 3.5

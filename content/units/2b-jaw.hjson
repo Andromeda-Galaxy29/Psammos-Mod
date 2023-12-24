@@ -24,8 +24,9 @@ description: Moves towards enemy structures and crushes them. Also shoots explos
             name: jaw-gun
             x: 0
             y: 3
-            reload: 20
+            reload: 15
             shootSound: shootAlt
+            mirror: false
             bullet: {
                 type: ArtilleryBulletType
                 width: 6
