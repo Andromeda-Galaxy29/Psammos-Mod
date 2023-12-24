@@ -7,6 +7,9 @@ description: No description
     rotateSpeed: 3
     health: 180
     armor: 0
+    outlineColor: 3c3835
+    faceTarget: true
+    targetAir: false
 
     legStraightness: 0.3
     stepShake: 0
