@@ -27,7 +27,7 @@ description: No description
     legGroupSize: 2
 
     legMoveSpace: 1
-    allowLegStep: true
+    allowLegStep: false
     hovering: false
     legPhysicsLayer: false
 
