@@ -1,4 +1,4 @@
-type: legs
+type: flying
 name: Tip
 description: No description
     speed: 0.75
@@ -11,22 +11,3 @@ description: No description
     faceTarget: true
     targetAir: false
 
-    legStraightness: 0.3
-    stepShake: 0
-
-    legCount: 4
-    legLength: 7
-    lockLegBase: true
-    legContinuousMove: true
-    legExtension: -1.5
-    legBaseOffset: 2
-    legMaxLength: 1.1
-    legMinLength: 0.2
-    legLengthScl: 0.96
-    legForwardScl: 1.1
-    legGroupSize: 2
-
-    legMoveSpace: 1
-    allowLegStep: true
-    hovering: false
-    legPhysicsLayer: false
