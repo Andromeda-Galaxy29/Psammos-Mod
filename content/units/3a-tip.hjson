@@ -33,9 +33,9 @@ description: No description
 
     weapons: [
         {
-            name: tip-gun
+            name: 3a-tip-gun
             x: 0
-            y: 12
+            y: -4
             reload: 24
             shootSound: shootAlt
             bullet: {
@@ -44,7 +44,7 @@ description: No description
                 damage: 16
                 width: 8
                 height: 8
-                trailWidth: 6
+                trailWidth: 3
                 trailLength: 4
                 lifetime: 60
                 shootEffect: shootSmall
