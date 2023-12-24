@@ -1,1 +1,13 @@
-type
+type: PowerNode
+name: Electric Distributor
+size: 1
+laserColor1: ffffffff
+laserColor2: 969696ff
+pulseMag: 0
+pulseScl: 0
+range: 3
+category: power
+requirements: [
+  2-silver/5
+]
+research: 1a-electric-pole
