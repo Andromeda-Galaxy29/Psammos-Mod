@@ -29,7 +29,7 @@ description: No description
     legMoveSpace: 1
     allowLegStep: false
     hovering: false
-    legPhysicsLayer: false
+    legPhysicsLayer: true
 
     weapons: [
         {
