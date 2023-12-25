@@ -26,9 +26,10 @@ size: 2
             trailWidth: 2
             trailLength: 4
             lifetime: 20
-            shootEffect: sparkShootBig
-            smokeEffect: smokeSquareBig
-            hitEffect: hitSquare
+            shootEffect: shootBig
+            smokeEffect: shootSmokeSquare
+            hitEffect: hitSquares
+            despawnEffect: hitSquares
         }
     }
     drawer: {
