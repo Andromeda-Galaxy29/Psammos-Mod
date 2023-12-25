@@ -21,7 +21,7 @@ size: 2
             speed: 6
             damage: 5
             splashDamage: 20
-            splashDamageRadius: 3
+            splashDamageRadius: 16
             width: 6
             height: 6
             ammoMultiplier: 4
