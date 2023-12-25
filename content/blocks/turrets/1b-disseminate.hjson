@@ -1,0 +1,45 @@
+type: ItemTurret
+name: Disseminate
+description: Fires a burst of bullets, slows down enemy units.
+size: 2
+    squareSprite: false
+    shootSound: cannon
+    outlineColor: 534d4a
+    targetAir: true
+    targetGround: true
+    range: 120
+    reload: 20
+    velocityRnd: 0.5
+    inaccuracy: 45
+    shoot: {
+        shots: 8
+        shotDelay: 0.1
+    }
+    ammoTypes: {
+        sand: {
+            type: BasicBulletType
+            speed: 2
+            damage: 5
+            width: 6
+            height: 6
+            ammoMultiplier: 4
+            trailWidth: 1
+            trailLength: 2
+            lifetime: 40
+            shootEffect: shootSmall
+            smokeEffect: shootSmallSmoke
+        }
+    }
+    drawer: {
+        type: DrawTurret
+        basePrefix: base-
+    }
+category: turret
+requirements: [
+  1-osmium/15
+  sand/5
+]
+alwaysUnlocked: true
+research: {
+  parent: 1a-core-dust
+}

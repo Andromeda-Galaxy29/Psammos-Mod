@@ -7,13 +7,10 @@ size: 2
     outlineColor: 534d4a
     targetAir: true
     targetGround: true
-    range: 150
+    range: 160
     reload: 60
     velocityRnd: 0.1
     inaccuracy: 0
-    shoot: {
-        shotDelay: 0.6
-    }
     ammoTypes: {
         1-osmium: {
             type: BasicBulletType
@@ -21,7 +18,7 @@ size: 2
             height: 16
             speed: 10
             damage: 18
-            lifetime: 15
+            lifetime: 18
             hitColor: 66a4b4
             backColor: 66a4b4
             frontColor: 66a4b4
