@@ -29,6 +29,8 @@ description: No description
     legGroupSize: 2
     legMoveSpace: 1
 
+    shadowElevation: 0.1
+
     weapons: [
         {
             name: tip-gun

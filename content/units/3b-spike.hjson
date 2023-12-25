@@ -14,6 +14,19 @@ description: No description
     hovering: false
     legPhysicsLayer: true
 
+    legCount: 4
+    legLength: 14
+    lockLegBase: true
+    legContinuousMove: true
+    legExtension: -3
+    legBaseOffset: 5
+    legMaxLength: 1.1
+    legMinLength: 0.2
+    legLengthScl: 0.95
+    legForwardScl: 0.7
+
+    shadowElevation: 0.2
+
     weapons: [
         {
             name: spike-gun
@@ -26,7 +39,7 @@ description: No description
             bullet: {
                 type: BasicBulletType
                 speed: 3.5
-                damage: 45
+                damage: 30
                 width: 8
                 height: 8
                 trailWidth: 3
