@@ -7,7 +7,7 @@ size: 2
     outlineColor: 534d4a
     targetAir: true
     targetGround: false
-    range: 100
+    range: 120
     reload: 20
     velocityRnd: 0.8
     inaccuracy: 45
@@ -31,7 +31,7 @@ size: 2
             backColor: f7cba4
             frontColor: f7cba4
             trailColor: d3ae8d
-            lifetime: 20
+            lifetime: 25
             shootEffect: shootBig
             smokeEffect: shootSmokeSquare
             hitEffect: hitSquaresColor
