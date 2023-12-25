@@ -45,7 +45,7 @@ description: No description
                 trailWidth: 2
                 trailLength: 6
                 lifetime: 60
-                homingRange = 45f;
+                homingRange: 45f
                 shootEffect: shootSmall
                 smokeEffect: shootSmallSmoke
             }
