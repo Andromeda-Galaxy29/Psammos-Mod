@@ -14,7 +14,6 @@ size: 2
     inaccuracy: 45
     shoot: {
         shots: 12
-        shotDelay: 0.1
     }
     ammoTypes: {
         sand: {
