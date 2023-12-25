@@ -12,7 +12,7 @@ size: 2
     velocityRnd: 0.5
     inaccuracy: 45
     shoot: {
-        shots: 8
+        shots: 12
         shotDelay: 0.1
     }
     ammoTypes: {
