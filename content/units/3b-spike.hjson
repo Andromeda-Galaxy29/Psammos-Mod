@@ -1,12 +1,12 @@
 type: legs
 name: Spike
 description: No description
-    speed: 0.75
+    speed: 0.7
     drag: 0.2
-    hitSize: 9
+    hitSize: 12
     rotateSpeed: 3
-    health: 180
-    armor: 0
+    health: 500
+    armor: 4
     outlineColor: 3c3835
     faceTarget: false
     targetAir: true
@@ -38,13 +38,14 @@ description: No description
             rotate: true
             bullet: {
                 type: BasicBulletType
-                speed: 3.5
-                damage: 30
+                speed: 4
+                damage: 20
                 width: 8
                 height: 8
-                trailWidth: 3
-                trailLength: 4
+                trailWidth: 2
+                trailLength: 6
                 lifetime: 60
+                homingRange = 45f;
                 shootEffect: shootSmall
                 smokeEffect: shootSmallSmoke
             }

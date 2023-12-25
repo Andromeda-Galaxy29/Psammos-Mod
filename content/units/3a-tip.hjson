@@ -43,7 +43,7 @@ description: No description
             bullet: {
                 type: BasicBulletType
                 speed: 3.5
-                damage: 22
+                damage: 16
                 width: 8
                 height: 8
                 trailWidth: 3
