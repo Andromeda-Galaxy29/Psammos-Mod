@@ -28,8 +28,8 @@ size: 2
             lifetime: 20
             shootEffect: shootBig
             smokeEffect: shootSmokeSquare
-            hitEffect: hitSquares
-            despawnEffect: hitSquares
+            hitEffect: hitSquaresColor
+            despawnEffect: hitSquaresColor
         }
     }
     drawer: {
