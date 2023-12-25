@@ -1,6 +1,6 @@
 type: legs
 name: Spike
-description: No description
+description: Fires fast homing bullets at enemies. Can walk over most structures
     speed: 0.7
     drag: 0.2
     hitSize: 12
@@ -46,6 +46,7 @@ description: No description
                 trailLength: 6
                 lifetime: 60
                 homingRange: 45
+                homingPower: 0.05f
                 shootEffect: shootSmall
                 smokeEffect: shootSmallSmoke
             }

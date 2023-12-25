@@ -1,6 +1,6 @@
 type: legs
 name: Tip
-description: No description
+description: Fires big bullets at enemies. Can walk over most structures.
     speed: 0.75
     drag: 0.2
     hitSize: 9
