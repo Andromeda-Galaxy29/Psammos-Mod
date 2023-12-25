@@ -43,7 +43,7 @@ description: Fires big bullets at enemies. Can walk over most structures.
             bullet: {
                 type: BasicBulletType
                 speed: 3.5
-                damage: 16
+                damage: 10
                 width: 8
                 height: 8
                 trailWidth: 3

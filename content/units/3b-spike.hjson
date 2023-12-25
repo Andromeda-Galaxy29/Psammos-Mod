@@ -39,7 +39,7 @@ description: Fires fast homing bullets at enemies. Can walk over most structures
             bullet: {
                 type: BasicBulletType
                 speed: 4
-                damage: 32
+                damage: 20
                 width: 3
                 height: 8
                 trailWidth: 1
