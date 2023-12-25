@@ -14,9 +14,9 @@ description: No description
     treadRects: [
         {
             x: -19
-            y: -5
+            y: -11
             width: 10
-            height: 24
+            height: 30
         }
     ]
 
