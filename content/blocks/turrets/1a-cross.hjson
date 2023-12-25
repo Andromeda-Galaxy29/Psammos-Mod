@@ -7,7 +7,7 @@ size: 2
     outlineColor: 534d4a
     targetAir: true
     targetGround: true
-    range: 200
+    range: 150
     reload: 60
     velocityRnd: 0.1
     inaccuracy: 0
@@ -20,8 +20,8 @@ size: 2
             width: 6
             height: 16
             speed: 10
-            damage: 26
-            lifetime: 20
+            damage: 18
+            lifetime: 15
             hitColor: 66a4b4
             backColor: 66a4b4
             frontColor: 66a4b4
