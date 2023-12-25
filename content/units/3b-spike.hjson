@@ -1,5 +1,5 @@
 type: legs
-name: Tip
+name: Spike
 description: No description
     speed: 0.75
     drag: 0.2
@@ -12,36 +12,21 @@ description: No description
     targetAir: true
 
     hovering: false
-    legPhysicsLayer: false
-
-    legStraightness: 0.3
-    stepShake: 0
-    legCount: 4
-    legLength: 8
-    lockLegBase: true
-    legContinuousMove: true
-    legExtension: -1
-    legBaseOffset: 3
-    legMaxLength: 1.1
-    legMinLength: 0.2
-    legLengthScl: 0.96
-    legForwardScl: 1.1
-    legGroupSize: 2
-    legMoveSpace: 1
+    legPhysicsLayer: true
 
     weapons: [
         {
-            name: tip-gun
-            x: 0
+            name: spike-gun
+            x: 3
             y: -4
             reload: 24
             shootSound: shootAlt
-            mirror: false
+            mirror: true
             rotate: true
             bullet: {
                 type: BasicBulletType
                 speed: 3.5
-                damage: 22
+                damage: 45
                 width: 8
                 height: 8
                 trailWidth: 3
