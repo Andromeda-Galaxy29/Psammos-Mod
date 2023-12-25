@@ -7,9 +7,10 @@ size: 2
     outlineColor: 534d4a
     targetAir: true
     targetGround: false
+    collidesGround: false
     range: 100
     reload: 20
-    velocityRnd: 0.5
+    velocityRnd: 0.8
     inaccuracy: 45
     shoot: {
         shots: 12
