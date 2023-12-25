@@ -1,24 +1,34 @@
-type: tank
+type: legs
 name: Tip
 description: No description
     speed: 0.75
     drag: 0.2
     hitSize: 9
     rotateSpeed: 3
-    health: 200
+    health: 180
     armor: 0
     outlineColor: 3c3835
     faceTarget: false
     targetAir: true
 
-    treadRects: [
-        {
-            x: -19
-            y: -11
-            width: 10
-            height: 30
-        }
-    ]
+    allowLegStep: false
+    hovering: false
+    legPhysicsLayer: false
+
+    legStraightness: 0.3
+    stepShake: 0
+    legCount: 4
+    legLength: 8
+    lockLegBase: true
+    legContinuousMove: true
+    legExtension: -1
+    legBaseOffset: 3
+    legMaxLength: 1.1
+    legMinLength: 0.2
+    legLengthScl: 0.96
+    legForwardScl: 1.1
+    legGroupSize: 2
+    legMoveSpace: 1
 
     weapons: [
         {
