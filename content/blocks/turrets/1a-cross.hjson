@@ -29,7 +29,7 @@ size: 2
     }
     drawer: {
         type: DrawTurret
-        basePrefix: base-
+        basePrefix: turret-base-
     }
 category: turret
 requirements: [
