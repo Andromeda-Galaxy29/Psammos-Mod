@@ -7,7 +7,7 @@ size: 2
     outlineColor: 534d4a
     targetAir: true
     targetGround: true
-    range: 120
+    range: 100
     reload: 20
     velocityRnd: 0.5
     inaccuracy: 45
@@ -18,7 +18,7 @@ size: 2
     ammoTypes: {
         sand: {
             type: BasicBulletType
-            speed: 6
+            speed: 5
             damage: 5
             splashDamage: 20
             splashDamageRadius: 16
