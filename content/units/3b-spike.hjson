@@ -17,7 +17,7 @@ description: No description
     weapons: [
         {
             name: spike-gun
-            x: 3
+            x: 5
             y: -4
             reload: 24
             shootSound: shootAlt
