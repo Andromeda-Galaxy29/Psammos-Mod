@@ -18,16 +18,17 @@ size: 2
     ammoTypes: {
         sand: {
             type: BasicBulletType
-            speed: 2
+            speed: 6
             damage: 5
             width: 6
             height: 6
             ammoMultiplier: 4
-            trailWidth: 1
-            trailLength: 2
-            lifetime: 40
-            shootEffect: shootSmall
-            smokeEffect: shootSmallSmoke
+            trailWidth: 2
+            trailLength: 4
+            lifetime: 20
+            shootEffect: sparkShootBig
+            smokeEffect: smokeSquareBig
+            hitEffect: hitSquare
         }
     }
     drawer: {
