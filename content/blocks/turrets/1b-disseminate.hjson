@@ -1,12 +1,12 @@
 type: ItemTurret
 name: Disseminate
-description: Fires a burst of bullets, slows down enemy units.
+description: Fires a burst of bullets, slows down enemy air units.
 size: 2
     squareSprite: false
     shootSound: cannon
     outlineColor: 534d4a
     targetAir: true
-    targetGround: true
+    targetGround: false
     range: 100
     reload: 20
     velocityRnd: 0.5
