@@ -2,6 +2,7 @@ sector: 3
 localizedName: Quartz Valley
 planet: psammos
 difficulty: 1
+captureWave: 20
 research: {
   parent: landing
   objectives: [
