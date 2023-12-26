@@ -23,6 +23,7 @@ description: Shoots lasers that damage enemy targets and heal allied structures.
             x: 3
             y: -2
             reload: 20
+            rotate: true
             shootSound: lasershoot
             ejectEffect: none
             bullet: {
@@ -34,8 +35,8 @@ description: Shoots lasers that damage enemy targets and heal allied structures.
                 collidesTeam: true
                 backColor: 84f491
                 frontColor: ffffff
-                weaveScale: 6
-                weaveMag: 1
+                weaveScale: 3
+                weaveMag: 2
             }
         }
     ]
