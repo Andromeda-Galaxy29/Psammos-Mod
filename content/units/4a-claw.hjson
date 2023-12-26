@@ -35,8 +35,8 @@ description: Shoots lasers that damage enemy targets and heal allied structures.
                 collidesTeam: true
                 backColor: 84f491
                 frontColor: ffffff
-                weaveScale: 5
-                weaveMag: 5
+                weaveScale: 0.5
+                weaveMag: 3
             }
         }
     ]
