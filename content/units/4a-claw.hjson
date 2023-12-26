@@ -1,6 +1,6 @@
 type: flying
 name: Claw
-description: Heals nearby friendly units. Cannot attack. Has more health than other T1 units.
+description: Shoots lasers that damage enemy targets and heal allied structures. Has more health than other T1 units.
     controller: DefenderAI
 
     lowAltitude: true
@@ -19,15 +19,23 @@ description: Heals nearby friendly units. Cannot attack. Has more health than ot
     mineSpeed: 5
     weapons: [
         {
-            type: RepairBeamWeapon
             name: claw-gun
             x: 3
             y: -2
-            beamWidth: 0.3
-            repairSpeed: 0.5
+            reload: 20
+            shootSound: lasershoot
+            ejectEffect: none
             bullet: {
-                type: BulletType
-                maxRange: 120
+                type: LaserBoltBulletType
+                speed: 5
+                damage: 14
+                lifetime: 20
+                healPercent: 4
+                collidesTeam: true
+                backColor: 84f491
+                frontColor: ffffff
+                weaveScale: 6
+                weaveMag: 1
             }
         }
     ]
