@@ -1,0 +1,33 @@
+type: flying
+name: Claw
+description: Heals nearby friendly units. Cannot attack. Has more health than other T1 units.
+    controller: DefenderAI
+
+    lowAltitude: true
+    speed: 2.5
+    rotateSpeed: 12
+    accel: 0.1
+    drag: 0.04
+    flying: true
+    health: 220
+    hitSize: 8
+    armor: 2
+    outlineColor: 3c3835
+    engineOffset: 5
+    faceTarget: false
+    mineTier: 1
+    mineSpeed: 5
+    weapons: [
+        {
+            type: RepairBeamWeapon
+            name: claw-gun
+            x: 2
+            y: -3
+            beamWidth: 0.3
+            repairSpeed: 0.6
+            bullet: {
+                type: BulletType
+                maxRange: 120
+            }
+        }
+    ]
