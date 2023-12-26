@@ -24,7 +24,7 @@ description: Heals nearby friendly units. Cannot attack. Has more health than ot
             x: 2
             y: -3
             beamWidth: 0.3
-            repairSpeed: 0.6
+            repairSpeed: 0.5
             bullet: {
                 type: BulletType
                 maxRange: 120
