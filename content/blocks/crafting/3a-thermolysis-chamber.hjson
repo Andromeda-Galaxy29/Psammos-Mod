@@ -23,6 +23,7 @@ drawer: {
     }
   ]
 }
+baseEfficiency: 0
 attribute: ferric-stone
 consumes: {
   power: 1
