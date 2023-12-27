@@ -4,9 +4,9 @@ description: Moves towards enemy structures and crushes them. Can crawl over mos
     speed: 1
     omniMovement: false
     rotateSpeed: 2
-    health: 180
+    health: 140
     hitSize: 9
-    armor: 1
+    armor: 0
     outlineColor: 3c3835
     faceTarget: true
     controller: HugAI

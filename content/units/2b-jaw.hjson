@@ -4,9 +4,9 @@ description: Moves towards enemy structures and crushes them. Also shoots explos
     speed: 1.2
     omniMovement: false
     rotateSpeed: 2
-    health: 480
+    health: 450
     hitSize: 11
-    armor: 5
+    armor: 3
     outlineColor: 3c3835
     faceTarget: true
     controller: HugAI
