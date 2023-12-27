@@ -24,7 +24,6 @@ description: Shoots two spiraling projectiles that damage enemy targets and heal
             reload: 22
             shootSound: lasershoot
             ejectEffect: none
-            alternate: false
             shoot: {
                 type: ShootHelix
                 shootScl: 4
