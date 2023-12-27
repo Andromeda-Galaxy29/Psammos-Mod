@@ -23,21 +23,22 @@ description: Shoots two spiraling projectiles that damage enemy targets and heal
             reload: 22
             shootSound: lasershoot
             ejectEffect: none
+            alternate: false
             bullet: {
                 type: BasicBulletType
-                speed: 1
+                speed: 2
                 damage: 20
                 healPercent: 6
                 collidesTeam: true
                 width: 10
                 height: 10
-                trailWidth: 4
+                trailWidth: 3
                 trailLength: 8
                 backColor: 84f491
                 frontColor: ffffff
                 trailColor: 84f491
-                weaveScale: 1
-                weaveMag: 15
+                weaveScale: 4
+                weaveMag: 4
             }
         }
     ]

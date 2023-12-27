@@ -33,7 +33,7 @@ description: Shoots laser waves that damage enemy targets and heal allied struct
                 backColor: 84f491
                 frontColor: ffffff
                 weaveScale: 1
-                weaveMag: 10
+                weaveMag: 8
             }
         }
     ]
