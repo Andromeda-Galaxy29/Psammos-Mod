@@ -20,13 +20,13 @@ description: Shoots laser waves that damage enemy targets and heal allied struct
             name: sine-gun
             x: 3
             y: -2
-            reload: 20
+            reload: 18
             rotate: true
             shootSound: lasershoot
             ejectEffect: none
             bullet: {
                 type: LaserBoltBulletType
-                speed: 5
+                speed: 3
                 damage: 14
                 lifetime: 20
                 healPercent: 4
