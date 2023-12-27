@@ -1,6 +1,5 @@
-type: Item
 name: Quartz
-description: Used for production of silicon and electronics
+description: Used for laser-related technology and production of silicon
   color: d4caba,
   hardness: 2
 research: {

@@ -1,6 +1,5 @@
-"type": Item
 "name": Silver
-"description": Used for building and advanced electronics
+"description": Used for advanced electronics and building
   "color": "b9d1e1",
   "hardness": 2
 research: {
