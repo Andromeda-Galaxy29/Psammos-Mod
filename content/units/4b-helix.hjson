@@ -39,6 +39,7 @@ description: Shoots two spiraling projectiles that damage enemy targets and heal
                 trailColor: 84f491
                 weaveScale: 4
                 weaveMag: 4
+                weaveRandom: false
             }
         }
     ]
