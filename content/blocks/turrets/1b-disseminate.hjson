@@ -47,6 +47,7 @@ requirements: [
   1-osmium/18
   2-silver/10
 ]
+researchCostMultiplier: 0.2
 research: {
   parent: 1a-cross
 }

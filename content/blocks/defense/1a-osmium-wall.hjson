@@ -6,6 +6,7 @@
 "requirements": [
   1-osmium/6
 ]
+researchCostMultiplier: 0.01
 research: {
   parent: 1a-cross
 }
