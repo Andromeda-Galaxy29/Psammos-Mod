@@ -23,12 +23,13 @@ drawer: {
     }
   ]
 }
+attribute: ferric-stone
 consumes: {
   power: 1
 }
-outputItem: scrap/2
-outputLiquid: ozone/0.0166666666666667
-craftTime: 40
+outputItem: scrap/4
+outputLiquid: ozone/0.0333333333333
+craftTime: 30
 requirements: [
   1-osmium/80
   2-silver/40
