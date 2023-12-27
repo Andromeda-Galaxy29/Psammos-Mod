@@ -12,7 +12,7 @@ description: Shoots laser waves that damage enemy targets and heal allied struct
     armor: 2
     outlineColor: 3c3835
     engineOffset: 5
-    faceTarget: false
+    faceTarget: true
     mineTier: 1
     mineSpeed: 5
     weapons: [
@@ -21,7 +21,6 @@ description: Shoots laser waves that damage enemy targets and heal allied struct
             x: 3
             y: -2
             reload: 18
-            rotate: true
             shootSound: lasershoot
             ejectEffect: none
             bullet: {
