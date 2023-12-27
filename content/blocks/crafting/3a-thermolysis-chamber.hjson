@@ -28,7 +28,7 @@ attribute: ferric-stone
 consumes: {
   power: 1
 }
-outputItem: scrap/4
+outputItem: scrap/2
 outputLiquid: ozone/0.0333333333333
 craftTime: 30
 requirements: [
