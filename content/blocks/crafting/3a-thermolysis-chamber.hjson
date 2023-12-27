@@ -1,0 +1,31 @@
+type: AttributeCrafter
+name: Thermolysis Chamber
+description: Uses extreme heat to break down ferric stone (iron oxide) into iron and ozone
+category: crafting
+size: 3
+squareSprite: false
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawRegion
+      suffix: -bottom
+    },
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawGlowRegion
+      color: ff9633
+    }
+  ]
+}
+consumes: {
+  power: 1
+}
+outputItem: scrap/2
+outputLiquids: ozone/1
+craftTime: 40
+requirements: [
+  1-osmium/1
+]

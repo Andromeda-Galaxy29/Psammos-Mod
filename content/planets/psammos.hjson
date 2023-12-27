@@ -56,5 +56,6 @@ itemWhitelist: [
   1-osmium,
   2-silver,
   3-quartz,
-  sand
+  sand,
+  scrap
 ]
