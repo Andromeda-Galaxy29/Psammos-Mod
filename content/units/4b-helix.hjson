@@ -29,7 +29,7 @@ description: Shoots two spiraling projectiles that damage enemy targets and heal
             x: -5
             y: 0
             layerOffset: -1
-            reload: 22
+            reload: 28
             shootSound: lasershoot
             ejectEffect: none
             shoot: {
