@@ -24,7 +24,7 @@ consumes: {
   power: 1
 }
 outputItem: scrap/2
-outputLiquid: ozone/1
+outputLiquid: ozone/0.0166666666666667
 craftTime: 40
 requirements: [
   1-osmium/1
