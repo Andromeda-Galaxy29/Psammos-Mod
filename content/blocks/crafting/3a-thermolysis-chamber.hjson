@@ -12,6 +12,9 @@ drawer: {
       suffix: -bottom
     },
     {
+      type: DrawCrucibleFlame
+    },
+    {
       type: DrawDefault
     },
     {
