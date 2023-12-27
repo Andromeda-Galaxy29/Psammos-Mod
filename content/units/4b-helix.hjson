@@ -39,8 +39,9 @@ description: Shoots two spiraling projectiles that damage enemy targets and heal
             }
             bullet: {
                 type: BasicBulletType
-                speed: 2
+                speed: 3
                 damage: 20
+                lifetime: 20
                 healPercent: 6
                 collidesTeam: true
                 width: 8
