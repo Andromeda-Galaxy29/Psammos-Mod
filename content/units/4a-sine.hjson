@@ -1,6 +1,6 @@
 type: flying
 name: Sine
-description: Shoots lasers that damage enemy targets and heal allied structures. Has more health than other T1 units.
+description: Shoots laser waves that damage enemy targets and heal allied structures. Has more health than other T1 units.
     lowAltitude: true
     speed: 2.5
     rotateSpeed: 12
@@ -17,7 +17,7 @@ description: Shoots lasers that damage enemy targets and heal allied structures.
     mineSpeed: 5
     weapons: [
         {
-            name: claw-gun
+            name: sine-gun
             x: 3
             y: -2
             reload: 20
