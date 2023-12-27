@@ -14,7 +14,7 @@ description: Shoots laser waves that damage enemy targets and heal allied struct
     engineOffset: 5
     faceTarget: true
     mineTier: 1
-    mineSpeed: 5
+    mineSpeed: 3
     weapons: [
         {
             name: sine-gun
