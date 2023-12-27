@@ -20,6 +20,7 @@ description: Shoots two spiraling projectiles that damage enemy targets and heal
             name: helix-gun
             x: 5
             y: 0
+            layerOffset: -1
             reload: 22
             shootSound: lasershoot
             ejectEffect: none
