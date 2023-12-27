@@ -15,6 +15,14 @@ description: Shoots two spiraling projectiles that damage enemy targets and heal
     faceTarget: true
     mineTier: 2
     mineSpeed: 5
+    abilities: [
+        {
+            type: RepairFieldAbility
+            amount: 15
+            reload: 200
+            range: 80
+        }
+    ]
     weapons: [
         {
             name: helix-gun
