@@ -57,5 +57,6 @@ itemWhitelist: [
   2-silver,
   3-quartz,
   sand,
-  scrap
+  scrap,
+  silicon
 ]
