@@ -5,6 +5,8 @@ description: Distributes liquids in all directions.
   buildCostMultiplier: 2f
   hasLiquids: true
   liquidCapacity: 20
+  squareSprite: false
+  liquidPadding: 1
 category: liquid
 requirements: [
   3-quartz/2
