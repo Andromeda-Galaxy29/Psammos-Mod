@@ -1,0 +1,14 @@
+type: Conduit
+name: Quartz Conduit
+description: Transports liquids froward.
+  health: 45
+  buildCostMultiplier: 2f
+  hasLiquids: true
+  liquidCapacity: 10
+category: liquid
+requirements: [
+  3-quartz/1
+]
+research: {
+  parent: 1a-osmium-drill
+}
