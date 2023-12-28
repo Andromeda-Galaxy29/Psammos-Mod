@@ -34,8 +34,8 @@ outputItem: scrap/2
 outputLiquid: ozone/0.0333333333333
 craftTime: 30
 requirements: [
-  1-osmium/30
+  1-osmium/20
   2-silver/40
   3-quartz/60
-  silicon/20
+  silicon/10
 ]
