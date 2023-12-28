@@ -24,6 +24,7 @@ drawer: {
   ]
 }
 baseEfficiency: 0
+boostScale: 0.011111111
 attribute: ferric-stone
 consumes: {
   power: 2
