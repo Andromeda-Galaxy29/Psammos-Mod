@@ -1,0 +1,13 @@
+type: LiquidJunction
+name: Quartz Liquid Junction
+description: Acts as a bridge between two crossing conduits.
+  health: 45
+  buildCostMultiplier: 2f
+category: liquid
+requirements: [
+  3-quartz/8
+  2-silver/4
+]
+research: {
+  parent: 2a-quartz-conduit
+}

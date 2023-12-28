@@ -5,6 +5,7 @@ description: Transports liquids froward.
   buildCostMultiplier: 2f
   hasLiquids: true
   liquidCapacity: 10
+  junctionReplacement: 3a-quartz-liquid-junction
 category: liquid
 requirements: [
   3-quartz/1
