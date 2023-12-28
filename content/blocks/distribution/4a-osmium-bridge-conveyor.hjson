@@ -1,14 +1,13 @@
 type: BufferedItemBridge
 name: Osmium Bridge Conveyor
-description: Distributes items equally across three directions. Only accepts items from the back side. Can be configured as an item sorter.
+description: Transports items over terrain or buildings.
   health: 40
-  fadeIn: true
-  moveArrows: true
   range: 4
   speed: 80
   arrowSpacing: 6
   bufferCapacity: 14
   buildCostMultiplier: 3
+  bridgeWidth: 8
 category: distribution
 requirements: [
   1-osmium/6
