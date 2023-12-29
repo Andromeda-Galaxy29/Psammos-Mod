@@ -7,7 +7,7 @@ size: 2
   outlineColor: 534d4a
   targetAir: false
   targetGround: true
-  range: 120
+  range: 140
   reload: 80
   inaccuracy: 0
   shootY: -1.5
@@ -21,7 +21,7 @@ size: 2
     height: 10
     speed: 5
     damage: 16
-    lifetime: 20
+    lifetime: 30
     hitColor: a9d8ff
     backColor: a9d8ff
     lightColor: ffffff
