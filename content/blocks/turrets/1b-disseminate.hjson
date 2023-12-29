@@ -2,46 +2,46 @@ type: ItemTurret
 name: Disseminate
 description: Fires a burst of bullets at enemy air units.
 size: 2
-    squareSprite: false
-    shootSound: cannon
-    outlineColor: 534d4a
-    targetAir: true
-    targetGround: false
-    range: 120
-    reload: 20
-    velocityRnd: 0.8
-    inaccuracy: 45
-    shoot: {
-        shots: 12
+  squareSprite: false
+  shootSound: cannon
+  outlineColor: 534d4a
+  targetAir: true
+  targetGround: false
+  range: 120
+  reload: 20
+  velocityRnd: 0.8
+  inaccuracy: 45
+  shoot: {
+    shots: 12
+  }
+  ammoTypes: {
+    sand: {
+      type: BasicBulletType
+      collidesGround: false
+      speed: 5
+      damage: 5
+      splashDamage: 20
+      splashDamageRadius: 16
+      width: 6
+      height: 6
+      ammoMultiplier: 4
+      trailWidth: 2
+      trailLength: 4
+      hitColor: f7cba4
+      backColor: f7cba4
+      frontColor: f7cba4
+      trailColor: d3ae8d
+      lifetime: 25
+      shootEffect: shootBig
+      smokeEffect: shootSmokeSquare
+      hitEffect: hitSquaresColor
+      despawnEffect: hitSquaresColor
     }
-    ammoTypes: {
-        sand: {
-            type: BasicBulletType
-            collidesGround: false
-            speed: 5
-            damage: 5
-            splashDamage: 20
-            splashDamageRadius: 16
-            width: 6
-            height: 6
-            ammoMultiplier: 4
-            trailWidth: 2
-            trailLength: 4
-            hitColor: f7cba4
-            backColor: f7cba4
-            frontColor: f7cba4
-            trailColor: d3ae8d
-            lifetime: 25
-            shootEffect: shootBig
-            smokeEffect: shootSmokeSquare
-            hitEffect: hitSquaresColor
-            despawnEffect: hitSquaresColor
-        }
-    }
-    drawer: {
-        type: DrawTurret
-        basePrefix: base-
-    }
+  }
+  drawer: {
+    type: DrawTurret
+    basePrefix: fortified-
+  }
 category: turret
 requirements: [
   1-osmium/18
