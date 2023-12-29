@@ -5,6 +5,7 @@ description: Transports items froward.
   speed: 0.05f
   displayedSpeed: 7f
   junctionReplacement: 2a-osmium-junction
+  bridgeReplacement: 4a-osmium-bridge-conveyor
   buildCostMultiplier: 2f
   hasItems: true
   itemCapacity: 3
