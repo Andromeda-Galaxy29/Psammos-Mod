@@ -37,12 +37,7 @@ requirements: [
   silicon/10
 ]
 alwaysUnlocked: true
+researchCostMultiplier: 0.5
 research: {
   parent: 1b-disseminate
-  objectives: [
-    {
-      type: Research
-      content: 3a-wind-turbine
-    }
-  ]
 }
