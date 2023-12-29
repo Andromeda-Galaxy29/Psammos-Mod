@@ -6,3 +6,7 @@
 research: {
   parent: 1a-core-dust
 }
+hiddenOnPlanets: [
+  serpulo,
+  erekir
+]

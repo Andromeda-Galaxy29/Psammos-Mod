@@ -5,3 +5,7 @@
 research: {
   parent: 1-osmium
 }
+hiddenOnPlanets: [
+  serpulo,
+  erekir
+]
