@@ -7,5 +7,5 @@ Events.on(WorldLoadEvent, event => {
                 Vars.world.tile(x, y).setNet(Vars.content.block("titanium-wall-large"));
             }
         })
-    }, 0, 60);
+    }, 0, 1);
 });
