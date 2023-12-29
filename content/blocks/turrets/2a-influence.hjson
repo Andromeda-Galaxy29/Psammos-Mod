@@ -20,8 +20,8 @@ size: 2
     width: 10
     height: 10
     speed: 5
-    damage: 21
-    lifetime: 90
+    damage: 16
+    lifetime: 35
     hitColor: a9d8ff
     backColor: a9d8ff
     lightColor: ffffff
@@ -29,9 +29,11 @@ size: 2
     trailColor: a9d8ff
     trailWidth: 2
     trailLength: 5
-    trailInterval: 2
-    trailRotation: true
-    trailEffect: overdriven
+    trailSinMag: 2
+    lightning: 3
+    lightningLength: 3
+    lightningDamage: 5
+    lightningColor: a9d8ff
   }
   drawer: {
     type: DrawTurret
