@@ -5,7 +5,7 @@ Events.on(WorldLoadEvent, event => {
 });
 
 function burnAura(b){
-    if(GameState.isPaused()){
+    if(GameState.state == GameState.State.paused){
         return
     }
     if(b.block == Vars.content.block("psammos-1a-sieve") && b.power.status > 0){
