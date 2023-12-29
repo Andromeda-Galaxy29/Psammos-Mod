@@ -1,1 +1,2 @@
 require("attributes");
+require("test");
