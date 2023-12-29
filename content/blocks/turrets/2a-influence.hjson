@@ -8,7 +8,7 @@ size: 2
   targetAir: false
   targetGround: true
   range: 120
-  reload: 40
+  reload: 80
   inaccuracy: 0
   shootY: -1.5
   consumes: {
@@ -20,7 +20,7 @@ size: 2
     width: 10
     height: 10
     speed: 5
-    damage: 14
+    damage: 16
     lifetime: 20
     hitColor: a9d8ff
     backColor: a9d8ff
