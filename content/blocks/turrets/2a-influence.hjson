@@ -1,6 +1,6 @@
 type: PowerTurret
 name: Influence
-description: Shoots explosive electric bullets at ground enemy unit
+description: Shoots explosive electric bullets at ground enemy units
 size: 2
   squareSprite: false
   shootSound: shockBlast
