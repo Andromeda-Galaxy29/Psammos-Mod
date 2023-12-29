@@ -10,7 +10,7 @@ size: 2
   range: 180
   reload: 40
   inaccuracy: 0
-  shootY = -1.5;
+  shootY: -1.5
   consumes: {
     power: 2
   }
