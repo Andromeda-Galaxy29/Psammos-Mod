@@ -29,10 +29,9 @@ size: 2
     trailColor: a9d8ff
     trailWidth: 2
     trailLength: 5
-    trailSinMag: 2
-    lightning: 3
-    lightningLength: 3
-    lightningDamage: 5
+    lightning: 4
+    lightningLength: 8
+    lightningDamage: 8
     lightningColor: a9d8ff
   }
   drawer: {
