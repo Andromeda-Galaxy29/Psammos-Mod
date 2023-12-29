@@ -4,8 +4,8 @@ Events.on(WorldLoadEvent, event => {
             if(b.block == Vars.content.block("psammos-1a-sieve")){
                 let x = Math.floor(b.x/8)
                 let y = Math.floor(b.y/8)
-                Vars.world.tile(x, y).setNet(Vars.content.block("titanium-wall-large"));
+                Fx.shockwave.at(x, y)
             }
         })
-    }, 0, 1);
+    }, 0, 3);
 });
