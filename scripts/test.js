@@ -11,7 +11,8 @@ function burnAura(b){
     if(b.block == Vars.content.block("psammos-1a-sieve") && b.power.status > 0){
         Fx.launchPod.at(b.x, b.y)
         Groups.unit.each(u => {
-            if(Math.abs(u.x - b.x) <= 5*8 && Math.abs(u.y - b.y) <= 5*8){
+            let range = 8
+            if(Math.abs(u.x - b.x) <= range*8 && Math.abs(u.y - b.y) <= range*8 && u.team != b.team){
                 u.apply(Vars.content.statusEffect("burning"), 1*60)
             }
         })
