@@ -10,22 +10,28 @@ size: 2
   range: 180
   reload: 40
   inaccuracy: 0
+  shootY = -1.5;
   consumes: {
     power: 2
   }
   shootType: {
     type: BasicBulletType
-    width: 6
-    height: 16
-    speed: 10
-    damage: 18
-    lifetime: 18
-    hitColor: 66a4b4
-    backColor: 66a4b4
-    frontColor: 66a4b4
-    trailColor: 94d4db
-    trailWidth: 1
-    trailLength: 3
+    collidesAir: false
+    width: 10
+    height: 10
+    speed: 5
+    damage: 21
+    lifetime: 90
+    hitColor: a9d8ff
+    backColor: a9d8ff
+    lightColor: ffffff
+    frontColor: ffffff
+    trailColor: a9d8ff
+    trailWidth: 2
+    trailLength: 5
+    trailInterval: 2
+    trailRotation: true
+    trailEffect: overdriven
   }
   drawer: {
     type: DrawTurret
