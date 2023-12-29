@@ -5,5 +5,5 @@ Events.on(WorldLoadEvent, event => {
                 Fx.shockwave.at(b.x, b.y)
             }
         })
-    }, 0, 3);
+    }, 0, 1);
 });
