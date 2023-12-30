@@ -6,7 +6,7 @@ description: Uses the heat from the sun to condense water
   squareSprite: false
   hasLiquids: true
   liquidCapacity: 20
-  pumpAmount: 0.1
+  pumpAmount: 0.04
   attribute: light
 drawer: {
   type: DrawMulti
