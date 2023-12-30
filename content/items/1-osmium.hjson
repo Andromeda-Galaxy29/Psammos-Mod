@@ -1,8 +1,8 @@
 "name": Osmium
-"description": Mainly used for building and ammutition
+"description": Used for building and ammutition
   "color": "66a4b4",
   "hardness": 1,
-  "cost": 0.666
+  "cost": 0.5
 research: {
   parent: 1a-core-dust
 }
