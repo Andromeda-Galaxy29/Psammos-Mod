@@ -1,0 +1,37 @@
+type: SolidPump
+name: Solar Water Still
+description: Uses the heat from the sun to condense water
+  health: 60
+  size: 2
+  hasLiquids: true
+  liquidCapacity: 20
+  pumpAmount: 0.1
+  attributes: [
+    water
+    sun
+  ]
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawRegion
+      suffix: -bottom
+    },
+    {
+      type: DrawLiquidRegion
+      drawLiquid: water
+    },
+    {
+      type: DrawDefault
+    }
+  ]
+}
+category: liquid
+requirements: [
+  3-quartz/40
+  2-silver/10
+  silicon/20
+]
+research: {
+  parent: 1a-quartz-pump
+}
