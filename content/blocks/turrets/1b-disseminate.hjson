@@ -40,7 +40,7 @@ size: 2
   }
   drawer: {
     type: DrawTurret
-    basePrefix: fortified-
+    basePrefix: heatproof-
   }
 category: turret
 requirements: [
