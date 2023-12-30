@@ -1,0 +1,7 @@
+name: Quicksand
+description: Used to produce water. Viscous
+color: d3ae8d
+heatCapacity: 0.3
+viscosity: 0.8
+coolant: false
+effect: slow
