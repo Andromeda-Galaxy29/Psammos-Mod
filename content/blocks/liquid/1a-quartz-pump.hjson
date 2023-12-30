@@ -2,6 +2,7 @@ type: Pump
 name: Quartz Pump
 description: Pumps and outputs liquids. Requires power
   health: 60
+  size: 2
   hasLiquids: true
   liquidCapacity: 15
   pumpAmount: 0.1666666666666667
