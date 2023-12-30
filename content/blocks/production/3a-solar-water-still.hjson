@@ -3,6 +3,7 @@ name: Solar Water Still
 description: Uses the heat from the sun to condense water
   health: 60
   size: 2
+  squareSprite: false
   hasLiquids: true
   liquidCapacity: 20
   pumpAmount: 0.1
@@ -10,22 +11,6 @@ description: Uses the heat from the sun to condense water
     water
     sun
   ]
-drawer: {
-  type: DrawMulti
-  drawers: [
-    {
-      type: DrawRegion
-      suffix: -bottom
-    },
-    {
-      type: DrawLiquidRegion
-      drawLiquid: water
-    },
-    {
-      type: DrawDefault
-    }
-  ]
-}
 category: liquid
 requirements: [
   3-quartz/40
