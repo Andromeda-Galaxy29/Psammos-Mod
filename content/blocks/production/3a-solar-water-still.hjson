@@ -19,7 +19,7 @@ drawer: {
       suffix: -bottom
     },
     {
-      DrawPumpLiquid
+      type: DrawPumpLiquid
     },
     {
       type: DrawDefault
