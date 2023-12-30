@@ -11,5 +11,5 @@ requirements: [
   3-quartz/1
 ]
 research: {
-  parent: 1a-osmium-drill
+  parent: 1a-quartz-pump
 }

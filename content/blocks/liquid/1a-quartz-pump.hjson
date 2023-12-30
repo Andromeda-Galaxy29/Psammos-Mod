@@ -1,0 +1,16 @@
+type: Pump
+name: Quartz Pump
+description: Pumps and outputs liquids. Requires power
+  health: 60
+  hasLiquids: true
+  liquidCapacity: 15
+  pumpAmount = 0.1666666666666667
+category: liquid
+requirements: [
+  3-quartz/30
+  2-silver/20
+  silicon/15
+]
+research: {
+  parent: 1a-osmium-drill
+}
