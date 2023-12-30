@@ -4,4 +4,4 @@ variants: 3
 cacheLayer: mud
 speedMultiplier: 0.1
 liquidDrop: water
-drownTime: 300
+drownTime: 200
