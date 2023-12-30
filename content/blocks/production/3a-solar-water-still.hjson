@@ -11,6 +11,21 @@ description: Uses the heat from the sun to condense water
     water
     sun
   ]
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawRegion
+      suffix: -bottom
+    },
+    {
+      DrawPumpLiquid
+    },
+    {
+      type: DrawDefault
+    }
+  ]
+}
 category: liquid
 requirements: [
   3-quartz/40
