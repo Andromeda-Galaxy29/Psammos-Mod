@@ -6,6 +6,9 @@ description: Pumps and outputs liquids. Requires power
   hasLiquids: true
   liquidCapacity: 15
   pumpAmount: 0.1666666666666667
+  consumes: {
+    power: 0.5
+  }
 category: liquid
 requirements: [
   3-quartz/30
