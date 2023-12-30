@@ -1,5 +1,5 @@
 type: SolidPump
-name: Solar Water Still
+name: Solar Water Still (WIP. Will most likely be removed)
 description: Uses the heat from the sun to condense water
   health: 60
   size: 2
