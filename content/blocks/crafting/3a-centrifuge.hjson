@@ -39,7 +39,7 @@ consumes: {
   ]
 }
 outputItem: sand/2
-outputLiquid: water/0.05
+outputLiquid: water/0.0333333333333
 craftTime: 60
 requirements: [
   1-osmium/20
