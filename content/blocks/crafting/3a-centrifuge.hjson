@@ -4,6 +4,8 @@ description: Separates quicksand into water and sand
 category: crafting
 size: 2
 squareSprite: false
+hasLiquids: true
+liquidCapacity: 15
 drawer: {
   type: DrawMulti
   drawers: [
