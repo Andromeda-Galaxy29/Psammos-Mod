@@ -1,0 +1,46 @@
+type: GenericCrafter
+name: Centrifuge (WIP)
+description: Separates quicksand into water and sand
+category: crafting
+size: 2
+squareSprite: false
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawRegion
+      suffix: -bottom
+    },
+    {
+      type: DrawLiquidRegion
+      drawLiquid: 1-quicksand
+    },
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawRegion
+      suffix: -rotator
+      spinSprite: true
+      rotateSpeed: 8
+    },
+    {
+      type: DrawRegion
+      suffix: -top
+    }
+  ]
+}
+consumes: {
+  power: 2
+  liquids: [
+    1-quicksand/1
+  ]
+}
+outputItem: sand
+outputLiquid: water/0.0333333333333
+craftTime: 60
+requirements: [
+  1-osmium/20
+  3-quartz/40
+  silicon/10
+]
