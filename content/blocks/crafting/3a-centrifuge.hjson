@@ -38,7 +38,7 @@ consumes: {
     1-quicksand/1
   ]
 }
-outputItem: sand
+outputItem: sand/1
 outputLiquid: water/0.0333333333333
 craftTime: 60
 requirements: [
