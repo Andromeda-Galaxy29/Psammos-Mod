@@ -35,10 +35,10 @@ drawer: {
 consumes: {
   power: 2
   liquids: [
-    1-quicksand/1
+    1-quicksand/0.05
   ]
 }
-outputItem: sand/1
+outputItem: sand/2
 outputLiquid: water/0.0333333333333
 craftTime: 60
 requirements: [
