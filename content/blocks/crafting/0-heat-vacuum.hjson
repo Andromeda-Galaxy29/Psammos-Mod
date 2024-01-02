@@ -1,9 +1,0 @@
-type: HeatProducer
-name: Heat Vacuum
-category: crafting
-size: 1
-craftTime: 1
-heatOutput: -10
-requirements: [
-  1-osmium/1
-]
