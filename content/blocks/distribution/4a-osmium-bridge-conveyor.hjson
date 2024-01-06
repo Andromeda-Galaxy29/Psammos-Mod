@@ -1,5 +1,5 @@
 type: BufferedItemBridge
-name: Osmium Tunnel
+name: Osmium Tunnel Conveyor
 description: Transports items through terrain or buildings.
   health: 40
   range: 4
