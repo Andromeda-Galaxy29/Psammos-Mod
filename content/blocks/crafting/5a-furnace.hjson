@@ -12,7 +12,7 @@ consumes: {
   liquids: [ozone/0.03333333333]
 }
 outputLiquid: slag/0.166666666666
-craftTime: 12
+craftTime: 15
 requirements: [
   1-osmium/35
   2-silver/30
