@@ -9,7 +9,7 @@ liquidCapacity: 15
 consumes: {
   power: 1
   liquids: [
-    slag/0.33333333333,
+    slag/0.033333333333,
     ozone/0.166666666666
   ]
 }
