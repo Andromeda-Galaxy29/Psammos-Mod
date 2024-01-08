@@ -1,6 +1,6 @@
 type: GenericCrafter
 name: Furnace
-description: Melts scrap into slag. Uses ozone as fuel
+description: Melts scrap into slag.
 category: crafting
 size: 1
 squareSprite: false
@@ -9,10 +9,9 @@ liquidCapacity: 15
 consumes: {
   power: 0.5
   items: [scrap/1]
-  liquids: [ozone/0.03333333333]
 }
 outputLiquid: slag/0.166666666666
-craftTime: 15
+craftTime: 12
 requirements: [
   1-osmium/35
   2-silver/30
