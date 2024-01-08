@@ -1,1 +1,23 @@
-refinery
+type: GenericCrafter
+name: Refinery (WIP)
+description: Purifies slag into refined metal. Uses ozone as fuel
+category: crafting
+size: 2
+squareSprite: false
+hasLiquids: true
+liquidCapacity: 15
+consumes: {
+  power: 1
+  liquids: [
+    slag/0.33333333333,
+    ozone/0.166666666666
+  ]
+}
+outputItem: 4-refined-netal/1
+craftTime: 30
+requirements: [
+  1-osmium/30
+  2-silver/35
+  3-quartz/20
+  silicon/10
+]
