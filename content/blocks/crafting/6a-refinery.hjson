@@ -13,7 +13,7 @@ consumes: {
     ozone/0.166666666666
   ]
 }
-outputItem: 4-refined-netal/1
+outputItem: 4-refined-metal/1
 craftTime: 30
 requirements: [
   1-osmium/30
