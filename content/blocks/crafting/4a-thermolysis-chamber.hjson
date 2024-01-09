@@ -27,6 +27,7 @@ drawer: {
   ]
 }
 rotate: true
+rotateDraw: false
 baseEfficiency: 0
 boostScale: 0.11111111111
 minEfficiency: 1
