@@ -20,9 +20,13 @@ drawer: {
     {
       type: DrawGlowRegion
       color: ff9633
+    },
+    {
+      type: DrawLiquidOutputs
     }
   ]
 }
+rotate: true
 baseEfficiency: 0
 boostScale: 0.11111111111
 minEfficiency: 1
