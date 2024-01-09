@@ -1,0 +1,8 @@
+type: Wall
+name: Refined Metal Wall
+description: Protects structures from enemy projectiles.
+health: 480
+category: defense
+requirements: [
+  4-refined-metal/6
+]
