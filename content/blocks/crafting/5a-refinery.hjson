@@ -9,8 +9,8 @@ liquidCapacity: 15
 consumes: {
   power: 1
   liquids: [
-    slag/0.1,
-    ozone/0.03333333333
+    slag/0.13333333333,
+    ozone/0.06666666666
   ]
 }
 outputItem: 4-refined-metal/1
