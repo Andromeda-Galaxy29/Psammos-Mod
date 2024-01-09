@@ -1,0 +1,9 @@
+type: Wall
+name: Large Refined Metal Wall
+size: 2
+description: Protects structures from enemy projectiles.
+health: 1920
+category: defense
+requirements: [
+  4-refined-metal/24
+]
