@@ -1,6 +1,6 @@
 type: AttributeCrafter
 name: Thermolysis Chamber (WIP)
-description: Uses extreme heat to break down ferric stone into scrap and ozone
+description: Uses extreme heat to break down ferric stone into slag and ozone
 category: crafting
 size: 3
 squareSprite: false
@@ -30,8 +30,11 @@ attribute: ferric-stone
 consumes: {
   power: 2
 }
-outputItem: scrap/2
-outputLiquid: ozone/0.0333333333333
+outputLiquids: [
+  slag/0.0666666666666
+  ozone/0.0333333333333
+]
+liquidOutputDirections: [1, 3]
 craftTime: 30
 requirements: [
   1-osmium/20
