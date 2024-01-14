@@ -38,7 +38,7 @@ consumes: {
   ]
 }
 outputItem: 4-refined-metal/1
-craftTime: 90
+craftTime: 120
 requirements: [
   1-osmium/30
   2-silver/35
