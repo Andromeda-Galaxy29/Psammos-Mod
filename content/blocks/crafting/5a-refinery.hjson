@@ -4,6 +4,7 @@ description: Purifies slag into refined metal. Uses ozone as fuel and water for 
 category: crafting
 size: 2
 squareSprite: false
+craftEffect: smokeCloud
 drawer: {
   type: DrawMulti
   drawers: [
@@ -37,7 +38,7 @@ consumes: {
   ]
 }
 outputItem: 4-refined-metal/1
-craftTime: 30
+craftTime: 90
 requirements: [
   1-osmium/30
   2-silver/35
