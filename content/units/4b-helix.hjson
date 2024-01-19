@@ -8,7 +8,7 @@ description: Shoots spiraling projectiles that damage enemy targets and heal all
     drag: 0.04
     flying: true
     health: 550
-    hitSize: 8
+    hitSize: 12
     armor: 4
     outlineColor: 3c3835
     engineOffset: 7
