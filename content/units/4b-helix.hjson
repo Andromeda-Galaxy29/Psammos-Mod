@@ -27,18 +27,18 @@ description: Shoots spiraling projectiles that damage enemy targets and heal all
         {
             name: helix-gun
             x: 0
-            y: 6
+            y: 3
             reload: 24
             shootSound: lasershoot
             ejectEffect: none
             shoot: {
                 type: ShootHelix
-                scl: 4
-                mag: 5
+                scl: 2
+                mag: 3
             }
             bullet: {
                 type: BasicBulletType
-                speed: 3
+                speed: 5
                 damage: 20
                 lifetime: 20
                 healPercent: 6
