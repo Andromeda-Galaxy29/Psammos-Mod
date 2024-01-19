@@ -11,7 +11,7 @@ description: Shoots spiraling projectiles that damage enemy targets and heal all
     hitSize: 8
     armor: 4
     outlineColor: 3c3835
-    engineOffset: 6
+    engineOffset: 7
     faceTarget: true
     mineTier: 2
     mineSpeed: 5
@@ -39,7 +39,7 @@ description: Shoots spiraling projectiles that damage enemy targets and heal all
             bullet: {
                 type: BasicBulletType
                 speed: 5
-                damage: 20
+                damage: 24
                 lifetime: 20
                 healPercent: 6
                 collidesTeam: true
