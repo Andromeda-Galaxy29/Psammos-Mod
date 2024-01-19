@@ -1,6 +1,6 @@
 type: flying
 name: Helix
-description: Shoots two spiraling projectiles that damage enemy targets and heal allied structures. Heals nearby allied units.
+description: Shoots spiraling projectiles that damage enemy targets and heal allied structures. Heals nearby allied units.
     lowAltitude: true
     speed: 2.3
     rotateSpeed: 10
@@ -26,16 +26,15 @@ description: Shoots two spiraling projectiles that damage enemy targets and heal
     weapons: [
         {
             name: helix-gun
-            x: -5
-            y: 0
-            layerOffset: -1
-            reload: 28
+            x: 0
+            y: 6
+            reload: 24
             shootSound: lasershoot
             ejectEffect: none
             shoot: {
                 type: ShootHelix
-                shootScl: 4
-                shootMag: 5
+                scl: 4
+                mag: 5
             }
             bullet: {
                 type: BasicBulletType
