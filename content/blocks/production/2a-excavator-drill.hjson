@@ -1,7 +1,7 @@
 "type": drill
 "size": 3
 "name": Excavator Drill
-"description": Drills much faster than a regular drill, but can only mine soft materials, like sand and peat
+"description": Drills much faster than a regular drill, but can only mine soft materials like sand
   "hasItems": true
   "hasLiquids": true
   "tier": 0
