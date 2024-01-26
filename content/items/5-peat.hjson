@@ -2,6 +2,7 @@ name: Peat
 description: Flammable. Used a fuel.
   color: 82624eff,
   hardness: 3
+  explosiveness: 0.1
   flammability: 1
 research: {
   parent: 3-quartz
