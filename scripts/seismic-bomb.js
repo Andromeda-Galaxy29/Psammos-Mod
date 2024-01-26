@@ -1,4 +1,4 @@
 Events.on(BlockBuildEndEvent, event => {
-    print(event.tile.x, event.tile.y, event.tile.block)
+    Damage.damage(event.tile.x, event.tile.y, 6 * 8, 60);
     Fx.instBomb.at(event.tile.x, event.tile.y)
 });
