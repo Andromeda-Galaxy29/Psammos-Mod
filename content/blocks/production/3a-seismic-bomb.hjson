@@ -3,6 +3,7 @@ name: Seismic Bomb (very WIP)
 description: Placeholder description
 health: 50
 category: production
+createRubble: false
 requirements: [
   2-silver/3
   blast-compound/6
