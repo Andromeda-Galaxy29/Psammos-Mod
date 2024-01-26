@@ -1,0 +1,12 @@
+name: Peat
+description: Flammable. Used a fuel.
+  color: 82624eff,
+  hardness: 3
+  flammability: 1
+research: {
+  parent: 3-quartz
+}
+hiddenOnPlanets: [
+  serpulo,
+  erekir
+]
