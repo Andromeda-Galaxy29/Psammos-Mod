@@ -1,0 +1,26 @@
+type: GenericCrafter
+name: Blast Manufacturer (WIP)
+description: Manufactures blast compound from sand, peat and ozone
+category: crafting
+size: 2
+squareSprite: false
+craftEffect: pulverizeRed
+hasLiquids: true
+liquidCapacity: 15
+consumes: {
+  power: 1
+  liquids: [
+    ozone/0.0166666666
+  ]
+  items: [
+    sand/2
+    5-peat/3
+  ]
+}
+outputItem: blast-compound/3
+craftTime: 80
+requirements: [
+  1-osmium/35
+  2-silver/20
+  silicon/20
+]

@@ -56,7 +56,9 @@ itemWhitelist: [
   1-osmium,
   2-silver,
   3-quartz,
+  4-refined-metal,
+  5-peat,
   sand,
-  scrap,
-  silicon
+  silicon,
+  blast-compound
 ]
