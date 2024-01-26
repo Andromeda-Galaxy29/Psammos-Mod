@@ -1,0 +1,4 @@
+type: Floor
+name: Peat
+variants: 3
+itemDrop: 5-peat
