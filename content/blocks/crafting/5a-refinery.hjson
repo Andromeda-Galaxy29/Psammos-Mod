@@ -1,5 +1,5 @@
 type: GenericCrafter
-name: Refinery (WIP)
+name: Refinery
 description: Purifies slag into refined metal. Uses ozone as fuel and water for cooling
 category: crafting
 size: 2

@@ -1,5 +1,5 @@
 type: AttributeCrafter
-name: Thermolysis Chamber (WIP)
+name: Thermolysis Chamber
 description: Uses extreme heat to break down ferric stone into slag and ozone
 category: crafting
 size: 3
