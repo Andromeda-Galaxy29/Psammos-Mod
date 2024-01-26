@@ -10,6 +10,7 @@
   drawMineItem: false
   ambientSound: drill
   ambientSoundVolume: 0.08
+  squareSprite: false
   "consumes": {
     "liquid": {
       "liquid": water
