@@ -1,4 +1,4 @@
-type: Block
+type: Wall
 name: Seismic Bomb (very WIP)
 description: Placeholder description
 health: 50
