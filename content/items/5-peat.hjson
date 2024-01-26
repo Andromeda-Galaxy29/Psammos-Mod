@@ -1,7 +1,7 @@
 name: Peat
 description: Used as fuel and energy production
   color: 82624eff,
-  hardness: 3
+  hardness: 0
   explosiveness: 0.1
   flammability: 1
 research: {
