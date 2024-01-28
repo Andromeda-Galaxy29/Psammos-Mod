@@ -2,8 +2,8 @@ Events.on(BlockBuildEndEvent, event => {
     if (event.tile.block() == Vars.content.block("psammos-3a-seismic-bomb")){
         Damage.damage(event.tile.x*8, event.tile.y*8, 3 * 8, 60);
         Fx.instBomb.at(event.tile.x*8, event.tile.y*8)
-        for(x=event.tile.x-1; x<=event.tile.x+1; x++){
-            for(y=event.tile.y-1; y<=event.tile.y+1; y++){
+        for(let x=event.tile.x-1; x<=event.tile.x+1; x++){
+            for(let y=event.tile.y-1; y<=event.tile.y+1; y++){
                 Vars.world.tile(x, y).setFloorNet(Vars.content.block("tar"))
                 Vars.world.tile(x, y).setOverlayNet(Vars.content.block("air"))
             }
