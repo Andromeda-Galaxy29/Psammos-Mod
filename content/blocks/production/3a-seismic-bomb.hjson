@@ -1,6 +1,6 @@
 type: Wall
-name: Seismic Bomb (very WIP)
-description: Placeholder description
+name: Seismic Bomb
+description: Explodes upon being built. When explodes near an oil deposit, it turns it into pumpable liquid oil.
 health: 50
 category: production
 rebuildable: false
