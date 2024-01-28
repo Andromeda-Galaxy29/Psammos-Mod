@@ -1,0 +1,4 @@
+type: OreBlock
+name: Oil Deposit (WIP)
+liquidDrop: oil
+variants: 3
