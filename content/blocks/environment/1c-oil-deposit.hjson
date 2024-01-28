@@ -1,4 +1,3 @@
 type: OverlayFloor
 name: Oil Deposit (WIP)
-liquidDrop: oil
 variants: 3
