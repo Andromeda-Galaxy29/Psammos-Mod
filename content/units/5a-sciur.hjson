@@ -29,17 +29,6 @@ description: Fast-moving ground unit. Shoots homing missiles at enemies. Hovers 
         }
     ]
 
-    abilities: [
-        {
-            type: MoveEffectAbility
-            x: 0
-            y: -5
-            color: c3aedd
-            effect: missileTrailShort
-            interval: 4
-        }
-    ]
-
     weapons: [
         {
             name: sciur-missile
@@ -71,6 +60,33 @@ description: Fast-moving ground unit. Shoots homing missiles at enemies. Hovers 
                 despawnEffect: blastExplosion
                 weaveScale: 5
                 weaveMag: 0.8
+            }
+        }
+        {
+            name: trail
+            alwaysShooting: true
+            alwaysContinuous: true
+            alternate: false
+            shootY: 0
+            recoil: 0
+            y: -5
+            x: 4.5
+            shootSound: none
+            bullet: {
+                type: BulletType
+                keepVelocity: false
+                speed: 0
+                collides: false
+                hittable: false
+                absorbable: false
+                shootEffect: none
+                smokeEffect: none
+                hitEffect: none
+                despawnEffect: none
+                layer: 100
+                trailLength: 3
+                trailWidth: 2
+                trailColor: c3aedd
             }
         }
     ]
