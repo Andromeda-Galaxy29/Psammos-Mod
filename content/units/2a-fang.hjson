@@ -4,7 +4,7 @@ description: Moves towards enemy structures and crushes them. Can crawl over mos
     speed: 1
     omniMovement: false
     rotateSpeed: 2
-    health: 140
+    health: 120
     hitSize: 9
     armor: 0
     outlineColor: 3c3835

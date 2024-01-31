@@ -4,7 +4,7 @@ description: Moves towards enemy structures and crushes them. Also shoots explos
     speed: 1.2
     omniMovement: false
     rotateSpeed: 2
-    health: 450
+    health: 420
     hitSize: 11
     armor: 3
     outlineColor: 3c3835

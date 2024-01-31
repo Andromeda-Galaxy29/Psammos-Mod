@@ -1,0 +1,51 @@
+type: hovering
+name: Sciur
+description: Fast-moving ground unit. Shoots homing missiles at enemies. Hovers over liquids.
+    speed: 1.25
+    drag: 0.1
+    hitSize: 9
+    rotateSpeed: 5
+    health: 180
+    armor: 0
+    outlineColor: 3c3835
+    faceTarget: true
+    targetAir: true
+
+    hovering: true
+
+    shadowElevation: 0.1
+
+    weapons: [
+        {
+            name: sciur-missile
+            x: 0
+            y: 0
+            reload: 28
+            shootSound: missile
+            inaccuracy: 2
+            velocityRnd: 0.1
+            mirror: false
+            rotate: false
+            bullet: {
+                type: MissileBulletType
+                speed: 4
+                damage: 7
+                width: 8
+                height: 8
+                shrinkY: 0
+                drag: -0.003
+                homingRange: 60
+                keepVelocity: false
+                splashDamageRadius: 18
+                splashDamage: 9
+                lifetime: 40
+                trailColor: c3aedd
+                backColor: c3aedd
+                frontColor: e8def4
+                hitEffect: blastExplosion
+                despawnEffect: blastExplosion
+                weaveScale: 5
+                weaveMag: 0.8
+            }
+        }
+    ]
