@@ -22,6 +22,7 @@ description: Fast-moving ground unit. Shoots homing missiles at enemies. Hovers 
             y: 0
             reload: 28
             shootSound: missile
+            layerOffset: -0.01
             inaccuracy: 2
             velocityRnd: 0.1
             mirror: false
