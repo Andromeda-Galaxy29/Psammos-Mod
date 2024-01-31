@@ -15,6 +15,31 @@ description: Fast-moving ground unit. Shoots homing missiles at enemies. Hovers 
 
     shadowElevation: 0.1
 
+    parts: [
+        {
+            type: HoverPart
+            x: 0
+            y: -5
+            mirror: false
+            radius: 6
+            phase: 90
+            stroke: 2
+            layerOffset: -0.001
+            color: c3aedd
+        }
+    ]
+
+    abilities: [
+        {
+            type: MoveEffectAbility
+            x: 0
+            y: -5
+            color: c3aedd
+            effect: missileTrailShort
+            interval: 4
+        }
+    ]
+
     weapons: [
         {
             name: sciur-missile
