@@ -8,9 +8,9 @@ description: Transports liquids through terrain or buildings.
   arrowSpacing: 4
   buildCostMultiplier: 3
   bridgeWidth: 8
-category: distribution
+category: liquid
 requirements: [
-  1-osmium/6
+  3-quartz/6
   2-silver/6
 ]
 research: {
