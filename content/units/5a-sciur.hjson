@@ -32,9 +32,9 @@ description: Fast-moving ground unit. Shoots homing missiles at enemies. Hovers 
             x: 3.8
             y: 1.4
             mirror: true
-            radius: 3
+            radius: 4
             phase: 90
-            stroke: 1
+            stroke: 2
             layerOffset: -0.001
             color: c3aedd
         }
