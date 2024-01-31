@@ -3,7 +3,7 @@ description: Purified scrap metal. Used in defensive structures and advanced bui
   color: c2c2d1ff,
   hardness: 3
 research: {
-  parent: 2-silver
+  parent: 3-quartz
 }
 hiddenOnPlanets: [
   serpulo,

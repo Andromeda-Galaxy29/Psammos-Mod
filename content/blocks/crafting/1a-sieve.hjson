@@ -35,7 +35,7 @@ requirements: [
   2-silver/15
 ]
 research: {
-  parent: 1a-osmium-drill
+  parent: 3a-wind-turbine
   objectives: [
     {
       type: OnSector
