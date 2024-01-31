@@ -28,7 +28,7 @@ description: Fast-moving ground unit. Shoots homing missiles at enemies. Hovers 
             rotate: false
             bullet: {
                 type: MissileBulletType
-                speed: 4
+                speed: 2
                 damage: 7
                 width: 8
                 height: 8
