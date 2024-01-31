@@ -1,0 +1,18 @@
+type: LiquidBridge
+name: Quartz Tunnel Conduit
+description: Transports liquids through terrain or buildings.
+  health: 40
+  range: 4
+  hasLiquids: true
+  liquidCapacity: 20
+  arrowSpacing: 4
+  buildCostMultiplier: 3
+  bridgeWidth: 8
+category: distribution
+requirements: [
+  1-osmium/6
+  2-silver/6
+]
+research: {
+  parent: 2a-quartz-conduit
+}
