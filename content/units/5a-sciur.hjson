@@ -29,8 +29,8 @@ description: Fast-moving ground unit. Shoots homing missiles at enemies. Hovers 
         }
         {
             type: HoverPart
-            x: 3
-            y: 1
+            x: 3.8
+            y: 1.4
             mirror: true
             radius: 3
             phase: 90
@@ -96,7 +96,7 @@ description: Fast-moving ground unit. Shoots homing missiles at enemies. Hovers 
                 despawnEffect: none
                 layer: 100
                 trailLength: 10
-                trailWidth: 2
+                trailWidth: 1
                 trailColor: c3aedd
             }
         }
