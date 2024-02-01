@@ -45,7 +45,7 @@ description: Placeholder
             name: glirid-laser
             x: -4
             y: 0
-            reload: 30
+            reload: 26
             shootSound: laser
             mirror: true
             rotate: true
@@ -54,11 +54,12 @@ description: Placeholder
                 damage: 29
                 colors: [c3aedd, ffffff]
                 hitEffect: hitLancer
-                hitSize: 4.5
+                hitSize: 3
                 lifetime: 16
-                drawSize: 450
+                drawSize: 300
                 collidesAir: true
-                length: 165
+                length: 80
+                width: 6
                 pierceCap: 2
             }
         }
