@@ -60,7 +60,7 @@ description: Placeholder
             shootY: 0
             recoil: 0
             y: -6
-            x: 6
+            x: 5
             shootSound: none
             bullet: {
                 type: BulletType
