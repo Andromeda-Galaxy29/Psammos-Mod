@@ -45,7 +45,7 @@ description: Placeholder
             name: glirid-laser
             x: -4
             y: 0
-            reload: 26
+            reload: 35
             shootSound: laser
             mirror: true
             rotate: true
