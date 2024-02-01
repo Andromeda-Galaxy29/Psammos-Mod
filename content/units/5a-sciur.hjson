@@ -1,7 +1,7 @@
 type: hover
 name: Sciur
 description: Fast-moving ground unit. Shoots homing missiles at enemies. Hovers over liquids.
-    speed: 1.6
+    speed: 2.8
     drag: 0.1
     hitSize: 9
     rotateSpeed: 8

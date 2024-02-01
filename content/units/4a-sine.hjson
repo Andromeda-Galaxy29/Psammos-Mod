@@ -2,7 +2,7 @@ type: flying
 name: Sine
 description: Shoots laser waves that damage enemy targets and heal allied structures. Has more health than other T1 units.
     lowAltitude: true
-    speed: 2.5
+    speed: 2.2
     rotateSpeed: 12
     accel: 0.1
     drag: 0.04

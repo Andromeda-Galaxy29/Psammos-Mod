@@ -1,7 +1,7 @@
 type: hover
 name: Glirid
 description: Placeholder
-    speed: 1.8
+    speed: 3
     drag: 0.1
     hitSize: 12
     rotateSpeed: 9
