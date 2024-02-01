@@ -1,0 +1,83 @@
+type: hover
+name: Glirid
+description: Placeholder
+    speed: 1.8
+    drag: 0.1
+    hitSize: 16
+    rotateSpeed: 9
+    health: 450
+    armor: 3
+    outlineColor: 3c3835
+    faceTarget: false
+    targetAir: true
+
+    hovering: true
+
+    shadowElevation: 0.15
+
+    parts: [
+       
+    ]
+
+    weapons: [
+        {
+            name: glirid-missile
+            x: 0
+            y: -3
+            reload: 28
+            shootSound: missile
+            inaccuracy: 2
+            velocityRnd: 0.1
+            mirror: false
+            rotate: false
+            bullet: {
+                type: MissileBulletType
+                speed: 2
+                damage: 7
+                width: 8
+                height: 8
+                shrinkY: 0
+                drag: -0.003
+                homingRange: 60
+                keepVelocity: false
+                splashDamageRadius: 18
+                splashDamage: 9
+                lifetime: 40
+                trailColor: c3aedd
+                backColor: c3aedd
+                frontColor: e8def4
+                hitEffect: blastExplosion
+                despawnEffect: blastExplosion
+                weaveScale: 5
+                weaveMag: 0.8
+            }
+        }
+        {
+            name: trail
+            alwaysShooting: true
+            alwaysContinuous: true
+            alternate: false
+            shootY: 0
+            recoil: 0
+            y: -6
+            x: 6
+            shootSound: none
+            bullet: {
+                type: BulletType
+                damage: 0
+                keepVelocity: false
+                speed: 0
+                collides: false
+                hittable: false
+                absorbable: false
+                shootEffect: none
+                smokeEffect: none
+                hitEffect: none
+                despawnEffect: none
+                layer: 100
+                trailLength: 15
+                trailWidth: 2
+                trailColor: c3aedd
+            }
+        }
+    ]
