@@ -30,7 +30,7 @@ description: Placeholder
        {
             type: HoverPart
             x: 5
-            y: -2
+            y: -3.5
             mirror: true
             radius: 5
             phase: 90
