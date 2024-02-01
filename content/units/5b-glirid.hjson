@@ -51,7 +51,7 @@ description: Placeholder
             rotate: true
             bullet: {
                 type: LaserBulletType
-                damage: 29
+                damage: 22
                 colors: [c3aedd, ffffff]
                 hitEffect: hitLancer
                 hitSize: 3
