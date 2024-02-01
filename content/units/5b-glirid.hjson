@@ -3,9 +3,9 @@ name: Glirid
 description: Placeholder
     speed: 1.8
     drag: 0.1
-    hitSize: 16
+    hitSize: 12
     rotateSpeed: 9
-    health: 450
+    health: 485
     armor: 3
     outlineColor: 3c3835
     faceTarget: false
