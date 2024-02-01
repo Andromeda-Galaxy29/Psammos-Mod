@@ -53,13 +53,13 @@ description: Placeholder
                 type: LaserBulletType
                 damage: 29
                 colors: [c3aedd, ffffff]
-                hitEffect: hitLancer;
-                hitSize: 4.5;
+                hitEffect: hitLancer
+                hitSize: 4.5
                 lifetime: 16
                 drawSize: 450
-                collidesAir: true;
+                collidesAir: true
                 length: 165
-                pierceCap: 2;
+                pierceCap: 2
             }
         }
         {
