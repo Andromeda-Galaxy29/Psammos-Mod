@@ -26,6 +26,17 @@ description: Placeholder
             stroke: 2
             layerOffset: -0.001
             color: c3aedd
+       }
+       {
+            type: HoverPart
+            x: 5
+            y: -2
+            mirror: true
+            radius: 5
+            phase: 90
+            stroke: 2
+            layerOffset: -0.001
+            color: c3aedd
         }
     ]
 
@@ -69,8 +80,9 @@ description: Placeholder
             alternate: false
             shootY: 0
             recoil: 0
+            mirror: false
             y: -6
-            x: 5
+            x: 0
             shootSound: none
             bullet: {
                 type: BulletType
