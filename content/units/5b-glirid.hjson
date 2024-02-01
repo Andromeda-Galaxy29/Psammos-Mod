@@ -43,7 +43,7 @@ description: Placeholder
     weapons: [
         {
             name: glirid-missile
-            x: 4
+            x: -4
             y: 0
             reload: 20
             shootSound: missile
