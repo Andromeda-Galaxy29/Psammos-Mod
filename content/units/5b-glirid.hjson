@@ -1,7 +1,7 @@
 type: hover
 name: Glirid
 description: Placeholder
-    speed: 3
+    speed: 2.8
     drag: 0.1
     hitSize: 12
     rotateSpeed: 9
@@ -45,7 +45,7 @@ description: Placeholder
             name: glirid-laser
             x: -4
             y: 0
-            reload: 35
+            reload: 28
             shootSound: laser
             mirror: true
             rotate: true
