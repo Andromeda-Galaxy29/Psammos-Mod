@@ -43,34 +43,34 @@ description: Placeholder
     weapons: [
         {
             name: glirid-missile
-            x: 0
-            y: -3
-            reload: 28
+            x: 4
+            y: 0
+            reload: 20
             shootSound: missile
-            inaccuracy: 2
+            inaccuracy: 3
             velocityRnd: 0.1
-            mirror: false
-            rotate: false
+            mirror: true
+            rotate: true
             bullet: {
                 type: MissileBulletType
-                speed: 2
-                damage: 7
-                width: 8
-                height: 8
+                speed: 3
+                damage: 15
+                width: 10
+                height: 10
                 shrinkY: 0
                 drag: -0.003
-                homingRange: 60
+                homingRange: 70
                 keepVelocity: false
-                splashDamageRadius: 18
-                splashDamage: 9
-                lifetime: 40
+                splashDamageRadius: 20
+                splashDamage: 12
+                lifetime: 60
                 trailColor: c3aedd
                 backColor: c3aedd
                 frontColor: e8def4
                 hitEffect: blastExplosion
                 despawnEffect: blastExplosion
-                weaveScale: 5
-                weaveMag: 0.8
+                weaveScale: 6
+                weaveMag: 2
             }
         }
         {
