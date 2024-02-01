@@ -16,7 +16,17 @@ description: Placeholder
     shadowElevation: 0.15
 
     parts: [
-       
+       {
+            type: HoverPart
+            x: 5
+            y: 2
+            mirror: true
+            radius: 5
+            phase: 90
+            stroke: 2
+            layerOffset: -0.001
+            color: c3aedd
+        }
     ]
 
     weapons: [
