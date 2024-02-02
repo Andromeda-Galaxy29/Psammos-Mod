@@ -19,11 +19,19 @@ description: Placeholder
             x: 0
             y: -11
             radius: 3
+            rotation: -90
         }
         {
             x: 5
             y: -8
             radius: 2.2
+            rotation: -90
+        }
+        {
+            x: -5
+            y: -8
+            radius: 2.2
+            rotation: -90
         }
     ]
     abilities: [
