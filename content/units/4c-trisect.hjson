@@ -1,0 +1,55 @@
+type: flying
+name: Trisect
+description: Placeholder
+    lowAltitude: false
+    speed: 2.1
+    rotateSpeed: 9
+    accel: 0.2
+    drag: 0.04
+    flying: true
+    health: 750
+    hitSize: 17
+    armor: 4
+    outlineColor: 3c3835
+    engineOffset: 7
+    faceTarget: true
+    mineTier: 3
+    mineSpeed: 9
+    abilities: [
+        {
+            type: RepairFieldAbility
+            amount: 35
+            reload: 170
+            range: 110
+        }
+    ]
+    weapons: [
+        {
+            name: trisect-gun
+            x: 4
+            y: 2
+            reload: 24
+            shootSound: lasershoot
+            ejectEffect: none
+            shoot: {
+                type: ShootHelix
+                scl: 2
+                mag: 3
+            }
+            bullet: {
+                type: BasicBulletType
+                speed: 5
+                damage: 24
+                lifetime: 20
+                healPercent: 6
+                collidesTeam: true
+                width: 8
+                height: 8
+                trailWidth: 2
+                trailLength: 8
+                backColor: 84f491
+                frontColor: ffffff
+                trailColor: 84f491
+            }
+        }
+    ]
