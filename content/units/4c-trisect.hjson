@@ -30,7 +30,7 @@ description: Placeholder
             y: 1
             reload: 46
             layerOffset: -0.01
-            shootSound: lasershoot
+            shootSound: malignShoot
             ejectEffect: none
             bullet: {
                 type: BasicBulletType
@@ -48,6 +48,9 @@ description: Placeholder
                 trailColor: 84f491
                 fragBullets: 3
                 fragSpread: 60
+                fragRandomSpread: 0
+                fragVelocityMin: 1
+                fragVelocityMax: 1
                 fragBullet: {
                     type: BasicBulletType
                     speed: 4
