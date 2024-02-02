@@ -29,7 +29,7 @@ description: Placeholder
             x: -8
             y: 1
             reload: 24
-            layerOffset = -0.01
+            layerOffset: -0.01
             shootSound: lasershoot
             ejectEffect: none
             shoot: {
