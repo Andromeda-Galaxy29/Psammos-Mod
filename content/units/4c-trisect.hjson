@@ -11,10 +11,21 @@ description: Placeholder
     hitSize: 17
     armor: 4
     outlineColor: 3c3835
-    engineOffset: 11
     faceTarget: true
     mineTier: 3
     mineSpeed: 9
+    engines: [
+        {
+            x: 0
+            y: -11
+            radius: 3
+        }
+        {
+            x: 5
+            y: -8
+            radius: 2.2
+        }
+    ]
     abilities: [
         {
             type: RepairFieldAbility
