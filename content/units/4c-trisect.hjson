@@ -28,36 +28,36 @@ description: Placeholder
             name: trisect-weapon
             x: -8
             y: 1
-            reload: 24
+            reload: 46
             layerOffset: -0.01
             shootSound: lasershoot
             ejectEffect: none
             bullet: {
                 type: BasicBulletType
                 speed: 3
-                damage: 28
+                damage: 30
                 lifetime: 50
                 healPercent: 8
                 collidesTeam: true
-                width: 12
-                height: 12
-                trailWidth: 4
+                width: 10
+                height: 10
+                trailWidth: 3
                 trailLength: 12
                 backColor: 84f491
                 frontColor: ffffff
                 trailColor: 84f491
                 fragBullets: 3
-                fragAngle: 60
+                fragSpread: 60
                 fragBullet: {
                     type: BasicBulletType
                     speed: 4
-                    damage: 12
+                    damage: 10
                     lifetime: 15
                     healPercent: 1
                     collidesTeam: true
-                    width: 4
-                    height: 4
-                    trailWidth: 1
+                    width: 6
+                    height: 6
+                    trailWidth: 2
                     trailLength: 6
                     backColor: 84f491
                     frontColor: ffffff
