@@ -47,14 +47,14 @@ description: Placeholder
             name: trisect-weapon
             x: -8
             y: 1
-            reload: 40
+            reload: 45
             layerOffset: -0.01
             shootSound: malignShoot
             ejectEffect: none
             bullet: {
                 type: BasicBulletType
                 speed: 3
-                damage: 35
+                damage: 28
                 lifetime: 38
                 healPercent: 8
                 collidesTeam: true
@@ -85,6 +85,28 @@ description: Placeholder
                     frontColor: ffffff
                     trailColor: 84f491
                 }
+            }
+        }
+        {
+            name: trisect-laser
+            x: 0
+            y: 6
+            reload: 120
+            shootSound: laser
+            mirror: false
+            rotate: false
+            bullet: {
+                type: LaserBulletType
+                damage: 40
+                colors: [84f491, ffffff]
+                hitEffect: hitLancer
+                hitSize: 5
+                lifetime: 18
+                drawSize: 500
+                collidesAir: true
+                length: 100
+                width: 8
+                pierceCap: 1
             }
         }
     ]
