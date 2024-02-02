@@ -26,9 +26,10 @@ description: Placeholder
     weapons: [
         {
             name: trisect-weapon
-            x: 8
-            y: 2
+            x: -8
+            y: 1
             reload: 24
+            layerOffset = -0.01
             shootSound: lasershoot
             ejectEffect: none
             shoot: {
