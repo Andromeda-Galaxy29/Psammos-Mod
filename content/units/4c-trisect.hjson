@@ -11,7 +11,7 @@ description: Placeholder
     hitSize: 17
     armor: 4
     outlineColor: 3c3835
-    engineOffset: 7
+    engineOffset: 11
     faceTarget: true
     mineTier: 3
     mineSpeed: 9
@@ -25,8 +25,8 @@ description: Placeholder
     ]
     weapons: [
         {
-            name: trisect-gun
-            x: 4
+            name: trisect-weapon
+            x: 8
             y: 2
             reload: 24
             shootSound: lasershoot
