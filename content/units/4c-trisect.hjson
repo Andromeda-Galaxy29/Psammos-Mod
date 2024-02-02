@@ -104,8 +104,10 @@ description: Placeholder
                 lifetime: 18
                 drawSize: 500
                 collidesAir: true
-                length: 100
-                width: 8
+                healPercent: 8
+                collidesTeam: true
+                length: 120
+                width: 16
                 pierceCap: 1
             }
         }
