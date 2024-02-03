@@ -1,5 +1,5 @@
 type: Pump
-name: Quartz Pump
+name: Heatproof Pump
 description: Pumps and outputs liquids. Requires power
   health: 60
   size: 2
