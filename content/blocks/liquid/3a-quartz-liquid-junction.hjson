@@ -1,5 +1,5 @@
 type: LiquidJunction
-name: Quartz Liquid Junction
+name: Heatproof Liquid Junction
 description: Acts as a bridge between two crossing conduits.
   health: 45
   buildCostMultiplier: 2f

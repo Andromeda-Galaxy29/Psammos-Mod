@@ -1,5 +1,5 @@
 type: Conduit
-name: Quartz Conduit
+name: Heatproof Conduit
 description: Transports liquids froward.
   health: 45
   buildCostMultiplier: 2f

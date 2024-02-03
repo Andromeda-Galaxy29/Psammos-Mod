@@ -1,5 +1,5 @@
 type: LiquidRouter
-name: Quartz Liquid Router
+name: Heatproof Liquid Router
 description: Distributes liquids in all directions.
   health: 45
   buildCostMultiplier: 2f
