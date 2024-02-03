@@ -14,7 +14,7 @@ description: Placeholder
     hovering: false
     legPhysicsLayer: true
 
-    legCount: 6
+    legCount: 4
     legLength: 18
     legGroupSize: 3
     lockLegBase: true
@@ -34,23 +34,40 @@ description: Placeholder
             name: spear-gun
             x: 8
             y: 0
-            reload: 18
+            reload: 8
             shootSound: shoot
             mirror: true
             rotate: true
-            shoot: {
-                shots: 2
-                shotsDelay: 4
-            }
             bullet: {
                 type: BasicBulletType
                 speed: 4
-                damage: 22
+                damage: 18
                 width: 6
                 height: 6
-                trailWidth: 1
-                trailLength: 2
+                trailWidth: 2
+                trailLength: 4
                 lifetime: 70
+                shootEffect: shootSmall
+                smokeEffect: shootSmallSmoke
+            }
+        }
+        {
+            name: spear-cannon
+            x: 0
+            y: 6
+            reload: 80
+            shootSound: cannon
+            mirror: false
+            rotate: true
+            bullet: {
+                type: BulletType
+                speed: 2
+                damage: 20
+                width: 10
+                height: 10
+                lifetime: 90
+                splashDamageRadius: 30
+                splashDamage: 20
                 shootEffect: shootSmall
                 smokeEffect: shootSmallSmoke
             }
