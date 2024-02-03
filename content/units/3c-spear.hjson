@@ -1,0 +1,58 @@
+type: legs
+name: Spear
+description: Placeholder
+    speed: 0.6
+    drag: 0.1
+    hitSize: 16
+    rotateSpeed: 2.5
+    health: 700
+    armor: 5
+    outlineColor: 3c3835
+    faceTarget: false
+    targetAir: true
+
+    hovering: false
+    legPhysicsLayer: true
+
+    legCount: 6
+    legLength: 18
+    legGroupSize: 3
+    lockLegBase: true
+    legContinuousMove: true
+    legExtension: -3
+    legBaseOffset: 7
+    legMaxLength: 1.1
+    legMinLength: 0.2
+    legLengthScl: 0.95
+    legForwardScl: 0.9
+    legMoveSpace: 1
+
+    shadowElevation: 0.4
+
+    weapons: [
+        {
+            name: spear-gun
+            x: 8
+            y: 0
+            reload: 18
+            shootSound: shoot
+            mirror: true
+            rotate: true
+            shoot: {
+                shots: 2
+                shotsDelay: 4
+            }
+            bullet: {
+                type: BasicBulletType
+                speed: 4
+                damage: 22
+                width: 6
+                height: 6
+                trailWidth: 1
+                trailLength: 2
+                lifetime: 70
+                shootEffect: shootSmall
+                smokeEffect: shootSmallSmoke
+            }
+        }
+    ]
