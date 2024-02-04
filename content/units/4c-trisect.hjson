@@ -47,7 +47,7 @@ description: Placeholder
             name: trisect-weapon
             x: -8
             y: 1
-            reload: 45
+            reload: 38
             layerOffset: -0.01
             shootSound: malignShoot
             ejectEffect: none
@@ -91,7 +91,7 @@ description: Placeholder
             name: trisect-laser
             x: 0
             y: 5
-            reload: 120
+            reload: 110
             shootSound: laser
             mirror: false
             rotate: false

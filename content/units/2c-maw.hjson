@@ -11,7 +11,7 @@ description: Placeholder
     faceTarget: true
     controller: HugAI
     targetAir: false
-    crushDamage: 0.9
+    crushDamage: 1
 
     segments: 3
     drawBody: false
@@ -24,7 +24,7 @@ description: Placeholder
             name: maw-gun
             x: 0
             y: 7
-            reload: 60
+            reload: 50
             shootSound: cannon
             mirror: false
             bullet: {
