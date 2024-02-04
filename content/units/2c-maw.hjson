@@ -39,7 +39,7 @@ description: Placeholder
                 trailColor: cccccc
                 lifetime: 100
                 lightning: 6
-                lightningLength: 12
+                lightningLength: 8
                 lightningDamage: 24
                 lightningColor: ffffff
             }
