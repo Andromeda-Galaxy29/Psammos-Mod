@@ -23,7 +23,7 @@ description: Placeholder
         {
             name: maw-gun
             x: 0
-            y: 9
+            y: 7
             reload: 60
             shootSound: cannon
             mirror: false
