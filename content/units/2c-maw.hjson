@@ -3,7 +3,7 @@ name: Maw
 description: Placeholder
     speed: 0.9
     omniMovement: true
-    rotateSpeed: 2
+    rotateSpeed: 2.3
     health: 680
     hitSize: 17
     armor: 5
