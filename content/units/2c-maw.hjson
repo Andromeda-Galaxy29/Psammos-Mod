@@ -1,0 +1,45 @@
+type: crawl
+name: Maw
+description: Placeholder
+    speed: 0.9
+    omniMovement: false
+    rotateSpeed: 1.4
+    health: 680
+    hitSize: 17
+    armor: 5
+    outlineColor: 3c3835
+    faceTarget: true
+    controller: HugAI
+    targetAir: false
+    crushDamage: 0.9
+
+    segments: 3
+    drawBody: false
+    segmentScl: 2
+    segmentPhase: 5
+    segmentMag: 0.4
+
+    weapons: [
+        {
+            name: maw-gun
+            x: 0
+            y: 9
+            reload: 60
+            shootSound: cannon
+            mirror: false
+            bullet: {
+                type: ArtilleryBulletType
+                damage: 30
+                width: 16
+                height: 16
+                speed: 1
+                hitColor: ffffff
+                backColor: ffffff
+                frontColor: ffffff
+                trailColor: cccccc
+                lifetime: 100
+                splashDamage: 34
+                splashDamageRadius: 35
+            }
+        }
+    ]

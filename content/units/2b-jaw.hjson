@@ -29,6 +29,7 @@ description: Moves towards enemy structures and crushes them. Also shoots explos
             mirror: false
             bullet: {
                 type: ArtilleryBulletType
+                damage: 25
                 width: 6
                 height: 6
                 speed: 2
