@@ -2,7 +2,7 @@ type: crawl
 name: Maw
 description: Placeholder
     speed: 0.9
-    omniMovement: false
+    omniMovement: true
     rotateSpeed: 1.4
     health: 680
     hitSize: 17
