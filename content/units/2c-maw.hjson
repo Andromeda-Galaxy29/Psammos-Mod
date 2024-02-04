@@ -15,9 +15,9 @@ description: Placeholder
 
     segments: 3
     drawBody: false
-    segmentScl: 2
+    segmentScl: 4
     segmentPhase: 5
-    segmentMag: 0.4
+    segmentMag: 0.6
 
     weapons: [
         {
