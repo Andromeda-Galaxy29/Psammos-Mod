@@ -3,7 +3,7 @@ name: Maw
 description: Placeholder
     speed: 0.9
     omniMovement: true
-    rotateSpeed: 1.4
+    rotateSpeed: 2
     health: 680
     hitSize: 17
     armor: 5
@@ -15,9 +15,9 @@ description: Placeholder
 
     segments: 3
     drawBody: false
-    segmentScl: 4
+    segmentScl: 3
     segmentPhase: 5
-    segmentMag: 0.6
+    segmentMag: 0.5
 
     weapons: [
         {
