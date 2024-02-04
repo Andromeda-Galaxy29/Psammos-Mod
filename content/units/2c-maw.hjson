@@ -38,8 +38,10 @@ description: Placeholder
                 frontColor: ffffff
                 trailColor: cccccc
                 lifetime: 100
-                splashDamage: 34
-                splashDamageRadius: 35
+                lightning: 6
+                lightningLength: 12
+                lightningDamage: 24
+                lightningColor: ffffff
             }
         }
     ]
