@@ -1,0 +1,39 @@
+type: GenericCrafter
+name: Oil Distillation Tower
+description: Placeholder
+category: crafting
+size: 3
+squareSprite: false
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawRegion
+      suffix: -bottom
+    },
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawLiquidOutputs
+    }
+  ]
+}
+rotate: true
+rotateDraw: false
+consumes: {
+  liquid: oil/0.066666666
+  power: 2
+}
+outputLiquids: [
+  2-fuel/0.03333333333
+  3-methane/0.0333333333333
+]
+liquidOutputDirections: [1, 3]
+craftTime: 30
+requirements: [
+  1-osmium/20
+  4-refined-metal/18
+  3-quartz/60
+  silicon/10
+]
