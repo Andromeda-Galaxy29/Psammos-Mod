@@ -1,6 +1,6 @@
 type: hover
 name: Glirid
-description: Placeholder
+description: Fast-moving ground unit. Shoots laser beams at enemies. Can hover over liquids
     speed: 2.8
     drag: 0.1
     hitSize: 12

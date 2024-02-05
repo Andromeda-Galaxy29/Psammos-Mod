@@ -1,6 +1,6 @@
 type: flying
 name: Trisect
-description: Placeholder
+description: Shoots large projectiles and lasers that damage enemy targets and heal allied structures. Heals nearby allied units.
     lowAltitude: false
     speed: 2.1
     rotateSpeed: 9

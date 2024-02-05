@@ -1,6 +1,6 @@
 type: GenericCrafter
 name: Oil Distillation Tower
-description: Placeholder
+description: Refines oil into fuel and methane.
 category: crafting
 size: 3
 squareSprite: false
@@ -27,7 +27,7 @@ drawer: {
 rotate: true
 rotateDraw: false
 consumes: {
-  liquid: oil/0.066666666
+  liquid: oil/0.1
   power: 2
 }
 outputLiquids: [

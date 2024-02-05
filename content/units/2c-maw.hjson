@@ -1,6 +1,6 @@
 type: crawl
 name: Maw
-description: Placeholder
+description: Moves towards enemy structures and crushes them. Shoots slow moving plasma projectiles. Can crawl over most terrain.
     speed: 0.9
     omniMovement: true
     rotateSpeed: 2.6

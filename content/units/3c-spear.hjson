@@ -1,6 +1,6 @@
 type: legs
 name: Spear
-description: Placeholder
+description: Shoots bullets and powerful artillery projectiles at enemies. Can walk over most structures
     speed: 0.4
     drag: 0.1
     hitSize: 16
