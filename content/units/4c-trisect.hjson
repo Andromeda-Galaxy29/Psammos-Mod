@@ -106,7 +106,7 @@ description: Shoots large projectiles and lasers that damage enemy targets and h
                 lifetime: 18
                 drawSize: 500
                 collidesAir: true
-                healPercent: 8
+                healPercent: 10
                 collidesTeam: true
                 length: 120
                 width: 16
