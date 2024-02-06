@@ -14,6 +14,8 @@ description: Shoots large projectiles and lasers that damage enemy targets and h
     faceTarget: true
     mineTier: 3
     mineSpeed: 9
+    buildSpeed: 0.5
+    buildBeamOffset: 6
     engines: [
         {
             x: 0
