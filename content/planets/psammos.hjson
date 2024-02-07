@@ -43,7 +43,7 @@ allowLaunchToNumbered: false
 allowLaunchLoadout: false
 allowSectorInvasion: false
 startSector: 0
-orbitSpacing: 2
+orbitSpacing: 1
 radius: 1.2
 drawOrbit: true
 atmosphereRadIn: 0
