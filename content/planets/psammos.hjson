@@ -30,9 +30,9 @@ cloudMesh: {
   type: HexSkyMesh
   seed: 42
   speed: 0.4
-  radius: 0.18
+  radius: 0.15
   divisions: 5
-  color: ffffff
+  color: ffffffee
   octaves: 3
   persistence: 0.7
   scl: 1
