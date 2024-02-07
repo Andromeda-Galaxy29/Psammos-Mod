@@ -32,11 +32,11 @@ cloudMesh: {
   speed: 0.4
   radius: 0.15
   divisions: 5
-  color: ffffffee
+  color: ffffff99
   octaves: 3
   persistence: 0.7
   scl: 1
-  thresh: 0.3
+  thresh: 0.15
 }
 sectorSize: 1
 allowLaunchToNumbered: false
