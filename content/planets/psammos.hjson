@@ -31,12 +31,12 @@ cloudMesh: {
   seed: 42
   speed: 0.4
   radius: 0.18
-  divisions: 6
-  color: ffffff99
+  divisions: 5
+  color: d2ae8d66
   octaves: 3
   persistence: 0.7
   scl: 1
-  thresh: 0.8
+  thresh: 0.4
 }
 sectorSize: 1
 allowLaunchToNumbered: false
