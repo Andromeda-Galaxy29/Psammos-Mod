@@ -49,8 +49,8 @@ clearSectorOnLose: true
 allowWaves: true
 prebuildBase: false
 defaultCore: 1a-core-dust
-parent: luxen
-solarSystem: luxen
+parent: sun
+solarSystem: sun
 launchCandidates: []
 itemWhitelist: [
   1-osmium,
