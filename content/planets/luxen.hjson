@@ -23,7 +23,7 @@ visible: true
 hasAtmosphere: false
 bloom: true
 orbitSpacing: 8
-solarSystem: lux-nox-double-system
+solarSystem: luxen
 parent: sun
 orbitRadius: 120000
 drawOrbit: false
