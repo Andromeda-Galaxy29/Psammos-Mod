@@ -36,7 +36,7 @@ cloudMesh: {
   octaves: 3
   persistence: 0.7
   scl: 1
-  thresh: 0.15
+  thresh: 0.5
 }
 sectorSize: 1
 allowLaunchToNumbered: false
