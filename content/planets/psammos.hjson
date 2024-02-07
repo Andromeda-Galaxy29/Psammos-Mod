@@ -17,7 +17,7 @@ mesh: [
   {
     type: NoiseMesh
     planet: psammos
-    divisions: 5
+    divisions: 4
     seed: 101
     radius: 0.2
     color1: 80746e
