@@ -50,7 +50,7 @@ allowWaves: true
 prebuildBase: false
 defaultCore: 1a-core-dust
 parent: sun
-solarSystem: sun
+solarSystem: lux-nox-double-system
 launchCandidates: []
 itemWhitelist: [
   1-osmium,
