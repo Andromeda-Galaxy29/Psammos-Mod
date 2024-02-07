@@ -8,7 +8,7 @@ mesh: [
     planet: psammos
     divisions: 5
     seed: 101
-    radius: 1.16
+    radius: 1.2
     color1: d2ae8d
     color2: f7cba4
     octaves: 5.1
@@ -19,7 +19,7 @@ mesh: [
     planet: psammos
     divisions: 4
     seed: 101
-    radius: 1.16
+    radius: 1.2
     color1: 80746e
     color2: 534d4a
     octaves: 5.1
@@ -44,7 +44,7 @@ allowLaunchLoadout: false
 allowSectorInvasion: false
 startSector: 0
 orbitSpacing: 2
-radius: 1.2
+radius: 1.18
 drawOrbit: true
 atmosphereRadIn: 0
 atmosphereRadOut: 0.4
