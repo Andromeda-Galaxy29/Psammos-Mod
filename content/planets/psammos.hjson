@@ -47,7 +47,7 @@ orbitSpacing: 2
 radius: 1.2
 drawOrbit: true
 atmosphereRadIn: 0
-atmosphereRadOut: 0.4
+atmosphereRadOut: 0.3
 accessible: true
 orbitRadius: 35
 sectorSeed: 1204
