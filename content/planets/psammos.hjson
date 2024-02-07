@@ -44,7 +44,7 @@ allowLaunchLoadout: false
 allowSectorInvasion: false
 startSector: 0
 orbitSpacing: 2
-radius: 1.18
+radius: 1.12
 drawOrbit: true
 atmosphereRadIn: 0
 atmosphereRadOut: 0.4
