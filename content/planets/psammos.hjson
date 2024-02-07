@@ -26,6 +26,18 @@ mesh: [
     persistence: 0.1
   }
 ]
+cloudMesh: {
+  type: HexSkyMesh
+  seed: 42
+  speed: 0.4
+  radius: 1.23
+  divisions: 5
+  color: ffffff7e
+  octaves: 3
+  persistence: 0.7
+  scl: 1
+  thresh: 0.4
+}
 sectorSize: 1
 allowLaunchToNumbered: false
 allowLaunchLoadout: false
