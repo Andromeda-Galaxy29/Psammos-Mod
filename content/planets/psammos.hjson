@@ -19,7 +19,7 @@ mesh: [
     planet: psammos
     divisions: 5
     seed: 101
-    radius: 0.25
+    radius: 0.2
     color1: 80746e
     color2: 534d4a
     octaves: 5.1
