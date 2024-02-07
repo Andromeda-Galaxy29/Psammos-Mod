@@ -28,7 +28,7 @@ rotate: true
 rotateDraw: false
 consumes: {
   liquid: oil/0.06666666666666
-  item: 5-peat/1
+  items: [5-peat/1]
   power: 2
 }
 outputLiquids: [
