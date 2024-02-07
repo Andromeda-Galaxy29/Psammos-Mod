@@ -38,7 +38,7 @@ cloudMesh: {
   scl: 1
   thresh: 0.4
 }
-sectorSize: 1
+sectorSize: 0.6
 allowLaunchToNumbered: false
 allowLaunchLoadout: false
 allowSectorInvasion: false
