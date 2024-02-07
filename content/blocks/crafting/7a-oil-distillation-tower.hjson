@@ -1,6 +1,6 @@
 type: GenericCrafter
 name: Oil Distillation Tower
-description: Refines oil into fuel and methane.
+description: Refines oil into fuel and methane. Uses peat as fuel
 category: crafting
 size: 3
 squareSprite: false
@@ -27,15 +27,16 @@ drawer: {
 rotate: true
 rotateDraw: false
 consumes: {
-  liquid: oil/0.1
+  liquid: oil/0.06666666666666
+  item: 5-peat/1
   power: 2
 }
 outputLiquids: [
-  2-fuel/0.03333333333
-  3-methane/0.0333333333333
+  2-fuel/0.03333333333333
+  3-methane/0.033333333333333
 ]
 liquidOutputDirections: [1, 3]
-craftTime: 30
+craftTime: 60
 requirements: [
   1-osmium/20
   4-refined-metal/18
