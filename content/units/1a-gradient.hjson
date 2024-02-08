@@ -15,7 +15,7 @@ description: Defends the Dust core from enemies. Builds structures
     engineOffset: 6
     faceTarget: true
     controller: BuilderAI
-    mineTier: 1
+    mineTier: 2
     mineSpeed: 5
     buildSpeed: 0.5
     buildBeamOffset: 5
