@@ -5,7 +5,7 @@
   "hasItems": true
   "hasLiquids": true
   "tier": 1
-  "drillTime": 280
+  "drillTime": 290
   rotateSpeed: 5
   drawMineItem: false
   ambientSound: drill
