@@ -24,7 +24,6 @@
   1-osmium/25
   3-quartz/15
 ]
-alwaysUnlocked: true
 research: {
   parent: 1a-osmium-drill
 }
