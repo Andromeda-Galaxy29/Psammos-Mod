@@ -1,5 +1,5 @@
 type: LiquidBridge
-name: Heatproof Tunnel Conduit
+name: Tunnel Pipe
 description: Transports liquids through terrain or buildings.
   health: 40
   range: 4
