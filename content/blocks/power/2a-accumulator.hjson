@@ -1,0 +1,12 @@
+type: Battery
+name: Accumulator
+description: Stores power
+size: 2
+category: power
+emptyLightColor: 829cae
+fullLightColor: b9d1e1
+requirements: [
+  2-silver/10
+  silicon/5
+]
+research: 1a-electric-pole
