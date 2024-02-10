@@ -1,5 +1,5 @@
 type: OverflowDuct
-name: Osmium Underflow Gate
+name: Heatproof Underflow Gate
 description: Opposite of an overflow gate. Outputs to the front if the left and right paths are blocked.
   health: 40
   speed: 4
