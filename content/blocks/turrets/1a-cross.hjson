@@ -27,6 +27,11 @@ size: 2
       trailLength: 3
     }
   }
+  consumes: {
+    coolant: {
+      amount: 0.1
+    }
+  }
   drawer: {
     type: DrawTurret
     basePrefix: heatproof-

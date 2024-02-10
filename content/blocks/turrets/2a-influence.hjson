@@ -34,6 +34,11 @@ size: 2
     lightningDamage: 8
     lightningColor: a9d8ff
   }
+  consumes: {
+    coolant: {
+      amount: 0.1
+    }
+  }
   drawer: {
     type: DrawTurret
     basePrefix: heatproof-

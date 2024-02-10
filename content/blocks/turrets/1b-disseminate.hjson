@@ -38,6 +38,11 @@ size: 2
       despawnEffect: hitSquaresColor
     }
   }
+  consumes: {
+    coolant: {
+      amount: 0.1
+    }
+  }
   drawer: {
     type: DrawTurret
     basePrefix: heatproof-
