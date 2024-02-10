@@ -1,5 +1,5 @@
 type: Conveyor
-name: Osmium Conveyor
+name: Heatproof Conveyor
 description: Transports items froward.
   health: 45
   speed: 0.05f
