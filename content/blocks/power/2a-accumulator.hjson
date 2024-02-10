@@ -5,7 +5,7 @@ size: 2
 category: power
 hasPower: true
 consumes: {
-    power: 4000
+    powerBuffered: 4000
 }
 emptyLightColor: 829cae
 fullLightColor: b9d1e1
