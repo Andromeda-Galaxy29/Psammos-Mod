@@ -2,6 +2,7 @@
 "description": Used for advanced electronics and building
   "color": "b9d1e1",
   "hardness": 2
+  cost: 0.8
 research: {
   parent: 1-osmium
 }
