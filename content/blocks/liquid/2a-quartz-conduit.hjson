@@ -1,5 +1,5 @@
 type: Conduit
-name: Heatproof Conduit
+name: Pipe
 description: Transports liquids froward.
   health: 45
   buildCostMultiplier: 2f
