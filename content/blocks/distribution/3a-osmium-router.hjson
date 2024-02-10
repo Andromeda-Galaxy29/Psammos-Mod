@@ -1,5 +1,5 @@
 type: DuctRouter
-name: Osmium Router
+name: Heatproof Router
 description: Distributes items equally across three directions. Only accepts items from the back side. Can be configured as an item sorter.
   health: 40
   speed: 4
