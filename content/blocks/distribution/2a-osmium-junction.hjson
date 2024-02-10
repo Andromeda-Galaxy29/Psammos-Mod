@@ -1,5 +1,5 @@
 type: Junction
-name: Osmium Junction
+name: Heatproof Junction
 description: Acts as a bridge for two crossing conveyor belts.
   health: 30
   speed: 26
