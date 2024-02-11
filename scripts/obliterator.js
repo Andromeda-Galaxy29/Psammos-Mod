@@ -1,6 +1,9 @@
 Events.on(WorldLoadEvent, event => {
     Timer.schedule(e => {
-        Groups.build.each(b => {obliterator(b)})
+        Vars.world.tiles.each((x, y) => {
+            let b = Vars.world.tile(x, y).build
+            obliterator(b)
+        })
     }, 0, 1);
 });
 
