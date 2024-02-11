@@ -3,6 +3,7 @@ name: Tunnel Pipe
 description: Transports liquids through terrain or buildings.
   health: 40
   range: 4
+  hasPower: false
   hasLiquids: true
   liquidCapacity: 20
   arrowSpacing: 4
