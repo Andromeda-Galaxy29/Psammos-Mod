@@ -8,7 +8,7 @@ Events.on(WorldLoadEvent, event => {
 });
 
 function obliterator(b){
-    if(Vars.state.isPaused()){
+    if(Vars.state.isPaused() || b == null){
         return
     }
     if(b.block == Vars.content.block("psammos-Zz-obliterator") && b.items.has(Vars.content.item("blast-compound"))){
