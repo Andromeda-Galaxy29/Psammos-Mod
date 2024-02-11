@@ -13,10 +13,4 @@ requirements: [
 ]
 research: {
   parent: 2a-osmium-junction
-  objectives: [
-    {
-      type: Research
-      content: 6a-blast-manufacturer
-    }
-  ]
 }
