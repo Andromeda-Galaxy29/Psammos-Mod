@@ -1,3 +1,3 @@
 Events.on(ContentInitEvent, e => {
-    Vars.content.block("psammos-Zz-obliterator").consume(new ConsumeItemFilter(Boolf(item => item.explosiveness > 0.2)))
+    Vars.content.block("psammos-Zz-obliterator").consume(new ConsumeItemFilter(Boolf(item => true)))
 });
