@@ -4,9 +4,6 @@ description: Explodes any item it receives. Requires blast compound to function
 category: distribution
 size: 1
 craftTime: 60
-consumes: {
-    items: [blast-compound/1]
-}
 requirements: [
   1-osmium/12
   2-silver/4
