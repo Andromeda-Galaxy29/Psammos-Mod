@@ -10,8 +10,6 @@ function obliterator(b){
     }
     if(b.block == Vars.content.block("psammos-Zz-obliterator") && b.items.has(Vars.content.item("blast-compound"))){
         Fx.smokeCloud.at(b.x, b.y)
-        for(let item of Vars.content.items()){
-            b.items.remove(item, 1)
-        }
+        b.items.clear()
     }
 }
