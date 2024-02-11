@@ -1,6 +1,6 @@
 class ConsumeAny extends ConsumeItemFilter{
     constructor(){
-        filter = item => true
+        this.filter = item => true
     }
 }
 
