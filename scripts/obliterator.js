@@ -1,4 +1,4 @@
-const ConsumeAny = class ConsumeAny extends ConsumeItemFilter{
+class ConsumeAny extends ConsumeItemFilter{
     constructor(){
         filter = item => true
     }
