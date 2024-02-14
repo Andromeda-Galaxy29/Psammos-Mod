@@ -37,11 +37,13 @@ size: 2
     basePrefix: heatproof-
     parts: [
       {
-        suffix: -string
+        suffix: -arm
         type: RegionPart
         progress: warmup
-        moveY: -2
-        mirror: false
+        y: 4
+        moveRot: -15
+        mirror: true
+        turretShading: true
       }
       {
         suffix: -center
@@ -50,13 +52,11 @@ size: 2
         mirror: false
       }
       {
-        suffix: -arm
+        suffix: -string
         type: RegionPart
         progress: warmup
-        y: 4
-        moveRot: -15
-        mirror: true
-        turretShading: true
+        moveY: -2
+        mirror: false
       }
     ]
   }
