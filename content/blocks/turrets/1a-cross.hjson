@@ -39,7 +39,7 @@ size: 2
       {
         suffix: -arm
         type: RegionPart
-        progress: charge
+        progress: recoil
         y: 4
         moveRot: -15
         mirror: true
@@ -48,13 +48,13 @@ size: 2
       {
         suffix: -center
         type: RegionPart
-        progress: charge
+        progress: recoil
         mirror: false
       }
       {
         suffix: -string
         type: RegionPart
-        progress: charge
+        progress: recoil
         moveY: -2
         mirror: false
       }
