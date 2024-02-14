@@ -40,7 +40,7 @@ size: 2
         suffix: -arm
         type: RegionPart
         progress: recoil
-        rot: -15
+        rotation: -15
         y: 4
         moveRot: 15
         mirror: true
