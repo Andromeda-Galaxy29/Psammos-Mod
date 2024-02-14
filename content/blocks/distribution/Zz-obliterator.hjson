@@ -1,10 +1,11 @@
-type: GenericCrafter
+type: Incinerator
 name: Obliterator
-description: Explodes any item it receives. Requires blast compound to function
+description: Destroyes any item it receives.
 category: distribution
-size: 1
-craftTime: 60
+effect: smokeCloud
+size: 1
 requirements: [
+  blast-compound/8
   1-osmium/12
   2-silver/4
 ]
