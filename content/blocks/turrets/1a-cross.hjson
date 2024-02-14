@@ -40,8 +40,7 @@ size: 2
         suffix: -string
         type: RegionPart
         progress: warmup
-        moveY: -1
-        layerOffset: 0.01
+        moveY: -2
         mirror: false
       }
       {
@@ -55,8 +54,7 @@ size: 2
         type: RegionPart
         progress: warmup
         y: 4
-        moveRot: 15
-        layerOffset: -0.01
+        moveRot: -15
         mirror: true
         turretShading: true
       }
