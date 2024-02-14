@@ -8,7 +8,7 @@ size: 2
   targetAir: true
   targetGround: true
   range: 160
-  reload: 30
+  reload: 50
   recoil: -0.6
   velocityRnd: 0.1
   inaccuracy: 0
