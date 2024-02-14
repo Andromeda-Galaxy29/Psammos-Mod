@@ -40,22 +40,23 @@ size: 2
         suffix: -arm
         type: RegionPart
         progress: recoil
+        rot: -15
         y: 4
-        moveRot: -15
+        moveRot: 15
         mirror: true
         turretShading: true
       }
       {
         suffix: -center
         type: RegionPart
-        progress: recoil
         mirror: false
       }
       {
         suffix: -string
         type: RegionPart
         progress: recoil
-        moveY: -2
+        y: -2
+        moveY: 2
         mirror: false
       }
     ]
