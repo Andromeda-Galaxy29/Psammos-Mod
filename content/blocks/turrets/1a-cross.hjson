@@ -8,12 +8,12 @@ size: 2
   targetAir: true
   targetGround: true
   range: 160
-  reload: 40
+  reload: 30
   recoil: -0.6
   velocityRnd: 0.1
   inaccuracy: 0
   shoot: {
-    firstShotDelay: 20
+    firstShotDelay: 30
   }
   ammoTypes: {
     1-osmium: {
