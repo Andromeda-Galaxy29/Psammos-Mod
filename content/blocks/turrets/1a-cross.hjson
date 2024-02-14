@@ -45,7 +45,7 @@ size: 2
         type: RegionPart
         progress: charge
         y: 4
-        moveRot: -20
+        moveRot: -15
         mirror: true
         turretShading: true
       }
