@@ -58,7 +58,7 @@ size: 2
         suffix: -string
         type: RegionPart
         progress: charge
-        moveY: -2.5
+        moveY: -2
         mirror: false
       }
     ]
