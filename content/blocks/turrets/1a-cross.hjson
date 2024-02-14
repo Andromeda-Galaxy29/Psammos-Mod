@@ -11,6 +11,9 @@ size: 2
   reload: 60
   velocityRnd: 0.1
   inaccuracy: 0
+  shoot: {
+    firstShotDelay: 20
+  }
   ammoTypes: {
     1-osmium: {
       type: BasicBulletType
@@ -39,10 +42,9 @@ size: 2
       {
         suffix: -arm
         type: RegionPart
-        progress: recoil
-        rotation: -10
+        progress: charge
         y: 4
-        moveRot: 10
+        moveRot: -10
         mirror: true
         turretShading: true
       }
@@ -54,9 +56,8 @@ size: 2
       {
         suffix: -string
         type: RegionPart
-        progress: recoil
-        y: -1.5
-        moveY: 1.5
+        progress: charge
+        moveY: -2
         mirror: false
       }
     ]
