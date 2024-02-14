@@ -11,7 +11,7 @@ size: 2
   reload: 20
   velocityRnd: 0.8
   inaccuracy: 45
-  shootY: -0.2
+  shootY: 4
   shoot: {
     shots: 12
   }

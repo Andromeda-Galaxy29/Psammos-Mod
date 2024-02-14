@@ -12,7 +12,6 @@ size: 2
   recoil: -0.6
   velocityRnd: 0.1
   inaccuracy: 0
-  shootY: -0.1
   shoot: {
     firstShotDelay: 30
   }
