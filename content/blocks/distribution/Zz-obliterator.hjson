@@ -2,7 +2,7 @@ type: Incinerator
 name: Obliterator
 description: Destroyes any item it receives.
 category: distribution
-effect: smokeCloud
+effect: ventSteam
 size: 1
 requirements: [
   blast-compound/8
