@@ -9,6 +9,7 @@ size: 2
   targetGround: true
   range: 160
   reload: 60
+  recoil: 0.2
   velocityRnd: 0.1
   inaccuracy: 0
   shoot: {
@@ -44,7 +45,7 @@ size: 2
         type: RegionPart
         progress: charge
         y: 4
-        moveRot: -10
+        moveRot: -15
         mirror: true
         turretShading: true
       }
