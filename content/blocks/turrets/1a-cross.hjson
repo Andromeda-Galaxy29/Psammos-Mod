@@ -35,6 +35,32 @@ size: 2
   drawer: {
     type: DrawTurret
     basePrefix: heatproof-
+    parts: [
+      {
+        suffix: -string
+        type: RegionPart
+        progress: warmup
+        moveY: -1
+        layerOffset: 0.01
+        mirror: false
+      }
+      {
+        suffix: -center
+        type: RegionPart
+        progress: warmup
+        mirror: false
+      }
+      {
+        suffix: -arm
+        type: RegionPart
+        progress: warmup
+        y: 4
+        moveRot: 15
+        layerOffset: -0.01
+        mirror: true
+        turretShading: true
+      }
+    ]
   }
 category: turret
 requirements: [
