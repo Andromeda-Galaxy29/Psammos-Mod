@@ -60,13 +60,6 @@ size: 2
         progress: charge
         moveY: -2
         mirror: false
-        moves: [
-          {
-            type: PartMove
-            progress: recoil
-            moveY: 2
-          }
-        ]
       }
     ]
   }
