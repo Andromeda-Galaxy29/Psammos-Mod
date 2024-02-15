@@ -8,7 +8,7 @@ size: 2
   targetAir: true
   targetGround: false
   range: 120
-  reload: 35
+  reload: 26
   velocityRnd: 0.8
   inaccuracy: 45
   shootY: 4
