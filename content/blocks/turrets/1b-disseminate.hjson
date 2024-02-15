@@ -8,7 +8,7 @@ size: 2
   targetAir: true
   targetGround: false
   range: 120
-  reload: 20
+  reload: 35
   velocityRnd: 0.8
   inaccuracy: 45
   shootY: 4
@@ -37,6 +37,29 @@ size: 2
       smokeEffect: shootSmokeSquare
       hitEffect: hitSquaresColor
       despawnEffect: hitSquaresColor
+    }
+    blast-compound: {
+      type: BasicBulletType
+      collidesGround: false
+      speed: 3
+      damage: 3
+      splashDamage: 34
+      splashDamageRadius: 21
+      width: 6
+      height: 6
+      ammoMultiplier: 5
+      trailWidth: 2
+      trailLength: 4
+      hitColor: ff0000
+      backColor: ff0000
+      frontColor: ff0000
+      trailColor: ff0000
+      lifetime: 25
+      shootEffect: shootBig
+      smokeEffect: shootSmokeSquare
+      hitEffect: hitSquaresColor
+      despawnEffect: hitSquaresColor
+      status: blasted
     }
   }
   consumes: {
