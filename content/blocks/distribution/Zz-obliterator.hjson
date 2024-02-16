@@ -2,7 +2,6 @@ type: GenericCrafter
 name: Obliterator
 description: Destroyes any item it receives. Requires blast compound to function
 category: distribution
-craftEffect: ventSteam
 size: 1
 drawer: {
   type: DrawMulti
@@ -15,6 +14,9 @@ drawer: {
       flameColor: f5b89e
       flameRadius: 1
       flameRadiusIn: 0.5
+      flameRadiusScl: 0
+      flameRadiusMag: 0
+      flameRadiusInMag: 0
     }
   ]
 }
