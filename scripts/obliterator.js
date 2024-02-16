@@ -7,15 +7,14 @@ Events.on(WorldLoadEvent, event => {
 function f(b){
     if(b.block == Vars.content.block("psammos-Zz-obliterator")){
         let result = false
-        for(let i of Vars.content.items()){
+        Vars.content.items().each(i => {
             if(i == Vars.content.item("blast-compound")){
-                continue
+                return
             }
             if(b.items.has(i)){
-                result = true
-                break
+                result = true
             }
-        }
+        })
         b.enabled = result
     }
 }
