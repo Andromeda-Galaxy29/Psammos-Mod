@@ -4,6 +4,20 @@ description: Destroyes any item it receives. Requires blast compound to function
 category: distribution
 craftEffect: ventSteam
 size: 1
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawFlame
+      flameColor: f5b89e
+      flameRadius: 1
+      flameRadiusIn: 0.5
+    }
+  ]
+}
 craftTime: 30
 consumes: {
   items: [blast-compound/1]
