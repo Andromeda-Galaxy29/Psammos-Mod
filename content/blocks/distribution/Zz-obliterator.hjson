@@ -18,12 +18,11 @@ drawer: {
   ]
 }
 craftTime: 30
-consumes: {
-  items: [blast-compound/1]
+consumes: {
   itemCharged: {minCharge: 0}
+  items: [blast-compound/1]
 }
-requirements: [
-  blast-compound/8
+requirements: [
   1-osmium/12
   2-silver/4
 ]
