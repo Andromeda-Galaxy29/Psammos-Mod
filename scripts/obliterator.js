@@ -11,7 +11,7 @@ function f(b){
             if(i == Vars.content.item("blast-compound")){
                 continue
             }
-            if(b.items.has(i)){
+            if(b.items().has(i)){
                 result = true
                 break
             }
