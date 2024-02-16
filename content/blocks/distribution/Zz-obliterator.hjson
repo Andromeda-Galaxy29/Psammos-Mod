@@ -1,9 +1,15 @@
-type: Incinerator
+type: GenericCrafter
 name: Obliterator
 description: Destroyes any item it receives.
 category: distribution
-effect: ventSteam
-size: 1
+craftEffect: ventSteam
+size: 1
+consumes: {
+  items: [blast-compound/1]
+  itemCharged: {
+    minCharge: 0
+  }
+}
 requirements: [
   blast-compound/8
   1-osmium/12
