@@ -12,8 +12,8 @@ drawer: {
     {
       type: DrawFlame
       flameColor: f5b89e
-      flameRadius: 0.6
-      flameRadiusIn: 0.4
+      flameRadius: 1
+      flameRadiusIn: 0.5
     }
   ]
 }
