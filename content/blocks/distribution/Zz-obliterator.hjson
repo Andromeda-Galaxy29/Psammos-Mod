@@ -1,14 +1,13 @@
 type: GenericCrafter
 name: Obliterator
-description: Destroyes any item it receives.
+description: Destroyes any item it receives. Requires blast compound to function
 category: distribution
 craftEffect: ventSteam
 size: 1
+craftTime: 30
 consumes: {
   items: [blast-compound/1]
-  itemCharged: {
-    minCharge: 0
-  }
+  itemCharged: {minCharge: 0}
 }
 requirements: [
   blast-compound/8
