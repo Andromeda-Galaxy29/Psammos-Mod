@@ -1,28 +1,11 @@
-type: GenericCrafter
-name: Obliterator (WIP)
-description: Destroyes any item it receives. Requires blast compound to function
-category: distribution
+type: Incinerator
+name: Obliterator
+description: Destroyes any item it receives
+category: crafting
 size: 1
-drawer: {
-  type: DrawMulti
-  drawers: [
-    {
-      type: DrawDefault
-    },
-    {
-      type: DrawFlame
-      flameColor: f5b89e
-      flameRadius: 1
-      flameRadiusIn: 0.5
-    }
-  ]
-}
-craftTime: 30
-consumes: {
-  itemCharged: {minCharge: 0}
-  items: [blast-compound/1]
-}
-requirements: [
+hasPower: false
+requirements: [
+  blast-compound/10
   1-osmium/12
   2-silver/4
 ]
