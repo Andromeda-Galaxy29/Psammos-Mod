@@ -10,5 +10,5 @@ requirements: [
   2-silver/4
 ]
 research: {
-  parent: 2a-osmium-junction
+  parent: 6a-blast-manufacturer
 }
