@@ -1,6 +1,6 @@
 type: Incinerator
 name: Obliterator
-description: Destroyes any item it receives
+description: Destroys any item or liquid it receives
 category: crafting
 size: 1
 hasPower: false
