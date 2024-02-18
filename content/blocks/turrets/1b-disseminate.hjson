@@ -50,10 +50,10 @@ size: 2
       ammoMultiplier: 5
       trailWidth: 2
       trailLength: 4
-      hitColor: eb8778
-      backColor: eb8778
-      frontColor: eb8778
-      trailColor: bc5452
+      hitColor: fdb380
+      backColor: fdb380
+      frontColor: fdb380
+      trailColor: eb8778
       lifetime: 25
       shootEffect: shootBig
       smokeEffect: shootSmokeSquare
