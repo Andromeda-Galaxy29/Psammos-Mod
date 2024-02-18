@@ -70,6 +70,20 @@ size: 2
   drawer: {
     type: DrawTurret
     basePrefix: heatproof-
+    parts: [
+      {
+        suffix: -barrel
+        type: RegionPart
+        progress: recoil
+        moveY: -2
+        mirror: false
+      }
+      {
+        suffix: -top
+        type: RegionPart
+        mirror: false
+      }
+    ]
   }
 category: turret
 requirements: [
