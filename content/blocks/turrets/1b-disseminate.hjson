@@ -24,7 +24,7 @@ size: 2
       splashDamage: 20
       splashDamageRadius: 16
       width: 6
-      height: 6
+      height: 8
       ammoMultiplier: 4
       trailWidth: 2
       trailLength: 4
@@ -46,7 +46,7 @@ size: 2
       splashDamage: 30
       splashDamageRadius: 21
       width: 6
-      height: 6
+      height: 8
       ammoMultiplier: 5
       trailWidth: 2
       trailLength: 4
