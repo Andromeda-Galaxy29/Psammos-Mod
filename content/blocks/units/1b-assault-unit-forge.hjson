@@ -1,0 +1,28 @@
+type: UnitFactory
+name: Assault Unit Forge (WIP)
+size: 3
+consumes: {
+  power: 1.4
+}
+plans: [
+  {
+    unit: 3a-tip
+    time: 1080
+    requirements: [
+      1-osmium/25
+      silicon/15
+    ]
+  }
+]
+requirements: [
+  1-osmium/50
+  2-silver/20
+  silicon/25
+]
+category: units
+research: 1a-core-dust
+researchCost: [
+  1-osmium/120
+  2-silver/100
+  silicon/100
+]
