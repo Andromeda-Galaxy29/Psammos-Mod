@@ -41,7 +41,7 @@ size: 2
     blast-compound: {
       type: BasicBulletType
       collidesGround: false
-      speed: 3
+      speed: 2.8
       damage: 7
       splashDamage: 32
       splashDamageRadius: 21
