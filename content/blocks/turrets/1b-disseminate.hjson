@@ -42,8 +42,8 @@ size: 2
       type: BasicBulletType
       collidesGround: false
       speed: 3
-      damage: 6
-      splashDamage: 30
+      damage: 7
+      splashDamage: 32
       splashDamageRadius: 21
       width: 6
       height: 8
