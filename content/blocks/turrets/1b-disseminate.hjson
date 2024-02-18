@@ -13,7 +13,7 @@ size: 2
   inaccuracy: 45
   shootY: 4
   shoot: {
-    shots: 12
+    shots: 8
   }
   ammoTypes: {
     sand: {
