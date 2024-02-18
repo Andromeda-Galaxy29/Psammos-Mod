@@ -1,5 +1,5 @@
 type: UnitFactory
-name: Assault Unit Forge (WIP)
+name: Specialist Unit Forge (WIP)
 size: 3
 consumes: {
   power: 1.4
@@ -7,23 +7,23 @@ consumes: {
 configurable: false
 plans: [
   {
-    unit: 3a-tip
-    time: 1080
+    unit: 2a-fang
+    time: 960
     requirements: [
-      1-osmium/25
+      2-silver/25
       silicon/15
     ]
   }
 ]
 requirements: [
-  1-osmium/50
-  2-silver/20
+  1-osmium/20
+  2-silver/50
   silicon/25
 ]
 category: units
-research: 1a-specialist-unit-forge
+research: 1a-core-dust
 researchCost: [
-  1-osmium/120
-  2-silver/100
+  1-osmium/100
+  2-silver/120
   silicon/100
 ]

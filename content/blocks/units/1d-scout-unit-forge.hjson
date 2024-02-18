@@ -1,0 +1,24 @@
+type: UnitFactory
+name: Scout Unit Forge (WIP)
+size: 3
+consumes: {
+  power: 1.4
+}
+configurable: false
+plans: [
+  {
+    unit: 5a-sciur
+    time: 1320
+    requirements: [
+      1-osmium/20
+      3-quartz/10
+      silicon/20
+    ]
+  }
+]
+requirements: [
+  1-osmium/50
+  2-silver/30
+  silicon/25
+]
+category: units
