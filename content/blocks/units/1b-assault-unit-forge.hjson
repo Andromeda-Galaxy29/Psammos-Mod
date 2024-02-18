@@ -4,6 +4,7 @@ size: 3
 consumes: {
   power: 1.4
 }
+configurable: false
 plans: [
   {
     unit: 3a-tip
