@@ -75,7 +75,7 @@ size: 2
         suffix: -barrel
         type: RegionPart
         progress: recoil
-        moveY: -2
+        moveY: -1.25
         mirror: false
       }
       {
