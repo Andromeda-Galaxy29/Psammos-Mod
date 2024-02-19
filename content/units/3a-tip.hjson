@@ -54,3 +54,5 @@ description: Fires big bullets at enemies. Can walk over most structures.
             }
         }
     ]
+research: 1b-assault-unit-forge
+researchCost: []
