@@ -38,4 +38,4 @@ description: Shoots laser waves that damage enemy targets and heal allied struct
         }
     ]
 research: 1c-support-unit-forge
-requirement: []
+researchCostMultiplier: 0
