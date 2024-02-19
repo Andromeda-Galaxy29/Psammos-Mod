@@ -18,3 +18,5 @@ description: Moves towards enemy structures and crushes them. Can crawl over mos
     segmentScl: 3
     segmentPhase: 5
     segmentMag: 0.5
+research: 1a-specialist-unit-forge
+researchCost: []
