@@ -21,7 +21,15 @@ requirements: [
   silicon/25
 ]
 category: units
-research: 1a-specialist-unit-forge
+research: {
+  parent: 1a-specialist-unit-forge
+  objectives: [
+    {
+      type: OnSector
+      preset: dried-river
+    }
+  ]
+}
 researchCost: [
   1-osmium/120
   2-silver/100

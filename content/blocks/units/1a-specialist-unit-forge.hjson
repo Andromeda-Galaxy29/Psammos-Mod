@@ -21,7 +21,15 @@ requirements: [
   silicon/25
 ]
 category: units
-research: 1a-core-dust
+research: {
+  parent: 1a-core-dust
+  objectives: [
+    {
+      type: OnSector
+      preset: dried-river
+    }
+  ]
+}
 researchCost: [
   1-osmium/100
   2-silver/120

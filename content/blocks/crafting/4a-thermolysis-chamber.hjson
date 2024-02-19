@@ -47,4 +47,12 @@ requirements: [
   3-quartz/60
   silicon/10
 ]
-research: 2a-silicon-synthesizer
+research: {
+  parent: 2a-silicon-synthesizer
+  objectives: [
+    {
+      type: OnSector
+      preset: dried-river
+    }
+  ]
+}
