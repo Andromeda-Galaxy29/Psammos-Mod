@@ -32,7 +32,7 @@ description: Fast-moving ground unit. Shoots laser beams at enemies. Can hover o
             x: 5
             y: -5.4
             mirror: true
-            radius: 5.3
+            radius: 6
             phase: 90
             stroke: 2
             layerOffset: -0.001
