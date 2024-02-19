@@ -19,4 +19,4 @@ description: Moves towards enemy structures and crushes them. Can crawl over mos
     segmentPhase: 5
     segmentMag: 0.5
 research: 1a-specialist-unit-forge
-requirements: []
+requirement: []
