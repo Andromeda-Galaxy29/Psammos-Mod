@@ -102,3 +102,5 @@ description: Fast-moving ground unit. Shoots homing missiles at enemies. Hovers 
             }
         }
     ]
+research: 1d-scout-unit-forge
+researchCost: []
