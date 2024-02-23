@@ -1,0 +1,13 @@
+sector: 5
+localizedName: Cavern
+planet: psammos
+difficulty: 2
+research: {
+  parent: quartz-valley
+  objectives: [
+    {
+      type: SectorComplete
+      preset: quartz-valley
+    }
+  ]
+}
