@@ -2,6 +2,7 @@ sector: 5
 localizedName: Cavern
 planet: psammos
 difficulty: 2
+captureWave: 30
 research: {
   parent: quartz-valley
   objectives: [
