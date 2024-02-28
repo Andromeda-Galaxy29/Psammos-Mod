@@ -1,3 +1,2 @@
 require("attributes");
-require("seismic-bomb");
-//require("test");
+require("seismic-bomb");
