@@ -8,7 +8,7 @@ size: 3
   targetGround: true
   range: 180
   reload: 120
-  inaccuracy: 0
+  inaccuracy: 2
   shootY: 6
   shoot: {
     shots: 6
