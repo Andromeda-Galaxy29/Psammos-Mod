@@ -7,10 +7,9 @@ size: 3
   targetAir: true
   targetGround: true
   range: 180
-  reload: 80
+  reload: 100
   inaccuracy: 0
-  recoil: 0.2
-  shootY: 3
+  shootY: 4
   shoot: {
     shots: 6
     shotDelay: 6
@@ -35,6 +34,13 @@ size: 3
     basePrefix: heatproof-
     parts: [
       {
+        suffix: -cylinder
+        type: RegionPart
+        mirror: false
+        progress: warmup
+        moveY: 1
+      }
+      {
         suffix: -side
         type: RegionPart
         progress: warmup
@@ -48,14 +54,7 @@ size: 3
         type: RegionPart
         mirror: false
         progress: recoil
-        moveY: -1
-      }
-      {
-        suffix: -cylinder
-        type: RegionPart
-        mirror: false
-        progress: warmup
-        moveY: 1
+        moveY: -0.3
       }
       {
         suffix: -top
