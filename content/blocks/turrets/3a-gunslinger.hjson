@@ -22,6 +22,7 @@ size: 3
       width: 8
       height: 12
       lifetime: 45
+      ammoMultiplier: 0.1666666666
     }
   }
   consumes: {
