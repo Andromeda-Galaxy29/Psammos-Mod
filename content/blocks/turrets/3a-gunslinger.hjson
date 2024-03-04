@@ -37,8 +37,8 @@ size: 3
         suffix: -side
         type: RegionPart
         progress: warmup
-        moveY: -2
-        moveX: -2
+        moveY: -1
+        moveX: -1
         mirror: true
         turretShading: true
       }
@@ -54,7 +54,7 @@ size: 3
         type: RegionPart
         mirror: false
         progress: warmup
-        moveY: 2
+        moveY: 1
       }
       {
         suffix: -top
