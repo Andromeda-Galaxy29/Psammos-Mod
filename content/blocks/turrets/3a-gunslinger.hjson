@@ -9,12 +9,13 @@ size: 3
   range: 180
   reload: 100
   inaccuracy: 0
+  shootY: -1
   shoot: {
     shots: 6
-    shotDelay: 10
+    shotDelay: 6
   }
   ammoTypes: {
-    1-osmium: {
+    4-refined-metal: {
       type: BasicBulletType
       speed: 8
       damage: 15
@@ -36,7 +37,7 @@ size: 3
         suffix: -side
         type: RegionPart
         progress: warmup
-        moveY: 2
+        moveY: -2
         moveX: -2
         mirror: true
         turretShading: true
@@ -46,14 +47,14 @@ size: 3
         type: RegionPart
         mirror: false
         progress: recoil
-        moveY: -2
+        moveY: -1.2
       }
       {
         suffix: -cylinder
         type: RegionPart
         mirror: false
         progress: warmup
-        moveY: 3
+        moveY: 2
       }
       {
         suffix: -top
