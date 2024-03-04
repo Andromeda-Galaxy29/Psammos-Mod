@@ -21,7 +21,7 @@ size: 3
       damage: 15
       width: 8
       height: 12
-      lifetime: 35
+      lifetime: 20
     }
   }
   consumes: {
