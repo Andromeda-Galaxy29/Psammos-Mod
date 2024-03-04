@@ -10,7 +10,8 @@ size: 2
   range: 140
   reload: 60
   inaccuracy: 0
-  shootY: -1.5
+  shootY: -1.5
+
   shootType: {
     type: BasicBulletType
     collidesAir: false
@@ -48,5 +49,5 @@ requirements: [
 ]
 researchCostMultiplier: 0.5
 research: {
-  parent: 1b-disseminate
+  parent: 1a-cross
 }

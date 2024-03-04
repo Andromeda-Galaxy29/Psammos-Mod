@@ -1,0 +1,73 @@
+type: ItemTurret
+name: Gunslinger (WIP)
+description: Fires six fast-moving bullets at enemy targets.
+size: 3
+  squareSprite: false
+  outlineColor: 534d4a
+  targetAir: true
+  targetGround: true
+  range: 180
+  reload: 100
+  inaccuracy: 0
+  shoot: {
+    shots: 6
+    shotDelay: 10
+  }
+  ammoTypes: {
+    1-osmium: {
+      type: BasicBulletType
+      speed: 8
+      damage: 15
+      width: 8
+      height: 12
+      lifetime: 35
+    }
+  }
+  consumes: {
+    coolant: {
+      amount: 0.1
+    }
+  }
+  drawer: {
+    type: DrawTurret
+    basePrefix: heatproof-
+    parts: [
+      {
+        suffix: -side
+        type: RegionPart
+        progress: warmup
+        moveY: 2
+        moveX: -2
+        mirror: true
+        turretShading: true
+      }
+      {
+        suffix: -barrel
+        type: RegionPart
+        mirror: false
+        progress: recoil
+        moveY: -2
+      }
+      {
+        suffix: -cylinder
+        type: RegionPart
+        mirror: false
+        progress: warmup
+        moveY: 3
+      }
+      {
+        suffix: -top
+        type: RegionPart
+        mirror: false
+      }
+    ]
+  }
+category: turret
+requirements: [
+  4-refined-metal/25
+  2-silver/30
+  blast-compound/10
+]
+research: {
+  parent: 2a-influence
+}
