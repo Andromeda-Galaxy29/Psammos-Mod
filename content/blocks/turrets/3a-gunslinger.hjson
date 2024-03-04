@@ -38,7 +38,8 @@ size: 3
         type: RegionPart
         mirror: false
         progress: reload
-        moveY: -1.5
+        y: 1
+        moveY: -1
       }
       {
         suffix: -side
@@ -54,7 +55,7 @@ size: 3
         type: RegionPart
         mirror: false
         progress: recoil
-        moveY: -1.9
+        moveY: -2.1
       }
       {
         suffix: -top
