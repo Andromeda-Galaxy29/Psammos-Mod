@@ -38,13 +38,12 @@ size: 3
         suffix: -cylinder
         type: RegionPart
         mirror: false
+        progress: reload
+        moveY: 1.5
       }
       {
         suffix: -side
         type: RegionPart
-        progress: reload
-        moveY: -0.8
-        moveX: -0.8
         mirror: true
         turretShading: true
       }
