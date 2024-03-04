@@ -37,8 +37,8 @@ size: 3
         suffix: -cylinder
         type: RegionPart
         mirror: false
-        progress: warmup
-        moveY: -1
+        progress: recoil
+        moveY: 1
       }
       {
         suffix: -side
