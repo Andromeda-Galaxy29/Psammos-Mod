@@ -7,7 +7,7 @@ size: 3
   targetAir: true
   targetGround: true
   range: 180
-  reload: 100
+  reload: 120
   inaccuracy: 0
   shootY: 4
   shoot: {
