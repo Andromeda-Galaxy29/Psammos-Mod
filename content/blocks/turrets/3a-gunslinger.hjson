@@ -37,15 +37,16 @@ size: 3
         suffix: -cylinder
         type: RegionPart
         mirror: false
-        progress: recoil
-        moveY: 1
+        progress: smoothReload
+        y: 1.5
+        moveY: -1.5
       }
       {
         suffix: -side
         type: RegionPart
         progress: warmup
-        moveY: -0.5
-        moveX: -0.5
+        moveY: -1
+        moveX: -1
         mirror: true
         turretShading: true
       }
@@ -54,7 +55,7 @@ size: 3
         type: RegionPart
         mirror: false
         progress: recoil
-        moveY: -1.5
+        moveY: -1.7
       }
       {
         suffix: -top
