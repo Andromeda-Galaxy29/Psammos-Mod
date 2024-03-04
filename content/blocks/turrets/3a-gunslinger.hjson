@@ -48,7 +48,7 @@ size: 3
         type: RegionPart
         mirror: false
         progress: recoil
-        moveY: -1.2
+        moveY: -1
       }
       {
         suffix: -cylinder
