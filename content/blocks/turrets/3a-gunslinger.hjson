@@ -38,7 +38,7 @@ size: 3
         type: RegionPart
         mirror: false
         progress: reload
-        moveY: 1.5
+        moveY: 2
       }
       {
         suffix: -side
