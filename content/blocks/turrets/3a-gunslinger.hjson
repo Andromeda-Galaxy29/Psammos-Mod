@@ -17,11 +17,11 @@ size: 3
   ammoTypes: {
     4-refined-metal: {
       type: BasicBulletType
-      speed: 8
+      speed: 4
       damage: 15
       width: 8
       height: 12
-      lifetime: 20
+      lifetime: 45
     }
   }
   consumes: {
