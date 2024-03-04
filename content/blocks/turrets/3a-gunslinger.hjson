@@ -9,6 +9,7 @@ size: 3
   range: 180
   reload: 100
   inaccuracy: 0
+  recoil: 0.2
   shootY: 3
   shoot: {
     shots: 6
