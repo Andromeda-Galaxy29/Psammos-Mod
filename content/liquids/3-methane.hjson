@@ -3,5 +3,6 @@ description: Used for hydrogen production and organic chemistry.
 color: 99a5aa
 gas: true
 flammability: 1.2
-explosiveness: 1.5
+explosiveness: 1.5
 coolant: false
+research: 4-refined-metal

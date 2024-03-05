@@ -5,3 +5,4 @@ heatCapacity: 0.3
 viscosity: 0.8
 coolant: false
 effect: slow
+research: 3-quartz
