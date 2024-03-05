@@ -16,7 +16,7 @@ drawer: {
       suffix: -bottom
     },
     {
-      type: DrawLiquidRegion
+      type: DrawLiquidTile
       drawLiquid: 4-cold-water
     },
     {

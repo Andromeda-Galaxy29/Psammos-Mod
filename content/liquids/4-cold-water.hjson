@@ -1,7 +1,7 @@
 name: Cold Water
 description: Water, but cold. Used as coolant in Psammos buildings.
 color: b6b2ff
-heatCapacity: 0.75
+heatCapacity: 0.7
 flammability: 0
 explosiveness: 0
 viscosity: 0.52
