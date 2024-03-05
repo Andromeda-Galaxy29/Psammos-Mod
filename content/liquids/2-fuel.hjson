@@ -8,10 +8,4 @@ viscosity: 0.55
 coolant: false
 research: {
     parent: 4-refined-metal
-    objectives: [
-        {
-            type: Produce
-            content: 2-fuel
-        }
-    ]
 }

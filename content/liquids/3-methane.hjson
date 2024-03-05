@@ -8,10 +8,4 @@ coolant: false
 research: 4-refined-metal
 research: {
     parent: 4-refined-metal
-    objectives: [
-        {
-            type: Produce
-            content: 3-methane
-        }
-    ]
 }

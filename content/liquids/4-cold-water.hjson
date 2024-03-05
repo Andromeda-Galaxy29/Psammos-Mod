@@ -8,10 +8,4 @@ viscosity: 0.52
 coolant: true
 research: {
     parent: 1-quicksand
-    objectives: [
-        {
-            type: Produce
-            content: 4-cold-water
-        }
-    ]
 }

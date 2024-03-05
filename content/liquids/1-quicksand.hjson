@@ -7,10 +7,4 @@ coolant: false
 effect: slow
 research: {
     parent: 3-quartz
-    objectives: [
-        {
-            type: Produce
-            content: 1-quicksand
-        }
-    ]
 }
