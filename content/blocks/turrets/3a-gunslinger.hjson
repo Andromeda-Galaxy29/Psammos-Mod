@@ -4,6 +4,7 @@ description: Fires six fast-moving bullets at enemy targets.
 size: 3
   squareSprite: false
   outlineColor: 534d4a
+  shootSound: shootSnap
   targetAir: true
   targetGround: true
   range: 180
