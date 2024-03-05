@@ -11,7 +11,7 @@ research: {
     objectives: [
         {
             type: Produce
-            content: psammos-2-fuel
+            content: 2-fuel
         }
     ]
 }

@@ -10,7 +10,7 @@ research: {
     objectives: [
         {
             type: Produce
-            content: psammos-1-quicksand
+            content: 1-quicksand
         }
     ]
 }

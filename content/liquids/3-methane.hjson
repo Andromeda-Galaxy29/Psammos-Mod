@@ -11,7 +11,7 @@ research: {
     objectives: [
         {
             type: Produce
-            content: psammos-3-methane
+            content: 3-methane
         }
     ]
 }
