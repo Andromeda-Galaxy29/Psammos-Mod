@@ -5,4 +5,12 @@ heatCapacity: 0.3
 viscosity: 0.8
 coolant: false
 effect: slow
-research: 3-quartz
+research: {
+    parent: 3-quartz
+    objectives: [
+        {
+            type: Produce
+            content: psammos-1-quicksand
+        }
+    ]
+}

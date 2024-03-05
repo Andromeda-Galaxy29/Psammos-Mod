@@ -6,4 +6,12 @@ flammability: 1.3
 explosiveness: 0.6
 viscosity: 0.55
 coolant: false
-research: 4-refined-metal
+research: {
+    parent: 4-refined-metal
+    objectives: [
+        {
+            type: Produce
+            content: psammos-2-fuel
+        }
+    ]
+}

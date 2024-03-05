@@ -6,3 +6,12 @@ flammability: 1.2
 explosiveness: 1.5
 coolant: false
 research: 4-refined-metal
+research: {
+    parent: 4-refined-metal
+    objectives: [
+        {
+            type: Produce
+            content: psammos-3-methane
+        }
+    ]
+}

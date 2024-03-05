@@ -6,4 +6,12 @@ flammability: 0
 explosiveness: 0
 viscosity: 0.52
 coolant: true
-research: 1-quicksand
+research: {
+    parent: 1-quicksand
+    objectives: [
+        {
+            type: Produce
+            content: psammos-4-cold-water
+        }
+    ]
+}
