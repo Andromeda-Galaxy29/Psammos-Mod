@@ -4,7 +4,8 @@ color: b6b2ff
 heatCapacity: 0.7
 flammability: 0
 explosiveness: 0
-viscosity: 0.52
+viscosity: 0.55
+temperature: 0.3
 coolant: true
 research: {
     parent: 1-quicksand
