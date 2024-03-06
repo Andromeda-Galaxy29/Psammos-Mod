@@ -15,9 +15,10 @@ drawer: {
       type: DrawDefault
     },
     {
-      type: DrawLiquidTile
-      padding: 16
-      drawLiquid: oil
+      type: DrawCultivator
+      plantColorLight: 61615b
+      plantColor: 313131
+      bottomColor: 1d1d23
     },
     {
       type: DrawLiquidOutputs
@@ -30,7 +31,7 @@ consumes: {
   liquid: oil/0.06666666666666
   power: 2
 }
-heatRequirement: 8
+heatRequirement: 6
 outputLiquids: [
   2-fuel/0.03333333333333
   3-methane/0.033333333333333
