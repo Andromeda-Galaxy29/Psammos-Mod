@@ -23,7 +23,6 @@ drawer: {
   ]
 }
 consumes: {
-  power: 1
   liquids: [
     2-fuel/0.01666666666
   ]
