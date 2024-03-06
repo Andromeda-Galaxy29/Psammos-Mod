@@ -16,7 +16,7 @@ drawer: {
       plantColorLight: 61615b
       plantColor: 313131
       bottomColor: 1d1d23
-      strokeMin: 0.8
+      strokeMin: 0.3
     },
     {
       type: DrawDefault
