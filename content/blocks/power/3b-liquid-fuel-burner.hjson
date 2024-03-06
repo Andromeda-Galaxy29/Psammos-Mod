@@ -24,7 +24,7 @@ drawer: {
 }
 consumes: {
   liquids: [
-    2-fuel/0.01666666666
+    2-fuel/0.02
   ]
 }
 requirements: [
