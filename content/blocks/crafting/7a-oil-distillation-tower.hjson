@@ -1,4 +1,4 @@
-type: GenericCrafter
+type: HeatCrafter
 name: Oil Distillation Tower
 description: Refines oil into fuel and methane. Uses peat as fuel
 category: crafting
@@ -28,9 +28,9 @@ rotate: true
 rotateDraw: false
 consumes: {
   liquid: oil/0.06666666666666
-  items: [5-peat/1]
   power: 2
 }
+heatRequirement: 8
 outputLiquids: [
   2-fuel/0.03333333333333
   3-methane/0.033333333333333
