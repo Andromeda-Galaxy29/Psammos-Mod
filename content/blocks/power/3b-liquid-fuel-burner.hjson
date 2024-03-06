@@ -1,0 +1,39 @@
+type: ConsumeGenerator
+name: Liquid Fuel Burner
+description: Generates power from liquid fuel
+powerProduction: 2.5
+hasPower: true
+outputsPower: true
+category: power
+size: 2
+squareSprite: false
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawRegion
+      suffix: -bottom
+    },
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawCrucibleFlame
+    }
+  ]
+}
+consumes: {
+  power: 1
+  liquids: [
+    2-fuel/0.01666666666
+  ]
+}
+requirements: [
+  1-osmium/30
+  2-silver/20
+  4-refined-metal/12
+
+]
+research: {
+  parent: 3a-wind-turbine
+}

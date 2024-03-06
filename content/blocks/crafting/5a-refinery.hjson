@@ -37,7 +37,7 @@ consumes: {
     water/0.06666666666
   ]
 }
-outputItem: 4-refined-metal/1
+outputItem: 4-refined-metal/2
 craftTime: 120
 requirements: [
   2-silver/35
