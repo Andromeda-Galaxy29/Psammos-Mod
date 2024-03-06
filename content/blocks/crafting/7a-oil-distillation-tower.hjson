@@ -12,16 +12,20 @@ drawer: {
       suffix: -bottom
     },
     {
-      type: DrawDefault
-    },
-    {
       type: DrawCultivator
       plantColorLight: 61615b
       plantColor: 313131
       bottomColor: 1d1d23
+      strokeMin: 0.8
+    },
+    {
+      type: DrawDefault
     },
     {
       type: DrawLiquidOutputs
+    },
+    {
+      type: DrawHeatInput
     }
   ]
 }
