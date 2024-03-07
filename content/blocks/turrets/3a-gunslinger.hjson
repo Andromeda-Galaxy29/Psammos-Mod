@@ -8,18 +8,18 @@ size: 3
   targetAir: true
   targetGround: true
   range: 180
-  reload: 120
+  reload: 100
   inaccuracy: 2
   shootY: 6
   shoot: {
     shots: 6
-    shotDelay: 6
+    shotDelay: 5
   }
   ammoTypes: {
     4-refined-metal: {
       type: BasicBulletType
       speed: 4
-      damage: 15
+      damage: 20
       width: 8
       height: 12
       lifetime: 45
