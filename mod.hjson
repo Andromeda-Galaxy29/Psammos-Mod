@@ -1,12 +1,7 @@
 "name": "psammos"
 "displayName": "Psammos Mod (WIP)"
 "author": Andromeda-Galaxy29
-"description": Adds a new desert planet. Almost all life which once populated this planet was wiped out by a cataclysmic event known as the Incineration. Survive in these harsh conditions and conquer Psammos.
-
-The campaign is super unfinished and doesnt work properly. Everything might change in the future. I update it very often so reinstall it once in a while.
-
-Thanks [blue]@thisiscrimsoncheck[white] on Discord for Cavern map and Liquid Fuel Burner
-
+"description": Adds a new desert planet. Almost all life which once populated this planet was wiped out by a cataclysmic event known as the Incineration. Survive in these harsh conditions and conquer Psammos. \n\nThe campaign is super unfinished and doesnt work properly. Everything might change in the future. I update it very often so reinstall it once in a while. \n\nThanks [blue]@thisiscrimsoncheck[white] on Discord for Cavern map and Liquid Fuel Burner
 "version": "0.1"
 "minGameVersion": "146"
 "dependencies": []
