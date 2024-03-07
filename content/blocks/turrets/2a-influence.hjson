@@ -29,7 +29,7 @@ size: 2
     trailLength: 5
     lightning: 4
     lightningLength: 8
-    lightningDamage: 8
+    lightningDamage: 6
     lightningColor: a9d8ff
   }
   consumes: {
