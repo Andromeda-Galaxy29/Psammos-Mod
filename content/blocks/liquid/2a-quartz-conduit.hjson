@@ -6,6 +6,7 @@ description: Transports liquids froward.
   hasLiquids: true
   liquidCapacity: 10
   junctionReplacement: 3a-quartz-liquid-junction
+  bridgeReplacement: 5a-quartz-bridge-conduit
 category: liquid
 requirements: [
   3-quartz/1
