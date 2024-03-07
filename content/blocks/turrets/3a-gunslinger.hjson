@@ -19,7 +19,7 @@ size: 3
     4-refined-metal: {
       type: BasicBulletType
       speed: 4
-      damage: 20
+      damage: 35
       width: 8
       height: 12
       lifetime: 45
