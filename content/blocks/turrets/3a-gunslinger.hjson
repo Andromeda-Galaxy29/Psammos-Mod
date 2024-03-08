@@ -25,7 +25,7 @@ size: 3
       height: 12
       lifetime: 45
       sprite: "psammos-revolver-bullet"
-      trailEffect: fire
+      trailEffect: melting
     }
   }
   consumes: {
