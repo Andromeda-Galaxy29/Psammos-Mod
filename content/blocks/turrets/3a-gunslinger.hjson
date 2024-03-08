@@ -15,7 +15,7 @@ size: 3
     shots: 6
     shotDelay: 5
   }
-  ammoUseEffect: casing2
+  ammoUseEffect: casing2Double
   ammoTypes: {
     4-refined-metal: {
       type: BasicBulletType
