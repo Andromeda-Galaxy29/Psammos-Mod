@@ -35,11 +35,11 @@ drawer: {
 consumes: {
   power: 2
   liquids: [
-    1-quicksand/0.05
+    1-quicksand/0.1
   ]
 }
-outputItem: sand/2
-outputLiquid: water/0.0333333333333
+outputItem: sand/4
+outputLiquid: water/0.06666666666
 craftTime: 60
 requirements: [
   1-osmium/20
