@@ -32,13 +32,13 @@ drawer: {
 rotate: true
 rotateDraw: false
 consumes: {
-  liquid: oil/0.06666666666666
+  liquid: oil/0.1
   power: 2
 }
 heatRequirement: 6
 outputLiquids: [
-  2-fuel/0.03333333333333
-  3-methane/0.033333333333333
+  2-fuel/0.05
+  3-methane/0.05
 ]
 liquidOutputDirections: [1, 3]
 craftTime: 60
