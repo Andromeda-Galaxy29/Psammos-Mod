@@ -6,7 +6,7 @@ description: Pumps and outputs liquids. Requires power
   squareSprite: false
   hasLiquids: true
   liquidCapacity: 15
-  pumpAmount: 0.1666666666666667
+  pumpAmount: 0.1
   consumes: {
     power: 0.5
   }
