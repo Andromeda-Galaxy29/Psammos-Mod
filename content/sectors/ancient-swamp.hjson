@@ -1,0 +1,14 @@
+sector: 12
+localizedName: Ancient Swamp
+planet: psammos
+difficulty: 2
+captureWave: 25
+research: {
+  parent: dried-river
+  objectives: [
+    {
+      type: SectorComplete
+      preset: dried-river
+    }
+  ]
+}
