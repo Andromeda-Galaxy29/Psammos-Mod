@@ -1,6 +1,6 @@
 type: HeatCrafter
 name: Oil Distillation Tower
-description: Refines oil into fuel and methane. Uses peat as fuel
+description: Refines oil into fuel and methane. Requires heating
 category: crafting
 size: 3
 squareSprite: false
