@@ -24,4 +24,12 @@ requirements: [
   2-silver/20
   silicon/20
 ]
-research: 4a-thermolysis-chamber
+research: {
+  parent: 4a-thermolysis-chamber
+  objectives: [
+    {
+      type: OnSector
+      preset: ancient-swamp
+    }
+  ]
+}

@@ -72,4 +72,10 @@ requirements: [
 ]
 research: {
   parent: 2a-influence
+  objectives: [
+    {
+      type: OnSector
+      preset: ancient-swamp
+    }
+  ]
 }
