@@ -8,6 +8,8 @@ description: Improved drill. Uses explosions to extract resources. Requires ozon
   tier: 3
   drillTime: 480
   shake: 4
+  arrows: 2
+  baseArrowColor: a4a098
   consumes: {
     liquids: [
       {
