@@ -3,10 +3,10 @@ size: 3
 name: Detonation Drill (WIP)
 description: Improved drill. Uses explosions to extract resources. Requires ozone
   hasItems: true
-  itemCapacity: 60
+  itemCapacity: 40
   hasLiquids: true
   tier: 3
-  drillTime: 720
+  drillTime: 600
   shake: 4
   drillEffect: [
     {
