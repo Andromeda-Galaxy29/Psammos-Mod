@@ -2,7 +2,6 @@ name: Aerogel
 description: Used as an insulator in heat-related machienery
   color: badaf7,
   hardness: 3
-  flammability: -0.2
 research: {
   parent: 3-methane
 }
