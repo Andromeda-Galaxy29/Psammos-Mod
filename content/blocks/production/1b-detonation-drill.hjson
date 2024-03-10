@@ -1,6 +1,6 @@
 type: BurstDrill
 size: 3
-name: Detonation Drill (WIP)
+name: Detonation Drill
 description: Improved drill. Uses explosions to extract resources. Requires cooling and power to function
   squareSprite: false
   hasItems: true
