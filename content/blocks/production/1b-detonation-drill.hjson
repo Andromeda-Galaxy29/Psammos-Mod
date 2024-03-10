@@ -1,7 +1,7 @@
 type: BurstDrill
 size: 3
 name: Detonation Drill (WIP)
-description: Improved drill. Uses explosions to extract resources. Requires ozone
+description: Improved drill. Uses explosions to extract resources. Requires cooling and power to function
   squareSprite: false
   hasItems: true
   itemCapacity: 40
@@ -13,6 +13,7 @@ description: Improved drill. Uses explosions to extract resources. Requires ozon
   baseArrowColor: a4a098
   arrowSpacing: 3
   consumes: {
+    power: 1
     liquids: [
       {
         liquid: 4-cold-water
