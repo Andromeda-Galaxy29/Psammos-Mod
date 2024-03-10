@@ -22,13 +22,15 @@ description: Improved drill. Uses explosions to extract resources
     drillSteam
   ]
   consumes: {
-    items: [blast-compound/2]
-    liquid: {
-      liquid: 4-cold-water
-      amount: 0.05
-      optional: true
-      booster: true
-    }
+    liquids: [
+      {
+        liquid: 4-cold-water
+        amount: 0.05
+        optional: true
+        booster: true
+      },
+      ozone/0.05
+    ]
   }
 category: production
 requirements: [
