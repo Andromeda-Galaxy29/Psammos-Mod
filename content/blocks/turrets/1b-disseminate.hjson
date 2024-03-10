@@ -29,7 +29,7 @@ size: 2
       trailWidth: 2
       trailLength: 4
       hitColor: f7cba4
-      backColor: f7cba4
+      backColor: d3ae8d
       frontColor: f7cba4
       trailColor: d3ae8d
       lifetime: 25
