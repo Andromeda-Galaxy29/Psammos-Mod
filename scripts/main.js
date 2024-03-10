@@ -5,7 +5,7 @@ Events.on(ContentInitEvent, e => {
     Vars.content.block("psammos-1b-detonation-drill").drillEffect = new MultiEffect(
         Fx.mineImpact,
         Fx.drillSteam,
-        Fx.dynamicSpikes.wrap(Items.blastCompound.color, 30),
-        Fx.mineImpactWave.wrap(Items.blastCompound.color, 45)
+        Fx.dynamicSpikes.wrap(Items.blastCompound.color, 15),
+        Fx.mineImpactWave.wrap(Items.blastCompound.color, 25)
     );
 });
