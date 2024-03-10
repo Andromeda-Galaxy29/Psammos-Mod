@@ -11,7 +11,7 @@ description: Improved drill. Uses explosions to extract resources. Requires ozon
   shake: 4
   arrows: 3
   baseArrowColor: a4a098
-  arrowSpacing: 2
+  arrowSpacing: 3
   consumes: {
     liquids: [
       {
