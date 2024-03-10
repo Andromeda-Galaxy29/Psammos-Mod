@@ -6,7 +6,7 @@ description: Improved drill. Uses explosions to extract resources. Requires ozon
   itemCapacity: 40
   hasLiquids: true
   tier: 3
-  drillTime: 600
+  drillTime: 480
   shake: 4
   drillEffect: [
     {
