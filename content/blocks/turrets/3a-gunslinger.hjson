@@ -1,5 +1,5 @@
 type: ItemTurret
-name: Gunslinger (WIP)
+name: Gunslinger
 description: Fires six fast-moving bullets at enemy targets.
 size: 3
   squareSprite: false

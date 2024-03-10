@@ -1,5 +1,5 @@
 type: UnitFactory
-name: Specialist Unit Forge (WIP)
+name: Specialist Unit Forge
 size: 3
 consumes: {
   power: 1.4
