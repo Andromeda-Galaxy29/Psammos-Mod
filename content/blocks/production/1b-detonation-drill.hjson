@@ -13,10 +13,10 @@ description: Improved drill. Uses explosions to extract resources
       type: WaveEffect
       sizeFrom: 0.1
       sizeTo: 14
-      strokeFrom: 1.1
-      strokeTo: 0.2
-      colorFrom: 8f8d87
-      colorTo: 6b6a66
+      strokeFrom: 1.8
+      strokeTo: 1.2
+      colorFrom: f7cba4
+      colorTo: d3ae8d
       lifetime: 20
     },
     drillSteam
