@@ -29,7 +29,10 @@ description: Improved drill. Uses explosions to extract resources. Requires ozon
         optional: true
         booster: true
       },
-      ozone/0.05
+      {
+        liquid: ozone
+        amount: 0.05
+      }
     ]
   }
 category: production
