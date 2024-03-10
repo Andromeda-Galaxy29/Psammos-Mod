@@ -8,19 +8,6 @@ description: Improved drill. Uses explosions to extract resources. Requires ozon
   tier: 3
   drillTime: 480
   shake: 4
-  drillEffect: [
-    {
-      type: WaveEffect
-      sizeFrom: 0.1
-      sizeTo: 14
-      strokeFrom: 1.8
-      strokeTo: 1.2
-      colorFrom: f7cba4
-      colorTo: d3ae8d
-      lifetime: 20
-    },
-    drillSteam
-  ]
   consumes: {
     liquids: [
       {
