@@ -17,7 +17,7 @@ description: Improved drill. Uses explosions to extract resources. Requires cool
     liquids: [
       {
         liquid: 4-cold-water
-        amount: 0.05
+        amount: 0.025
         optional: true
         booster: true
       }
