@@ -1,0 +1,36 @@
+type: BurstDrill
+size: 3
+name: Detonation Drill (WIP)
+description: Improved drill. Uses explosions to extract resources
+  hasItems: true
+  itemCapacity: 40
+  hasLiquids: true
+  tier: 3
+  drillTime: 720
+  shake: 4
+  drillEffect: [
+    {
+      type: WaveEffect
+      sizeFrom: 0.1
+      sizeTo: 14
+      strokeFrom: 1.1
+      strokeTo: 0.2
+      colorFrom: 8f8d87
+      colorTo: 6b6a66
+      lifetime: 20
+    },
+    drillSteam
+  ]
+  consumes: {
+    items: [blast-compound/2]
+    liquid: {
+      liquid: 4-cold-water
+      amount: 0.05
+      optional: true
+      booster: true
+    }
+  }
+category: production
+requirements: [
+  1-osmium/30
+]
