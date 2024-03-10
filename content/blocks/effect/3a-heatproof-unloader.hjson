@@ -1,0 +1,12 @@
+type: DirectionalUnloader
+name: Heatproof Unloader
+description: Unloads the selected item from the block behind it
+size: 1
+squareSprite: false
+category: effect
+allowCoreUnload: true
+requirements: [
+  4-refined-metal/15
+  silicon/10
+]
+research: 2a-heatproof-container
