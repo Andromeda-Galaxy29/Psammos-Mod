@@ -29,3 +29,12 @@ requirements: [
   4-refined-metal/30
   blast-compound/8
 ]
+research: {
+  parent: 1a-osmium-drill
+  objectives: [
+    {
+      type: OnSector
+      preset: ancient-swamp
+    }
+  ]
+}
