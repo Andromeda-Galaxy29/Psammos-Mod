@@ -17,7 +17,7 @@ consumes: {
     5-peat/2
   ]
 }
-outputItem: blast-compound/2
+outputItem: blast-compound/1
 craftTime: 60
 requirements: [
   1-osmium/35
