@@ -13,12 +13,12 @@ consumes: {
     ozone/0.0166666666
   ]
   items: [
-    sand/2
-    5-peat/3
+    sand/1
+    5-peat/2
   ]
 }
-outputItem: blast-compound/1
-craftTime: 80
+outputItem: blast-compound/2
+craftTime: 60
 requirements: [
   1-osmium/35
   2-silver/20
