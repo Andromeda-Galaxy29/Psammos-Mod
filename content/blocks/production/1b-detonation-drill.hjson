@@ -7,7 +7,7 @@ description: Improved drill. Uses explosions to extract resources. Requires cool
   itemCapacity: 40
   hasLiquids: true
   tier: 3
-  drillTime: 480
+  drillTime: 450
   shake: 4
   arrows: 3
   baseArrowColor: a4a098
@@ -15,12 +15,7 @@ description: Improved drill. Uses explosions to extract resources. Requires cool
   consumes: {
     power: 1
     liquids: [
-      {
-        liquid: 4-cold-water
-        amount: 0.025
-        optional: true
-        booster: true
-      }
+      4-cold-water/0.025
     ]
   }
 category: production
