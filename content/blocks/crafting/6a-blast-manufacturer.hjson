@@ -13,8 +13,7 @@ consumes: {
     ozone/0.0166666666
   ]
   items: [
-    sand/1
-    5-peat/2
+    5-peat/3
   ]
 }
 outputItem: blast-compound/1
