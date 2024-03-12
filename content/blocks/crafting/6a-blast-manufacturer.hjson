@@ -1,6 +1,6 @@
 type: GenericCrafter
 name: Blast Manufacturer
-description: Manufactures blast compound from sand, peat and ozone
+description: Manufactures blast compound from peat and ozone
 category: crafting
 size: 2
 squareSprite: false
