@@ -14,7 +14,7 @@ drawer: {
     },
     {
       type: DrawLiquidTile
-      drawLiquid: methane
+      drawLiquid: 3-methane
       padding: 3
     },
     {
