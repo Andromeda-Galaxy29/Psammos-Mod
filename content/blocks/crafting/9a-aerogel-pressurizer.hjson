@@ -19,6 +19,7 @@ drawer: {
     },
     {
       type: DrawPistons
+      sinMag: 2.5
     },
     {
       type: DrawDefault
