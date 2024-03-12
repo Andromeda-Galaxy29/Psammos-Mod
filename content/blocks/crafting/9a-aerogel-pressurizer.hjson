@@ -1,0 +1,22 @@
+type: GenericCrafter
+name: Aerogel Pressurizer (WIP)
+category: crafting
+size: 4
+squareSprite: false
+hasLiquids: true
+liquidCapacity: 15
+consumes: {
+  power: 1
+  liquids: [
+    3-methane/0.033333333333
+    water/0.01666666666
+  ]
+  items: [
+    silicon/5
+  ]
+}
+outputItem: 6-aerogel/2
+craftTime: 90
+requirements: [
+  1-osmium/1
+]
