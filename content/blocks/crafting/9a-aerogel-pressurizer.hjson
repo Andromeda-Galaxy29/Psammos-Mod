@@ -5,6 +5,26 @@ size: 4
 squareSprite: false
 hasLiquids: true
 liquidCapacity: 15
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawRegion
+      suffix: -bottom
+    },
+    {
+      type: DrawLiquidTile
+      drawLiquid: methane
+      padding: 3
+    },
+    {
+      type: DrawPistons
+    },
+    {
+      type: DrawDefault
+    }
+  ]
+}
 consumes: {
   power: 1
   liquids: [
