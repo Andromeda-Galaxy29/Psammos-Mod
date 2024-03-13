@@ -1,0 +1,20 @@
+type: HeatConductor
+name: Heat Pump
+description: Pumps accumulated heat to other blocks
+group: heat
+category: crafting
+size: 2
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {type: DrawDefault}
+    {type: DrawHeatOutput}
+    {type: DrawHeatInput}
+  ]
+}
+rotate: true
+rotateDraw: false
+requirements: [
+  2-silver/10
+  6-aerogel/8
+]
