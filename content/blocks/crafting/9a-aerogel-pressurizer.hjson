@@ -2,7 +2,8 @@ type: GenericCrafter
 name: Aerogel Pressurizer (WIP)
 category: crafting
 size: 4
-squareSprite: false
+squareSprite: false
+itemCapacity: 20
 hasLiquids: true
 liquidCapacity: 15
 drawer: {
@@ -32,7 +33,7 @@ drawer: {
     }
   ]
 }
-craftEffect: vapor
+craftEffect: artilleryTrailSmoke
 consumes: {
   power: 1
   liquids: [
@@ -46,5 +47,9 @@ consumes: {
 outputItem: 6-aerogel/2
 craftTime: 90
 requirements: [
-  1-osmium/1
+  1-osmium/30
+  2-silver/25
+  3-quartz/50
+  4-refined-metal/25
+  silicon/20
 ]
