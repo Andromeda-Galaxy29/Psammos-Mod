@@ -7,9 +7,15 @@ size: 2
 drawer: {
   type: DrawMulti
   drawers: [
-    {type: DrawDefault}
-    {type: DrawHeatOutput}
-    {type: DrawHeatInput}
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawHeatOutput
+    },
+    {
+      type: DrawHeatInput
+    },
   ]
 }
 rotate: true
