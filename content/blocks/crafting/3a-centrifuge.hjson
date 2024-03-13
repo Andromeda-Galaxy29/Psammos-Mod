@@ -14,8 +14,9 @@ drawer: {
       suffix: -bottom
     },
     {
-      type: DrawLiquidRegion
+      type: DrawLiquidTile
       drawLiquid: 1-quicksand
+      padding: 1
     },
     {
       type: DrawDefault
