@@ -22,7 +22,9 @@ drawer: {
       drawLiquid: ozone
       suffix: -ozone
     },
-    
+    {
+      type: DrawDefault
+    },
     {
       type: DrawGlowRegion
       color: ff4a20
