@@ -15,16 +15,14 @@ drawer: {
     {
       type: DrawLiquidTile
       drawLiquid: slag
-      padding: 1
+      padding: 5
     },
     {
       type: DrawLiquidRegion
       drawLiquid: ozone
       suffix: -ozone
     },
-    {
-      type: DrawDefault
-    },
+    
     {
       type: DrawGlowRegion
       color: ff4a20
