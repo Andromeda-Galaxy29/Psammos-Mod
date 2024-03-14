@@ -15,7 +15,7 @@ drawer: {
     {
       type: DrawLiquidTile
       drawLiquid: slag
-      padding: 5
+      padding: 6
     },
     {
       type: DrawLiquidRegion
