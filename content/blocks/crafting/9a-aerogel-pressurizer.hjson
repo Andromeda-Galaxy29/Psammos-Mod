@@ -30,7 +30,7 @@ drawer: {
     },
     {
       type: DrawGlowRegion
-      color: 8fb4d7
+      color: 5bffbd
       alpha: 0.5
     },
     {
