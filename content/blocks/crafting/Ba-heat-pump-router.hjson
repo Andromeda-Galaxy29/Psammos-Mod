@@ -1,0 +1,37 @@
+type: HeatConductor
+name: Heat Pump Router
+description: Spreads accumulated heat in three output directions
+group: heat
+category: crafting
+size: 2
+splitHeat: true
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawHeatOutput
+      rotOffset: -1
+      drawGlow: false
+    },
+    {
+      type: DrawHeatOutput
+    },
+    {
+      type: DrawHeatOutput
+      rotOffset: 1
+      drawGlow: false
+    },
+    {
+      type: DrawHeatInput
+    },
+  ]
+}
+rotate: true
+rotateDraw: false
+requirements: [
+  2-silver/12
+  6-aerogel/15
+]
