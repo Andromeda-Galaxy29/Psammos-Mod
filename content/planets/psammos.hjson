@@ -84,6 +84,7 @@ itemWhitelist: [
   3-quartz,
   4-refined-metal,
   5-peat,
+  6-aerogel,
   sand,
   silicon,
   blast-compound
