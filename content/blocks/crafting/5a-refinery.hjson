@@ -13,9 +13,9 @@ drawer: {
       suffix: -bottom
     },
     {
-      type: DrawLiquidRegion
+      type: DrawLiquidTile
       drawLiquid: slag
-      suffix: -slag
+      padding: 1
     },
     {
       type: DrawLiquidRegion
@@ -24,6 +24,11 @@ drawer: {
     },
     {
       type: DrawDefault
+    },
+    {
+      type: DrawGlowRegion
+      color: ff4a20
+      alpha: 0.4
     }
   ]
 }
