@@ -7,7 +7,6 @@ squareSprite: false
 category: effect
 range: 15
 healPercent: 0.05
-reload: 200
 baseColor: 84f490
 drawer: {
   type: DrawMulti
@@ -28,6 +27,7 @@ drawer: {
       type: DrawPulseShape
       layer: 110
       color: 84f490
+      square: false
     }
   ]
 }
