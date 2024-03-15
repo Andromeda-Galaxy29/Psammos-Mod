@@ -6,7 +6,7 @@ size: 2
 squareSprite: false
 category: effect
 range: 30
-healPercent: 4
+healPercent: 2
 baseColor: 84f490
 drawer: {
   type: DrawMulti
