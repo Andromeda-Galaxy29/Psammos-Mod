@@ -1,7 +1,7 @@
 type: ConsumeGenerator
 name: Liquid Fuel Burner
 description: Generates power from liquid fuel
-powerProduction: 4
+powerProduction: 6
 hasPower: true
 outputsPower: true
 category: power
