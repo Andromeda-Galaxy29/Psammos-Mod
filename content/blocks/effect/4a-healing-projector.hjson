@@ -1,6 +1,6 @@
 type: RegenProjector
 name: Healing Projector
-description: Heals surrounding blocks in a small radius. Requires fuel to function
+description: Heals surrounding blocks in a small radius. Requires liquid fuel to function
 health: 120
 size: 2
 squareSprite: false
