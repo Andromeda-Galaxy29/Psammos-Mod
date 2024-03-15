@@ -20,7 +20,7 @@ drawer: {
       alpha: 0.35
       color: feb380
       color2: ea8878
-      particleSize: 11
+      particleSize: 10
       particleRad: 12
     }
     {
