@@ -36,7 +36,7 @@ consumes: {
     5-peat/4
   ]
 }
-heatOutput: 2
+heatOutput: 4
 craftTime: 60
 requirements: [
   1-osmium/30
