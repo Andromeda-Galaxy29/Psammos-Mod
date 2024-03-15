@@ -1,7 +1,7 @@
 type: RegenProjector
 name: Healing Projector
 description: Heals surrounding blocks in a small radius. Requires Methane to function
-health: 10
+health: 120
 size: 2
 squareSprite: false
 category: effect
