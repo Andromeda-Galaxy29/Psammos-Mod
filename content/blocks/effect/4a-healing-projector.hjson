@@ -5,9 +5,10 @@ health: 120
 size: 2
 squareSprite: false
 category: effect
-range: 15
+range: 20
 healPercent: 0.06666666666666666666
 baseColor: 84f490
+hasPower: false
 drawer: {
   type: DrawMulti
   drawers: [
