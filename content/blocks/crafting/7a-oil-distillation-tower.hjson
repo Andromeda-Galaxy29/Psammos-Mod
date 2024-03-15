@@ -48,3 +48,12 @@ requirements: [
   3-quartz/60
   silicon/10
 ]
+research: {
+  parent: 3a-seismic-bomb
+  objectives: [
+    {
+      type: OnSector
+      preset: oil-refining-facility
+    }
+  ]
+}

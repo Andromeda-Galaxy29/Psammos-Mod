@@ -1,7 +1,7 @@
 sector: 5
 localizedName: Cavern
 planet: psammos
-difficulty: 2
+difficulty: 3
 captureWave: 30
 research: {
   parent: quartz-valley

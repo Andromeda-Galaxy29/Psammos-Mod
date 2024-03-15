@@ -35,4 +35,10 @@ requirements: [
 ]
 research: {
   parent: 3a-wind-turbine
+  objectives: [
+    {
+      type: OnSector
+      preset: oil-refining-facility
+    }
+  ]
 }

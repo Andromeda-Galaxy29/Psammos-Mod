@@ -10,4 +10,10 @@ requirements: [
 ]
 research: {
   parent: 6a-blast-manufacturer
+  objectives: [
+    {
+      type: OnSector
+      preset: oil-refining-facility
+    }
+  ]
 }

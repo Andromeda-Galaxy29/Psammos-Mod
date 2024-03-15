@@ -1,0 +1,13 @@
+sector: 4
+localizedName: Oil Refining Facility
+planet: psammos
+difficulty: 5
+research: {
+  parent: ancient-swamp
+  objectives: [
+    {
+      type: SectorComplete
+      preset: ancient-swamp
+    }
+  ]
+}

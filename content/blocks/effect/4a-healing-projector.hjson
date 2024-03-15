@@ -39,4 +39,12 @@ requirements: [
   4-refined-metal/15
   silicon/20
 ]
-research: 3a-wind-turbine
+research: {
+  parent: 3a-wind-turbine
+  objectives: [
+    {
+      type: OnSector
+      preset: oil-refining-facility
+    }
+  ]
+}

@@ -16,6 +16,15 @@ plans: [
     ]
   }
 ]
+research: {
+  parent: 1b-assault-unit-forge
+  objectives: [
+    {
+      type: OnSector
+      preset: oil-refining-facility
+    }
+  ]
+}
 requirements: [
   1-osmium/50
   2-silver/30
