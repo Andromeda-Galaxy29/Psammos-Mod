@@ -20,6 +20,8 @@ drawer: {
       alpha: 0.35
       color: feb380
       color2: ea8878
+      particleSize: 9
+      particleRad: 12
     }
     {
       type: DrawDefault
