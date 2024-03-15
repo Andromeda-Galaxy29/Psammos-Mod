@@ -31,7 +31,7 @@ drawer: {
   ]
 }
 consumes:{
-  liquid: methane/0.0166666666666
+  liquid: 3-methane/0.0166666666666
 }
 requirements: [
   2-silver/15
