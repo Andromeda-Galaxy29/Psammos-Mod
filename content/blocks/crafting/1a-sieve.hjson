@@ -4,6 +4,7 @@ description: Sifts sand into quartz
 category: crafting
 size: 2
 squareSprite: false
+craftEffect: pulverizeSmall
 drawer: {
   type: DrawMulti
   drawers: [
