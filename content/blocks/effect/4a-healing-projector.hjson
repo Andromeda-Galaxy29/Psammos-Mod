@@ -6,7 +6,7 @@ size: 2
 squareSprite: false
 category: effect
 range: 15
-healPercent: 0.1
+healPercent: 0.083333333333333
 reload: 200
 baseColor: 84f490
 drawer: {
