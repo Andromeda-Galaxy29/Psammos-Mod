@@ -6,7 +6,7 @@ size: 2
 squareSprite: false
 category: effect
 range: 30
-healPercent: 8
+healPercent: 4
 baseColor: 84f490
 drawer: {
   type: DrawMulti
@@ -18,7 +18,7 @@ drawer: {
     {
       type: DrawLiquidTile
       drawLiquid: 3-methane
-      padding: 1
+      padding: 2
     },
     {
       type: DrawDefault
