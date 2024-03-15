@@ -1,0 +1,41 @@
+type: RegenProjector
+name: Healing Projector
+description: Heals surrounding blocks in a small radius. Requires Methane to function
+health: 10
+size: 2
+squareSprite: false
+category: effect
+range: 30
+healPercent: 8
+baseColor: 84f490
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawRegion
+      suffix: -bottom
+    },
+    {
+      type: DrawLiquidTile
+      drawLiquid: 3-methane
+      padding: 1
+    },
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawPulseShape
+      layer: 110
+      color: 84f490
+    }
+  ]
+}
+consumes:{
+  liquid: methane/0.0166666666666
+}
+requirements: [
+  2-silver/15
+  4-refined-metal/15
+  silicon/20
+]
+research: 3a-wind-turbine
