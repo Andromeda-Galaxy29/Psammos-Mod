@@ -6,7 +6,7 @@ size: 2
 squareSprite: false
 category: effect
 range: 15
-healPercent: 0.5
+healPercent: 0.25
 reload: 200
 baseColor: 84f490
 drawer: {
@@ -33,7 +33,7 @@ drawer: {
 }
 consumes:{
   power: 2
-  liquid: 3-methane/0.0333333333333
+  liquid: 3-methane/0.01666666666666
 }
 requirements: [
   2-silver/15
