@@ -10,3 +10,4 @@ requirements: [
   4-refined-metal/80
 ]
 research: 3a-osmium-router
+researchCostMultiplier: 0.25
