@@ -33,7 +33,7 @@ drawer: {
 }
 consumes: {
   items: [
-    5-peat/4
+    5-peat/3
   ]
 }
 heatOutput: 4
