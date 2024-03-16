@@ -7,4 +7,13 @@ Events.on(ContentInitEvent, e => {
         Fx.drillSteam,
         Fx.mineImpactWave.wrap(Items.blastCompound.color, 15)
     );
+
+    Vars.content.planet("psammos-psammos").ruleSetter = r => {
+        r.waveTeam = Team.blue;
+        r.showSpawns = true;
+
+        permanentSandstorm = new WeatherEntry(Weathers.sandstorm);
+        permanentSandstorm.always = true;
+        r.weather.add(permanentSandstorm);
+    };
 });
