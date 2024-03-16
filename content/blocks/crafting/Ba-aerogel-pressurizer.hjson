@@ -15,11 +15,6 @@ drawer: {
     },
     {
       type: DrawLiquidTile
-      drawLiquid: water
-      padding: 3
-    },
-    {
-      type: DrawLiquidTile
       drawLiquid: 3-methane
       padding: 3
     },
@@ -43,7 +38,6 @@ consumes: {
   power: 2.5
   liquids: [
     3-methane/0.033333333333
-    water/0.01666666666
   ]
   items: [
     silicon/5
