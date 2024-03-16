@@ -1,0 +1,23 @@
+type: BeamNode
+name: Electric Distributor
+size: 3
+laserColor1: ffffffff
+laserColor2: 969696ff
+pulseMag: 0
+pulseScl: 0
+range: 25
+category: power
+requirements: [
+  2-silver/30
+  silicon/10
+  4-refined-metal/10
+]
+research: {
+  parent: 1a-electric-pole
+  objectives: [
+    {
+      type: OnSector
+      preset: oil-refining-facility
+    }
+  ]
+}
