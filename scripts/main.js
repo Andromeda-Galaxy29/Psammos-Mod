@@ -12,7 +12,7 @@ Events.on(ContentInitEvent, e => {
         r.waveTeam = Team.blue;
         r.showSpawns = true;
 
-        permanentSandstorm = new Weather.WeatherEntry(Weathers.sandstorm);
+        let permanentSandstorm = new Weather.WeatherEntry(Weathers.sandstorm);
         permanentSandstorm.always = true;
         r.weather.add(permanentSandstorm);
     };
