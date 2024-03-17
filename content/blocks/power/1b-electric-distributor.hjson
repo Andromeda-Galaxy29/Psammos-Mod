@@ -1,5 +1,6 @@
 type: BeamNode
 name: Electric Distributor
+description: Transports power. Has more range than an electric pole.
 size: 3
 laserColor1: ffffffff
 laserColor2: 969696ff
