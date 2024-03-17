@@ -1,5 +1,6 @@
 type: BeamNode
 name: Electric Pole
+description: Transports power in a small distance.
 size: 1
 laserColor1: ffffffff
 laserColor2: 969696ff
