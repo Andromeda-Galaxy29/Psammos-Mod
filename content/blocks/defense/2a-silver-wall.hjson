@@ -1,8 +1,10 @@
 "type": wall
 "name": Silver Wall
-"description": Protects structures from enemy projectiles.
+"description": Protects structures from enemy projectiles. Can conduct power
 "health": 400
 "category": defense
+hasPower: true
+conductivePower: true
 "requirements": [
   2-silver/6
 ]
