@@ -4,6 +4,8 @@ description: Turns methane and water steam into hydrogen through a chemical reac
 category: crafting
 size: 3
 squareSprite: false
+hasLiquids: true
+liquidCapacity: 30
 drawer: {
   type: DrawMulti
   drawers: [
@@ -14,7 +16,7 @@ drawer: {
     {
       type: DrawParticles
       color: ffffff
-      alpha: 0.4
+      alpha: 0.25
       particleSize: 2.3
       particles: 13
       particleRad: 8
