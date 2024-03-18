@@ -12,9 +12,6 @@ drawer: {
       suffix: -bottom
     },
     {
-      type: DrawDefault
-    },
-    {
       type: DrawParticles
       color: ffffff
       alpha: 0.4
@@ -24,6 +21,9 @@ drawer: {
       particleLife: 200
       reverse: true
       particleSizeInterp: one
+    },
+    {
+      type: DrawDefault
     },
     {
       type: DrawGlowRegion
