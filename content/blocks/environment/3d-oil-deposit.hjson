@@ -2,3 +2,4 @@ type: Floor
 name: Oil Deposit
 variants: 3
 itemDrop: sand
+playerUnmineable: true
