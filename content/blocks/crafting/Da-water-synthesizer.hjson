@@ -1,6 +1,6 @@
 type: GenericCrafter
 name: Water Synthesizer
-description: Creates water from hydrogen and ozone. Can be used with a steam reformer to triple water.
+description: Creates water from hydrogen and ozone
 category: crafting
 size: 2
 squareSprite: false
@@ -50,7 +50,7 @@ consumes: {
   power: 3
   liquids: [
     ozone/0.0333333333
-    hydrogen/0.1
+    hydrogen/0.06666666666
   ]
 }
 outputLiquids: [
