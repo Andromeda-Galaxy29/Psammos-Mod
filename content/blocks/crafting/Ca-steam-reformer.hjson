@@ -1,0 +1,58 @@
+type: HeatCrafter
+name: Steam Reformer
+description: Turns methane and water steam into hydrogen through a chemical reaction. Requires heating. Doesn't need power
+category: crafting
+size: 3
+squareSprite: false
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawRegion
+      suffix: -bottom
+    },
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawParticles
+      color: ffffff
+      alpha: 0.4
+      particleSize: 2.3
+      particles: 10
+      particleRad: 8
+      particleLife: 200
+      reverse: true
+      particleSizeInterp: one
+    },
+    {
+      type: DrawGlowRegion
+      alpha: 0.5
+    },
+    {
+      type: DrawHeatInput
+    }
+  ]
+}
+rotate: true
+rotateDraw: false
+consumes: {
+  liquids: [
+    3-methane/0.033333333333333
+    water/0.033333333333333
+  ]
+}
+heatRequirement: 4
+outputLiquids: [
+  hydrogen/0.1
+]
+craftTime: 60
+requirements: [
+  2-silver/25
+  4-refined-metal/20
+  3-quartz/40
+  silicon/30
+]
+research: {
+  parent: 7a-oil-distillation-tower
+}
