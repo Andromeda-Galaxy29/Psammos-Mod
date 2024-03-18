@@ -45,12 +45,6 @@ size: 3
         moveY: 2
       }
       {
-        suffix: -side
-        type: RegionPart
-        mirror: true
-        turretShading: true
-      }
-      {
         suffix: -barrel
         type: RegionPart
         mirror: false
