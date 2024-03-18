@@ -17,9 +17,9 @@ drawer: {
       type: DrawParticles
       color: ffffff
       alpha: 0.25
-      particleSize: 2.3
+      particleSize: 3
       particles: 13
-      particleRad: 8
+      particleRad: 9
       particleLife: 200
       reverse: true
       particleSizeInterp: one
