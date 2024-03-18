@@ -49,12 +49,12 @@ liquidCapacity: 30
 consumes: {
   power: 3
   liquids: [
-    ozone/0.05
+    ozone/0.033333333333333
     hydrogen/0.1
   ]
 }
 outputLiquids: [
-  water/0.15
+  water/0.16666666666666
 ]
 craftTime: 60
 requirements: [
