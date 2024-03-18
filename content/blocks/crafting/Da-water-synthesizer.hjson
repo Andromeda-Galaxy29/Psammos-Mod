@@ -1,0 +1,66 @@
+type: GenericCrafter
+name: Water Synthesizer
+description: Creates water from hydrogen and ozone. Can be used with a steam reformer to triple water.
+category: crafting
+size: 2
+squareSprite: false
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawRegion
+      suffix: -bottom
+    },
+    {
+      type: DrawLiquidTile
+      drawLiquid: water
+      padLeft: 5
+      padRight: 5
+      padTop: 0
+      padBottom: 0
+    },
+    {
+      type: DrawLiquidTile
+      drawLiquid: hydrogen
+      padLeft: 1.25
+      padRight: 11
+      padTop: 1.25
+      padBottom: 1.25
+    },
+    {
+      type: DrawLiquidTile
+      drawLiquid: ozone
+      padLeft: 11
+      padRight: 1.25
+      padTop: 1.25
+      padBottom: 1.25
+    },
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawGlowRegion
+      alpha: 0.5
+    }
+  ]
+}
+hasLiquids: true
+liquidCapacity: 30
+consumes: {
+  power: 3
+  liquids: [
+    ozone/0.0333333333
+    hydrogen/0.1
+  ]
+}
+outputLiquids: [
+  water/0.1
+]
+craftTime: 60
+requirements: [
+  2-silver/10
+  3-quartz/40
+  4-refined-metal/25
+  silicon/10
+]
+research: Ca-steam-reformer

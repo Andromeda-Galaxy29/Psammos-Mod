@@ -53,7 +53,7 @@ requirements: [
   2-silver/25
   4-refined-metal/20
   3-quartz/40
-  silicon/30
+  6-aerogel/10
 ]
 research: {
   parent: 7a-oil-distillation-tower
