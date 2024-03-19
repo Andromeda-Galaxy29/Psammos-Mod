@@ -25,11 +25,11 @@ drawer: {
       particleSizeInterp: one
     },
     {
-      type: DrawDefault
-    },
-    {
       type: DrawGlowRegion
       alpha: 0.5
+    },
+    {
+      type: DrawDefault
     },
     {
       type: DrawHeatInput
