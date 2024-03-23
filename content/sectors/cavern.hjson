@@ -1,6 +1,6 @@
 sector: 5
 localizedName: Cavern
-description: Inside lie a small cave with [accent]abundant resources.[white] The enemies' units will attack soon. Use the materials to hold off the invasion.
+description: Inside lie a small cave with abundant resources. The enemies' units will attack soon. Use the materials to hold off the invasion.
 planet: psammos
 difficulty: 3
 captureWave: 30
