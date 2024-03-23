@@ -1,5 +1,6 @@
 sector: 14
 localizedName: Ancient Swamp
+description: This sector was a swamp before the Incineration event. Large amounts of peat are still left in this area. Produce blast compound and build new better factories and buildings.
 planet: psammos
 difficulty: 3
 captureWave: 25

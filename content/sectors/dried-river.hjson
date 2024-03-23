@@ -1,5 +1,6 @@
 sector: 4
 localizedName: The Dried River
+description: This giant field of salt was once a river, before it was destroyed by the Incineration. Build units and research new, more advanced materials to destroy the enemy base.
 planet: psammos
 difficulty: 2
 research: {

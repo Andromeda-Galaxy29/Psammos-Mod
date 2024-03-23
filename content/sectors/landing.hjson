@@ -1,5 +1,6 @@
 sector: 0
 localizedName: Landing
+description: The first sector on Psammos.
 planet: psammos
 difficulty: 1
 captureWave: 15
