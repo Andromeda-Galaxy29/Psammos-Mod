@@ -2,6 +2,7 @@ type: PowerTurret
 name: Influence
 description: Shoots explosive electric bullets at ground enemy units
 size: 2
+  health: 300
   squareSprite: false
   shootSound: shockBlast
   outlineColor: 534d4a
