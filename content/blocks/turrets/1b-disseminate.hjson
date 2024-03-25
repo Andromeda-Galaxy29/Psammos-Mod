@@ -2,6 +2,7 @@ type: ItemTurret
 name: Disseminate
 description: Fires a burst of bullets at enemy air units.
 size: 2
+  health: 260
   squareSprite: false
   shootSound: cannon
   outlineColor: 534d4a
