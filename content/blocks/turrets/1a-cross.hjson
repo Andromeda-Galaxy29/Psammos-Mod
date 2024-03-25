@@ -2,6 +2,7 @@ type: ItemTurret
 name: Cross
 description: Fires fast-moving crossbow bolts at enemies.
 size: 2
+  health: 260
   squareSprite: false
   shootSound: shootAlt
   outlineColor: 534d4a
