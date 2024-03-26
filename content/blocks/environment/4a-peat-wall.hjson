@@ -1,4 +1,0 @@
-type: StaticWall
-name: Peat Wall
-variants: 2
-itemDrop: 5-peat
