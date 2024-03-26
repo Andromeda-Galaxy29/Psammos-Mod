@@ -1,7 +1,0 @@
-type: Floor
-name: Quicksand
-variants: 3
-cacheLayer: mud
-speedMultiplier: 0.1
-liquidDrop: 1-quicksand
-drownTime: 200

@@ -1,8 +1,0 @@
-sector: 0
-localizedName: Landing
-description: The first sector on Psammos.
-planet: psammos
-difficulty: 1
-captureWave: 15
-alwaysUnlocked: true
-research: 1a-core-dust

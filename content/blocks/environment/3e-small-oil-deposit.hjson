@@ -1,5 +1,0 @@
-type: Floor
-name: Small Oil Deposit
-variants: 3
-itemDrop: sand
-playerUnmineable: true
