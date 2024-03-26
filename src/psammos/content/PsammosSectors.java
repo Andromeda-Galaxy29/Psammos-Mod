@@ -33,7 +33,7 @@ public class PsammosSectors {
             captureWave = 25;
         }};
 
-        oilRefiningFacility = new SectorPreset("oil-refining-facility", PsammosPlanets.psammos, 14){{
+        oilRefiningFacility = new SectorPreset("oil-refining-facility", PsammosPlanets.psammos, 25){{
             difficulty = 5;
         }};
     }
