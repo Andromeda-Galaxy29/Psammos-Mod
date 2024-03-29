@@ -41,7 +41,7 @@ public class PsammosUnitTypes {
             accel = 0.1f;
             drag = 0.04f;
             flying = true;
-            health = 300;
+            health = 240;
             hitSize = 8;
             armor = 1;
             itemCapacity = 30;
@@ -70,6 +70,48 @@ public class PsammosUnitTypes {
                         buildingDamageMultiplier = 0.01f;
                     }};
                 }}
+            );
+        }};
+
+        ascent = new UnitType("ascent"){{
+            aiController = BuilderAI::new;
+            constructor = UnitEntity::create;
+
+            lowAltitude = true;
+            speed = 2.9f;
+            rotateSpeed = 15;
+            accel = 0.1f;
+            drag = 0.04f;
+            flying = true;
+            health = 380;
+            hitSize = 10;
+            armor = 1;
+            itemCapacity = 50;
+            outlineColor = Color.valueOf("#3c3835");
+            engineOffset = 5.5f;
+            faceTarget = false;
+            mineTier = 2;
+            mineSpeed = 5;
+            buildSpeed = 0.5f;
+            buildBeamOffset = 4.5f;
+            isEnemy = false;
+
+            weapons.addAll(
+                    new Weapon("psammos-ascent-gun"){{
+                        x = 2.5f;
+                        y = -2.5f;
+                        reload = 14;
+                        mirror = true;
+                        rotate = true;
+                        bullet = new BasicBulletType(){{
+                            speed = 3f;
+                            damage = 12;
+                            width = 6;
+                            height = 9;
+                            lifetime = 70;
+                            buildingDamageMultiplier = 0.01f;
+                        }};
+                    }}
             );
         }};
 

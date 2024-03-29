@@ -62,7 +62,7 @@ public class PsammosBlocks {
     specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge,
 
     //Effect/Storage
-    coreDust, heatproofContainer, heatproofUnloader, healingProjector,
+    coreDust, coreDune, heatproofContainer, heatproofUnloader, healingProjector,
 
     //Environment
     osmiumOre, silverOre,
@@ -896,7 +896,7 @@ public class PsammosBlocks {
         // Effect/Storage
 
         coreDust = new CoreBlock("1a-core-dust"){{
-            requirements(Category.effect, with(PsammosItems.osmium, 1000, PsammosItems.silver, 800));
+            requirements(Category.effect, with(PsammosItems.osmium, 1000, PsammosItems.silver, 1000));
             alwaysUnlocked = true;
 
             isFirstTier = true;
@@ -909,7 +909,18 @@ public class PsammosBlocks {
             unitType = PsammosUnitTypes.gradient;
         }};
 
-        //TODO: Tier 2 core
+        coreDune = new CoreBlock("core-dune"){{
+            requirements(Category.effect, with(PsammosItems.osmium, 3000, PsammosItems.silver, 3000, Items.silicon, 2000, PsammosItems.refinedMetal, 1000));
+            alwaysUnlocked = true;
+
+            health = 3800;
+            size = 4;
+            absorbLasers = true;
+            itemCapacity = 11000;
+            unitCapModifier = 20;
+            squareSprite = false;
+            unitType = PsammosUnitTypes.ascent;
+        }};
 
         heatproofContainer = new StorageBlock("2a-heatproof-container"){{
             requirements(Category.effect, with(PsammosItems.refinedMetal, 80));
