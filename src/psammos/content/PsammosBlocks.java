@@ -43,7 +43,7 @@ public class PsammosBlocks {
     heatproofOverflowGate, heatproofUnderflowGate,
 
     //Liquid
-    heatproofPump, pipe, pipeJunction, pipeRouter, tunnelPipe,
+    heatproofPump, pipe, pipeJunction, pipeRouter, heatproofLiquidContainer, tunnelPipe,
 
     //Power
     electricPole, electricDistributor, accumulator, windTurbine, liquidFuelBurner,
@@ -460,6 +460,17 @@ public class PsammosBlocks {
             liquidCapacity = 20;
             squareSprite = false;
             liquidPadding = 1;
+            solid = false;
+        }};
+
+        heatproofLiquidContainer = new LiquidRouter("heatproof-liquid-container"){{
+            requirements(Category.liquid, with(PsammosItems.quartz, 16, PsammosItems.refinedMetal, 10));
+
+            size = 2;
+            liquidCapacity = 800;
+            squareSprite = false;
+            liquidPadding = 2;
+            solid = true;
         }};
 
         tunnelPipe = new LiquidBridge("5a-quartz-bridge-conduit"){{
