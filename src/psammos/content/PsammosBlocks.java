@@ -808,6 +808,33 @@ public class PsammosBlocks {
             squareSprite = false;
             hasLiquids = true;
             liquidCapacity = 30;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawParticles(){{
+                        color = Color.valueOf("#ffffff");
+                        alpha = 0.25f;
+                        particleSize = 3;
+                        particles = 13;
+                        particleRad = 9;
+                        particleLife = 200;
+                        reverse = true;
+                    }},
+                    new DrawGlowRegion(){{
+                        alpha = 0.5f;
+                    }},
+                    new DrawDefault(),
+                    new DrawHeatInput()
+            );
+            rotate = true;
+            rotateDraw = false;
+
+            outputLiquid = new LiquidStack(Liquids.hydrogen, 6 / 60f);
+            craftTime = 60;
+
+            heatRequirement = 4;
+            consumeLiquid(Liquids.water, 2/60f);
+            consumeLiquid(PsammosLiquids.methane, 2/60f);
         }};
 
         //TODO: Add back the WIP stuff from the json version
