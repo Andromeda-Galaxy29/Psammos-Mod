@@ -15,6 +15,7 @@ import mindustry.world.blocks.distribution.*;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.blocks.heat.*;
 import mindustry.world.blocks.liquid.*;
+import mindustry.world.blocks.payloads.*;
 import mindustry.world.blocks.power.*;
 import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.storage.*;
@@ -59,7 +60,7 @@ public class PsammosBlocks {
     steamReformer, obliterator,
 
     //Units/Payload
-    specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge,
+    specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge, heatproofPayloadConveyor, heatproofPayloadRouter,
 
     //Effect/Storage
     coreDust, coreDune, heatproofContainer, heatproofUnloader, healingProjector,
@@ -891,6 +892,20 @@ public class PsammosBlocks {
             configurable = false;
             plans.add(new UnitPlan(PsammosUnitTypes.sciur, 1320, with(PsammosItems.osmium, 20, PsammosItems.quartz, 10, Items.silicon, 20)));
             consumePower(1.4f);
+        }};
+
+        heatproofPayloadConveyor = new PayloadConveyor("heatproof-payload-conveyor"){{
+            requirements(Category.units, with(PsammosItems.refinedMetal, 15));
+            canOverdrive = false;
+            health = 500;
+            moveTime = 40f;
+        }};
+
+        heatproofPayloadRouter = new PayloadRouter("heatproof-payload-router"){{
+            requirements(Category.units, with(PsammosItems.refinedMetal, 20));
+            canOverdrive = false;
+            health = 500;
+            moveTime = 40f;
         }};
 
         // Effect/Storage
