@@ -390,8 +390,6 @@ public class PsammosBlocks {
                         }}
                 );
             }};
-
-            coolant = consumeCoolant(0.1f);
         }};
 
         // Drills/Production
