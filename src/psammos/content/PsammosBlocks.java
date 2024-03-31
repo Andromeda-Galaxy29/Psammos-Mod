@@ -47,7 +47,7 @@ public class PsammosBlocks {
     heatproofPump, pipe, pipeJunction, pipeRouter, heatproofLiquidContainer, tunnelPipe,
 
     //Power
-    electricPole, electricDistributor, accumulator, windTurbine, liquidFuelBurner,
+    electricPole, electricDistributor, led, accumulator, windTurbine, liquidFuelBurner,
 
     //Defense
     osmiumWall, osmiumWallLarge, silverWall, silverWallLarge,
@@ -601,6 +601,12 @@ public class PsammosBlocks {
             pulseMag = 0;
             pulseScl = 0;
             range = 25;
+        }};
+
+        led = new LED("led"){{
+            requirements(Category.power, with(PsammosItems.quartz, 10, PsammosItems.silver, 5, Items.silicon, 10));
+            brightness = 0.75f;
+            radius = 140f;
         }};
 
         accumulator = new Battery("2a-accumulator"){{
