@@ -423,7 +423,7 @@ public class PsammosUnitTypes {
             accel = 0.1f;
             drag = 0.04f;
             flying = true;
-            health = 220;
+            health = 275;
             hitSize = 8;
             armor = 2;
             outlineColor = Color.valueOf("#3c3835");
