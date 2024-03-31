@@ -789,7 +789,7 @@ public class PsammosUnitTypes {
                         mirror = true;
                         rotate = true;
                         bullet = new LaserBulletType(){{
-                            damage = 42;
+                            damage = 55;
                             colors = new Color[]{
                                     Color.valueOf("#c3aedd"),
                                     Color.valueOf("#ffffff")
