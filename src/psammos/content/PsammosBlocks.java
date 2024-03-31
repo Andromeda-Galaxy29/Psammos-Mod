@@ -26,8 +26,6 @@ import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 import psammos.blocks.*;
 
-import java.awt.geom.GeneralPath;
-
 import static mindustry.type.ItemStack.*;
 
 // Some of the block IDs have number prefixes before them.
@@ -876,6 +874,66 @@ public class PsammosBlocks {
             consumeLiquid(Liquids.water, 6 / 60f);
         }};
 
+        peatHeater = new HeatProducer("peat-heater"){{
+            requirements(Category.crafting, with(PsammosItems.silver, 30, PsammosItems.quartz, 10, PsammosItems.refinedMetal, 20, PsammosItems.aerogel, 15));
+
+            size = 3;
+            squareSprite = false;
+            hasLiquids = true;
+            liquidCapacity = 15;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawSoftParticles(){{
+                        alpha = 0.35f;
+                        color = Color.valueOf("#feb380");
+                        color2 = Color.valueOf("#ea8878");
+                        particleSize = 10;
+                        particleRad = 12;
+                    }},
+                    new DrawDefault(),
+                    new DrawHeatOutput()
+            );
+            rotate = true;
+            rotateDraw = false;
+
+            heatOutput = 4;
+            craftTime = 60;
+
+            consumeItem(PsammosItems.peat, 3);
+        }};
+
+        heatPump = new HeatConductor("heat-pump"){{
+            requirements(Category.crafting, with(PsammosItems.silver, 10, PsammosItems.aerogel, 8));
+            group = BlockGroup.heat;
+            size = 2;
+
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawHeatOutput(),
+                    new DrawHeatInput()
+            );
+            rotate = true;
+            rotateDraw = false;
+        }};
+
+        heatPumpRouter = new HeatConductor("heat-pump-router"){{
+            requirements(Category.crafting, with(PsammosItems.silver, 12, PsammosItems.aerogel, 15));
+            group = BlockGroup.heat;
+            size = 2;
+            splitHeat = true;
+
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawHeatOutput(-1, false),
+                    new DrawHeatOutput(),
+                    new DrawHeatOutput(1, false),
+                    new DrawHeatInput()
+            );
+            rotate = true;
+            rotateDraw = false;
+        }};
+
         aerogelPressurizer = new GenericCrafter("aerogel-pressurizer"){{
             requirements(Category.crafting, with(PsammosItems.osmium, 40, PsammosItems.quartz, 50, PsammosItems.refinedMetal, 35, Items.silicon, 20));
 
@@ -943,8 +1001,6 @@ public class PsammosBlocks {
             consumeLiquid(Liquids.water, 2/60f);
             consumeLiquid(PsammosLiquids.methane, 2/60f);
         }};
-
-        //TODO: Add back the WIP stuff from the json version
 
         obliterator = new Incinerator("Zz-obliterator"){{
             requirements(Category.crafting, with(PsammosItems.refinedMetal, 16, Items.blastCompound, 10));
