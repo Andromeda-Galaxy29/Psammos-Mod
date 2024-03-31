@@ -1,6 +1,7 @@
 package psammos.content;
 
 import arc.graphics.*;
+import arc.math.*;
 import mindustry.content.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
@@ -8,6 +9,7 @@ import mindustry.entities.part.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
+import mindustry.type.unit.MissileUnitType;
 import mindustry.world.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.world.blocks.defense.turrets.*;
@@ -34,7 +36,7 @@ import static mindustry.type.ItemStack.*;
 public class PsammosBlocks {
     public static Block
     //Turrets
-    cross, disseminate, influence, gunslinger,
+    cross, disseminate, influence, gunslinger, dawn,
 
     //Drills/Production
     osmiumDrill, detonationDrill, excavatorDrill, seismicBomb,
@@ -291,6 +293,101 @@ public class PsammosBlocks {
                     new RegionPart("-top"){{
                         mirror = false;
                     }}
+                );
+            }};
+
+            coolant = consumeCoolant(0.1f);
+        }};
+
+        dawn = new LiquidTurret("dawn"){{
+            requirements(Category.turret, with(PsammosItems.refinedMetal, 30, PsammosItems.quartz, 25, PsammosItems.aerogel, 18));
+
+            ammo(
+                    Liquids.hydrogen, new BulletType(0f, 1){{
+                        shootEffect = Fx.shootBig;
+                        smokeEffect = Fx.shootSmokeMissile;
+                        ammoMultiplier = 1f;
+
+                        spawnUnit = new MissileUnitType("dawn-missile"){{
+                            trailColor = engineColor = Liquids.hydrogen.color;
+                            engineSize = 1.75f;
+                            engineLayer = Layer.effect;
+                            speed = 3.7f;
+                            maxRange = 6f;
+                            lifetime = 60f * 1.5f;
+                            outlineColor = Color.valueOf("#3c3835");
+                            health = 50;
+
+                            weapons.add(new Weapon(){{
+                                shootCone = 360f;
+                                mirror = false;
+                                reload = 1f;
+                                shootOnDeath = true;
+                                bullet = new ExplosionBulletType(50f, 30f){{
+                                    shootEffect = new MultiEffect(Fx.massiveExplosion, new WrapEffect(Fx.dynamicSpikes, Liquids.hydrogen.color, 24f), new WaveEffect(){{
+                                        colorFrom = colorTo = Liquids.hydrogen.color;
+                                        sizeTo = 40f;
+                                        lifetime = 12f;
+                                        strokeFrom = 4f;
+                                    }});
+
+                                    collidesAir = true;
+                                    collidesGround = false;
+                                }};
+                            }});
+                        }};
+                    }}
+            );
+            squareSprite = false;
+
+            shoot.shots = 3;
+            shoot.shotDelay = 6;
+            recoil = 0.5f;
+
+            shootSound = Sounds.largeCannon;
+
+            minWarmup = 0.94f;
+            shootWarmupSpeed = 0.03f;
+            targetAir = true;
+            targetGround = false;
+            targetUnderBlocks = false;
+
+            shake = 3f;
+            shootY = -4f;
+            outlineColor = Color.valueOf("#534d4a");
+            size = 3;
+            reload = 160f;
+            range = 400;
+            shootCone = 1f;
+            rotateSpeed = 3f;
+
+            drawer = new DrawTurret("heatproof-"){{
+                parts.addAll(
+                        new RegionPart("-side"){{
+                            progress = PartProgress.warmup;
+                            moveRot = -25;
+                            mirror = true;
+                            turretShading = true;
+                        }},
+                        new RegionPart("-mid"){{
+                            progress = PartProgress.recoil;
+                            moveY = -3.8f;
+                            mirror = false;
+                        }},
+                        new RegionPart("-missile"){{
+                            progress = PartProgress.reload.curve(Interp.pow2In);
+
+                            colorTo = new Color(1f, 1f, 1f, 0f);
+                            color = Color.white;
+                            mixColorTo = Pal.accent;
+                            mixColor = new Color(1f, 1f, 1f, 0f);
+                            outline = false;
+                            under = true;
+
+                            layerOffset = -0.01f;
+
+                            moves.add(new PartMove(PartProgress.warmup.inv(), 0f, -2f, 0f));
+                        }}
                 );
             }};
 
