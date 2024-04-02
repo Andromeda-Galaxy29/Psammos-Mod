@@ -57,7 +57,7 @@ public class PsammosBlocks {
     sieve, siliconSynthesizer, centrifuge, thermolysisChamber,
     refinery, blastManufacturer, oilDistillationTower, heatExchanger,
     peatHeater, heatPump, heatPumpRouter, aerogelPressurizer,
-    steamReformer, obliterator,
+    steamReformer, ammoniaCompressor, obliterator,
 
     //Units/Payload
     specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge, heatproofPayloadConveyor, heatproofPayloadRouter,
@@ -1006,6 +1006,45 @@ public class PsammosBlocks {
             heatRequirement = 4;
             consumeLiquid(Liquids.water, 2/60f);
             consumeLiquid(PsammosLiquids.methane, 2/60f);
+        }};
+
+        ammoniaCompressor = new HeatCrafter("ammonia-compressor"){{
+            requirements(Category.crafting, with(PsammosItems.aerogel, 30, PsammosItems.silver, 60, PsammosItems.refinedMetal, 75, Items.silicon, 30));
+
+            size = 3;
+            squareSprite = false;
+            hasLiquids = true;
+            liquidCapacity = 15;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawCircles(){{
+                        color = Color.valueOf("e3b7fb").a(0.24f);
+                        strokeMax = 2f;
+                        radius = 10f;
+                        amount = 4;
+                    }},
+                    new DrawPistons(){{
+                        sinMag = 2f;
+                        sinScl = 5f;
+                        sides = 4;
+                        angleOffset = 45;
+                    }},
+                    new DrawDefault(),
+                    new DrawGlowRegion(){{
+                        color = Color.valueOf("#e3b7fb");
+                        alpha = 0.4f;
+                    }},
+                    new DrawHeatInput()
+            );
+
+            outputLiquid = new LiquidStack(PsammosLiquids.ammonia, 2/60f);
+            craftTime = 90;
+
+            heatRequirement = 8;
+            consumePower(2f);
+            consumeLiquid(Liquids.hydrogen, 2/60f);
+            consumeItem(PsammosItems.osmium, 2);
         }};
 
         obliterator = new Incinerator("Zz-obliterator"){{

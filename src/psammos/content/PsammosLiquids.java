@@ -6,7 +6,7 @@ import mindustry.type.*;
 
 public class PsammosLiquids {
     public static Liquid
-    quicksand, coldWater, fuel, methane;
+    quicksand, coldWater, fuel, methane, ammonia;
 
     public static void load() {
         quicksand = new Liquid("quicksand", Color.valueOf("d3ae8d")){{
@@ -43,6 +43,15 @@ public class PsammosLiquids {
             flammability = 1.2f;
             explosiveness = 1.5f;
             coolant = false;
+        }};
+
+        ammonia = new Liquid("ammonia", Color.valueOf("d194f3")){{
+            gas = true;
+            heatCapacity = 0.9f;
+            temperature = 0.45f;
+            flammability = 0.75f;
+            explosiveness = 1.75f;
+            coolant = true;
         }};
     }
 }
