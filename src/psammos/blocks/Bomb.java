@@ -2,16 +2,18 @@ package psammos.blocks;
 
 import arc.audio.*;
 import arc.graphics.*;
-import arc.graphics.g2d.TextureRegion;
+import arc.graphics.g2d.*;
 import arc.math.*;
+import arc.math.geom.*;
+import arc.struct.*;
 import arc.util.*;
 import arc.util.io.*;
-import mindustry.content.Fx;
-import mindustry.content.Items;
+import mindustry.content.*;
 import mindustry.entities.*;
 import mindustry.entities.units.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
+import mindustry.input.*;
 import mindustry.type.*;
 import mindustry.ui.*;
 import mindustry.world.*;
@@ -39,6 +41,7 @@ public class Bomb extends Block {
         update = true;
         rotateDraw = false;
         rebuildable = false;
+        allowDiagonal = false;
     }
 
     @Override
@@ -89,6 +92,13 @@ public class Bomb extends Block {
         addBar("psammos-bomb-timer", (BombBuild entity) -> new Bar("bar.psammos-bomb-timer", Items.blastCompound.color, () -> entity.progress));
     }
 
+    @Override
+    public void changePlacementPath(Seq<Point2> points, int rotation, boolean diagonal){
+        if(!diagonal){
+            Placement.calculateNodes(points, this, rotation, (point, other) -> Math.max(Math.abs(point.x - other.x), Math.abs(point.y - other.y)) <= range);
+        }
+    }
+
     public class BombBuild extends Building {
         public float progress;
 
@@ -129,8 +139,6 @@ public class Bomb extends Block {
                 }
             }
             world.tile(bx, by).setNet(Blocks.air);
-
-            progress %= 1f;
         }
 
         @Override
