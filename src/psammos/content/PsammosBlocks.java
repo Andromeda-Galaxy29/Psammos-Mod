@@ -24,10 +24,11 @@ import mindustry.world.blocks.power.*;
 import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.storage.*;
 import mindustry.world.blocks.units.*;
+import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 import psammos.blocks.*;
-import psammos.bullet.GasBulletType;
+import psammos.bullet.*;
 
 import static mindustry.type.ItemStack.*;
 
@@ -50,7 +51,8 @@ public class PsammosBlocks {
     heatproofPump, pipe, pipeJunction, pipeRouter, heatproofLiquidContainer, tunnelPipe,
 
     //Power
-    electricPole, electricDistributor, led, accumulator, windTurbine, liquidFuelBurner,
+    electricPole, electricDistributor, led, accumulator,
+    windTurbine, impulseGenerator, liquidFuelBurner,
 
     //Defense
     osmiumWall, osmiumWallLarge, silverWall, silverWallLarge,
@@ -669,6 +671,7 @@ public class PsammosBlocks {
             liquidCapacity = 20;
             arrowSpacing = 4;
             bridgeWidth = 8;
+            hasPower = false;
         }};
         ((Conduit) pipe).bridgeReplacement = tunnelPipe;
 
@@ -712,25 +715,34 @@ public class PsammosBlocks {
             consumePowerBuffered(4000);
         }};
 
-        //TODO: Make a separate class for wind turbines
-        windTurbine = new ConsumeGenerator("3a-wind-turbine"){{
-            requirements(Category.power, with(PsammosItems.osmium, 27, PsammosItems.silver, 27));
+        windTurbine = new WindTurbine("3a-wind-turbine"){{
+            requirements(Category.power, with(PsammosItems.osmium, 30, PsammosItems.silver, 30));
 
             size = 2;
-            powerProduction = 1.5f;
+            powerProduction = 1.2f;
             hasPower = true;
             outputsPower = true;
             squareSprite = false;
+            range = 6;
+        }};
 
-            drawer = new DrawMulti(
-                    new DrawDefault(),
-                    new DrawRegion("-rotator", 6, true),
-                    new DrawRegion("-top")
-            );
+        impulseGenerator = new ConsumeGenerator("impulse-generator"){{
+            requirements(Category.power, with(PsammosItems.silver, 30, PsammosItems.refinedMetal, 15, Items.silicon, 20));
+
+            size = 2;
+            powerProduction = 3;
+            hasPower = true;
+            outputsPower = true;
+            squareSprite = true;
+            itemDuration = 30f;
+            drawer = new DrawMulti(new DrawDefault(), new DrawWarmupRegion());
+            generateEffect = Fx.blastExplosion;
+
+            consume(new ConsumeItemExplosive(1f));
         }};
 
         liquidFuelBurner = new ConsumeGenerator("3b-liquid-fuel-burner"){{
-            requirements(Category.power, with(PsammosItems.osmium, 30, PsammosItems.silver, 20, PsammosItems.refinedMetal, 12));
+            requirements(Category.power, with(PsammosItems.osmium, 40, PsammosItems.silver, 30, PsammosItems.refinedMetal, 40, PsammosItems.quartz, 20));
 
             size = 2;
             powerProduction = 6;
