@@ -59,7 +59,7 @@ public class PsammosBlocks {
     refinedMetalWall, refinedMetalWallLarge,
 
     //Crafting
-    sieve, siliconSynthesizer, centrifuge, thermolysisChamber,
+    sieve, filter, siliconSynthesizer, centrifuge, thermolysisChamber,
     refinery, blastManufacturer, oilDistillationTower, atmosphericSeparator,
     heatExchanger, peatHeater, heatPump, heatPumpRouter,
     aerogelPressurizer, steamReformer, ammoniaCompressor, obliterator,
@@ -816,6 +816,27 @@ public class PsammosBlocks {
 
             consumeItem(Items.sand, 3);
             consumePower(0.25f);
+        }};
+
+        filter = new GenericCrafter("filter"){{
+            requirements(Category.crafting, with(PsammosItems.osmium, 60, Items.silicon, 30, PsammosItems.refinedMetal, 20));
+
+            size = 3;
+            squareSprite = false;
+            craftEffect = Fx.pulverize;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawRegion("-rotator", 4, true),
+                    new DrawDefault()
+            );
+
+            outputItem = new ItemStack(PsammosItems.quartz, 2);
+            craftTime = 30;
+
+            consumeItem(Items.sand, 3);
+            consumeLiquid(Liquids.nitrogen, 1/60f);
+            consumePower(1.25f);
         }};
 
         siliconSynthesizer = new GenericCrafter("2a-silicon-synthesizer"){{
