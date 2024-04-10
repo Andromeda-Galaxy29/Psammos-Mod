@@ -70,7 +70,7 @@ public class WindTurbine extends PowerGenerator {
 
         @Override
         public void updateEfficiencyMultiplier(){
-            efficiencyMultiplier = 1f + ((float)(size*size) / (float)(range*range));
+            efficiencyMultiplier = 1f;
 
             int bx = (int) Math.floor(x / tilesize);
             int by = (int) Math.floor(y / tilesize);
@@ -82,8 +82,8 @@ public class WindTurbine extends PowerGenerator {
                 for (int iy = y1; iy <= y2; iy++) {
                     Block tile = world.tile(ix, iy).block();
                     Building build = world.tile(ix, iy).build;
-                    if(tile.solid){
-                        efficiencyMultiplier -= 1f / (float)(range*range);
+                    if(build != this && tile.solid){
+                        efficiencyMultiplier -= 1f / (float)(range*range - size*size);
                     }
                 }
             }

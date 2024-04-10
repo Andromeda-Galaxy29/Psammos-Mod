@@ -719,7 +719,7 @@ public class PsammosBlocks {
             requirements(Category.power, with(PsammosItems.osmium, 30, PsammosItems.silver, 30));
 
             size = 2;
-            powerProduction = 1.2f;
+            powerProduction = 1.5f;
             hasPower = true;
             outputsPower = true;
             squareSprite = false;
