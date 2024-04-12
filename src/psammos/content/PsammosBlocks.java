@@ -1,13 +1,17 @@
 package psammos.content;
 
 import arc.graphics.*;
+import arc.math.*;
+import arc.struct.*;
 import mindustry.content.*;
-import mindustry.entities.bullet.BasicBulletType;
+import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
-import mindustry.entities.part.RegionPart;
-import mindustry.gen.Sounds;
+import mindustry.entities.part.*;
+import mindustry.entities.pattern.*;
+import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
+import mindustry.type.unit.MissileUnitType;
 import mindustry.world.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.world.blocks.defense.turrets.*;
@@ -15,16 +19,16 @@ import mindustry.world.blocks.distribution.*;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.blocks.heat.*;
 import mindustry.world.blocks.liquid.*;
+import mindustry.world.blocks.payloads.*;
 import mindustry.world.blocks.power.*;
 import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.storage.*;
 import mindustry.world.blocks.units.*;
+import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
-import mindustry.world.meta.Attribute;
-import psammos.blocks.Bomb;
-import psammos.blocks.ExplodableFloor;
-
-import java.awt.geom.GeneralPath;
+import mindustry.world.meta.*;
+import psammos.blocks.*;
+import psammos.bullet.*;
 
 import static mindustry.type.ItemStack.*;
 
@@ -34,36 +38,37 @@ import static mindustry.type.ItemStack.*;
 public class PsammosBlocks {
     public static Block
     //Turrets
-    cross, disseminate, influence, gunslinger,
+    cross, disseminate, influence, gunslinger, spray, dawn,
 
     //Drills/Production
-    osmiumDrill, detonationDrill, excavatorDrill, seismicBomb,
+    osmiumDrill, detonationDrill, excavatorDrill, seismicBomb, ammoniaBomb,
 
     //Distribution
     heatproofConveyor, heatproofJunction, heatproofRouter, heatproofTunnelConveyor,
     heatproofOverflowGate, heatproofUnderflowGate,
 
     //Liquid
-    heatproofPump, pipe, pipeJunction, pipeRouter, tunnelPipe,
+    heatproofPump, pipe, pipeJunction, pipeRouter, heatproofLiquidContainer, tunnelPipe,
 
     //Power
-    electricPole, electricDistributor, accumulator, windTurbine, liquidFuelBurner,
+    electricPole, electricDistributor, led, accumulator,
+    windTurbine, impulseGenerator, liquidFuelBurner,
 
     //Defense
     osmiumWall, osmiumWallLarge, silverWall, silverWallLarge,
     refinedMetalWall, refinedMetalWallLarge,
 
     //Crafting
-    sieve, siliconSynthesizer, centrifuge, thermolysisChamber,
-    refinery, blastManufacturer, oilDistillationTower, heatExchanger,
-    peatHeater, heatPump, heatPumpRouter, aerogelPressurizer,
-    steamReformer, obliterator,
+    sieve, filter, siliconSynthesizer, centrifuge, thermolysisChamber,
+    refinery, blastManufacturer, oilDistillationTower, atmosphericSeparator,
+    heatExchanger, peatHeater, heatPump, heatPumpRouter,
+    aerogelPressurizer, steamReformer, ammoniaCompressor, obliterator,
 
     //Units/Payload
-    specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge,
+    specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge, heatproofPayloadConveyor, heatproofPayloadRouter,
 
     //Effect/Storage
-    coreDust, heatproofContainer, heatproofUnloader, healingProjector,
+    coreDust, coreDune, heatproofContainer, heatproofUnloader, healingProjector,
 
     //Environment
     osmiumOre, silverOre,
@@ -297,6 +302,160 @@ public class PsammosBlocks {
             coolant = consumeCoolant(0.1f);
         }};
 
+        spray = new LiquidTurret("spray"){{
+            requirements(Category.turret, with(PsammosItems.refinedMetal, 25, PsammosItems.quartz, 40, PsammosItems.osmium, 35));
+
+            ammo(
+                    Liquids.nitrogen, new GasBulletType(Liquids.nitrogen){{
+                        damage = 7f;
+                        knockback = 3.2f;
+                        layer = Layer.bullet - 2f;
+                    }},
+                    PsammosLiquids.methane, new GasBulletType(PsammosLiquids.methane){{
+                        damage = 0.5f;
+                        knockback = 7.2f;
+                        layer = Layer.bullet - 2f;
+                    }},
+                    Liquids.hydrogen, new GasBulletType(Liquids.hydrogen){{
+                        damage = 9f;
+                        knockback = 1.8f;
+                        status = StatusEffects.blasted;
+                        layer = Layer.bullet - 2f;
+                    }},
+                    PsammosLiquids.ammonia, new GasBulletType(PsammosLiquids.ammonia){{
+                        damage = 10f;
+                        knockback = 2f;
+                        status = StatusEffects.burning;
+                        layer = Layer.bullet - 2f;
+                    }}
+            );
+            squareSprite = false;
+
+            shoot = new ShootSpread(15, 4f);
+
+            size = 3;
+            recoil = 0f;
+            reload = 40f;
+            inaccuracy = 6f;
+            liquidCapacity = 10f;
+            ammoPerShot = 2;
+            shootEffect = Fx.shootLiquid;
+            shootSound = Sounds.cannon;
+            range = 90f;
+            shootY = 8;
+            flags = EnumSet.of(BlockFlag.turret, BlockFlag.extinguisher);
+
+            drawer = new DrawTurret("heatproof-"){{
+                parts.addAll(
+                        new RegionPart("-side"){{
+                            progress = PartProgress.warmup;
+                            moveRot = 20;
+                            mirror = true;
+                            turretShading = true;
+                        }},
+                        new RegionPart("-nozzle"){{
+                            progress = PartProgress.recoil;
+                            moveX = 2;
+                            mirror = true;
+                            turretShading = true;
+                        }}
+                );
+            }};
+        }};
+
+        dawn = new LiquidTurret("dawn"){{
+            requirements(Category.turret, with(PsammosItems.refinedMetal, 30, PsammosItems.quartz, 25, PsammosItems.aerogel, 18));
+
+            ammo(
+                    Liquids.hydrogen, new BulletType(0f, 1){{
+                        shootEffect = Fx.shootBig;
+                        smokeEffect = Fx.shootSmokeMissile;
+                        ammoMultiplier = 1f;
+
+                        spawnUnit = new MissileUnitType("dawn-missile"){{
+                            trailColor = engineColor = Liquids.hydrogen.color;
+                            engineSize = 1.75f;
+                            engineLayer = Layer.effect;
+                            speed = 3.7f;
+                            maxRange = 6f;
+                            lifetime = 60f * 1.5f;
+                            outlineColor = Color.valueOf("#3c3835");
+                            health = 50;
+
+                            weapons.add(new Weapon(){{
+                                shootCone = 360f;
+                                mirror = false;
+                                reload = 1f;
+                                shootOnDeath = true;
+                                bullet = new ExplosionBulletType(80f, 40f){{
+                                    shootEffect = new MultiEffect(Fx.massiveExplosion, new WrapEffect(Fx.dynamicSpikes, Liquids.hydrogen.color, 24f), new WaveEffect(){{
+                                        colorFrom = colorTo = Liquids.hydrogen.color;
+                                        sizeTo = 40f;
+                                        lifetime = 12f;
+                                        strokeFrom = 4f;
+                                    }});
+
+                                    collidesAir = true;
+                                    collidesGround = false;
+                                }};
+                            }});
+                        }};
+                    }}
+            );
+            squareSprite = false;
+
+            shoot.shots = 3;
+            shoot.shotDelay = 6;
+            recoil = 0.5f;
+
+            shootSound = Sounds.largeCannon;
+
+            minWarmup = 0.94f;
+            shootWarmupSpeed = 0.03f;
+            targetAir = true;
+            targetGround = false;
+            targetUnderBlocks = false;
+
+            shake = 3f;
+            shootY = -4f;
+            outlineColor = Color.valueOf("#534d4a");
+            size = 3;
+            reload = 160f;
+            range = 400;
+            shootCone = 1f;
+            rotateSpeed = 3f;
+
+            drawer = new DrawTurret("heatproof-"){{
+                parts.addAll(
+                        new RegionPart("-side"){{
+                            progress = PartProgress.warmup;
+                            moveRot = -25;
+                            mirror = true;
+                            turretShading = true;
+                        }},
+                        new RegionPart("-mid"){{
+                            progress = PartProgress.recoil;
+                            moveY = -3.8f;
+                            mirror = false;
+                        }},
+                        new RegionPart("-missile"){{
+                            progress = PartProgress.reload.curve(Interp.pow2In);
+
+                            colorTo = new Color(1f, 1f, 1f, 0f);
+                            color = Color.white;
+                            mixColorTo = Pal.accent;
+                            mixColor = new Color(1f, 1f, 1f, 0f);
+                            outline = false;
+                            under = true;
+
+                            layerOffset = -0.01f;
+
+                            moves.add(new PartMove(PartProgress.warmup.inv(), 0f, -2f, 0f));
+                        }}
+                );
+            }};
+        }};
+
         // Drills/Production
 
         osmiumDrill = new Drill("1a-osmium-drill"){{
@@ -355,9 +514,37 @@ public class PsammosBlocks {
             explodeTime = 5;
             range = 3;
             baseColor = Items.blastCompound.color;
-            effect = Fx.dynamicSpikes.wrap(Items.blastCompound.color, 18);
+            effect = new MultiEffect(
+                    Fx.blastExplosion,
+                    Fx.dynamicSpikes.wrap(Items.blastCompound.color, 18)
+            );
             explosionSound = Sounds.dullExplosion;
             shake = 2f;
+        }};
+
+        ammoniaBomb = new Bomb("ammonia-bomb"){{
+            requirements(Category.production, with(PsammosItems.aerogel, 10, PsammosItems.silver, 8));
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawLiquidTile(PsammosLiquids.ammonia, 1.5f),
+                    new DrawDefault()
+            );
+
+            size = 2;
+            squareSprite = false;
+            damage = 40;
+            explodeTime = 40;
+            range = 8;
+            baseColor = PsammosLiquids.ammonia.color;
+            effect = new MultiEffect(
+                    Fx.missileTrailSmoke.wrap(Color.grays(0.5f)),
+                    Fx.dynamicSpikes.wrap(PsammosLiquids.ammonia.color, 32)
+            );
+            explosionSound = Sounds.explosionbig;
+            shake = 10f;
+
+            consumeLiquid(PsammosLiquids.ammonia, 0.1f/60f);
         }};
 
         // Distribution
@@ -461,6 +648,17 @@ public class PsammosBlocks {
             liquidCapacity = 20;
             squareSprite = false;
             liquidPadding = 1;
+            solid = false;
+        }};
+
+        heatproofLiquidContainer = new LiquidRouter("heatproof-liquid-container"){{
+            requirements(Category.liquid, with(PsammosItems.quartz, 16, PsammosItems.refinedMetal, 10));
+
+            size = 2;
+            liquidCapacity = 800;
+            squareSprite = false;
+            liquidPadding = 2;
+            solid = true;
         }};
 
         tunnelPipe = new LiquidBridge("5a-quartz-bridge-conduit"){{
@@ -472,6 +670,7 @@ public class PsammosBlocks {
             liquidCapacity = 20;
             arrowSpacing = 4;
             bridgeWidth = 8;
+            hasPower = false;
         }};
         ((Conduit) pipe).bridgeReplacement = tunnelPipe;
 
@@ -481,8 +680,8 @@ public class PsammosBlocks {
             requirements(Category.power, with(PsammosItems.silver, 4));
 
             size = 1;
-            laserColor1 = Color.valueOf("#ffffff").a(1);
-            laserColor2 = Color.valueOf("#969696").a(1);
+            laserColor1 = Color.valueOf("#ffffff");
+            laserColor2 = Color.valueOf("#969696");
             pulseMag = 0;
             pulseScl = 0;
             range = 10;
@@ -499,6 +698,12 @@ public class PsammosBlocks {
             range = 25;
         }};
 
+        led = new LED("led"){{
+            requirements(Category.power, with(PsammosItems.quartz, 10, PsammosItems.silver, 5, Items.silicon, 10));
+            brightness = 0.75f;
+            radius = 140f;
+        }};
+
         accumulator = new Battery("2a-accumulator"){{
             requirements(Category.power, with(PsammosItems.silver, 10, Items.silicon, 5));
 
@@ -509,25 +714,34 @@ public class PsammosBlocks {
             consumePowerBuffered(4000);
         }};
 
-        //TODO: Make a separate class for wind turbines
-        windTurbine = new ConsumeGenerator("3a-wind-turbine"){{
-            requirements(Category.power, with(PsammosItems.osmium, 27, PsammosItems.silver, 27));
+        windTurbine = new WindTurbine("3a-wind-turbine"){{
+            requirements(Category.power, with(PsammosItems.osmium, 30, PsammosItems.silver, 30));
 
             size = 2;
             powerProduction = 1.5f;
             hasPower = true;
             outputsPower = true;
             squareSprite = false;
+            range = 6;
+        }};
 
-            drawer = new DrawMulti(
-                    new DrawDefault(),
-                    new DrawRegion("-rotator", 6, true),
-                    new DrawRegion("-top")
-            );
+        impulseGenerator = new ConsumeGenerator("impulse-generator"){{
+            requirements(Category.power, with(PsammosItems.silver, 30, PsammosItems.refinedMetal, 15, Items.silicon, 20));
+
+            size = 2;
+            powerProduction = 2.5f;
+            hasPower = true;
+            outputsPower = true;
+            squareSprite = true;
+            itemDuration = 30f;
+            drawer = new DrawMulti(new DrawDefault(), new DrawWarmupRegion());
+            generateEffect = Fx.blastExplosion;
+
+            consume(new ConsumeItemExplosive(1f));
         }};
 
         liquidFuelBurner = new ConsumeGenerator("3b-liquid-fuel-burner"){{
-            requirements(Category.power, with(PsammosItems.osmium, 30, PsammosItems.silver, 20, PsammosItems.refinedMetal, 12));
+            requirements(Category.power, with(PsammosItems.osmium, 40, PsammosItems.silver, 30, PsammosItems.refinedMetal, 40, PsammosItems.quartz, 20));
 
             size = 2;
             powerProduction = 6;
@@ -601,6 +815,27 @@ public class PsammosBlocks {
 
             consumeItem(Items.sand, 3);
             consumePower(0.25f);
+        }};
+
+        filter = new GenericCrafter("filter"){{
+            requirements(Category.crafting, with(PsammosItems.osmium, 60, Items.silicon, 30, PsammosItems.refinedMetal, 20));
+
+            size = 3;
+            squareSprite = false;
+            craftEffect = Fx.pulverize;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawRegion("-rotator", 4, true),
+                    new DrawDefault()
+            );
+
+            outputItem = new ItemStack(PsammosItems.quartz, 2);
+            craftTime = 30;
+
+            consumeItem(Items.sand, 3);
+            consumeLiquid(Liquids.nitrogen, 1/60f);
+            consumePower(1.25f);
         }};
 
         siliconSynthesizer = new GenericCrafter("2a-silicon-synthesizer"){{
@@ -698,6 +933,34 @@ public class PsammosBlocks {
             consumePower(1f);
         }};
 
+        atmosphericSeparator = new GenericCrafter("atmospheric-separator"){{
+            requirements(Category.crafting, with(PsammosItems.quartz, 45, PsammosItems.refinedMetal, 30, Items.silicon, 15));
+
+            size = 2;
+            squareSprite = false;
+            hasLiquids = true;
+            liquidCapacity = 20;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawLiquidTile(Liquids.nitrogen, 2f),
+                    new DrawDefault(),
+                    new DrawParticles(){{
+                        color = Color.valueOf("d4f0ff");
+                        alpha = 0.6f;
+                        particleSize = 2f;
+                        particles = 8;
+                        particleRad = 10f;
+                        particleLife = 100f;
+                    }}
+            );
+
+            outputLiquid = new LiquidStack(Liquids.nitrogen, 2/60f);
+            craftTime = 120;
+
+            consumePower(1.5f);
+        }};
+
         blastManufacturer = new GenericCrafter("6a-blast-manufacturer"){{
             requirements(Category.crafting, with(PsammosItems.osmium, 35, PsammosItems.silver, 20, Items.silicon, 20));
 
@@ -770,6 +1033,173 @@ public class PsammosBlocks {
             consumeLiquid(Liquids.water, 6 / 60f);
         }};
 
+        peatHeater = new HeatProducer("peat-heater"){{
+            requirements(Category.crafting, with(PsammosItems.silver, 30, PsammosItems.quartz, 10, PsammosItems.refinedMetal, 20, PsammosItems.aerogel, 15));
+
+            size = 3;
+            squareSprite = false;
+            hasLiquids = true;
+            liquidCapacity = 15;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawSoftParticles(){{
+                        alpha = 0.35f;
+                        color = Color.valueOf("#feb380");
+                        color2 = Color.valueOf("#ea8878");
+                        particleSize = 10;
+                        particleRad = 12;
+                    }},
+                    new DrawDefault(),
+                    new DrawHeatOutput()
+            );
+            rotate = true;
+            rotateDraw = false;
+
+            heatOutput = 5;
+            craftTime = 60;
+
+            consumeItem(PsammosItems.peat, 2);
+        }};
+
+        heatPump = new HeatConductor("heat-pump"){{
+            requirements(Category.crafting, with(PsammosItems.silver, 10, PsammosItems.aerogel, 8));
+            group = BlockGroup.heat;
+            size = 2;
+
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawHeatOutput(),
+                    new DrawHeatInput()
+            );
+            rotate = true;
+            rotateDraw = false;
+        }};
+
+        heatPumpRouter = new HeatConductor("heat-pump-router"){{
+            requirements(Category.crafting, with(PsammosItems.silver, 12, PsammosItems.aerogel, 15));
+            group = BlockGroup.heat;
+            size = 2;
+            splitHeat = true;
+
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawHeatOutput(-1, false),
+                    new DrawHeatOutput(),
+                    new DrawHeatOutput(1, false),
+                    new DrawHeatInput()
+            );
+            rotate = true;
+            rotateDraw = false;
+        }};
+
+        aerogelPressurizer = new GenericCrafter("aerogel-pressurizer"){{
+            requirements(Category.crafting, with(PsammosItems.osmium, 40, PsammosItems.quartz, 50, PsammosItems.refinedMetal, 35, Items.silicon, 20));
+
+            size = 4;
+            squareSprite = false;
+            itemCapacity = 20;
+            hasLiquids = true;
+            liquidCapacity = 15;
+
+            drawer = new DrawMulti(
+                new DrawRegion("-bottom"),
+                new DrawLiquidTile(PsammosLiquids.methane, 3),
+                new DrawPistons(){{
+                    sinMag = 2.5f;
+                    sinScl = 3;
+                }},
+                new DrawDefault(),
+                new DrawGlowRegion(){{
+                    color = Color.valueOf("#5bffbd");
+                    alpha = 0.3f;
+                }}
+            );
+
+            craftEffect = Fx.artilleryTrailSmoke;
+            outputItem = new ItemStack(PsammosItems.aerogel, 1);
+            craftTime = 90;
+
+            consumePower(2.5f);
+            consumeLiquid(PsammosLiquids.methane, 2/60f);
+            consumeItem(Items.silicon, 3);
+        }};
+
+        steamReformer = new HeatCrafter("steam-reformer"){{
+            requirements(Category.crafting, with(PsammosItems.silver, 25, PsammosItems.refinedMetal, 20, PsammosItems.quartz, 40, Items.silicon, 10));
+
+            size = 3;
+            squareSprite = false;
+            hasLiquids = true;
+            liquidCapacity = 30;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawParticles(){{
+                        color = Color.valueOf("#ffffff");
+                        alpha = 0.25f;
+                        particleSize = 3;
+                        particles = 13;
+                        particleRad = 9;
+                        particleLife = 200;
+                        reverse = true;
+                    }},
+                    new DrawGlowRegion(){{
+                        alpha = 0.5f;
+                    }},
+                    new DrawDefault(),
+                    new DrawHeatInput()
+            );
+            rotate = true;
+            rotateDraw = false;
+
+            outputLiquid = new LiquidStack(Liquids.hydrogen, 6 / 60f);
+            craftTime = 60;
+
+            heatRequirement = 4;
+            consumeLiquid(Liquids.water, 2/60f);
+            consumeLiquid(PsammosLiquids.methane, 2/60f);
+        }};
+
+        ammoniaCompressor = new HeatCrafter("ammonia-compressor"){{
+            requirements(Category.crafting, with(PsammosItems.aerogel, 30, PsammosItems.osmium, 60, PsammosItems.refinedMetal, 75, Items.silicon, 30));
+
+            size = 3;
+            squareSprite = false;
+            hasLiquids = true;
+            liquidCapacity = 15;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawCircles(){{
+                        color = Color.valueOf("e3b7fb").a(0.24f);
+                        strokeMax = 2f;
+                        radius = 10f;
+                        amount = 4;
+                    }},
+                    new DrawPistons(){{
+                        sinMag = 2f;
+                        sinScl = 5f;
+                        sides = 4;
+                        angleOffset = 45;
+                    }},
+                    new DrawDefault(),
+                    new DrawGlowRegion(){{
+                        color = Color.valueOf("#e3b7fb");
+                        alpha = 0.4f;
+                    }},
+                    new DrawHeatInput()
+            );
+
+            outputLiquid = new LiquidStack(PsammosLiquids.ammonia, 3/60f);
+            craftTime = 90;
+
+            heatRequirement = 8;
+            consumePower(2f);
+            consumeLiquid(Liquids.nitrogen, (2/3f)/60f);
+            consumeLiquid(Liquids.hydrogen, 2/60f);
+        }};
+
         obliterator = new Incinerator("Zz-obliterator"){{
             requirements(Category.crafting, with(PsammosItems.refinedMetal, 16, Items.blastCompound, 10));
 
@@ -813,10 +1243,24 @@ public class PsammosBlocks {
             consumePower(1.4f);
         }};
 
+        heatproofPayloadConveyor = new PayloadConveyor("heatproof-payload-conveyor"){{
+            requirements(Category.units, with(PsammosItems.refinedMetal, 15));
+            canOverdrive = false;
+            health = 500;
+            moveTime = 40f;
+        }};
+
+        heatproofPayloadRouter = new PayloadRouter("heatproof-payload-router"){{
+            requirements(Category.units, with(PsammosItems.refinedMetal, 20));
+            canOverdrive = false;
+            health = 500;
+            moveTime = 40f;
+        }};
+
         // Effect/Storage
 
         coreDust = new CoreBlock("1a-core-dust"){{
-            requirements(Category.effect, with(PsammosItems.osmium, 1000, PsammosItems.silver, 800));
+            requirements(Category.effect, with(PsammosItems.osmium, 1000, PsammosItems.silver, 1000));
             alwaysUnlocked = true;
 
             isFirstTier = true;
@@ -827,6 +1271,19 @@ public class PsammosBlocks {
             unitCapModifier = 12;
             squareSprite = false;
             unitType = PsammosUnitTypes.gradient;
+        }};
+
+        coreDune = new CoreBlock("core-dune"){{
+            requirements(Category.effect, with(PsammosItems.osmium, 3000, PsammosItems.silver, 3000, Items.silicon, 2000, PsammosItems.refinedMetal, 1000));
+            alwaysUnlocked = true;
+
+            health = 3800;
+            size = 4;
+            absorbLasers = true;
+            itemCapacity = 11000;
+            unitCapModifier = 20;
+            squareSprite = false;
+            unitType = PsammosUnitTypes.ascent;
         }};
 
         heatproofContainer = new StorageBlock("2a-heatproof-container"){{

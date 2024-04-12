@@ -41,7 +41,7 @@ public class PsammosUnitTypes {
             accel = 0.1f;
             drag = 0.04f;
             flying = true;
-            health = 300;
+            health = 240;
             hitSize = 8;
             armor = 1;
             itemCapacity = 30;
@@ -70,6 +70,48 @@ public class PsammosUnitTypes {
                         buildingDamageMultiplier = 0.01f;
                     }};
                 }}
+            );
+        }};
+
+        ascent = new UnitType("ascent"){{
+            aiController = BuilderAI::new;
+            constructor = UnitEntity::create;
+
+            lowAltitude = true;
+            speed = 2.9f;
+            rotateSpeed = 15;
+            accel = 0.1f;
+            drag = 0.04f;
+            flying = true;
+            health = 380;
+            hitSize = 10;
+            armor = 1;
+            itemCapacity = 50;
+            outlineColor = Color.valueOf("#3c3835");
+            engineOffset = 5.5f;
+            faceTarget = false;
+            mineTier = 2;
+            mineSpeed = 5;
+            buildSpeed = 0.5f;
+            buildBeamOffset = 4.5f;
+            isEnemy = false;
+
+            weapons.addAll(
+                    new Weapon("psammos-ascent-gun"){{
+                        x = 2.5f;
+                        y = -2.5f;
+                        reload = 14;
+                        mirror = true;
+                        rotate = true;
+                        bullet = new BasicBulletType(){{
+                            speed = 3f;
+                            damage = 12;
+                            width = 6;
+                            height = 9;
+                            lifetime = 70;
+                            buildingDamageMultiplier = 0.01f;
+                        }};
+                    }}
             );
         }};
 
@@ -381,7 +423,7 @@ public class PsammosUnitTypes {
             accel = 0.1f;
             drag = 0.04f;
             flying = true;
-            health = 220;
+            health = 275;
             hitSize = 8;
             armor = 2;
             outlineColor = Color.valueOf("#3c3835");
@@ -646,7 +688,7 @@ public class PsammosUnitTypes {
             hitSize = 12;
             rotateSpeed = 9;
             health = 485;
-            armor = 3;
+            armor = 2;
             outlineColor = Color.valueOf("#3c3835");
             faceTarget = false;
             targetAir = true;
@@ -703,6 +745,70 @@ public class PsammosUnitTypes {
                     }};
                 }},
                 new TrailWeapon(0f, -4f, false, 2f, 15, Color.valueOf("#c3aedd"))
+            );
+        }};
+
+        exilis = new UnitType("exilis"){{
+            constructor = ElevationMoveUnit::create;
+
+            speed = 3.2f;
+            drag = 0.1f;
+            hitSize = 16;
+            rotateSpeed = 4;
+            health = 690;
+            armor = 3;
+            outlineColor = Color.valueOf("#3c3835");
+            faceTarget = false;
+            targetAir = true;
+
+            hovering = true;
+
+            shadowElevation = 0.18f;
+
+            parts.addAll(
+                    new HoverPart(){{
+                        x = 6f;
+                        y = 3f;
+                        mirror = true;
+                        radius = 6;
+                        phase = 90;
+                        stroke = 2;
+                        layerOffset = -0.001f;
+                        color = Color.valueOf("#c3aedd");
+                        sides = 6;
+                    }}
+            );
+
+            weapons.addAll(
+                    new Weapon("psammos-exilis-cannon"){{
+                        x = -5;
+                        y = -2;
+                        reload = 50;
+                        shootY = 3f;
+                        shootSound = Sounds.pulseBlast;
+                        mirror = true;
+                        rotate = true;
+                        bullet = new LaserBulletType(){{
+                            damage = 55;
+                            colors = new Color[]{
+                                    Color.valueOf("#c3aedd"),
+                                    Color.valueOf("#ffffff")
+                            };
+                            hitEffect = Fx.hitLancer;
+                            hitSize = 4;
+                            lifetime = 20;
+                            drawSize = 800;
+                            collidesAir = true;
+                            length = 110;
+                            width = 10;
+                            pierceCap = 3;
+                            sideAngle = 25f;
+                            sideWidth = 1.5f;
+                            sideLength = 70f;
+                        }};
+                    }},
+                    new TrailWeapon(0f, -5.8f, false, 2f, 15, Color.valueOf("#c3aedd")),
+                    new TrailWeapon(5.5f, -5.3f, true, 1.2f, 12, Color.valueOf("#c3aedd"))
             );
         }};
     }
