@@ -343,7 +343,6 @@ public class PsammosBlocks {
             shootSound = Sounds.cannon;
             range = 90f;
             shootY = 8;
-            scaledHealth = 250;
             flags = EnumSet.of(BlockFlag.turret, BlockFlag.extinguisher);
 
             drawer = new DrawTurret("heatproof-"){{
@@ -730,7 +729,7 @@ public class PsammosBlocks {
             requirements(Category.power, with(PsammosItems.silver, 30, PsammosItems.refinedMetal, 15, Items.silicon, 20));
 
             size = 2;
-            powerProduction = 3;
+            powerProduction = 2.5f;
             hasPower = true;
             outputsPower = true;
             squareSprite = true;
