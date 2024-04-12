@@ -82,7 +82,7 @@ public class PsammosBlocks {
         // Turrets
 
         cross = new ItemTurret("1a-cross"){{
-            requirements(Category.turret, with(PsammosItems.osmium, 20));
+            requirements(Category.turret, with(PsammosItems.osmium, 15, Items.sand, 5));
             alwaysUnlocked = true;
 
             ammo(
@@ -323,7 +323,7 @@ public class PsammosBlocks {
                         layer = Layer.bullet - 2f;
                     }},
                     PsammosLiquids.ammonia, new GasBulletType(PsammosLiquids.ammonia){{
-                        damage = 11f;
+                        damage = 10f;
                         knockback = 2f;
                         status = StatusEffects.burning;
                         layer = Layer.bullet - 2f;
@@ -388,7 +388,7 @@ public class PsammosBlocks {
                                 mirror = false;
                                 reload = 1f;
                                 shootOnDeath = true;
-                                bullet = new ExplosionBulletType(50f, 30f){{
+                                bullet = new ExplosionBulletType(80f, 40f){{
                                     shootEffect = new MultiEffect(Fx.massiveExplosion, new WrapEffect(Fx.dynamicSpikes, Liquids.hydrogen.color, 24f), new WaveEffect(){{
                                         colorFrom = colorTo = Liquids.hydrogen.color;
                                         sizeTo = 40f;

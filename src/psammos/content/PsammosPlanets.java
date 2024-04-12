@@ -31,6 +31,7 @@ public class PsammosPlanets {
             clearSectorOnLose = true;
             allowWaves = true;
             prebuildBase = false;
+            defaultCore = PsammosBlocks.coreDust;
 
             defaultEnv = Env.oxygen | Env.terrestrial | Env.groundOil;
 
