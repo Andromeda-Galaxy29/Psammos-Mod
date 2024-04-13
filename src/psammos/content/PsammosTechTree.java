@@ -163,11 +163,11 @@ public class PsammosTechTree {
 
             });
 
-            node(specialistUnitForge, Seq.with(new OnSector(ancientSwamp)), ()->{
+            node(specialistUnitForge, Seq.with(new OnSector(driedRiver)), ()->{
                 node(fang, ()->{
 
                 });
-                node(assaultUnitForge, ()->{
+                node(assaultUnitForge, Seq.with(new OnSector(ancientSwamp)), ()->{
                     node(tip, ()->{
 
                     });
