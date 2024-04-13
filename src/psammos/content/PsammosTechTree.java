@@ -167,7 +167,7 @@ public class PsammosTechTree {
                 node(fang, ()->{
 
                 });
-                node(assaultUnitForge, Seq.with(new OnSector(ancientSwamp)), ()->{
+                node(assaultUnitForge, ()->{
                     node(tip, ()->{
 
                     });
