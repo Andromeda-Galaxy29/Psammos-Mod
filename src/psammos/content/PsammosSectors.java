@@ -33,7 +33,7 @@ public class PsammosSectors {
             captureWave = 25;
         }};
 
-        evaporatedBasin = new SectorPreset("evaporated-basin", PsammosPlanets.psammos, 27){{
+        evaporatedBasin = new SectorPreset("evaporated-basin", PsammosPlanets.psammos, 28){{
             difficulty = 3;
         }};
 
