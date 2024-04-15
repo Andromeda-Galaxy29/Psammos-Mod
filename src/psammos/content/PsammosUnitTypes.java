@@ -9,6 +9,7 @@ import mindustry.entities.part.*;
 import mindustry.entities.pattern.*;
 import mindustry.gen.*;
 import mindustry.type.*;
+import psammos.PPal;
 import psammos.units.weapons.*;
 
 public class PsammosUnitTypes {
@@ -45,7 +46,7 @@ public class PsammosUnitTypes {
             hitSize = 8;
             armor = 1;
             itemCapacity = 30;
-            outlineColor = Color.valueOf("#3c3835");
+            outlineColor = PPal.unitOutline;
             engineOffset = 6;
             faceTarget = true;
             mineTier = 2;
@@ -87,7 +88,7 @@ public class PsammosUnitTypes {
             hitSize = 10;
             armor = 1;
             itemCapacity = 50;
-            outlineColor = Color.valueOf("#3c3835");
+            outlineColor = PPal.unitOutline;
             engineOffset = 5.5f;
             faceTarget = false;
             mineTier = 2;
@@ -126,7 +127,7 @@ public class PsammosUnitTypes {
             health = 120;
             hitSize = 9;
             armor = 0;
-            outlineColor = Color.valueOf("#3c3835");
+            outlineColor = PPal.unitOutline;
             faceTarget = true;
             targetAir = false;
             crushDamage = 0.2f;
@@ -148,7 +149,7 @@ public class PsammosUnitTypes {
             health = 420;
             hitSize = 11;
             armor = 3;
-            outlineColor = Color.valueOf("#3c3835");
+            outlineColor = PPal.unitOutline;
             faceTarget = true;
             targetAir = false;
             crushDamage = 0.5f;
@@ -193,7 +194,7 @@ public class PsammosUnitTypes {
             health = 680;
             hitSize = 17;
             armor = 5;
-            outlineColor = Color.valueOf("#3c3835");
+            outlineColor = PPal.unitOutline;
             faceTarget = true;
             targetAir = false;
             crushDamage = 0.8f;
@@ -240,7 +241,7 @@ public class PsammosUnitTypes {
             rotateSpeed = 3;
             health = 180;
             armor = 0;
-            outlineColor = Color.valueOf("#3c3835");
+            outlineColor = PPal.unitOutline;
             faceTarget = false;
             targetAir = true;
 
@@ -295,7 +296,7 @@ public class PsammosUnitTypes {
             rotateSpeed = 3;
             health = 500;
             armor = 4;
-            outlineColor = Color.valueOf("#3c3835");
+            outlineColor = PPal.unitOutline;
             faceTarget = false;
             targetAir = true;
 
@@ -349,7 +350,7 @@ public class PsammosUnitTypes {
             rotateSpeed = 2;
             health = 700;
             armor = 5;
-            outlineColor = Color.valueOf("#3c3835");
+            outlineColor = PPal.unitOutline;
             faceTarget = false;
             targetAir = true;
 
@@ -426,7 +427,7 @@ public class PsammosUnitTypes {
             health = 275;
             hitSize = 8;
             armor = 2;
-            outlineColor = Color.valueOf("#3c3835");
+            outlineColor = PPal.unitOutline;
             engineOffset = 5;
             faceTarget = true;
             mineTier = 2;
@@ -466,7 +467,7 @@ public class PsammosUnitTypes {
             health = 550;
             hitSize = 12;
             armor = 4;
-            outlineColor = Color.valueOf("#3c3835");
+            outlineColor = PPal.unitOutline;
             engineOffset = 7;
             faceTarget = true;
             mineTier = 2;
@@ -517,7 +518,7 @@ public class PsammosUnitTypes {
             health = 750;
             hitSize = 17;
             armor = 4;
-            outlineColor = Color.valueOf("#3c3835");
+            outlineColor = PPal.unitOutline;
             faceTarget = true;
             mineTier = 3;
             mineSpeed = 9;
@@ -614,7 +615,7 @@ public class PsammosUnitTypes {
             rotateSpeed = 8;
             health = 180;
             armor = 0;
-            outlineColor = Color.valueOf("#3c3835");
+            outlineColor = PPal.unitOutline;
             faceTarget = true;
             targetAir = true;
 
@@ -631,7 +632,7 @@ public class PsammosUnitTypes {
                     phase = 90;
                     stroke = 2;
                     layerOffset = -0.001f;
-                    color = Color.valueOf("#c3aedd");
+                    color = PPal.scoutPink;
                 }},
                 new HoverPart(){{
                     x = 3.8f;
@@ -641,7 +642,7 @@ public class PsammosUnitTypes {
                     phase = 90;
                     stroke = 2;
                     layerOffset = -0.001f;
-                    color = Color.valueOf("#c3aedd");
+                    color = PPal.scoutPink;
                 }}
             );
 
@@ -667,8 +668,8 @@ public class PsammosUnitTypes {
                         splashDamageRadius = 18;
                         splashDamage = 9;
                         lifetime = 40;
-                        trailColor = Color.valueOf("#c3aedd");
-                        backColor = Color.valueOf("#c3aedd");
+                        trailColor = PPal.scoutPink;
+                        backColor = PPal.scoutPink;
                         frontColor = Color.valueOf("#e8def4");
                         hitEffect = Fx.blastExplosion;
                         despawnEffect = Fx.blastExplosion;
@@ -676,7 +677,7 @@ public class PsammosUnitTypes {
                         weaveMag = 0.8f;
                     }};
                 }},
-                new TrailWeapon(4.5f, -4.5f, true, 1, 10, Color.valueOf("#c3aedd"))
+                new TrailWeapon(4.5f, -4.5f, true, 1, 10, PPal.scoutPink)
             );
         }};
 
@@ -689,7 +690,7 @@ public class PsammosUnitTypes {
             rotateSpeed = 9;
             health = 485;
             armor = 2;
-            outlineColor = Color.valueOf("#3c3835");
+            outlineColor = PPal.unitOutline;
             faceTarget = false;
             targetAir = true;
 
@@ -706,7 +707,7 @@ public class PsammosUnitTypes {
                     phase = 90;
                     stroke = 2;
                     layerOffset = -0.001f;
-                    color = Color.valueOf("#c3aedd");
+                    color = PPal.scoutPink;
                 }},
                 new HoverPart(){{
                     x = 5f;
@@ -716,7 +717,7 @@ public class PsammosUnitTypes {
                     phase = 90;
                     stroke = 2;
                     layerOffset = -0.001f;
-                    color = Color.valueOf("#c3aedd");
+                    color = PPal.scoutPink;
                 }}
             );
 
@@ -731,7 +732,7 @@ public class PsammosUnitTypes {
                     bullet = new LaserBulletType(){{
                         damage = 22;
                         colors = new Color[]{
-                            Color.valueOf("#c3aedd"),
+                            PPal.scoutPink,
                             Color.valueOf("#ffffff")
                         };
                         hitEffect = Fx.hitLancer;
@@ -744,7 +745,7 @@ public class PsammosUnitTypes {
                         pierceCap = 2;
                     }};
                 }},
-                new TrailWeapon(0f, -4f, false, 2f, 15, Color.valueOf("#c3aedd"))
+                new TrailWeapon(0f, -4f, false, 2f, 15, PPal.scoutPink)
             );
         }};
 
@@ -757,7 +758,7 @@ public class PsammosUnitTypes {
             rotateSpeed = 4;
             health = 690;
             armor = 3;
-            outlineColor = Color.valueOf("#3c3835");
+            outlineColor = PPal.unitOutline;
             faceTarget = false;
             targetAir = true;
 
@@ -774,7 +775,7 @@ public class PsammosUnitTypes {
                         phase = 90;
                         stroke = 2;
                         layerOffset = -0.001f;
-                        color = Color.valueOf("#c3aedd");
+                        color = PPal.scoutPink;
                         sides = 6;
                     }}
             );
@@ -791,7 +792,7 @@ public class PsammosUnitTypes {
                         bullet = new LaserBulletType(){{
                             damage = 55;
                             colors = new Color[]{
-                                    Color.valueOf("#c3aedd"),
+                                    PPal.scoutPink,
                                     Color.valueOf("#ffffff")
                             };
                             hitEffect = Fx.hitLancer;
@@ -807,8 +808,8 @@ public class PsammosUnitTypes {
                             sideLength = 70f;
                         }};
                     }},
-                    new TrailWeapon(0f, -5.8f, false, 2f, 15, Color.valueOf("#c3aedd")),
-                    new TrailWeapon(5.5f, -5.3f, true, 1.2f, 12, Color.valueOf("#c3aedd"))
+                    new TrailWeapon(0f, -5.8f, false, 2f, 15, PPal.scoutPink),
+                    new TrailWeapon(5.5f, -5.3f, true, 1.2f, 12, PPal.scoutPink)
             );
         }};
     }

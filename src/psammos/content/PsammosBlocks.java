@@ -27,6 +27,7 @@ import mindustry.world.blocks.units.*;
 import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
+import psammos.PPal;
 import psammos.blocks.*;
 import psammos.bullet.*;
 
@@ -104,7 +105,7 @@ public class PsammosBlocks {
             health = 260;
             squareSprite = false;
             shootSound = Sounds.shootAlt;
-            outlineColor = Color.valueOf("#534d4a");
+            outlineColor = PPal.turretOutline;
             targetAir = true;
             targetGround = true;
             range = 160;
@@ -189,7 +190,7 @@ public class PsammosBlocks {
             health = 260;
             squareSprite = false;
             shootSound = Sounds.cannon;
-            outlineColor = Color.valueOf("#534d4a");
+            outlineColor = PPal.turretOutline;
             targetAir = true;
             targetGround = false;
             range = 120;
@@ -238,7 +239,7 @@ public class PsammosBlocks {
             health = 320;
             squareSprite = false;
             shootSound = Sounds.shockBlast;
-            outlineColor = Color.valueOf("#534d4a");
+            outlineColor = PPal.turretOutline;
             targetAir = false;
             targetGround = true;
             range = 140;
@@ -273,7 +274,7 @@ public class PsammosBlocks {
             health = 520;
             squareSprite = false;
             shootSound = Sounds.shootSnap;
-            outlineColor = Color.valueOf("#534d4a");
+            outlineColor = PPal.turretOutline;
             targetAir = true;
             targetGround = true;
             range = 180;
@@ -334,6 +335,7 @@ public class PsammosBlocks {
             shoot = new ShootSpread(15, 4f);
 
             size = 3;
+            outlineColor = PPal.turretOutline;
             recoil = 0f;
             reload = 40f;
             inaccuracy = 6f;
@@ -379,7 +381,7 @@ public class PsammosBlocks {
                             speed = 3.7f;
                             maxRange = 6f;
                             lifetime = 60f * 1.5f;
-                            outlineColor = Color.valueOf("#3c3835");
+                            outlineColor = PPal.unitOutline;
                             health = 50;
 
                             weapons.add(new Weapon(){{
@@ -419,7 +421,7 @@ public class PsammosBlocks {
 
             shake = 3f;
             shootY = -4f;
-            outlineColor = Color.valueOf("#534d4a");
+            outlineColor = PPal.turretOutline;
             size = 3;
             reload = 160f;
             range = 400;
