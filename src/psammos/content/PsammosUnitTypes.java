@@ -22,7 +22,7 @@ public class PsammosUnitTypes {
     fang, jaw, maw, gorge, gluttony,
 
     //Assault
-    tip, spike, spear, edge, blade,
+    tip, spike, spear, javelin, trident,
 
     //Support
     sine, helix, trisect, quadrifol, lemniscate,
@@ -129,7 +129,7 @@ public class PsammosUnitTypes {
             outlineColor = Color.valueOf("#3c3835");
             faceTarget = true;
             targetAir = false;
-            crushDamage = 0.5f;
+            crushDamage = 0.2f;
 
             segments = 3;
             drawBody = false;
@@ -151,7 +151,7 @@ public class PsammosUnitTypes {
             outlineColor = Color.valueOf("#3c3835");
             faceTarget = true;
             targetAir = false;
-            crushDamage = 0.7f;
+            crushDamage = 0.5f;
 
             segments = 3;
             drawBody = false;
@@ -196,7 +196,7 @@ public class PsammosUnitTypes {
             outlineColor = Color.valueOf("#3c3835");
             faceTarget = true;
             targetAir = false;
-            crushDamage = 1;
+            crushDamage = 0.8f;
 
             segments = 3;
             drawBody = false;
