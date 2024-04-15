@@ -9,7 +9,7 @@ import mindustry.entities.part.*;
 import mindustry.entities.pattern.*;
 import mindustry.gen.*;
 import mindustry.type.*;
-import psammos.units.*;
+import psammos.units.weapons.*;
 
 public class PsammosUnitTypes {
 

@@ -1,4 +1,4 @@
-package psammos.units;
+package psammos.units.weapons;
 
 import arc.graphics.Color;
 import mindustry.entities.bullet.BulletType;

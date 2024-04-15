@@ -397,6 +397,7 @@ public class PsammosBlocks {
 
                                     collidesAir = true;
                                     collidesGround = false;
+                                    collidesTiles = false;
                                 }};
                             }});
                         }};

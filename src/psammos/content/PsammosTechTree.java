@@ -193,7 +193,9 @@ public class PsammosTechTree {
 
                                 });
                                 node(ferricSummit, Seq.with(new SectorComplete(oilRefiningFacility)), ()->{
+                                    node(craterousRange, Seq.with(new SectorComplete(ferricSummit), new SectorComplete(erodedDesert)), ()->{
 
+                                    });
                                 });
                             });
                             node(evaporatedBasin, Seq.with(new SectorComplete(ancientSwamp)), ()->{
