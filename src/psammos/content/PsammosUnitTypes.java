@@ -1,13 +1,17 @@
 package psammos.content;
 
 import arc.graphics.*;
+import arc.math.geom.*;
+import arc.struct.Seq;
 import mindustry.ai.types.*;
 import mindustry.content.*;
 import mindustry.entities.abilities.*;
 import mindustry.entities.bullet.*;
+import mindustry.entities.effect.*;
 import mindustry.entities.part.*;
 import mindustry.entities.pattern.*;
 import mindustry.gen.*;
+import mindustry.graphics.Pal;
 import mindustry.type.*;
 import psammos.PPal;
 import psammos.units.weapons.*;
@@ -29,7 +33,10 @@ public class PsammosUnitTypes {
     sine, helix, trisect, quadrifol, lemniscate,
 
     //Scout
-    sciur, glirid, exilis, pteromys, paraxerus;
+    sciur, glirid, exilis, pteromys, paraxerus,
+
+    //Frontline
+    pawn, knight, bishop, rook, monarch;
 
     public static void load() {
         gradient = new UnitType("1a-gradient"){{
@@ -432,6 +439,7 @@ public class PsammosUnitTypes {
             faceTarget = true;
             mineTier = 2;
             mineSpeed = 3;
+            mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
 
             weapons.addAll(
                 new Weapon("psammos-sine-gun"){{
@@ -472,6 +480,7 @@ public class PsammosUnitTypes {
             faceTarget = true;
             mineTier = 2;
             mineSpeed = 5;
+            mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
 
             abilities.addAll(
                 new RepairFieldAbility(25, 200, 80)
@@ -524,6 +533,7 @@ public class PsammosUnitTypes {
             mineSpeed = 9;
             buildSpeed = 0.5f;
             buildBeamOffset = 6;
+            mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
 
             engines.addAll(
                 new UnitEngine(0, -11, 3, -90),
@@ -810,6 +820,237 @@ public class PsammosUnitTypes {
                     }},
                     new TrailWeapon(0f, -5.8f, false, 2f, 15, PPal.scoutPink),
                     new TrailWeapon(5.5f, -5.3f, true, 1.2f, 12, PPal.scoutPink)
+            );
+        }};
+
+        pawn = new UnitType("pawn"){{
+            researchCostMultiplier = 0f;
+            constructor = TankUnit::create;
+
+            speed = 0.75f;
+            hitSize = 12f;
+            rotateSpeed = 3.5f;
+            health = 200;
+            armor = 1;
+            outlineColor = PPal.unitOutline;
+            faceTarget = false;
+
+            squareShape = true;
+            omniMovement = false;
+            rotateMoveFirst = true;
+
+            treadRects = new Rect[]{
+                    new Rect(10 - 32f, 10 - 32f, 10, 16),
+                    new Rect(4 - 32f, 41 - 32f, 12, 18)
+            };
+            treadPullOffset = 0;
+
+            weapons.addAll(
+                    new Weapon("psammos-pawn-weapon"){{
+                        x = -3;
+                        y = -5;
+                        reload = 20;
+                        mirror = true;
+                        rotate = true;
+                        alternate = false;
+                        shootSound = Sounds.lasershoot;
+                        bullet = new BasicBulletType(){{
+                            backSprite = "large-bomb-back";
+                            sprite = "mine-bullet";
+                            speed = 3f;
+                            damage = 10;
+                            width = 8;
+                            height = 8;
+                            trailWidth = 1.5f;
+                            trailLength = 6;
+                            lifetime = 45;
+                            trailColor = Pal.techBlue;
+                            backColor = Pal.techBlue;
+                            hitColor = Pal.techBlue;
+                            frontColor = Color.white;
+                            hitEffect = despawnEffect = new WaveEffect(){{
+                                colorFrom = colorTo = Pal.techBlue;
+                                sizeTo = 12f;
+                                lifetime = 9f;
+                                strokeFrom = 2f;
+                            }};
+                            status = StatusEffects.shocked;
+                        }};
+                    }}
+            );
+        }};
+
+        knight = new UnitType("knight"){{
+            constructor = TankUnit::create;
+
+            speed = 0.7f;
+            hitSize = 18f;
+            rotateSpeed = 2.9f;
+            health = 520;
+            armor = 5;
+            outlineColor = PPal.unitOutline;
+            faceTarget = false;
+
+            squareShape = true;
+            omniMovement = false;
+            rotateMoveFirst = true;
+
+            treadRects = new Rect[]{
+                    new Rect(17 - 48f, 19 - 48f, 16, 24),
+                    new Rect(14 - 48f, 63 - 48f, 16, 24)
+            };
+            treadPullOffset = 0;
+
+            abilities.add(new EnergyFieldAbility(12f, 70f, 40f){{
+                statusDuration = 20f;
+                maxTargets = 5;
+                color = Pal.techBlue;
+                effectRadius = 3;
+                blinkSize = -0.2f;
+                sectors = 3;
+                y = -8;
+            }});
+
+            weapons.addAll(
+                    new Weapon("psammos-knight-weapon"){{
+                        x = -5.5f;
+                        y = -3;
+                        rotate = true;
+                        shake = 2.2f;
+                        reload = 36f;
+                        inaccuracy = 35;
+                        shoot.shots = 3;
+                        shoot.shotDelay = 0.5f;
+                        ejectEffect = Fx.none;
+                        recoil = 2.5f;
+                        shootSound = Sounds.spark;
+                        bullet = new LightningBulletType(){{
+                            lightningColor = hitColor = Pal.techBlue;
+                            damage = 14f;
+                            lightningLength = 7;
+                            lightningLengthRand = 7;
+                            shootEffect = Fx.shootSmallColor.wrap(Pal.techBlue);
+
+                            lightningType = new BulletType(0.0001f, 0f){{
+                                lifetime = Fx.lightning.lifetime;
+                                hitEffect = Fx.hitLancer;
+                                despawnEffect = Fx.none;
+                                status = StatusEffects.shocked;
+                                statusDuration = 10f;
+                                hittable = false;
+                            }};
+                        }};
+                    }}
+            );
+        }};
+
+        bishop = new UnitType("bishop"){{
+            constructor = TankUnit::create;
+
+            speed = 0.64f;
+            hitSize = 26f;
+            rotateSpeed = 1.5f;
+            health = 800;
+            armor = 6;
+            outlineColor = PPal.unitOutline;
+            faceTarget = false;
+
+            squareShape = true;
+            omniMovement = false;
+            rotateMoveFirst = true;
+
+            treadRects = new Rect[]{
+                    new Rect(25 - 64f, 15 - 64f, 22, 32),
+                    new Rect(8 - 64f, 49 - 64f, 22, 40),
+                    new Rect(16 - 64f, 91 - 64f, 26, 32)
+            };
+            treadPullOffset = 0;
+
+            weapons.addAll(
+                    new Weapon("psammos-bishop-gun"){{
+                        x = -9.5f;
+                        y = -0.5f;
+                        reload = 8;
+                        mirror = true;
+                        rotate = true;
+                        alternate = true;
+                        shootSound = Sounds.shockBlast;
+
+                        shootY = 6f;
+                        shoot = new ShootBarrel(){{
+                            barrels = new float[]{
+                                    3f, -6f, 0f,
+                                    0f, -3f, 0f,
+                            };
+                        }};
+
+                        bullet = new BasicBulletType(){{
+                            backSprite = "large-bomb-back";
+                            sprite = "mine-bullet";
+                            speed = 5f;
+                            damage = 18;
+                            width = 6;
+                            height = 12;
+                            trailWidth = 1.5f;
+                            trailLength = 3;
+                            lifetime = 30;
+                            trailColor = Pal.techBlue;
+                            backColor = Pal.techBlue;
+                            hitColor = Pal.techBlue;
+                            frontColor = Color.white;
+                            hitEffect = despawnEffect = new MultiEffect(Fx.hitSquaresColor, new WaveEffect(){{
+                                colorFrom = colorTo = Pal.techBlue;
+                                sizeTo = 20f;
+                                lifetime = 8f;
+                                strokeFrom = 5f;
+                            }});
+                            splashDamage = 8;
+                            splashDamageRadius = 20;
+                            status = StatusEffects.shocked;
+                        }};
+                    }},
+                    new Weapon("psammos-bishop-bomb-launcher"){{
+                        x = 0;
+                        y = -7.5f;
+                        reload = 100;
+                        mirror = false;
+                        rotate = true;
+                        shootSound = Sounds.mediumCannon;
+                        inaccuracy = 15;
+
+                        bullet = new BasicBulletType(){{
+                            backSprite = "large-bomb-back";
+                            sprite = "large-bomb";
+
+                            speed = 8f;
+                            damage = 0;
+                            height = width = 12;
+                            splashDamageRadius = 8*8f;
+                            splashDamage = 60;
+                            collidesTiles = false;
+                            lifetime = 30*60f;
+                            drag = 0.1f;
+                            shrinkY = 0.5f;
+                            shrinkX = 0.5f;
+                            keepVelocity = true;
+                            collidesAir = false;
+                            hitSound = Sounds.explosion;
+
+                            backColor = Pal.techBlue;
+                            hitColor = Pal.techBlue;
+                            frontColor = Color.white;
+                            despawnHit = true;
+
+                            shootEffect = Fx.none;
+                            smokeEffect = Fx.shootBigSmoke;
+                            hitEffect = despawnEffect = new MultiEffect(Fx.massiveExplosion, new WrapEffect(Fx.dynamicSpikes, Pal.techBlue, 30f), new WaveEffect(){{
+                                colorFrom = colorTo = Liquids.hydrogen.color;
+                                sizeTo = 50f;
+                                lifetime = 12f;
+                                strokeFrom = 4f;
+                            }});
+                        }};
+                    }}
             );
         }};
     }
