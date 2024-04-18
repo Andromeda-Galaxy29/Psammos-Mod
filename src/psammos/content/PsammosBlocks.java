@@ -66,7 +66,8 @@ public class PsammosBlocks {
     aerogelPressurizer, steamReformer, ammoniaCompressor, obliterator,
 
     //Units/Payload
-    specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge, heatproofPayloadConveyor, heatproofPayloadRouter,
+    specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge, frontlineUnitForge,
+            heatproofPayloadConveyor, heatproofPayloadRouter,
 
     //Effect/Storage
     coreDust, coreDune, heatproofContainer, heatproofUnloader, healingProjector,
@@ -1216,7 +1217,7 @@ public class PsammosBlocks {
             requirements(Category.units, with(PsammosItems.osmium, 20, PsammosItems.silver, 50, Items.silicon, 25));
             size = 3;
             configurable = false;
-            plans.add(new UnitPlan(PsammosUnitTypes.fang, 960, with(PsammosItems.silver, 25, Items.silicon, 15)));
+            plans.add(new UnitPlan(PsammosUnitTypes.fang, 600, with(PsammosItems.silver, 25, Items.silicon, 15)));
             researchCost = with(PsammosItems.osmium, 100, PsammosItems.silver, 120, Items.silicon, 100);
             consumePower(1.4f);
         }};
@@ -1243,6 +1244,14 @@ public class PsammosBlocks {
             size = 3;
             configurable = false;
             plans.add(new UnitPlan(PsammosUnitTypes.sciur, 1320, with(PsammosItems.osmium, 20, PsammosItems.quartz, 10, Items.silicon, 20)));
+            consumePower(1.4f);
+        }};
+
+        frontlineUnitForge = new UnitFactory("frontline-unit-forge"){{
+            requirements(Category.units, with(PsammosItems.silver, 50, Items.silicon, 20, Items.blastCompound, 25));
+            size = 3;
+            configurable = false;
+            plans.add(new UnitPlan(PsammosUnitTypes.pawn, 1080, with(PsammosItems.silver, 20, Items.blastCompound, 10, Items.silicon, 20)));
             consumePower(1.4f);
         }};
 
