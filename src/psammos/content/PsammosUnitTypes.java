@@ -1022,7 +1022,8 @@ public class PsammosUnitTypes {
 
                         bullet = new BasicBulletType(){{
                             backSprite = "large-bomb-back";
-                            sprite = "large-bomb";
+                            sprite = "psammos-large-bomb-blur";
+                            layer = 59;
 
                             speed = 8f;
                             damage = 0;
@@ -1038,7 +1039,7 @@ public class PsammosUnitTypes {
                             collidesAir = false;
                             hitSound = Sounds.explosion;
 
-                            backColor = Pal.techBlue;
+                            backColor = Liquids.hydrogen.color;
                             hitColor = Pal.techBlue;
                             frontColor = Color.white;
                             despawnHit = true;
