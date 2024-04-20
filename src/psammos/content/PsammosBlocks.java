@@ -311,7 +311,7 @@ public class PsammosBlocks {
             ammo(
                     Liquids.nitrogen, new GasBulletType(Liquids.nitrogen){{
                         damage = 7f;
-                        knockback = 3.2f;
+                        knockback = 2.2f;
                         layer = Layer.bullet - 2f;
                     }},
                     PsammosLiquids.methane, new GasBulletType(PsammosLiquids.methane){{
@@ -321,13 +321,13 @@ public class PsammosBlocks {
                     }},
                     Liquids.hydrogen, new GasBulletType(Liquids.hydrogen){{
                         damage = 9f;
-                        knockback = 1.8f;
+                        knockback = 1.4f;
                         status = StatusEffects.blasted;
                         layer = Layer.bullet - 2f;
                     }},
                     PsammosLiquids.ammonia, new GasBulletType(PsammosLiquids.ammonia){{
-                        damage = 10f;
-                        knockback = 2f;
+                        damage = 14f;
+                        knockback = 1.8f;
                         status = StatusEffects.burning;
                         layer = Layer.bullet - 2f;
                     }}
