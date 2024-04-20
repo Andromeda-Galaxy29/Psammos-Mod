@@ -909,6 +909,8 @@ public class PsammosUnitTypes {
                 blinkSize = -0.2f;
                 sectors = 3;
                 y = -8;
+                healPercent = 0;
+                canHeal = false;
             }});
 
             weapons.addAll(

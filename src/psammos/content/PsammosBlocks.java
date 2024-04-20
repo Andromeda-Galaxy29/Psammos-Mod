@@ -67,7 +67,8 @@ public class PsammosBlocks {
 
     //Units/Payload
     specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge, frontlineUnitForge,
-            heatproofPayloadConveyor, heatproofPayloadRouter,
+    specialistUnitRecombiner, assaultUnitRecombiner, supportUnitRecombiner, scoutUnitRecombiner, frontlineUnitRecombiner,
+    heatproofPayloadConveyor, heatproofPayloadRouter,
 
     //Effect/Storage
     coreDust, coreDune, heatproofContainer, heatproofUnloader, healingProjector,
@@ -733,11 +734,11 @@ public class PsammosBlocks {
             requirements(Category.power, with(PsammosItems.silver, 30, PsammosItems.refinedMetal, 15, Items.silicon, 20));
 
             size = 2;
-            powerProduction = 3.5f;
+            powerProduction = 3f;
             hasPower = true;
             outputsPower = true;
             squareSprite = true;
-            itemDuration = 30f;
+            itemDuration = 60f;
             drawer = new DrawMulti(new DrawDefault(), new DrawWarmupRegion());
             generateEffect = Fx.blastExplosion;
 
@@ -1253,6 +1254,81 @@ public class PsammosBlocks {
             configurable = false;
             plans.add(new UnitPlan(PsammosUnitTypes.pawn, 1080, with(PsammosItems.silver, 20, Items.blastCompound, 10, Items.silicon, 20)));
             consumePower(1.4f);
+        }};
+
+        specialistUnitRecombiner = new Reconstructor("specialist-unit-recombiner"){{
+            requirements(Category.units, with(Items.silicon, 60, PsammosItems.refinedMetal, 70, PsammosItems.silver, 40));
+
+            size = 3;
+            consumePower(3f);
+            consumeLiquid(PsammosLiquids.fuel, 2f / 60f);
+            consumeItems(with(Items.silicon, 30, PsammosItems.refinedMetal, 20));
+
+            constructTime = 60f * 18f;
+
+            upgrades.addAll(
+                    new UnitType[]{PsammosUnitTypes.fang, PsammosUnitTypes.jaw}
+            );
+        }};
+
+        assaultUnitRecombiner = new Reconstructor("assault-unit-recombiner"){{
+            requirements(Category.units, with(Items.silicon, 60, PsammosItems.refinedMetal, 70, PsammosItems.osmium, 40));
+
+            size = 3;
+            consumePower(3f);
+            consumeLiquid(PsammosLiquids.fuel, 2f / 60f);
+            consumeItems(with(Items.silicon, 30, PsammosItems.refinedMetal, 40));
+
+            constructTime = 60f * 28f;
+
+            upgrades.addAll(
+                    new UnitType[]{PsammosUnitTypes.tip, PsammosUnitTypes.spike}
+            );
+        }};
+
+        supportUnitRecombiner = new Reconstructor("support-unit-recombiner"){{
+            requirements(Category.units, with(Items.silicon, 75, PsammosItems.refinedMetal, 60, PsammosItems.osmium, 30));
+
+            size = 3;
+            consumePower(3f);
+            consumeLiquid(PsammosLiquids.fuel, 2f / 60f);
+            consumeItems(with(Items.silicon, 50, PsammosItems.refinedMetal, 20));
+
+            constructTime = 60f * 30f;
+
+            upgrades.addAll(
+                    new UnitType[]{PsammosUnitTypes.sine, PsammosUnitTypes.helix}
+            );
+        }};
+
+        scoutUnitRecombiner = new Reconstructor("scout-unit-recombiner"){{
+            requirements(Category.units, with(Items.silicon, 60, PsammosItems.refinedMetal, 70, PsammosItems.quartz, 40));
+
+            size = 3;
+            consumePower(3f);
+            consumeLiquid(PsammosLiquids.fuel, 2f / 60f);
+            consumeItems(with(Items.silicon, 30, PsammosItems.refinedMetal, 50));
+
+            constructTime = 60f * 33f;
+
+            upgrades.addAll(
+                    new UnitType[]{PsammosUnitTypes.sciur, PsammosUnitTypes.glirid}
+            );
+        }};
+
+        frontlineUnitRecombiner = new Reconstructor("frontline-unit-recombiner"){{
+            requirements(Category.units, with(Items.silicon, 60, PsammosItems.refinedMetal, 70, Items.blastCompound, 40));
+
+            size = 3;
+            consumePower(3f);
+            consumeLiquid(PsammosLiquids.fuel, 2f / 60f);
+            consumeItems(with(Items.silicon, 40, PsammosItems.refinedMetal, 40));
+
+            constructTime = 60f * 30f;
+
+            upgrades.addAll(
+                    new UnitType[]{PsammosUnitTypes.pawn, PsammosUnitTypes.knight}
+            );
         }};
 
         heatproofPayloadConveyor = new PayloadConveyor("heatproof-payload-conveyor"){{
