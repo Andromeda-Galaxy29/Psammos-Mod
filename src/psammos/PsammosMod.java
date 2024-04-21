@@ -34,6 +34,9 @@ public class PsammosMod extends Mod{
 
     @Override
     public void loadContent(){
+        PsammosShaders.load();
+        PsammosCacheLayers.load();
+
         PsammosAttributes.load();
 
         PsammosItems.load();

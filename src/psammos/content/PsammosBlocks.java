@@ -1428,7 +1428,7 @@ public class PsammosBlocks {
 
         quicksand = new Floor("3a-quicksand"){{
             variants = 3;
-            cacheLayer = CacheLayer.mud;
+            cacheLayer = PsammosCacheLayers.quicksand;
             speedMultiplier = 0.1f;
             liquidDrop = PsammosLiquids.quicksand;
             drownTime = 200;
