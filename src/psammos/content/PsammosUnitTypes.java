@@ -934,10 +934,10 @@ public class PsammosUnitTypes {
                             drawSize = 800;
                             collidesAir = true;
                             length = 110;
-                            width = 10;
-                            pierceCap = 3;
+                            width = 12;
+                            pierceCap = 4;
                             sideAngle = 25f;
-                            sideWidth = 1.5f;
+                            sideWidth = 1.6f;
                             sideLength = 70f;
                         }};
                     }},
