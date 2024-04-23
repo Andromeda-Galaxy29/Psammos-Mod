@@ -923,7 +923,7 @@ public class PsammosUnitTypes {
                         mirror = true;
                         rotate = true;
                         bullet = new LaserBulletType(){{
-                            damage = 55;
+                            damage = 65;
                             colors = new Color[]{
                                     PPal.scoutPink,
                                     Color.valueOf("#ffffff")
