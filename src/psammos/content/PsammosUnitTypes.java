@@ -286,7 +286,7 @@ public class PsammosUnitTypes {
                         height = 8;
                         trailWidth = 3;
                         trailLength = 4;
-                        lifetime = 60;
+                        lifetime = 50;
                         shootEffect = Fx.shootSmall;
                         smokeEffect = Fx.shootSmallSmoke;
                     }};
@@ -377,7 +377,7 @@ public class PsammosUnitTypes {
             legForwardScl = 0.9f;
             legMoveSpace = 1;
 
-            shadowElevation = 0.4f;
+            shadowElevation = 0.3f;
 
             weapons.addAll(
                 new Weapon("psammos-spear-gun"){{
@@ -418,6 +418,129 @@ public class PsammosUnitTypes {
                         smokeEffect = Fx.shootSmallSmoke;
                     }};
                 }}
+            );
+        }};
+
+        javelin = new UnitType("javelin"){{
+            constructor = LegsUnit::create;
+
+            speed = 0.4f;
+            drag = 0.1f;
+            hitSize = 23;
+            rotateSpeed = 2;
+            health = 8000;
+            armor = 10;
+            outlineColor = PPal.unitOutline;
+            faceTarget = false;
+            targetAir = true;
+
+            hovering = false;
+            legPhysicsLayer = true;
+
+            legCount = 4;
+            legLength = 28;
+            legGroupSize = 2;
+            lockLegBase = true;
+            legContinuousMove = true;
+            legExtension = -10;
+            legBaseOffset = 10;
+            legMaxLength = 1.1f;
+            legMinLength = 0.2f;
+            legLengthScl = 0.95f;
+            legForwardScl = 0.9f;
+            legMoveSpace = 1;
+            rippleScale = 2f;
+
+            shadowElevation = 0.4f;
+
+            weapons.addAll(
+                    new Weapon("psammos-javelin-weapon"){{
+                        x = 11;
+                        y = 5;
+                        reload = 18;
+                        shoot.shots = 2;
+                        shoot.shotDelay = 6;
+                        shootSound = Sounds.shoot;
+                        mirror = true;
+                        rotate = true;
+                        bullet = new BasicBulletType(){{
+                            speed = 5;
+                            damage = 25;
+                            width = 5;
+                            height = 8;
+                            trailWidth = 1.3f;
+                            trailLength = 3;
+                            lifetime = 30;
+                            shootEffect = Fx.shootSmall;
+                            smokeEffect = Fx.shootSmallSmoke;
+                            shootSound = Sounds.shootAlt;
+                        }};
+                    }},
+                    new Weapon("psammos-javelin-weapon"){{
+                        x = 11;
+                        y = -8;
+                        reload = 18;
+                        shoot.shots = 2;
+                        shoot.shotDelay = 6;
+                        shootSound = Sounds.shoot;
+                        mirror = true;
+                        rotate = true;
+                        bullet = new BasicBulletType(){{
+                            speed = 5;
+                            damage = 25;
+                            width = 5;
+                            height = 8;
+                            trailWidth = 1.3f;
+                            trailLength = 3;
+                            lifetime = 30;
+                            shootEffect = Fx.shootSmall;
+                            smokeEffect = Fx.shootSmallSmoke;
+                            shootSound = Sounds.shootAlt;
+                        }};
+                    }},
+                    new Weapon("psammos-javelin-cannon"){{
+                        x = 0;
+                        y = -9;
+                        reload = 80;
+                        shootSound = Sounds.explosionbig;
+                        mirror = false;
+                        rotate = true;
+                        rotateSpeed = 1f;
+                        bullet = new BasicBulletType(){{
+                            sprite = "missile-large";
+                            speed = 8f;
+                            damage = 120;
+                            width = 9.5f;
+                            height = 13;
+                            trailWidth = 3.5f;
+                            trailLength = 9;
+                            lifetime = 20;
+                            shootEffect = Fx.shootTitan;
+                            smokeEffect = Fx.shootSmokeTitan;
+                            hitEffect = despawnEffect = Fx.blastExplosion;
+                            despawnSound = Sounds.dullExplosion;
+                            trailEffect = Fx.hitSquaresColor;
+                            trailRotation = true;
+                            trailInterval = 3f;
+
+                            fragBullets = 8;
+                            fragSpread = 45;
+                            fragRandomSpread = 10;
+                            fragVelocityMin = 0.8f;
+                            fragVelocityMax = 1.2f;
+                            fragBullet = new BasicBulletType(){{
+                                speed = 3;
+                                lifetime = 15;
+                                width = 8;
+                                height = 8;
+                                trailWidth = 2;
+                                trailLength = 6;
+                                splashDamageRadius = 20f;
+                                splashDamage = 15f;
+                                hitEffect = despawnEffect = Fx.blastExplosion;
+                            }};
+                        }};
+                    }}
             );
         }};
 
