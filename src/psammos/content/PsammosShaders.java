@@ -11,10 +11,11 @@ import static mindustry.Vars.*;
 
 public class PsammosShaders {
 
-    public static PsammosSurfaceShader quicksand;
+    public static PsammosSurfaceShader quicksand, darkQuicksand;
 
     public static void load(){
         quicksand = new PsammosSurfaceShader("quicksand");
+        darkQuicksand = new PsammosSurfaceShader("dark-quicksand");
     }
 
     public static class PsammosSurfaceShader extends Shader {

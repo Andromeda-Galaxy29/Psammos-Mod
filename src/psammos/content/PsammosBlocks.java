@@ -75,7 +75,7 @@ public class PsammosBlocks {
 
     //Environment
     osmiumOre, silverOre,
-    quicksand,
+    quicksand, darkQuicksand,
     peatFloor, quartzFloor, smallOilDeposit, oilDeposit,
     peatWall, quartzWall,
     peatBoulder, quartzBoulder;
@@ -1429,6 +1429,15 @@ public class PsammosBlocks {
         quicksand = new Floor("3a-quicksand"){{
             variants = 3;
             cacheLayer = PsammosCacheLayers.quicksand;
+            speedMultiplier = 0.1f;
+            liquidDrop = PsammosLiquids.quicksand;
+            drownTime = 200;
+            isLiquid = true;
+        }};
+
+        darkQuicksand = new Floor("dark-quicksand"){{
+            variants = 3;
+            cacheLayer = PsammosCacheLayers.darkQuicksand;
             speedMultiplier = 0.1f;
             liquidDrop = PsammosLiquids.quicksand;
             drownTime = 200;
