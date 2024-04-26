@@ -137,7 +137,7 @@ public class PsammosUnitTypes {
             outlineColor = PPal.unitOutline;
             faceTarget = true;
             targetAir = false;
-            crushDamage = 0.08f;
+            crushDamage = 0.1f;
 
             segments = 2;
             drawBody = false;
@@ -333,15 +333,15 @@ public class PsammosUnitTypes {
                     StatusEffects.burning
             );
 
-            range = 20*8;
             weapons.addAll(
                     new Weapon("psammos-gorge-gun"){{
                         x = 0;
                         y = 8;
-                        reload = 100;
+                        reload = 120;
                         shootSound = Sounds.splash;
                         mirror = false;
-                        alwaysShootWhenMoving = true;
+                        alwaysShooting = true;
+                        minShootVelocity = 0.1f;
                         shoot = new ShootSpread(4, 5f);
                         velocityRnd = 0.2f;
                         bullet = new BasicBulletType(){{
