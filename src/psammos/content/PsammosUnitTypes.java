@@ -24,6 +24,7 @@ public class PsammosUnitTypes {
     gradient, ascent, uprising,
 
     //Specialist
+    plump,
     fang, jaw, maw, gorge, gluttony,
 
     //Assault
@@ -33,7 +34,7 @@ public class PsammosUnitTypes {
     sine, helix, trisect, quadrifol, lemniscate,
 
     //Scout
-    sciur, glirid, exilis, pteromys, paraxerus,
+    sciur, glirid, exilis, aeretes, paraxerus,
 
     //Frontline
     pawn, knight, bishop, rook, monarch;
@@ -123,6 +124,73 @@ public class PsammosUnitTypes {
             );
         }};
 
+        plump = new UnitType("plump"){{
+            controller = u -> new HugAI();
+            constructor = CrawlUnit::create;
+
+            speed = 0.8f;
+            omniMovement = false;
+            rotateSpeed = 2;
+            health = 70;
+            hitSize = 6;
+            armor = 0;
+            outlineColor = PPal.unitOutline;
+            faceTarget = true;
+            targetAir = false;
+            crushDamage = 0.08f;
+
+            segments = 2;
+            drawBody = false;
+            segmentScl = 3;
+            segmentPhase = 5;
+            segmentMag = 0.3f;
+
+            allowedInPayloads = false;
+            logicControllable = false;
+            playerControllable = false;
+            hidden = true;
+            isEnemy = false;
+            useUnitCap = false;
+
+            abilities.addAll(
+                    new LiquidExplodeAbility(){{
+                        liquid = Liquids.slag;
+                    }}
+            );
+
+            immunities.addAll(
+                    StatusEffects.melting,
+                    StatusEffects.burning
+            );
+
+            weapons.addAll(
+                    new Weapon(){{
+                        x = 0;
+                        y = 0;
+                        shootY = 0;
+                        shoot.firstShotDelay = 60 * 60; //Die after a minute
+                        shootOnDeath = true;
+                        alwaysShooting = true;
+                        mirror = false;
+                        bullet = new BulletType(){{
+                            collidesTiles = false;
+                            collides = false;
+                            hitSound = Sounds.explosion;
+
+                            rangeOverride = 30f;
+                            hitEffect = Fx.pulverize;
+                            speed = 0f;
+                            splashDamageRadius = 55f;
+                            instantDisappear = true;
+                            splashDamage = 90f;
+                            killShooter = true;
+                            hittable = false;
+                            collidesAir = true;
+                        }};
+                    }}
+            );
+        }};
+
         fang = new UnitType("2a-fang"){{
             researchCostMultiplier = 0;
             aiController = HugAI::new;
@@ -196,7 +264,7 @@ public class PsammosUnitTypes {
             constructor = CrawlUnit::create;
 
             speed = 0.9f;
-            omniMovement = true;
+            omniMovement = false;
             rotateSpeed = 2.6f;
             health = 680;
             hitSize = 17;
@@ -204,7 +272,7 @@ public class PsammosUnitTypes {
             outlineColor = PPal.unitOutline;
             faceTarget = true;
             targetAir = false;
-            crushDamage = 0.8f;
+            crushDamage = 1f;
 
             segments = 3;
             drawBody = false;
@@ -235,6 +303,67 @@ public class PsammosUnitTypes {
                         lightningColor = Color.valueOf("#ffffff");
                     }};
                 }}
+            );
+        }};
+
+        gorge = new UnitType("gorge"){{
+            aiController = HugAI::new;
+            constructor = CrawlUnit::create;
+
+            speed = 0.8f;
+            omniMovement = false;
+            rotateSpeed = 1.8f;
+            health = 6000;
+            hitSize = 28;
+            armor = 7;
+            outlineColor = PPal.unitOutline;
+            faceTarget = true;
+            targetAir = false;
+            crushDamage = 1.3f;
+
+            segments = 4;
+            drawBody = false;
+            segmentScl = 3;
+            segmentPhase = 5;
+            segmentMag = 0.8f;
+            segmentRotSpeed = 1f;
+
+            immunities.addAll(
+                    StatusEffects.melting,
+                    StatusEffects.burning
+            );
+
+            range = 20*8;
+            weapons.addAll(
+                    new Weapon("psammos-gorge-gun"){{
+                        x = 0;
+                        y = 8;
+                        reload = 100;
+                        shootSound = Sounds.splash;
+                        mirror = false;
+                        alwaysShootWhenMoving = true;
+                        shoot = new ShootSpread(4, 5f);
+                        velocityRnd = 0.2f;
+                        bullet = new BasicBulletType(){{
+                            sprite = "psammos-plump-unit";
+                            shootEffect = Fx.shootTitan;
+                            smokeEffect = Fx.shootSmokeTitan;
+                            layer = 99;
+                            damage = 0;
+                            width = 8;
+                            height = 8;
+                            shrinkX = 0;
+                            shrinkY = 0;
+                            speed = 2;
+                            hitColor = Color.valueOf("#ffffff");
+                            backColor = Color.valueOf("#ffffff");
+                            frontColor = Color.valueOf("#ffffff");
+                            trailChance = 0;
+                            lifetime = 20;
+                            despawnUnit = plump;
+                            despawnUnitCount = 1;
+                        }};
+                    }}
             );
         }};
 
