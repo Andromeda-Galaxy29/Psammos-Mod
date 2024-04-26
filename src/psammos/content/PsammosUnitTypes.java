@@ -342,7 +342,7 @@ public class PsammosUnitTypes {
                         mirror = false;
                         alwaysShooting = true;
                         minShootVelocity = 0.1f;
-                        shoot = new ShootSpread(4, 5f);
+                        shoot = new ShootSpread(5, 5f);
                         velocityRnd = 0.2f;
                         bullet = new BasicBulletType(){{
                             sprite = "psammos-plump-unit";
