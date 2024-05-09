@@ -2,11 +2,12 @@ package psammos.content;
 
 import arc.graphics.*;
 import arc.struct.*;
+import mindustry.content.Items;
 import mindustry.type.*;
 
 public class PsammosItems {
     public static Item
-    osmium, silver, quartz, refinedMetal, peat, aerogel;
+    osmium, silver, quartz, refinedMetal, peat, aerogel, memoryAlloy;
 
     public static final Seq<Item> psammosItems = new Seq<>();
 
@@ -25,9 +26,7 @@ public class PsammosItems {
             hardness = 2;
         }};
 
-        refinedMetal = new Item("4-refined-metal", Color.valueOf("#c2c2d1")) {{
-            hardness = 3;
-        }};
+        refinedMetal = new Item("4-refined-metal", Color.valueOf("#c2c2d1"));
 
         peat = new Item("5-peat", Color.valueOf("#82624e")) {{
             hardness = 1;
@@ -35,12 +34,16 @@ public class PsammosItems {
             flammability = 1f;
         }};
 
-        aerogel = new Item("aerogel", Color.valueOf("#a6ffda")) {{
-            hardness = 3;
+        memoryAlloy = new Item("memory-alloy", Color.valueOf("#b15dc3")) {{
+            charge = 0.05f;
         }};
 
+        aerogel = new Item("aerogel", Color.valueOf("#a6ffda"));
+
         psammosItems.addAll(
-                osmium, silver, quartz, refinedMetal, peat, aerogel
+                Items.sand, Items.silicon, Items.blastCompound, osmium,
+                silver, quartz, refinedMetal, peat,
+                memoryAlloy, aerogel
         );
     }
 }

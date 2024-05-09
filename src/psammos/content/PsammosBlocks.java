@@ -1,9 +1,13 @@
 package psammos.content;
 
 import arc.graphics.*;
+import arc.graphics.g2d.*;
 import arc.math.*;
+import arc.math.geom.*;
 import arc.struct.*;
+import mindustry.*;
 import mindustry.content.*;
+import mindustry.entities.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
 import mindustry.entities.part.*;
@@ -27,7 +31,7 @@ import mindustry.world.blocks.units.*;
 import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
-import psammos.PPal;
+import psammos.*;
 import psammos.blocks.*;
 import psammos.bullet.*;
 
@@ -57,13 +61,14 @@ public class PsammosBlocks {
 
     //Defense
     osmiumWall, osmiumWallLarge, silverWall, silverWallLarge,
-    refinedMetalWall, refinedMetalWallLarge,
+    refinedMetalWall, refinedMetalWallLarge, memoryWall, memoryWallLarge,
 
     //Crafting
     sieve, filter, siliconSynthesizer, centrifuge, thermolysisChamber,
     refinery, blastManufacturer, oilDistillationTower, atmosphericSeparator,
     heatExchanger, peatHeater, heatPump, heatPumpRouter,
-    aerogelPressurizer, steamReformer, ammoniaCompressor, obliterator,
+    aerogelPressurizer, steamReformer, ammoniaCompressor, memoryAlloyCrucible,
+    obliterator,
 
     //Units/Payload
     specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge, frontlineUnitForge,
@@ -90,15 +95,52 @@ public class PsammosBlocks {
 
             ammo(
                 PsammosItems.osmium, new BasicBulletType(){{
-                    width = 6;
-                    height = 16;
+                    width = 4;
+                    height = 20;
                     speed = 10;
                     damage = 18;
                     lifetime = 18;
-                    hitColor = backColor = frontColor = Color.valueOf("#66a4b4");
-                    trailColor = Color.valueOf("#94d4db");
+                    hitColor = backColor = Color.valueOf("#66a4b4");
+                    trailColor = Color.valueOf("#66a4b4");
                     trailWidth = 1;
                     trailLength = 3;
+                }},
+                PsammosItems.memoryAlloy, new BasicBulletType(){{
+                    width = 4;
+                    height = 20;
+                    speed = 10;
+                    damage = 26;
+                    lifetime = 18;
+                    hitColor = backColor = Color.valueOf("#dc88e7");
+                    trailColor = Color.valueOf("#dc88e7");
+                    trailWidth = 1;
+                    trailLength = 3;
+
+                    rangeChange = 50f;
+
+                    fragBullets = 3;
+                    fragSpread = 30;
+                    fragRandomSpread = 0;
+                    fragVelocityMin = 1;
+                    fragVelocityMax = 1;
+                    fragBullet = new LaserBulletType(){{
+                        damage = 12;
+                        colors = new Color[]{
+                                Color.valueOf("#dc88e7"),
+                                Color.valueOf("#ffffff")
+                        };
+                        hitEffect = Fx.hitLancer;
+                        laserEffect = Fx.none;
+                        hitSize = 3;
+                        lifetime = 12;
+                        drawSize = 300;
+                        collidesAir = true;
+                        length = 40;
+                        width = 5;
+                        pierceCap = 6;
+                        sideWidth = 0f;
+                        sideLength = 0;
+                    }};
                 }}
             );
             shoot.firstShotDelay = 30;
@@ -800,6 +842,21 @@ public class PsammosBlocks {
             size = 2;
         }};
 
+        memoryWall = new RepairingWall("memory-wall"){{
+            requirements(Category.defense, with(PsammosItems.memoryAlloy, 6));
+            health = 110 * wallHealthMultiplier;
+            healPercent = 8;
+            baseColor = Color.valueOf("#b15dc3");
+        }};
+
+        memoryWallLarge = new RepairingWall("memory-wall-large"){{
+            requirements(Category.defense, mult(memoryWall.requirements, 4));
+            health = 110 * wallHealthMultiplier * 4;
+            size = 2;
+            healPercent = 8;
+            baseColor = Color.valueOf("#b15dc3");
+        }};
+
         // Crafting
 
         sieve = new GenericCrafter("1a-sieve"){{
@@ -1203,6 +1260,41 @@ public class PsammosBlocks {
             consumePower(2f);
             consumeLiquid(Liquids.nitrogen, (2/3f)/60f);
             consumeLiquid(Liquids.hydrogen, 2/60f);
+        }};
+
+        memoryAlloyCrucible = new GenericCrafter("memory-alloy-crucible"){{
+            requirements(Category.crafting, with(PsammosItems.refinedMetal, 75, PsammosItems.aerogel, 40, PsammosItems.silver, 75, Items.silicon, 60));
+
+            size = 3;
+            squareSprite = false;
+            itemCapacity = 20;
+            hasLiquids = true;
+            liquidCapacity = 15;
+
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawFlame(Color.valueOf("#dc88e7"))
+            );
+
+            craftEffect = new Effect(60f, e -> {
+                Vec2 v = new Vec2();
+                Draw.color(Color.valueOf("#dc88e7"));
+                Draw.alpha(0.5f);
+                Mathf.rand.setSeed(e.id);
+                for(int i = 0; i < 30; i++){
+                    v.trns(e.rotation + 90 + Mathf.rand.range(20f), Mathf.rand.random(e.finpow() * 35f)).add(Mathf.rand.range(3f), Mathf.rand.range(2f));
+                    e.scaled(e.lifetime * Mathf.rand.random(0.2f, 1f), b -> {
+                        Fill.circle(e.x + v.x, e.y + v.y, b.fout() * 8f + 0.3f);
+                    });
+                }
+            });
+            outputItem = new ItemStack(PsammosItems.memoryAlloy, 1);
+            craftTime = 75;
+
+            consumePower(3.5f);
+            consumeLiquid(Liquids.slag, 8/60f);
+            consumeLiquid(Liquids.hydrogen, 3/60f);
+            consumeItem(PsammosItems.silver, 3);
         }};
 
         obliterator = new Incinerator("Zz-obliterator"){{

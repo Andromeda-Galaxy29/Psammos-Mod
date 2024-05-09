@@ -59,7 +59,6 @@ public class PsammosPlanets {
             };
 
             itemWhitelist = PsammosItems.psammosItems.copy();
-            itemWhitelist.addAll(Items.sand, Items.silicon, Items.blastCompound);
         }};
     }
 }
