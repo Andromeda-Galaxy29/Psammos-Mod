@@ -66,9 +66,9 @@ public class PsammosBlocks {
     //Crafting
     sieve, filter, siliconSynthesizer, centrifuge, thermolysisChamber,
     refinery, blastManufacturer, oilDistillationTower, atmosphericSeparator,
-    heatExchanger, peatHeater, heatPump, heatPumpRouter,
-    aerogelPressurizer, steamReformer, ammoniaCompressor, memoryAlloyCrucible,
-    obliterator,
+    heatExchanger, ozoneHeater, peatHeater, ammoniaHeater,
+    heatPump, heatPumpRouter, aerogelPressurizer, steamReformer,
+    ammoniaCompressor, memoryAlloyCrucible, obliterator,
 
     //Units/Payload
     specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge, frontlineUnitForge,
@@ -1095,6 +1095,30 @@ public class PsammosBlocks {
             consumeLiquid(Liquids.water, 6 / 60f);
         }};
 
+        ozoneHeater = new HeatProducer("ozone-heater"){{
+            requirements(Category.crafting, with(PsammosItems.osmium, 30, PsammosItems.silver, 30, Items.silicon, 30, PsammosItems.refinedMetal, 50));
+
+            size = 2;
+            squareSprite = false;
+            hasLiquids = true;
+            liquidCapacity = 15;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawLiquidTile(Liquids.ozone),
+                    new DrawDefault(),
+                    new DrawHeatOutput(),
+                    new DrawGlowRegion()
+            );
+            rotate = true;
+            rotateDraw = false;
+
+            heatOutput = 3;
+            craftTime = 60;
+
+            consumeLiquid(Liquids.ozone, 2 / 60f);
+        }};
+
         peatHeater = new HeatProducer("peat-heater"){{
             requirements(Category.crafting, with(PsammosItems.silver, 30, PsammosItems.quartz, 10, PsammosItems.refinedMetal, 20, PsammosItems.aerogel, 15));
 
@@ -1122,6 +1146,39 @@ public class PsammosBlocks {
             craftTime = 60;
 
             consumeItem(PsammosItems.peat, 2);
+        }};
+
+        ammoniaHeater = new HeatProducer("ammonia-heater"){{
+            requirements(Category.crafting, with(PsammosItems.memoryAlloy, 20, PsammosItems.aerogel, 15, Items.silicon, 40, PsammosItems.refinedMetal, 60));
+
+            size = 3;
+            squareSprite = false;
+            hasLiquids = true;
+            liquidCapacity = 15;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawCircles(){{
+                        color = Color.valueOf("e3b7fb").a(0.24f);
+                        strokeMax = 1.8f;
+                        strokeMin = 0.4f;
+                        radius = 10f;
+                        amount = 4;
+                    }},
+                    new DrawDefault(),
+                    new DrawHeatOutput(),
+                    new DrawGlowRegion(){{
+                        color = Color.valueOf("#e3b7fb");
+                        alpha = 0.4f;
+                    }}
+            );
+            rotate = true;
+            rotateDraw = false;
+
+            heatOutput = 8;
+            craftTime = 60;
+
+            consumeLiquid(PsammosLiquids.ammonia, 1f / 60f);
         }};
 
         heatPump = new HeatConductor("heat-pump"){{
@@ -1273,12 +1330,12 @@ public class PsammosBlocks {
 
             drawer = new DrawMulti(
                     new DrawDefault(),
-                    new DrawFlame(Color.valueOf("#dc88e7"))
+                    new DrawFlame(Color.valueOf("#d194f3"))
             );
 
             craftEffect = new Effect(60f, e -> {
                 Vec2 v = new Vec2();
-                Draw.color(Color.valueOf("#dc88e7"));
+                Draw.color(Color.valueOf("#d194f3"));
                 Draw.alpha(0.5f);
                 Mathf.rand.setSeed(e.id);
                 for(int i = 0; i < 30; i++){
