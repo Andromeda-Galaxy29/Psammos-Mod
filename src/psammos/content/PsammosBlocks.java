@@ -49,11 +49,11 @@ public class PsammosBlocks {
     osmiumDrill, detonationDrill, excavatorDrill, seismicBomb, ammoniaBomb,
 
     //Distribution
-    heatproofConveyor, heatproofJunction, heatproofRouter, heatproofTunnelConveyor,
-    heatproofOverflowGate, heatproofUnderflowGate,
+    heatproofConveyor, platedConveyor, heatproofJunction, heatproofRouter,
+    heatproofTunnelConveyor, heatproofOverflowGate, heatproofUnderflowGate,
 
     //Liquid
-    heatproofPump, pipe, pipeJunction, pipeRouter, heatproofLiquidContainer, tunnelPipe,
+    heatproofPump, pipe, vacuumPipe, pipeJunction, pipeRouter, heatproofLiquidContainer, tunnelPipe,
 
     //Power
     electricPole, electricDistributor, led, accumulator,
@@ -601,10 +601,18 @@ public class PsammosBlocks {
             alwaysUnlocked = true;
 
             health = 45;
-            speed = 0.05f;
-            displayedSpeed = 7f;
-            junctionReplacement = heatproofJunction;
-            bridgeReplacement = heatproofTunnelConveyor;
+            speed = 0.09f;
+            displayedSpeed = 9f;
+            buildCostMultiplier = 2f;
+            itemCapacity = 3;
+        }};
+
+        platedConveyor = new ArmoredConveyor("plated-conveyor"){{
+            requirements(Category.distribution, with(PsammosItems.memoryAlloy, 1, PsammosItems.refinedMetal, 1));
+
+            health = 180;
+            speed = 0.12f;
+            displayedSpeed = 12f;
             buildCostMultiplier = 2f;
             itemCapacity = 3;
         }};
@@ -619,6 +627,7 @@ public class PsammosBlocks {
             buildCostMultiplier = 2f;
         }};
         ((Conveyor) heatproofConveyor).junctionReplacement = heatproofJunction;
+        ((Conveyor) platedConveyor).junctionReplacement = heatproofJunction;
 
         heatproofRouter = new DuctRouter("3a-osmium-router"){{
             requirements(Category.distribution, with(PsammosItems.osmium, 4));
@@ -633,13 +642,14 @@ public class PsammosBlocks {
 
             health = 40;
             range = 4;
-            speed = 80;
+            speed = 55f;
             arrowSpacing = 4;
             bufferCapacity = 14;
             buildCostMultiplier = 3;
             bridgeWidth = 8;
         }};
         ((Conveyor) heatproofConveyor).bridgeReplacement = heatproofTunnelConveyor;
+        ((Conveyor) platedConveyor).bridgeReplacement = heatproofTunnelConveyor;
 
         heatproofOverflowGate = new OverflowDuct("5a-osmium-overflow-gate"){{
             requirements(Category.distribution, with(PsammosItems.osmium, 4, PsammosItems.silver, 2));
@@ -679,6 +689,15 @@ public class PsammosBlocks {
             liquidCapacity = 10;
         }};
 
+        vacuumPipe = new ArmoredConduit("vacuum-pipe"){{
+            requirements(Category.liquid, with(PsammosItems.aerogel, 1, PsammosItems.refinedMetal, 2));
+            buildCostMultiplier = 2f;
+
+            liquidPressure = 1.03f;
+            health = 60;
+            liquidCapacity = 16;
+        }};
+
         pipeJunction = new LiquidJunction("3a-quartz-liquid-junction"){{
             requirements(Category.liquid, with(PsammosItems.quartz, 8, PsammosItems.silver, 4));
             buildCostMultiplier = 2f;
@@ -686,6 +705,7 @@ public class PsammosBlocks {
             health = 45;
         }};
         ((Conduit) pipe).junctionReplacement = pipeJunction;
+        ((Conduit) vacuumPipe).junctionReplacement = pipeJunction;
 
         pipeRouter = new LiquidRouter("4a-quartz-liquid-router"){{
             requirements(Category.liquid, with(PsammosItems.quartz, 2, PsammosItems.silver, 4));
@@ -720,6 +740,7 @@ public class PsammosBlocks {
             hasPower = false;
         }};
         ((Conduit) pipe).bridgeReplacement = tunnelPipe;
+        ((Conduit) vacuumPipe).bridgeReplacement = tunnelPipe;
 
         // Power
 

@@ -34,16 +34,16 @@ public class PsammosItems {
             flammability = 1f;
         }};
 
+        aerogel = new Item("aerogel", Color.valueOf("#a6ffda"));
+
         memoryAlloy = new Item("memory-alloy", Color.valueOf("#b15dc3")) {{
             charge = 0.05f;
         }};
 
-        aerogel = new Item("aerogel", Color.valueOf("#a6ffda"));
-
         psammosItems.addAll(
                 Items.sand, Items.silicon, Items.blastCompound, osmium,
                 silver, quartz, refinedMetal, peat,
-                memoryAlloy, aerogel
+                aerogel, memoryAlloy
         );
     }
 }
