@@ -415,7 +415,7 @@ public class PsammosUnitTypes {
                         height = 8;
                         trailWidth = 3;
                         trailLength = 4;
-                        lifetime = 50;
+                        lifetime = 35;
                         shootEffect = Fx.shootSmall;
                         smokeEffect = Fx.shootSmallSmoke;
                     }};
@@ -467,7 +467,7 @@ public class PsammosUnitTypes {
                         height = 8;
                         trailWidth = 1;
                         trailLength = 6;
-                        lifetime = 60;
+                        lifetime = 40;
                         homingRange = 45;
                         homingPower = 0.05f;
                         shootEffect = Fx.shootSmall;
@@ -523,7 +523,7 @@ public class PsammosUnitTypes {
                         height = 6;
                         trailWidth = 1.5f;
                         trailLength = 3;
-                        lifetime = 70;
+                        lifetime = 50;
                         shootEffect = Fx.shootSmall;
                         smokeEffect = Fx.shootSmallSmoke;
                     }};
@@ -540,7 +540,7 @@ public class PsammosUnitTypes {
                         damage = 20;
                         width = 16;
                         height = 16;
-                        lifetime = 100;
+                        lifetime = 80;
                         splashDamageRadius = 35;
                         splashDamage = 20;
                         shootEffect = Fx.shootSmall;
