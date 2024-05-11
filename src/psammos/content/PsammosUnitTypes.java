@@ -1017,7 +1017,7 @@ public class PsammosUnitTypes {
             speed = 3.2f;
             drag = 0.1f;
             hitSize = 16;
-            rotateSpeed = 4;
+            rotateSpeed = 8;
             health = 690;
             armor = 3;
             outlineColor = PPal.unitOutline;
@@ -1051,8 +1051,9 @@ public class PsammosUnitTypes {
                         shootSound = Sounds.pulseBlast;
                         mirror = true;
                         rotate = true;
+                        shoot = new ShootSpread(3, 15f);
                         bullet = new LaserBulletType(){{
-                            damage = 65;
+                            damage = 50;
                             colors = new Color[]{
                                     PPal.scoutPink,
                                     Color.valueOf("#ffffff")
@@ -1062,12 +1063,12 @@ public class PsammosUnitTypes {
                             lifetime = 20;
                             drawSize = 800;
                             collidesAir = true;
-                            length = 110;
+                            length = 90;
                             width = 12;
                             pierceCap = 4;
                             sideAngle = 25f;
-                            sideWidth = 1.6f;
-                            sideLength = 70f;
+                            sideWidth = 0f;
+                            sideLength = 0f;
                         }};
                     }},
                     new TrailWeapon(0f, -5.8f, false, 2f, 15, PPal.scoutPink),

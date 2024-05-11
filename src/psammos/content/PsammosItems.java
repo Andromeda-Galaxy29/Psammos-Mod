@@ -41,9 +41,7 @@ public class PsammosItems {
         }};
 
         psammosItems.addAll(
-                Items.sand, Items.silicon, Items.blastCompound, osmium,
-                silver, quartz, refinedMetal, peat,
-                aerogel, memoryAlloy
+                osmium, silver, quartz, refinedMetal, peat, aerogel, memoryAlloy
         );
     }
 }
