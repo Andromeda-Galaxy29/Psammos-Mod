@@ -1,10 +1,14 @@
 package psammos.content;
 
+import arc.*;
 import arc.graphics.*;
+import arc.graphics.g2d.*;
+import arc.math.*;
 import arc.math.geom.*;
 import arc.struct.Seq;
 import mindustry.ai.types.*;
 import mindustry.content.*;
+import mindustry.entities.*;
 import mindustry.entities.abilities.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
@@ -13,6 +17,7 @@ import mindustry.entities.pattern.*;
 import mindustry.gen.*;
 import mindustry.graphics.Pal;
 import mindustry.type.*;
+import mindustry.type.weapons.*;
 import psammos.PPal;
 import psammos.units.weapons.*;
 
@@ -864,6 +869,121 @@ public class PsammosUnitTypes {
                         pierceCap = 1;
                     }};
                 }}
+            );
+        }};
+
+        quadrifol = new UnitType("quadrifol"){{
+            constructor = UnitEntity::create;
+
+            lowAltitude = false;
+            speed = 1.8f;
+            rotateSpeed = 9;
+            accel = 0.2f;
+            drag = 0.04f;
+            flying = true;
+            health = 9000;
+            hitSize = 25;
+            armor = 8;
+            outlineColor = PPal.unitOutline;
+            faceTarget = true;
+            mineTier = 4;
+            mineSpeed = 12;
+            buildSpeed = 1f;
+            buildBeamOffset = 12;
+            mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
+
+            engines.addAll(
+                    new UnitEngine(0, -16, 4, -90),
+                    new UnitEngine(8, -8, 3f, -90),
+                    new UnitEngine(-8, -8, 3f, -90),
+                    new UnitEngine(12, -9, 2.7f, -90),
+                    new UnitEngine(-12, -9, 2.7f, -90)
+            );
+
+            float orbRad = 3f, partRad = 3f;
+            int parts = 10;
+            for(int i : Mathf.signs){
+                abilities.add(new SuppressionFieldAbility(){{
+                    orbRadius = orbRad;
+                    particleSize = partRad;
+                    y = 1.5f;
+                    x = 7f * i;
+                    particles = parts;
+                    color = Pal.heal;
+                    particleColor = Pal.heal;
+                    active = false;
+                }});
+            }
+
+            weapons.addAll(
+                    new Weapon("psammos-quadrifol-weapon"){{
+                        x = -44f / 4f;
+                        y = 37f / 4f;
+                        reload = 40;
+                        layerOffset = -0.01f;
+                        shootSound = Sounds.missileLarge;
+                        ejectEffect = Fx.shootSmokeSquareBig;
+                        bullet = new BasicBulletType(){{
+                            sprite = "missile-large";
+                            width = 9.5f;
+                            height = 13;
+                            speed = 4;
+                            damage = 80;
+                            lifetime = 38;
+
+                            pierceCap = 3;
+                            healPercent = 12;
+                            collidesTeam = true;
+
+                            trailWidth = 3;
+                            trailLength = 14;
+                            backColor = Color.valueOf("#84f491");
+                            frontColor = Color.valueOf("#ffffff");
+                            trailColor = Color.valueOf("#84f491");
+                            hitColor = Color.valueOf("#84f491");
+
+                            splashDamageRadius = 40;
+                            splashDamage = 40;
+
+                            weaveScale = 4;
+                            weaveMag = 2;
+
+                            homingRange = 60;
+                            homingPower = 0.15f;
+
+                            hitSound = Sounds.dullExplosion;
+                            hitShake = 4;
+
+                            Effect effect = new Effect(40f, e -> {
+                                float size = 0.3f;
+                                TextureRegion region = Core.atlas.find("psammos-quadrifolium");
+
+                                Draw.color(Pal.heal);
+                                Lines.stroke(e.fout() * 2.5f);
+                                Angles.randLenVectors(e.id, 20, e.finpow() * 32f, e.rotation, 360f, (x, y) -> {
+                                    float ang = Mathf.angle(x, y);
+                                    Lines.lineAngle(e.x + x, e.y + y, ang, e.fout() * 10 + 1f);
+                                });
+                                Draw.rect(region, e.x, e.y, region.width * e.fout() * size, region.height * e.fout() * size, 45 * (1 - e.fout()));
+                                float fastfout = e.fout() * 1.15f - 0.2f;
+                                if (fastfout < 0) fastfout = 0;
+                                Draw.color(Color.valueOf("#ffffff"));
+                                Draw.rect(region, e.x, e.y, region.width * fastfout * size, region.height * fastfout * size, 45 * (1 - fastfout));
+                            });
+                            hitEffect = despawnEffect = effect;
+                        }};
+                    }},
+                    new RepairBeamWeapon("psammos-quadrifol-repair-beam"){{
+                        x = 51f / 4f;
+                        y = -4f / 4f;
+                        shootY = 4f;
+                        beamWidth = 0.8f;
+                        repairSpeed = 1.2f;
+
+                        bullet = new BulletType(){{
+                            maxRange = 100f;
+                        }};
+                    }}
             );
         }};
 
