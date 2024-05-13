@@ -53,7 +53,7 @@ public class PsammosBlocks {
     heatproofTunnelConveyor, heatproofOverflowGate, heatproofUnderflowGate,
 
     //Liquid
-    heatproofPump, pipe, vacuumPipe, pipeJunction, pipeRouter, heatproofLiquidContainer, tunnelPipe,
+    heatproofPump, pipe, vacuumPipe, pipeJunction, pipeRouter, heatproofLiquidContainer, tunnelPipe, overflowPipe, underflowPipe,
 
     //Power
     electricPole, electricDistributor, led, accumulator,
@@ -741,6 +741,27 @@ public class PsammosBlocks {
         }};
         ((Conduit) pipe).bridgeReplacement = tunnelPipe;
         ((Conduit) vacuumPipe).bridgeReplacement = tunnelPipe;
+
+        overflowPipe = new OverflowConduit("overflow-pipe"){{
+            requirements(Category.liquid, with(PsammosItems.quartz, 2, PsammosItems.silver, 4));
+            buildCostMultiplier = 2f;
+
+            health = 45;
+            liquidCapacity = 20;
+            squareSprite = false;
+            liquidPadding = 1;
+        }};
+
+        underflowPipe = new OverflowConduit("underflow-pipe"){{
+            requirements(Category.liquid, with(PsammosItems.quartz, 2, PsammosItems.silver, 4));
+            buildCostMultiplier = 2f;
+
+            health = 45;
+            liquidCapacity = 20;
+            squareSprite = false;
+            liquidPadding = 1;
+            invert = true;
+        }};
 
         // Power
 
