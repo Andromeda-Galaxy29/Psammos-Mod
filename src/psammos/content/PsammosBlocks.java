@@ -818,11 +818,11 @@ public class PsammosBlocks {
             requirements(Category.power, with(PsammosItems.silver, 30, PsammosItems.refinedMetal, 15, Items.silicon, 20));
 
             size = 2;
-            powerProduction = 3.5f;
+            powerProduction = 250f / 60f;
             hasPower = true;
             outputsPower = true;
             squareSprite = true;
-            itemDuration = 90f;
+            itemDuration = 120f;
             drawer = new DrawMulti(new DrawDefault(), new DrawWarmupRegion());
             generateEffect = Fx.blastExplosion;
 
