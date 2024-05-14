@@ -23,6 +23,7 @@ import mindustry.world.blocks.distribution.*;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.blocks.heat.*;
 import mindustry.world.blocks.liquid.*;
+import mindustry.world.blocks.logic.*;
 import mindustry.world.blocks.payloads.*;
 import mindustry.world.blocks.power.*;
 import mindustry.world.blocks.production.*;
@@ -77,6 +78,9 @@ public class PsammosBlocks {
 
     //Effect/Storage
     coreDust, coreDune, heatproofContainer, heatproofUnloader, healingProjector,
+
+    //Logic
+    heatproofMessage,
 
     //Environment
     osmiumOre, silverOre,
@@ -1605,6 +1609,11 @@ public class PsammosBlocks {
             );
 
             consumeLiquid(PsammosLiquids.fuel, 1 / 60f);
+        }};
+
+        //Logic
+        heatproofMessage = new MessageBlock("heatproof-message"){{
+            requirements(Category.logic, with(PsammosItems.quartz, 5, PsammosItems.osmium, 5));
         }};
 
         //Environment
