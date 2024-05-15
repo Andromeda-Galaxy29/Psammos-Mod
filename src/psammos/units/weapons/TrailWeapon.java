@@ -33,7 +33,7 @@ public class TrailWeapon extends Weapon {
         this.shootSound = Sounds.none;
         this.bullet = new BulletType(){{
             damage = 0;
-            keepVelocity = false;
+            keepVelocity = true;
             speed = 0;
             collides = false;
             hittable = false;

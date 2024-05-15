@@ -1127,7 +1127,7 @@ public class PsammosUnitTypes {
                         pierceCap = 2;
                     }};
                 }},
-                new TrailWeapon(0f, -4f, false, 2f, 15, PPal.scoutPink)
+                new TrailWeapon(0f, -4.2f, false, 2f, 15, PPal.scoutPink)
             );
         }};
 
@@ -1192,7 +1192,7 @@ public class PsammosUnitTypes {
                         }};
                     }},
                     new TrailWeapon(0f, -5.8f, false, 2f, 15, PPal.scoutPink),
-                    new TrailWeapon(5.5f, -5.3f, true, 1.2f, 12, PPal.scoutPink)
+                    new TrailWeapon(5.8f, -6.4f, true, 1.2f, 12, PPal.scoutPink)
             );
         }};
 
