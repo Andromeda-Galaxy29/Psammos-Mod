@@ -44,7 +44,7 @@ import static mindustry.type.ItemStack.*;
 public class PsammosBlocks {
     public static Block
     //Turrets
-    cross, disseminate, influence, gunslinger, spray, dawn,
+    cross, disseminate, influence, gunslinger, spray, seize, dawn,
 
     //Drills/Production
     osmiumDrill, detonationDrill, excavatorDrill, seismicBomb, ammoniaBomb,
@@ -411,6 +411,26 @@ public class PsammosBlocks {
                         }}
                 );
             }};
+        }};
+
+        seize = new TractorBeamTurret("seize"){{
+            requirements(Category.turret, with(PsammosItems.refinedMetal, 80, Items.silicon, 60, PsammosItems.quartz, 40));
+
+            hasPower = true;
+            size = 2;
+            force = 30f;
+            scaledForce = 12f;
+            range = 220f;
+            damage = 0.4f;
+            scaledHealth = 160;
+            rotateSpeed = 10;
+            targetGround = true;
+            targetAir = false;
+            laserColor = Pal.berylShot;
+            outlineColor = PPal.turretOutline;
+            status = StatusEffects.electrified;
+
+            consumePower(3.5f);
         }};
 
         dawn = new LiquidTurret("dawn"){{
