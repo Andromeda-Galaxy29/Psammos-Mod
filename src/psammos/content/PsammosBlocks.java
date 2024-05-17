@@ -1036,7 +1036,7 @@ public class PsammosBlocks {
         }};
 
         refinery = new GenericCrafter("5a-refinery"){{
-            requirements(Category.crafting, with(PsammosItems.silver, 35, PsammosItems.quartz, 25, Items.silicon, 15));
+            requirements(Category.crafting, with(PsammosItems.silver, 35, PsammosItems.quartz, 25, Items.silicon, 15, Items.sand, 20));
 
             size = 2;
             squareSprite = false;
@@ -1456,7 +1456,7 @@ public class PsammosBlocks {
         }};
 
         scoutUnitForge = new UnitFactory("1d-scout-unit-forge"){{
-            requirements(Category.units, with(PsammosItems.osmium, 50, PsammosItems.silver, 30, Items.silicon, 25));
+            requirements(Category.units, with(PsammosItems.osmium, 50, Items.sand, 60, Items.silicon, 25));
             size = 3;
             configurable = false;
             plans.add(new UnitPlan(PsammosUnitTypes.sciur, 1320, with(PsammosItems.osmium, 20, PsammosItems.quartz, 10, Items.silicon, 20)));
