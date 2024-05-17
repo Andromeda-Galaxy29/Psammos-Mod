@@ -91,8 +91,11 @@ public class OverflowConduit extends LiquidBlock {
         }
 
         public boolean canAcceptLiquid(Building b, Liquid liquid){
-            return b != null && b.team == team &&
-                    b.acceptLiquid(this, liquid) &&
+            if (b == null || b.team != team) return false;
+            if (b.block instanceof LiquidJunction) {
+                b = b.getLiquidDestination(this, liquids.current());
+            }
+            return  b.acceptLiquid(this, liquid) &&
                     b.liquids.get(liquid) < b.block.liquidCapacity - 0.05f;
         }
 
@@ -111,7 +114,7 @@ public class OverflowConduit extends LiquidBlock {
         @Override
         public boolean acceptLiquid(Building source, Liquid liquid){
             return (liquids.current() == liquid || liquids.currentAmount() < 0.2f) &&
-                    (Edges.getFacingEdge(source.tile(), tile).relativeTo(tile) == rotation);
+                    (source.relativeTo(tile) == rotation);
         }
     }
 }
