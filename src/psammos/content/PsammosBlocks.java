@@ -926,7 +926,7 @@ public class PsammosBlocks {
         // Crafting
 
         sieve = new GenericCrafter("1a-sieve"){{
-            requirements(Category.crafting, with(PsammosItems.osmium, 40, PsammosItems.silver, 15));
+            requirements(Category.crafting, with(PsammosItems.osmium, 35, PsammosItems.silver, 15, Items.sand, 10));
 
             size = 2;
             squareSprite = false;
@@ -946,7 +946,7 @@ public class PsammosBlocks {
         }};
 
         filter = new GenericCrafter("filter"){{
-            requirements(Category.crafting, with(PsammosItems.osmium, 60, Items.silicon, 30, PsammosItems.refinedMetal, 20));
+            requirements(Category.crafting, with(PsammosItems.osmium, 60, Items.silicon, 30, PsammosItems.refinedMetal, 20, Items.sand, 30));
 
             size = 3;
             squareSprite = false;
@@ -1062,7 +1062,7 @@ public class PsammosBlocks {
         }};
 
         atmosphericSeparator = new GenericCrafter("atmospheric-separator"){{
-            requirements(Category.crafting, with(PsammosItems.quartz, 45, PsammosItems.refinedMetal, 30, Items.silicon, 15));
+            requirements(Category.crafting, with(PsammosItems.quartz, 45, PsammosItems.refinedMetal, 30, Items.silicon, 15, Items.sand, 20));
 
             size = 2;
             squareSprite = false;
@@ -1279,7 +1279,7 @@ public class PsammosBlocks {
         }};
 
         aerogelPressurizer = new GenericCrafter("aerogel-pressurizer"){{
-            requirements(Category.crafting, with(PsammosItems.osmium, 40, PsammosItems.quartz, 50, PsammosItems.refinedMetal, 35, Items.silicon, 20));
+            requirements(Category.crafting, with(PsammosItems.osmium, 40, PsammosItems.quartz, 50, PsammosItems.refinedMetal, 35, Items.silicon, 20, Items.sand, 35));
 
             size = 4;
             squareSprite = false;
