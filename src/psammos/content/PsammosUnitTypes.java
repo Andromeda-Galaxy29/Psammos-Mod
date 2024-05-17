@@ -19,6 +19,7 @@ import mindustry.graphics.Pal;
 import mindustry.type.*;
 import mindustry.type.weapons.*;
 import psammos.PPal;
+import psammos.entities.abilities.MoveTrailAbility;
 import psammos.units.weapons.*;
 
 public class PsammosUnitTypes {
@@ -1028,6 +1029,10 @@ public class PsammosUnitTypes {
                 }}
             );
 
+            abilities.addAll(
+                new MoveTrailAbility(4f, -4.2f, true, 1, 10, PPal.scoutPink)
+            );
+
             weapons.addAll(
                 new Weapon("psammos-sciur-missile"){{
                     x = 0;
@@ -1058,8 +1063,7 @@ public class PsammosUnitTypes {
                         weaveScale = 5;
                         weaveMag = 0.8f;
                     }};
-                }},
-                new TrailWeapon(4.5f, -4.5f, true, 1, 10, PPal.scoutPink)
+                }}
             );
         }};
 
@@ -1103,6 +1107,10 @@ public class PsammosUnitTypes {
                 }}
             );
 
+            abilities.addAll(
+                new MoveTrailAbility(0f, -5f, false, 2f, 15, PPal.scoutPink)
+            );
+
             weapons.addAll(
                 new Weapon("psammos-glirid-laser"){{
                     x = -4;
@@ -1126,8 +1134,7 @@ public class PsammosUnitTypes {
                         width = 6;
                         pierceCap = 2;
                     }};
-                }},
-                new TrailWeapon(0f, -4.2f, false, 2f, 15, PPal.scoutPink)
+                }}
             );
         }};
 
@@ -1159,7 +1166,23 @@ public class PsammosUnitTypes {
                         layerOffset = -0.001f;
                         color = PPal.scoutPink;
                         sides = 6;
+                    }},
+                    new HoverPart(){{
+                        x = 5.8f;
+                        y = -7f;
+                        mirror = true;
+                        radius = 5;
+                        phase = 90;
+                        stroke = 2;
+                        layerOffset = -0.001f;
+                        color = PPal.scoutPink;
+                        sides = 6;
                     }}
+            );
+
+            abilities.addAll(
+                    new MoveTrailAbility(0f, -6.2f, false, 2f, 15, PPal.scoutPink),
+                    new MoveTrailAbility(6f, -7.2f, true, 1.2f, 12, PPal.scoutPink)
             );
 
             weapons.addAll(
@@ -1190,9 +1213,7 @@ public class PsammosUnitTypes {
                             sideWidth = 0f;
                             sideLength = 0f;
                         }};
-                    }},
-                    new TrailWeapon(0f, -5.8f, false, 2f, 15, PPal.scoutPink),
-                    new TrailWeapon(5.8f, -6.4f, true, 1.2f, 12, PPal.scoutPink)
+                    }}
             );
         }};
 

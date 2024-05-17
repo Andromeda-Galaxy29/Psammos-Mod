@@ -1,4 +1,4 @@
-package psammos.bullet;
+package psammos.entities.bullet;
 
 import arc.graphics.*;
 import arc.graphics.g2d.*;

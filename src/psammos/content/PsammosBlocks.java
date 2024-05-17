@@ -5,7 +5,6 @@ import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.math.geom.*;
 import arc.struct.*;
-import mindustry.*;
 import mindustry.content.*;
 import mindustry.entities.*;
 import mindustry.entities.bullet.*;
@@ -34,7 +33,7 @@ import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 import psammos.*;
 import psammos.blocks.*;
-import psammos.bullet.*;
+import psammos.entities.bullet.GasBulletType;
 
 import static mindustry.type.ItemStack.*;
 
