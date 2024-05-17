@@ -1200,7 +1200,7 @@ public class PsammosUnitTypes {
             researchCostMultiplier = 0f;
             constructor = TankUnit::create;
 
-            speed = 0.75f;
+            speed = 1.2f;
             hitSize = 12f;
             rotateSpeed = 3.5f;
             health = 200;
@@ -1256,7 +1256,7 @@ public class PsammosUnitTypes {
         knight = new UnitType("knight"){{
             constructor = TankUnit::create;
 
-            speed = 0.7f;
+            speed = 1f;
             hitSize = 18f;
             rotateSpeed = 2.9f;
             health = 520;
@@ -1322,7 +1322,7 @@ public class PsammosUnitTypes {
         bishop = new UnitType("bishop"){{
             constructor = TankUnit::create;
 
-            speed = 0.64f;
+            speed = 0.8f;
             hitSize = 26f;
             rotateSpeed = 1.5f;
             health = 800;
