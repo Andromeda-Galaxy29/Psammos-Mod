@@ -581,7 +581,7 @@ public class PsammosBlocks {
 
             size = 1;
             squareSprite = false;
-            damage = 15;
+            damage = 80;
             explodeTime = 5;
             range = 3;
             baseColor = Items.blastCompound.color;
@@ -604,7 +604,7 @@ public class PsammosBlocks {
 
             size = 2;
             squareSprite = false;
-            damage = 40;
+            damage = 280;
             explodeTime = 40;
             range = 8;
             baseColor = PsammosLiquids.ammonia.color;
