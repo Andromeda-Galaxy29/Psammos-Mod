@@ -18,9 +18,8 @@ import mindustry.gen.*;
 import mindustry.graphics.Pal;
 import mindustry.type.*;
 import mindustry.type.weapons.*;
-import psammos.PPal;
-import psammos.entities.abilities.MoveTrailAbility;
-import psammos.units.weapons.*;
+import psammos.*;
+import psammos.entities.abilities.*;
 
 public class PsammosUnitTypes {
 
@@ -1113,7 +1112,7 @@ public class PsammosUnitTypes {
 
             weapons.addAll(
                 new Weapon("psammos-glirid-laser"){{
-                    x = -4;
+                    x = -3.5f;
                     y = 0;
                     reload = 28;
                     shootSound = Sounds.laser;
