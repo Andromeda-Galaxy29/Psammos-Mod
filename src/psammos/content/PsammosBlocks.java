@@ -876,13 +876,15 @@ public class PsammosBlocks {
         osmiumWall = new Wall("1a-osmium-wall"){{
             requirements(Category.defense, with(PsammosItems.osmium, 6));
             researchCostMultiplier = 0.01f;
-            health = 90 * wallHealthMultiplier;
+            health = 60 * wallHealthMultiplier;
+            armor = 6;
         }};
 
         osmiumWallLarge = new Wall("1b-osmium-wall-large"){{
             requirements(Category.defense, mult(osmiumWall.requirements, 4));
-            health = 90 * wallHealthMultiplier * 4;
+            health = 60 * wallHealthMultiplier * 4;
             size = 2;
+            armor = 6;
         }};
 
         silverWall = new Wall("2a-silver-wall"){{
@@ -909,14 +911,14 @@ public class PsammosBlocks {
 
         memoryWall = new RepairingWall("memory-wall"){{
             requirements(Category.defense, with(PsammosItems.memoryAlloy, 6));
-            health = 110 * wallHealthMultiplier;
+            health = 120 * wallHealthMultiplier;
             healPercent = 8;
             baseColor = Color.valueOf("#b15dc3");
         }};
 
         memoryWallLarge = new RepairingWall("memory-wall-large"){{
             requirements(Category.defense, mult(memoryWall.requirements, 4));
-            health = 110 * wallHealthMultiplier * 4;
+            health = 120 * wallHealthMultiplier * 4;
             size = 2;
             healPercent = 8;
             baseColor = Color.valueOf("#b15dc3");
