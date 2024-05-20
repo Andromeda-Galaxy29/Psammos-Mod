@@ -15,6 +15,7 @@ import mindustry.entities.effect.*;
 import mindustry.entities.part.*;
 import mindustry.entities.pattern.*;
 import mindustry.gen.*;
+import mindustry.graphics.Drawf;
 import mindustry.graphics.Pal;
 import mindustry.type.*;
 import mindustry.type.weapons.*;
@@ -1213,6 +1214,132 @@ public class PsammosUnitTypes {
                             sideLength = 0f;
                         }};
                     }}
+            );
+        }};
+
+        aeretes = new UnitType("aeretes"){{
+            constructor = ElevationMoveUnit::create;
+
+            speed = 3.3f;
+            drag = 0.1f;
+            hitSize = 30;
+            rotateSpeed = 8;
+            health = 7000;
+            armor = 7;
+            outlineColor = PPal.unitOutline;
+            faceTarget = false;
+            targetAir = true;
+
+            hovering = true;
+
+            shadowElevation = 0.18f;
+
+            parts.addAll(
+                    new HoverPart(){{
+                        x = 11f;
+                        y = 8f;
+                        mirror = true;
+                        radius = 6;
+                        phase = 90;
+                        stroke = 2;
+                        layerOffset = -0.001f;
+                        color = PPal.scoutPink;
+                        sides = 6;
+                    }},
+                    new HoverPart(){{
+                        x = 11f;
+                        y = -4.5f;
+                        mirror = true;
+                        radius = 6;
+                        phase = 90;
+                        stroke = 2;
+                        layerOffset = -0.001f;
+                        color = PPal.scoutPink;
+                        sides = 6;
+                    }},
+                    new HoverPart(){{
+                        x = 8f;
+                        y = -10f;
+                        mirror = true;
+                        radius = 6;
+                        phase = 90;
+                        stroke = 2;
+                        layerOffset = -0.001f;
+                        color = PPal.scoutPink;
+                        sides = 6;
+                    }}
+            );
+
+            abilities.addAll(
+                    new MoveTrailAbility(0f, -9f, false, 2.1f, 15, PPal.scoutPink),
+                    new MoveTrailAbility(7f, -9f, true, 1.2f, 10, PPal.scoutPink),
+                    new StatusFieldAbility(StatusEffects.overclock, 60f * 6, 60f * 6f, 60f)
+            );
+
+            weapons.addAll(
+                    new Weapon("psammos-aeretes-weapon"){
+                        {
+                            x = 6;
+                            y = -1;
+                            reload = 50;
+                            shootY = 3f;
+                            shootSound = Sounds.laser;
+                            mirror = true;
+                            rotate = true;
+
+                            BulletType myBullet = new BasicBulletType() {{
+                                backSprite = "large-bomb-back";
+                                sprite = "large-bomb";
+                                hitSound = Sounds.plasmaboom;
+                                width = 11f;
+                                height = 11;
+                                speed = 3;
+                                damage = 75;
+                                lifetime = 60;
+                                keepVelocity = false;
+
+                                pierceCap = 3;
+                                pierceBuilding = true;
+
+                                splashDamage = 40f;
+                                splashDamageRadius = 20f;
+                                hitShake = 4f;
+
+                                trailWidth = 3;
+                                trailLength = 14;
+
+                                backColor = PPal.scoutPink;
+                                frontColor = Color.valueOf("#e8def4");
+                                trailColor = PPal.scoutPink;
+                                hitColor = PPal.scoutPink;
+
+                                despawnEffect = new Effect(50f, 100f, e -> {
+                                    e.scaled(7f, b -> {
+                                        Draw.color(PPal.scoutPink, b.fout());
+                                        Fill.circle(e.x, e.y, 20f);
+                                    });
+
+                                    Draw.color(PPal.scoutPink);
+                                    Lines.stroke(e.fout() * 3f);
+                                    Lines.circle(e.x, e.y, 20f);
+
+                                    Fill.circle(e.x, e.y, 12f * e.fout());
+                                    Draw.color();
+                                    Fill.circle(e.x, e.y, 6f * e.fout());
+                                    Drawf.light(e.x, e.y, 20f * 1.6f, PPal.scoutPink, e.fout());
+                                });
+                            }};
+
+                            bullet = myBullet.copy();
+                            bullet.fragBullets = 1;
+                            bullet.fragAngle = 180;
+                            bullet.fragRandomSpread = 0;
+                            bullet.fragVelocityMin = 1;
+                            bullet.fragVelocityMax = 1;
+                            bullet.fragOnHit = false;
+                            bullet.fragBullet = myBullet.copy();
+                            bullet.fragBullet.lifetime *= 0.75;
+                        }}
             );
         }};
 

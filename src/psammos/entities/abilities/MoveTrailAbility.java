@@ -53,15 +53,11 @@ public class MoveTrailAbility extends Ability {
         Draw.z(Layer.effect);
 
         trail.draw(color, width * sizeMult);
-        Draw.rect("circle",
-                Tmp.v1.x + unit.x, Tmp.v1.y + unit.y,
-                width * sizeMult * 2, width * sizeMult * 2);
+        Fill.circle(Tmp.v1.x + unit.x, Tmp.v1.y + unit.y, width * sizeMult);
 
         if(mirror) {
             secondTrail.draw(color, width * sizeMult);
-            Draw.rect("circle",
-                    Tmp.v2.x + unit.x, Tmp.v2.y + unit.y,
-                    width * sizeMult * 2, width * sizeMult * 2);
+            Fill.circle(Tmp.v2.x + unit.x, Tmp.v2.y + unit.y, width * sizeMult);
         };
     }
 }
