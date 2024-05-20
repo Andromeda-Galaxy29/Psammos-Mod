@@ -1156,10 +1156,10 @@ public class PsammosUnitTypes {
 
             parts.addAll(
                     new HoverPart(){{
-                        x = 6f;
+                        x = 7f;
                         y = 3f;
                         mirror = true;
-                        radius = 6;
+                        radius = 5;
                         phase = 90;
                         stroke = 2;
                         layerOffset = -0.001f;
@@ -1187,7 +1187,7 @@ public class PsammosUnitTypes {
             weapons.addAll(
                     new Weapon("psammos-exilis-cannon"){{
                         x = -5;
-                        y = -2;
+                        y = 0;
                         reload = 50;
                         shootY = 3f;
                         shootSound = Sounds.pulseBlast;
