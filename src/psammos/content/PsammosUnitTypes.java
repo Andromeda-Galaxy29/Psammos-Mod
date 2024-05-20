@@ -1298,7 +1298,7 @@ public class PsammosUnitTypes {
                                 lifetime = 60;
                                 keepVelocity = false;
 
-                                pierceCap = 3;
+                                pierceCap = 4;
                                 pierceBuilding = true;
 
                                 splashDamage = 40f;
