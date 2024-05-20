@@ -1294,7 +1294,7 @@ public class PsammosUnitTypes {
                                 width = 11f;
                                 height = 11;
                                 speed = 3;
-                                damage = 75;
+                                damage = 65;
                                 lifetime = 60;
                                 keepVelocity = false;
 
