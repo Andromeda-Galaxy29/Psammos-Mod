@@ -706,14 +706,20 @@ public class PsammosUnitTypes {
                     reload = 18;
                     shootSound = Sounds.lasershoot;
                     ejectEffect = Fx.none;
-                    bullet = new LaserBoltBulletType(){{
+                    bullet = new BasicBulletType(){{
                         speed = 3;
                         damage = 14;
                         lifetime = 20;
                         healPercent = 4;
                         collidesTeam = true;
-                        backColor = Color.valueOf("#84f491");
+                        width = 6;
+                        height = 6;
+                        trailWidth = 1.5f;
+                        trailLength = 5;
+                        backColor = trailColor = hitColor = Pal.heal;
                         frontColor = Color.valueOf("#ffffff");
+                        hitEffect = Fx.hitLaser;
+                        despawnEffect = Fx.hitLaser;
                         weaveScale = 1;
                         weaveMag = 8;
                     }};
@@ -738,6 +744,8 @@ public class PsammosUnitTypes {
             faceTarget = true;
             mineTier = 2;
             mineSpeed = 5;
+            buildSpeed = 0.1f;
+            buildBeamOffset = 4;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
 
             abilities.addAll(
@@ -765,9 +773,10 @@ public class PsammosUnitTypes {
                         height = 8;
                         trailWidth = 2;
                         trailLength = 8;
-                        backColor = Color.valueOf("#84f491");
+                        backColor = trailColor = hitColor = Pal.heal;
                         frontColor = Color.valueOf("#ffffff");
-                        trailColor = Color.valueOf("#84f491");
+                        hitEffect = Fx.hitLaser;
+                        despawnEffect = Fx.hitLaser;
                     }};
                 }}
             );
@@ -821,9 +830,10 @@ public class PsammosUnitTypes {
                         height = 10;
                         trailWidth = 3;
                         trailLength = 12;
-                        backColor = Color.valueOf("#84f491");
+                        backColor = trailColor = hitColor = Pal.heal;
                         frontColor = Color.valueOf("#ffffff");
-                        trailColor = Color.valueOf("#84f491");
+                        hitEffect = Fx.hitEmpSpark;
+                        despawnEffect = Fx.hitEmpSpark;
                         fragBullets = 3;
                         fragSpread = 30;
                         fragRandomSpread = 0;
@@ -839,9 +849,10 @@ public class PsammosUnitTypes {
                             height = 6;
                             trailWidth = 2;
                             trailLength = 6;
-                            backColor = Color.valueOf("#84f491");
+                            backColor = trailColor = hitColor = Pal.heal;
                             frontColor = Color.valueOf("#ffffff");
-                            trailColor = Color.valueOf("#84f491");
+                            hitEffect = Fx.hitLaser;
+                            despawnEffect = Fx.hitLaser;
                         }};
                     }};
                 }},
