@@ -262,25 +262,27 @@ public class PsammosBlocks {
             coolant = consumeCoolant(0.1f);
         }};
 
-        influence = new PowerTurret("2a-influence"){{
+        influence = new ItemTurret("2a-influence"){{
             requirements(Category.turret, with(PsammosItems.silver, 20, Items.silicon, 10));
             researchCostMultiplier = 0.5f;
 
-            shootType = new BasicBulletType(){{
-                collidesAir = false;
-                width = 10;
-                height = 10;
-                speed = 5;
-                damage = 16;
-                lifetime = 30;
-                hitColor = backColor = trailColor = lightningColor = Color.valueOf("#a9d8ff");
-                frontColor = lightColor = Color.valueOf("#ffffff");
-                trailWidth = 2;
-                trailLength = 5;
-                lightning = 4;
-                lightningLength = 8;
-                lightningDamage = 6;
-            }};
+            ammo(
+                    PsammosItems.silver, new BasicBulletType(){{
+                        collidesAir = false;
+                        width = 10;
+                        height = 10;
+                        speed = 5;
+                        damage = 16;
+                        lifetime = 30;
+                        hitColor = backColor = trailColor = lightningColor = Color.valueOf("#a9d8ff");
+                        frontColor = lightColor = Color.valueOf("#ffffff");
+                        trailWidth = 2;
+                        trailLength = 5;
+                        lightning = 4;
+                        lightningLength = 8;
+                        lightningDamage = 6;
+                    }}
+            );
 
             size = 2;
             health = 320;
