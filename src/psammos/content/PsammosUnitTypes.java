@@ -21,6 +21,7 @@ import mindustry.type.*;
 import mindustry.type.weapons.*;
 import psammos.*;
 import psammos.entities.abilities.*;
+import mindustry.*;
 
 public class PsammosUnitTypes {
 
@@ -783,7 +784,7 @@ public class PsammosUnitTypes {
         }};
 
         trisect = new UnitType("4c-trisect"){{
-            constructor = UnitEntity::create;
+            constructor = PayloadUnit::create;
 
             lowAltitude = false;
             speed = 2.1f;
@@ -801,6 +802,7 @@ public class PsammosUnitTypes {
             buildSpeed = 0.5f;
             buildBeamOffset = 6;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
+            payloadCapacity = (2 * 2) * Vars.tilePayload;
 
             engines.addAll(
                 new UnitEngine(0, -11, 3, -90),
@@ -885,7 +887,7 @@ public class PsammosUnitTypes {
         }};
 
         quadrifol = new UnitType("quadrifol"){{
-            constructor = UnitEntity::create;
+            constructor = PayloadUnit::create;
 
             lowAltitude = false;
             speed = 1.8f;
@@ -903,6 +905,7 @@ public class PsammosUnitTypes {
             buildSpeed = 1f;
             buildBeamOffset = 12;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
+            payloadCapacity = (3 * 3) * Vars.tilePayload;
 
             engines.addAll(
                     new UnitEngine(0, -16, 4, -90),

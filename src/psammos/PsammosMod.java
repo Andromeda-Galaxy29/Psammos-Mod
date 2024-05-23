@@ -34,11 +34,11 @@ public class PsammosMod extends Mod{
                     BaseDialog dialog = new BaseDialog("Psammos Mod");
                     dialog.cont.add(bundle.get("dialog.psammos-warning")).row();
                     dialog.cont.table(t -> {
-                        t.button("OK", dialog::hide).size(100f, 50f);
+                        t.button("OK", dialog::hide).size(100f, 50f).pad(10f);
                         t.button(bundle.get("dialog.dont-show-this-again"), ()->{
                             settings.put("psammos-warning", false);
                             dialog.hide();
-                        }).size(300f, 50f);
+                        }).size(300f, 50f).pad(10f);
                     });
                     dialog.show();
                 });
