@@ -57,7 +57,7 @@ public class PsammosBlocks {
 
     //Power
     electricPole, electricDistributor, led, accumulator,
-    windTurbine, impulseGenerator, liquidFuelBurner,
+    windTurbine, piezoelectricGenerator, impulseGenerator, liquidFuelBurner,
 
     //Defense
     osmiumWall, osmiumWallLarge, silverWall, silverWallLarge,
@@ -889,21 +889,43 @@ public class PsammosBlocks {
         }};
 
         windTurbine = new WindTurbine("3a-wind-turbine"){{
-            requirements(Category.power, with(PsammosItems.osmium, 30, PsammosItems.silver, 30));
+            requirements(Category.power, with(PsammosItems.osmium, 60, PsammosItems.silver, 60, Items.sand, 40));
 
             size = 2;
-            powerProduction = 1.5f;
+            powerProduction = 1/3f;
             hasPower = true;
             outputsPower = true;
             squareSprite = false;
             range = 6;
         }};
 
+        piezoelectricGenerator = new ConsumeGenerator("piezoelectric-generator"){{
+            requirements(Category.power, with(PsammosItems.silver, 30, PsammosItems.quartz, 20));
+
+            size = 2;
+            powerProduction = 3;
+            hasPower = true;
+            outputsPower = true;
+            squareSprite = false;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawLiquidTile(PsammosLiquids.quicksand, 1),
+                    new DrawPlasma(){{
+                        plasmas = 3;
+                        plasma1 = PsammosLiquids.quicksand.color;
+                    }},
+                    new DrawDefault()
+            );
+
+            consumeLiquid(PsammosLiquids.quicksand, 10 / 60f);
+        }};
+
         impulseGenerator = new ConsumeGenerator("impulse-generator"){{
             requirements(Category.power, with(PsammosItems.silver, 30, PsammosItems.refinedMetal, 15, Items.silicon, 20));
 
             size = 2;
-            powerProduction = 250f / 60f;
+            powerProduction = 250/60f;
             hasPower = true;
             outputsPower = true;
             squareSprite = true;
