@@ -43,7 +43,7 @@ import static mindustry.type.ItemStack.*;
 public class PsammosBlocks {
     public static Block
     //Turrets
-    cross, disseminate, influence, gunslinger, spray, seize, dawn,
+    cross, disseminate, hurl, influence, gunslinger, spray, seize, dawn,
 
     //Drills/Production
     osmiumDrill, detonationDrill, excavatorDrill, seismicBomb, ammoniaBomb,
@@ -149,7 +149,7 @@ public class PsammosBlocks {
             shoot.firstShotDelay = 30;
 
             size = 2;
-            health = 260;
+            health = 350;
             squareSprite = false;
             shootSound = Sounds.shootAlt;
             outlineColor = PPal.turretOutline;
@@ -234,7 +234,7 @@ public class PsammosBlocks {
             shoot.shots = 8;
 
             size = 2;
-            health = 260;
+            health = 350;
             squareSprite = false;
             shootSound = Sounds.cannon;
             outlineColor = PPal.turretOutline;
@@ -256,6 +256,63 @@ public class PsammosBlocks {
                     new RegionPart("-top"){{
                         mirror = false;
                     }}
+                );
+            }};
+
+            coolant = consumeCoolant(0.1f);
+        }};
+
+        hurl = new ItemTurret("hurl"){{
+            requirements(Category.turret, with(PsammosItems.quartz, 30, Items.silicon, 10));
+            researchCostMultiplier = 0.5f;
+
+            ammo(
+                    PsammosItems.quartz, new ArtilleryBulletType(){{
+                        collidesAir = true;
+                        width = 11;
+                        height = 11;
+                        speed = 3;
+                        lifetime = 80;
+                        collidesTiles = false;
+                        splashDamageRadius = 25f;
+                        splashDamage = 18f;
+                    }}
+            );
+
+            size = 2;
+            health = 450;
+            squareSprite = false;
+            outlineColor = PPal.turretOutline;
+            shootSound = Sounds.bang;
+            targetAir = true;
+            targetGround = true;
+            range = 200;
+            inaccuracy = 2.5f;
+            velocityRnd = 0.2f;
+            shootCone = 10f;
+            shoot.shots = 3;
+            ammoPerShot = 3;
+            reload = 60;
+
+            drawer = new DrawTurret("heatproof-"){{
+                parts.addAll(
+                        new RegionPart("-barrel"){{
+                            mirror = false;
+                            progress = PartProgress.recoil;
+                            moveY = -3f;
+                        }},
+                        new RegionPart("-middle"){{
+                            mirror = false;
+                            progress = PartProgress.recoil;
+                            moveY = -2f;
+                        }},
+                        new RegionPart("-side"){{
+                            mirror = true;
+                            turretShading = true;
+                            progress = PartProgress.warmup;
+                            moveRot = -20f;
+                            moveX = 1f;
+                        }}
                 );
             }};
 
@@ -285,7 +342,7 @@ public class PsammosBlocks {
             );
 
             size = 2;
-            health = 320;
+            health = 450;
             squareSprite = false;
             shootSound = Sounds.shockBlast;
             outlineColor = PPal.turretOutline;
@@ -320,7 +377,7 @@ public class PsammosBlocks {
             ammoUseEffect = Fx.casing2Double;
 
             size = 3;
-            health = 520;
+            health = 600;
             squareSprite = false;
             shootSound = Sounds.shootSnap;
             outlineColor = PPal.turretOutline;
@@ -384,6 +441,7 @@ public class PsammosBlocks {
             shoot = new ShootSpread(15, 4f);
 
             size = 3;
+            health = 600;
             outlineColor = PPal.turretOutline;
             recoil = 0f;
             reload = 40f;
@@ -419,6 +477,7 @@ public class PsammosBlocks {
 
             hasPower = true;
             size = 2;
+            health = 600;
             force = 30f;
             scaledForce = 12f;
             range = 220f;
@@ -492,6 +551,7 @@ public class PsammosBlocks {
             shootY = -4f;
             outlineColor = PPal.turretOutline;
             size = 3;
+            health = 650;
             reload = 160f;
             range = 400;
             shootCone = 1f;
