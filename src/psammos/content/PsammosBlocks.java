@@ -43,7 +43,7 @@ import static mindustry.type.ItemStack.*;
 public class PsammosBlocks {
     public static Block
     //Turrets
-    cross, disseminate, hurl, influence, gunslinger, spray, seize, dawn,
+    cross, disseminate, hurl, influenceOld, influence, gunslinger, spray, seize, dawn,
 
     //Drills/Production
     osmiumDrill, detonationDrill, excavatorDrill, seismicBomb, ammoniaBomb,
@@ -319,7 +319,42 @@ public class PsammosBlocks {
             coolant = consumeCoolant(0.1f);
         }};
 
-        influence = new ItemTurret("2a-influence"){{
+        influenceOld = new PowerTurret("2a-influence"){{
+            shootType = new BasicBulletType(){{
+                collidesAir = false;
+                width = 10;
+                height = 10;
+                speed = 5;
+                damage = 16;
+                lifetime = 30;
+                hitColor = backColor = trailColor = lightningColor = Color.valueOf("#a9d8ff");
+                frontColor = lightColor = Color.valueOf("#ffffff");
+                trailWidth = 2;
+                trailLength = 5;
+                lightning = 4;
+                lightningLength = 8;
+                lightningDamage = 6;
+            }};
+
+            size = 2;
+            health = 450;
+            squareSprite = false;
+            shootSound = Sounds.shockBlast;
+            outlineColor = PPal.turretOutline;
+            targetAir = false;
+            targetGround = true;
+            range = 140;
+            reload = 60;
+            inaccuracy = 0;
+            shootY = -1.5f;
+
+            drawer = new DrawTurret("ohno");
+
+            consumePower(1);
+            coolant = consumeCoolant(0.1f);
+        }};
+
+        influence = new ItemTurret("influence"){{
             requirements(Category.turret, with(PsammosItems.silver, 20, Items.silicon, 10));
             researchCostMultiplier = 0.5f;
 
