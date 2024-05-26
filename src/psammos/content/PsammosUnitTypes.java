@@ -943,7 +943,7 @@ public class PsammosUnitTypes {
                             width = 9.5f;
                             height = 13;
                             speed = 4;
-                            damage = 80;
+                            damage = 90;
                             lifetime = 38;
 
                             pierceCap = 3;
@@ -958,7 +958,7 @@ public class PsammosUnitTypes {
                             hitColor = Color.valueOf("#84f491");
 
                             splashDamageRadius = 40;
-                            splashDamage = 40;
+                            splashDamage = 60;
 
                             weaveScale = 4;
                             weaveMag = 2;
