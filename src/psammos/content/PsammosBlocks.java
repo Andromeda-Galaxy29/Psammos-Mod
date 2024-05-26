@@ -108,11 +108,22 @@ public class PsammosBlocks {
                     trailWidth = 1;
                     trailLength = 3;
                 }},
-                PsammosItems.memoryAlloy, new BasicBulletType(){{
+                Items.silicon, new BasicBulletType(){{
                     width = 4;
                     height = 20;
                     speed = 10;
                     damage = 26;
+                    lifetime = 18;
+                    trailWidth = 1;
+                    trailLength = 3;
+                    homingRange = 45;
+                    homingPower = 0.1f;
+                }},
+                PsammosItems.memoryAlloy, new BasicBulletType(){{
+                    width = 4;
+                    height = 20;
+                    speed = 10;
+                    damage = 32;
                     lifetime = 18;
                     hitColor = backColor = Color.valueOf("#dc88e7");
                     trailColor = Color.valueOf("#dc88e7");
@@ -192,42 +203,71 @@ public class PsammosBlocks {
                 Items.sand, new BasicBulletType(){{
                     collidesGround = false;
                     speed = 5;
+                    lifetime = 25;
                     damage = 5;
                     splashDamage = 28;
                     splashDamageRadius = 16;
                     width = 6;
                     height = 8;
                     ammoMultiplier = 4;
+
                     trailWidth = 2;
                     trailLength = 4;
                     hitColor = Color.valueOf("#f7cba4");
                     backColor = Color.valueOf("#d3ae8d");
                     frontColor = Color.valueOf("#f7cba4");
                     trailColor = Color.valueOf("#d3ae8d");
+                    shootEffect = Fx.shootBig;
+                    smokeEffect = Fx.shootSmokeSquare;
+
+                    despawnEffect = hitEffect = Fx.hitSquaresColor;
+                }},
+                PsammosItems.peat, new BasicBulletType(){{
+                    collidesGround = false;
+                    speed = 4;
                     lifetime = 25;
+                    damage = 5;
+                    splashDamage = 30;
+                    splashDamageRadius = 18;
+                    width = 6;
+                    height = 8;
+                    ammoMultiplier = 4;
+                    rangeChange = -24;
+
+                    trailWidth = 2;
+                    trailLength = 4;
+                    hitColor = Color.valueOf("#cfa681");
+                    backColor = Color.valueOf("#a17f61");
+                    frontColor = Color.valueOf("#cfa681");
+                    trailColor = Color.valueOf("#a17f61");
                     shootEffect = Fx.shootBig;
                     smokeEffect = Fx.shootSmokeSquare;
                     despawnEffect = hitEffect = Fx.hitSquaresColor;
+
+                    status = StatusEffects.burning;
                 }},
                 Items.blastCompound, new BasicBulletType(){{
                     collidesGround = false;
                     speed = 2.8f;
+                    lifetime = 25;
                     damage = 7;
                     splashDamage = 35;
                     splashDamageRadius = 21;
                     width = 6;
                     height = 8;
                     ammoMultiplier = 5;
+                    rangeChange = -60;
+
                     trailWidth = 2;
                     trailLength = 4;
                     hitColor = Color.valueOf("#fdb380");
-                    backColor = Color.valueOf("#fdb380");
+                    backColor = Color.valueOf("#eb8778");
                     frontColor = Color.valueOf("#fdb380");
                     trailColor = Color.valueOf("#eb8778");
-                    lifetime = 25;
                     shootEffect = Fx.shootBig;
                     smokeEffect = Fx.shootSmokeSquare;
                     despawnEffect = hitEffect = Fx.hitSquaresColor;
+
                     status = StatusEffects.blasted;
                 }}
             );
@@ -276,6 +316,20 @@ public class PsammosBlocks {
                         collidesTiles = false;
                         splashDamageRadius = 25f;
                         splashDamage = 18f;
+                    }},
+                    Items.silicon, new ArtilleryBulletType(){{
+                        collidesAir = true;
+                        width = 11;
+                        height = 11;
+                        speed = 3;
+                        lifetime = 80;
+                        collidesTiles = false;
+                        splashDamageRadius = 25f;
+                        splashDamage = 18f;
+                        reloadMultiplier = 1.2f;
+                        ammoMultiplier = 3f;
+                        homingPower = 0.1f;
+                        homingRange = 50f;
                     }}
             );
 
@@ -319,6 +373,7 @@ public class PsammosBlocks {
             coolant = consumeCoolant(0.1f);
         }};
 
+        //Old version of Influence. Left here to prevent crashes from loading a map created in an older version
         influenceOld = new PowerTurret("2a-influence"){{
             shootType = new BasicBulletType(){{
                 collidesAir = false;

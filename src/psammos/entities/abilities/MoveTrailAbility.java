@@ -34,8 +34,7 @@ public class MoveTrailAbility extends Ability {
 
     @Override
     public void update(Unit unit){
-        if(trail == null) trail = new Trail(length);
-        if(mirror && secondTrail == null) secondTrail = new Trail(length);
+        createTrail();
 
         Tmp.v1.trns(unit.rotation - 90f, x, y);
         Tmp.v2.trns(unit.rotation - 90f, -x, y);
@@ -46,6 +45,8 @@ public class MoveTrailAbility extends Ability {
 
     @Override
     public void draw(Unit unit){
+        createTrail();
+
         Tmp.v1.trns(unit.rotation - 90f, x, y);
         Tmp.v2.trns(unit.rotation - 90f, -x, y);
         float sizeMult = Mathf.clamp(unit.vel.len2(), 0, unit.speed()) / unit.speed();
@@ -59,5 +60,10 @@ public class MoveTrailAbility extends Ability {
             secondTrail.draw(color, width * sizeMult);
             Fill.circle(Tmp.v2.x + unit.x, Tmp.v2.y + unit.y, width * sizeMult);
         };
+    }
+
+    public void createTrail(){
+        if(trail == null) trail = new Trail(length);
+        if(mirror && secondTrail == null) secondTrail = new Trail(length);
     }
 }
