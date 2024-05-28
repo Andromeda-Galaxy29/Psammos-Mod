@@ -43,7 +43,7 @@ import static mindustry.type.ItemStack.*;
 public class PsammosBlocks {
     public static Block
     //Turrets
-    cross, disseminate, hurl, influenceOld, influence, gunslinger, spray, seize, dawn,
+    cross, disseminate, hurl, influenceOld, influence, gunslinger, spray, seize, burst, dawn,
 
     //Drills/Production
     osmiumDrill, detonationDrill, excavatorDrill, seismicBomb, ammoniaBomb,
@@ -581,6 +581,48 @@ public class PsammosBlocks {
             status = StatusEffects.electrified;
 
             consumePower(3.5f);
+        }};
+
+        burst = new LiquidTurret("burst"){{
+            requirements(Category.turret, with(PsammosItems.refinedMetal, 15, PsammosItems.quartz, 30, PsammosItems.aerogel, 20, Items.blastCompound, 20));
+
+            ammo(
+                    Liquids.slag, new LiquidBulletType(Liquids.slag){{
+                        lifetime = 40f;
+                        speed = 4f;
+                        knockback = 0.5f;
+                        puddleSize = 20f;
+                        orbSize = 4f;
+                        damage = 10f;
+                        drag = 0.001f;
+                        ammoMultiplier = 0.4f;
+                        statusDuration = 60f * 4f;
+                    }}
+            );
+
+            shoot = new ShootSpread(6, 4f);
+
+            size = 3;
+            reload = 50f;
+            outlineColor = PPal.turretOutline;
+            squareSprite = true;
+            recoil = 2f;
+            range = 140;
+            shootY = 5f;
+            inaccuracy = 0.2f;
+            velocityRnd = 0.2f;
+            shake = 1f;
+            shootSound = Sounds.cannon;
+            shootEffect = Fx.shootPyraFlame;
+            
+            drawer = new DrawTurret("heatproof-"){{
+                parts.add(new RegionPart("-front"){{
+                    progress = PartProgress.warmup;
+                    moveRot = -10f;
+                    mirror = true;
+                    moves.add(new PartMove(PartProgress.recoil, 0f, -2f, -5f));
+                }});
+            }};
         }};
 
         dawn = new LiquidTurret("dawn"){{
