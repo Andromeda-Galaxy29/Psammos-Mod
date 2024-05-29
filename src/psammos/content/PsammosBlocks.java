@@ -605,7 +605,7 @@ public class PsammosBlocks {
             size = 3;
             reload = 50f;
             outlineColor = PPal.turretOutline;
-            squareSprite = true;
+            squareSprite = false;
             recoil = 2f;
             range = 140;
             shootY = 5f;
@@ -614,7 +614,7 @@ public class PsammosBlocks {
             shake = 1f;
             shootSound = Sounds.cannon;
             shootEffect = Fx.shootPyraFlame;
-            
+
             drawer = new DrawTurret("heatproof-"){{
                 parts.add(new RegionPart("-front"){{
                     progress = PartProgress.warmup;

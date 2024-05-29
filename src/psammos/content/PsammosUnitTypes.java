@@ -16,12 +16,14 @@ import mindustry.entities.part.*;
 import mindustry.entities.pattern.*;
 import mindustry.gen.*;
 import mindustry.graphics.Drawf;
+import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.type.*;
 import mindustry.type.weapons.*;
 import psammos.*;
 import psammos.entities.abilities.*;
 import mindustry.*;
+import psammos.entities.bullet.GasBulletType;
 
 public class PsammosUnitTypes {
 
@@ -1586,6 +1588,113 @@ public class PsammosUnitTypes {
                                 lifetime = 12f;
                                 strokeFrom = 4f;
                             }});
+                        }};
+                    }}
+            );
+        }};
+
+        rook = new UnitType("rook"){{
+            constructor = TankUnit::create;
+
+            speed = 0.8f;
+            hitSize = 32f;
+            rotateSpeed = 1.5f;
+            health = 8500;
+            armor = 10;
+            outlineColor = PPal.unitOutline;
+            crushDamage = 10f / 5f;
+
+            squareShape = true;
+            omniMovement = false;
+            rotateMoveFirst = true;
+
+            treadRects = new Rect[]{
+                    new Rect(31 - 80f, 25 - 80f, 26, 24),
+                    new Rect(17 - 80f, 53 - 80f, 22, 56),
+                    new Rect(31 - 80f, 114 - 80f, 26, 32)
+            };
+            treadPullOffset = 0;
+
+            weapons.addAll(
+                    new Weapon("psammos-rook-weapon"){{
+                        x = 35/4f;
+                        y = -6/4f;
+                        reload = 40;
+                        mirror = true;
+                        rotate = true;
+                        alternate = true;
+                        shoot.shots = 2;
+                        inaccuracy = 3f;
+                        rotateSpeed = 2.5f;
+                        bullet = new BasicBulletType(){{
+                            sprite = "missile-large";
+                            width = 9.5f;
+                            height = 13;
+                            speed = 4;
+                            damage = 45;
+                            lifetime = 40;
+
+                            trailWidth = 3;
+                            trailLength = 14;
+                            backColor = Pal.techBlue;
+                            trailColor = Pal.techBlue;
+                            hitColor = Pal.techBlue;
+
+                            splashDamageRadius = 30;
+                            splashDamage = 60;
+
+                            weaveScale = 4;
+                            weaveMag = 4;
+
+                            homingRange = 25;
+                            homingPower = 0.15f;
+
+                            intervalBullet = new LightningBulletType(){{
+                                damage = 10;
+                                lightningColor = Pal.techBlue;
+                                lightningLength = 3;
+                                lightningLengthRand = 6;
+
+                                lightningType = new BulletType(0.0001f, 0f){{
+                                    lifetime = Fx.lightning.lifetime;
+                                    hitEffect = Fx.hitLancer;
+                                    despawnEffect = Fx.none;
+                                    status = StatusEffects.shocked;
+                                    statusDuration = 10f;
+                                    hittable = false;
+                                    lightColor = Color.white;
+                                }};
+                            }};
+                            bulletInterval = 4f;
+
+                            hitSound = Sounds.dullExplosion;
+                            shootSound = Sounds.malignShoot;
+                            hitShake = 1;
+                            hitEffect = despawnEffect = new MultiEffect(Fx.hitSquaresColor, new WaveEffect(){{
+                                colorFrom = colorTo = Pal.techBlue;
+                                sizeTo = 30f;
+                                lifetime = 8f;
+                                strokeFrom = 5f;
+                            }});
+
+                            status = StatusEffects.shocked;
+                        }};
+                    }},
+                    new Weapon("psammos-rook-cannon"){{
+                        x = 0f;
+                        y = -35/4f;
+                        reload = 80f;
+                        mirror = false;
+                        rotate = true;
+                        shootY = 9.5f;
+                        rotateSpeed = 2.5f;
+                        shoot = new ShootSpread(3, 2f);
+                        bullet = new GasBulletType(Liquids.water){{
+                            damage = 20f;
+                            knockback = 2.2f;
+                            speed = 6;
+                            layer = Layer.bullet - 2f;
+                            shootSound = Sounds.cannon;
                         }};
                     }}
             );
