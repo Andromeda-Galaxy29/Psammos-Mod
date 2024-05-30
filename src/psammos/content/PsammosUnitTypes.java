@@ -1602,7 +1602,7 @@ public class PsammosUnitTypes {
             health = 8500;
             armor = 10;
             outlineColor = PPal.unitOutline;
-            crushDamage = 10f / 5f;
+            crushDamage = 0.6f;
 
             squareShape = true;
             omniMovement = false;
@@ -1623,7 +1623,7 @@ public class PsammosUnitTypes {
                         mirror = true;
                         rotate = true;
                         alternate = true;
-                        shoot.shots = 2;
+                        shoot.shots = 3;
                         inaccuracy = 3f;
                         rotateSpeed = 2.5f;
                         bullet = new BasicBulletType(){{
@@ -1631,7 +1631,7 @@ public class PsammosUnitTypes {
                             width = 9.5f;
                             height = 13;
                             speed = 4;
-                            damage = 45;
+                            damage = 30;
                             lifetime = 40;
 
                             trailWidth = 3;
@@ -1641,7 +1641,7 @@ public class PsammosUnitTypes {
                             hitColor = Pal.techBlue;
 
                             splashDamageRadius = 30;
-                            splashDamage = 60;
+                            splashDamage = 40;
 
                             weaveScale = 4;
                             weaveMag = 4;
@@ -1650,7 +1650,7 @@ public class PsammosUnitTypes {
                             homingPower = 0.15f;
 
                             intervalBullet = new LightningBulletType(){{
-                                damage = 10;
+                                damage = 5;
                                 lightningColor = Pal.techBlue;
                                 lightningLength = 3;
                                 lightningLengthRand = 6;
@@ -1670,6 +1670,8 @@ public class PsammosUnitTypes {
                             hitSound = Sounds.dullExplosion;
                             shootSound = Sounds.malignShoot;
                             hitShake = 1;
+                            shootEffect = Fx.shootBig2;
+                            smokeEffect = Fx.shootSmokeTitan;
                             hitEffect = despawnEffect = new MultiEffect(Fx.hitSquaresColor, new WaveEffect(){{
                                 colorFrom = colorTo = Pal.techBlue;
                                 sizeTo = 30f;
@@ -1690,7 +1692,7 @@ public class PsammosUnitTypes {
                         rotateSpeed = 2.5f;
                         shoot = new ShootSpread(3, 2f);
                         bullet = new GasBulletType(Liquids.water){{
-                            damage = 20f;
+                            damage = 8f;
                             knockback = 2.2f;
                             speed = 6;
                             layer = Layer.bullet - 2f;
