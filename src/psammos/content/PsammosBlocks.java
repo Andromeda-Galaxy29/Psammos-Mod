@@ -33,7 +33,7 @@ import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 import psammos.*;
 import psammos.blocks.*;
-import psammos.entities.bullet.GasBulletType;
+import psammos.entities.bullet.*;
 
 import static mindustry.type.ItemStack.*;
 
@@ -43,7 +43,7 @@ import static mindustry.type.ItemStack.*;
 public class PsammosBlocks {
     public static Block
     //Turrets
-    cross, disseminate, hurl, influenceOld, influence, gunslinger, spray, seize, burst, dawn,
+    cross, disseminate, hurl, influence, gunslinger, spray, seize, burst, dawn, burden,
 
     //Drills/Production
     osmiumDrill, detonationDrill, excavatorDrill, seismicBomb, ammoniaBomb,
@@ -86,7 +86,10 @@ public class PsammosBlocks {
     quicksand, darkQuicksand,
     peatFloor, quartzFloor, smallOilDeposit, oilDeposit,
     peatWall, quartzWall,
-    peatBoulder, quartzBoulder;
+    peatBoulder, quartzBoulder,
+
+    //Internal/Compatibility
+    influenceOld;
 
     public static void load(){
 
@@ -584,7 +587,7 @@ public class PsammosBlocks {
         }};
 
         burst = new LiquidTurret("burst"){{
-            requirements(Category.turret, with(PsammosItems.refinedMetal, 15, PsammosItems.quartz, 30, PsammosItems.aerogel, 20, Items.blastCompound, 20));
+            requirements(Category.turret, with(PsammosItems.refinedMetal, 30, PsammosItems.quartz, 30, PsammosItems.aerogel, 20, Items.blastCompound, 15));
 
             ammo(
                     Liquids.slag, new LiquidBulletType(Liquids.slag){{
@@ -626,7 +629,7 @@ public class PsammosBlocks {
         }};
 
         dawn = new LiquidTurret("dawn"){{
-            requirements(Category.turret, with(PsammosItems.refinedMetal, 30, PsammosItems.quartz, 25, PsammosItems.aerogel, 18));
+            requirements(Category.turret, with(PsammosItems.refinedMetal, 25, PsammosItems.quartz, 30, PsammosItems.aerogel, 30));
 
             ammo(
                     Liquids.hydrogen, new BulletType(0f, 1){{
@@ -716,6 +719,98 @@ public class PsammosBlocks {
 
                             moves.add(new PartMove(PartProgress.warmup.inv(), 0f, -2f, 0f));
                         }}
+                );
+            }};
+        }};
+
+        burden = new LiquidTurret("burden"){{
+            requirements(Category.turret, with(PsammosItems.refinedMetal, 100, PsammosItems.quartz, 80, PsammosItems.aerogel, 60, PsammosItems.memoryAlloy, 60, PsammosItems.silver, 150));
+
+            ammo(
+                    PsammosLiquids.coldWater, new VortexBulletType(){{
+                        damage = 70;
+                        speed = 3.5f;
+
+                        trailWidth = 4;
+                        trailLength = 18;
+
+                        intervalBullets = 3;
+                        intervalAngle = 0;
+                        intervalRandomSpread = 15;
+                        bulletInterval = 15;
+
+                        trailInterval = 15;
+                        trailEffect = Fx.hitSquaresColor;
+
+                        chargeEffect = new Effect(60f, 30f, e -> {
+                            Draw.color(Pal.missileYellowBack);
+                            Lines.stroke(e.fin());
+
+                            Lines.poly(e.x, e.y, 4, 4f + e.fout() * 30f, e.rotation + e.fout()*90);
+                            Lines.poly(e.x, e.y, 4, 4f + e.fout() * 30f, e.rotation + e.fin()*90);
+
+                            Fill.poly(e.x, e.y, 4, e.fin() * 6f, e.rotation + e.fout()*90);
+                            Fill.poly(e.x, e.y, 4, e.fin() * 6f, e.rotation + e.fin()*90);
+                            Draw.color(Pal.missileYellow);
+                            Fill.poly(e.x, e.y, 4, e.fin() * 4f, e.rotation + e.fout()*90);
+                            Fill.poly(e.x, e.y, 4, e.fin() * 4f, e.rotation + e.fin()*90);
+                        });
+
+                        intervalBullet = new BasicBulletType(){{
+                            backSprite = "large-bomb-back";
+                            sprite = "mine-bullet";
+                            speed = 3f;
+                            damage = 10;
+                            width = 8;
+                            height = 8;
+                            trailWidth = 1.5f;
+                            trailLength = 6;
+                            homingRange = 60f;
+                            homingPower = 0.1f;
+                            lifetime = 45;
+                            backColor = trailColor = Pal.missileYellowBack;
+                            frontColor = hitColor = Pal.missileYellow;
+                        }};
+                    }}
+            );
+
+            size = 4;
+            health = 1020;
+            squareSprite = false;
+            outlineColor = PPal.turretOutline;
+            targetAir = true;
+            targetGround = true;
+            range = 360;
+            reload = 180;
+            shootY = 3;
+            shake = 6f;
+            recoil = 3f;
+            shoot.firstShotDelay = 60;
+            moveWhileCharging = false;
+            accurateDelay = false;
+            shootEffect = Fx.shootSmokeSmite;
+            chargeSound = Sounds.lasercharge2;
+            shootSound = Sounds.shootSmite;
+
+            heatRequirement = 16f;
+
+            drawer = new DrawTurret("heatproof-"){{
+                parts.addAll(
+                    new RegionPart("-side"){{
+                        progress = PartProgress.charge;
+                        moveY = -4f;
+                        mirror = true;
+                        turretShading = true;
+                        layerOffset = -0.01f;
+                        moves.add(new PartMove(PartProgress.recoil, 0f, 0f, -15f));
+                    }},
+                    new RegionPart("-front"){{
+                        progress = PartProgress.recoil;
+                        moveRot = -15f;
+                        mirror = true;
+                        turretShading = true;
+                        layerOffset = -0.01f;
+                    }}
                 );
             }};
         }};
