@@ -61,7 +61,8 @@ public class PsammosBlocks {
 
     //Defense
     osmiumWall, osmiumWallLarge, silverWall, silverWallLarge,
-    refinedMetalWall, refinedMetalWallLarge, memoryWall, memoryWallLarge,
+    gate, gateLarge, refinedMetalWall, refinedMetalWallLarge,
+    memoryWall, memoryWallLarge,
 
     //Crafting
     sieve, filter, siliconSynthesizer, centrifuge, thermolysisChamber,
@@ -728,7 +729,7 @@ public class PsammosBlocks {
 
             ammo(
                     PsammosLiquids.coldWater, new VortexBulletType(){{
-                        damage = 70;
+                        damage = 75;
                         speed = 3.5f;
 
                         trailWidth = 4;
@@ -1206,6 +1207,17 @@ public class PsammosBlocks {
         silverWallLarge = new Wall("2b-silver-wall-large"){{
             requirements(Category.defense, mult(silverWall.requirements, 4));
             health = 100 * wallHealthMultiplier * 4;
+            size = 2;
+        }};
+
+        gate = new AutoDoor("gate"){{
+            requirements(Category.defense, with(PsammosItems.quartz, 6, Items.silicon, 4));
+            health = 110 * wallHealthMultiplier;
+        }};
+
+        gateLarge = new AutoDoor("gate-large"){{
+            requirements(Category.defense, mult(gate.requirements, 4));
+            health = 110 * wallHealthMultiplier * 4;
             size = 2;
         }};
 
