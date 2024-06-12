@@ -224,6 +224,7 @@ public class PsammosUnitTypes {
         }};
 
         jaw = new UnitType("2b-jaw"){{
+            researchCostMultiplier = 0f;
             aiController = HugAI::new;
             constructor = CrawlUnit::create;
 
@@ -433,6 +434,7 @@ public class PsammosUnitTypes {
         }};
 
         spike = new UnitType("3b-spike"){{
+            researchCostMultiplier = 0f;
             constructor = LegsUnit::create;
 
             speed = 0.7f;
@@ -731,6 +733,7 @@ public class PsammosUnitTypes {
         }};
 
         helix = new UnitType("4b-helix"){{
+            researchCostMultiplier = 0f;
             constructor = UnitEntity::create;
 
             lowAltitude = true;
@@ -1084,6 +1087,7 @@ public class PsammosUnitTypes {
         }};
 
         glirid = new UnitType("5b-glirid"){{
+            researchCostMultiplier = 0f;
             constructor = ElevationMoveUnit::create;
 
             speed = 2.8f;
@@ -1417,6 +1421,7 @@ public class PsammosUnitTypes {
         }};
 
         knight = new UnitType("knight"){{
+            researchCostMultiplier = 0f;
             constructor = TankUnit::create;
 
             speed = 1f;
