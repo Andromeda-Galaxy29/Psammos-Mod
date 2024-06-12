@@ -237,14 +237,14 @@ public class PsammosTechTree {
 
                                 });
                             });
-                        });
-                        node(frontlineUnitForge, Seq.with(), ()->{ //TODO: Add sector requirement
-                            node(pawn, ()->{
+                            node(frontlineUnitForge, Seq.with(), ()->{ //TODO: Add sector requirement
+                                node(pawn, ()->{
 
-                            });
-                            node(frontlineUnitRecombiner, Seq.with(), ()->{ //TODO: Add sector requirement
-                                node(knight, ()->{
+                                });
+                                node(frontlineUnitRecombiner, Seq.with(), ()->{ //TODO: Add sector requirement
+                                    node(knight, ()->{
 
+                                    });
                                 });
                             });
                         });
@@ -267,7 +267,9 @@ public class PsammosTechTree {
                                 });
                             });
                             node(evaporatedBasin, Seq.with(new SectorComplete(ancientSwamp)), ()->{
+                                node(coruscatedCrevice, Seq.with(new SectorComplete(evaporatedBasin), new SectorComplete(ferricSummit)), ()->{
 
+                                });
                             });
                         });
                     });
