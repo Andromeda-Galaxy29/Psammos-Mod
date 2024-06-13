@@ -1902,7 +1902,6 @@ public class PsammosBlocks {
 
         coreDune = new CoreBlock("core-dune"){{
             requirements(Category.effect, with(PsammosItems.osmium, 3000, PsammosItems.silver, 3000, Items.silicon, 2000, PsammosItems.refinedMetal, 1000));
-            alwaysUnlocked = true;
 
             health = 3800;
             size = 4;

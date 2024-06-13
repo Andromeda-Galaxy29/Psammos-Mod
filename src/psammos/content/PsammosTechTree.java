@@ -126,7 +126,7 @@ public class PsammosTechTree {
                                                 node(ammoniaCompressor, ()->{
 
                                                 });
-                                                node(memoryAlloyCrucible, ()->{ //TODO: Add sector requirement
+                                                node(memoryAlloyCrucible, Seq.with(new OnSector(scaldedPlains)), ()->{
 
                                                 });
                                             });
@@ -182,7 +182,7 @@ public class PsammosTechTree {
                     node(gunslinger, Seq.with(new OnSector(ancientSwamp)), ()->{
                         node(spray, ()->{
                             node(burst, Seq.with(new OnSector(erodedDesert)), ()->{
-                                node(burden, ()->{ //TODO: Add sector requirement
+                                node(burden, Seq.with(new OnSector(scaldedPlains)), ()->{
 
                                 });
                             });
@@ -237,14 +237,14 @@ public class PsammosTechTree {
 
                                 });
                             });
-                            node(frontlineUnitForge, Seq.with(), ()->{ //TODO: Add sector requirement
-                                node(pawn, ()->{
+                        });
+                        node(frontlineUnitForge, ()->{
+                            node(pawn, ()->{
 
-                                });
-                                node(frontlineUnitRecombiner, Seq.with(), ()->{ //TODO: Add sector requirement
-                                    node(knight, ()->{
+                            });
+                            node(frontlineUnitRecombiner, Seq.with(new SectorComplete(ruinousHollow)), ()->{
+                                node(knight, ()->{
 
-                                    });
                                 });
                             });
                         });
@@ -259,7 +259,9 @@ public class PsammosTechTree {
                             node(oilRefiningFacility, Seq.with(new SectorComplete(ancientSwamp)), ()->{
                                 node(erodedDesert, Seq.with(new SectorComplete(oilRefiningFacility), new Research(coreDune)), ()->{
                                     node(ruinousHollow, Seq.with(new SectorComplete(erodedDesert)), ()->{
+                                        node(scaldedPlains, Seq.with(new SectorComplete(ruinousHollow), new SectorComplete(craterousRange)), ()->{
 
+                                        });
                                     });
                                 });
                                 node(ferricSummit, Seq.with(new SectorComplete(oilRefiningFacility)), ()->{
