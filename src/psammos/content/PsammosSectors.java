@@ -6,7 +6,7 @@ public class PsammosSectors {
     public static SectorPreset
 
     landing, quartzValley, cavern, driedRiver, ancientSwamp, evaporatedBasin, coruscatedCrevice,
-    oilRefiningFacility, ferricSummit, craterousRange, erodedDesert;
+    oilRefiningFacility, ferricSummit, craterousRange, erodedDesert, ruinousHollow;
 
     public static void load(){
         landing = new SectorPreset("landing", PsammosPlanets.psammos, 0){{
@@ -38,8 +38,9 @@ public class PsammosSectors {
             difficulty = 3;
         }};
 
-        coruscatedCrevice = new SectorPreset("coruscated-crevice", PsammosPlanets.psammos, 40){{
+        coruscatedCrevice = new SectorPreset("coruscated-crevice", PsammosPlanets.psammos, 35){{
             difficulty = 4;
+            captureWave = 35;
         }};
 
         oilRefiningFacility = new SectorPreset("oil-refining-facility", PsammosPlanets.psammos, 25){{
@@ -51,12 +52,16 @@ public class PsammosSectors {
         }};
 
         craterousRange = new SectorPreset("craterous-range", PsammosPlanets.psammos, 32){{
-            difficulty = 5;
+            difficulty = 4;
         }};
 
         erodedDesert = new SectorPreset("eroded-desert", PsammosPlanets.psammos, 27){{
-            difficulty = 5;
+            difficulty = 4;
             captureWave = 35;
+        }};
+
+        ruinousHollow = new SectorPreset("ruinous-hollow", PsammosPlanets.psammos, 39){{
+            difficulty = 4;
         }};
     }
 }
