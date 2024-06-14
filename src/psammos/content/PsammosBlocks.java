@@ -320,6 +320,7 @@ public class PsammosBlocks {
                         collidesTiles = false;
                         splashDamageRadius = 25f;
                         splashDamage = 18f;
+                        buildingDamageMultiplier = 0.01f;
                     }},
                     Items.silicon, new ArtilleryBulletType(){{
                         collidesAir = true;
@@ -334,6 +335,7 @@ public class PsammosBlocks {
                         ammoMultiplier = 3f;
                         homingPower = 0.1f;
                         homingRange = 50f;
+                        buildingDamageMultiplier = 0.01f;
                     }}
             );
 

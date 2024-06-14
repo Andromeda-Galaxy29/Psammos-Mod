@@ -242,7 +242,7 @@ public class PsammosTechTree {
                                 });
                             });
                         });
-                        node(frontlineUnitForge, ()->{
+                        node(frontlineUnitForge, Seq.with(new OnSector(evaporatedBasin)), ()->{
                             node(pawn, ()->{
 
                             });
