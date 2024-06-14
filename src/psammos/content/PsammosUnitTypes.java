@@ -37,7 +37,7 @@ public class PsammosUnitTypes {
     fang, jaw, maw, gorge, gluttony,
 
     //Assault
-    tip, spike, spear, javelin, trident,
+    tip, pike, spear, javelin, trident,
 
     //Support
     sine, helix, trisect, quadrifol, lemniscate,
@@ -433,7 +433,7 @@ public class PsammosUnitTypes {
             );
         }};
 
-        spike = new UnitType("3b-spike"){{
+        pike = new UnitType("3b-spike"){{
             researchCostMultiplier = 0f;
             constructor = LegsUnit::create;
 
@@ -703,6 +703,7 @@ public class PsammosUnitTypes {
             mineTier = 2;
             mineSpeed = 3;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
+            crashDamageMultiplier = 0f;
 
             weapons.addAll(
                 new Weapon("psammos-sine-gun"){{
@@ -753,6 +754,7 @@ public class PsammosUnitTypes {
             buildSpeed = 0.1f;
             buildBeamOffset = 4;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
+            crashDamageMultiplier = 0f;
 
             abilities.addAll(
                 new RepairFieldAbility(25, 200, 80)
@@ -808,6 +810,7 @@ public class PsammosUnitTypes {
             buildBeamOffset = 6;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
             payloadCapacity = (2 * 2) * Vars.tilePayload;
+            crashDamageMultiplier = 0f;
 
             engines.addAll(
                 new UnitEngine(0, -11, 3, -90),
@@ -911,6 +914,7 @@ public class PsammosUnitTypes {
             buildBeamOffset = 12;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
             payloadCapacity = (3 * 3) * Vars.tilePayload;
+            crashDamageMultiplier = 0f;
 
             engines.addAll(
                     new UnitEngine(0, -16, 4, -90),
