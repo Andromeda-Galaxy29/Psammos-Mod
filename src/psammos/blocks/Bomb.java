@@ -84,6 +84,7 @@ public class Bomb extends Block {
 
         stats.add(Stat.range, range, StatUnit.blocks);
         stats.add(Stat.productionTime, explodeTime / 60f, StatUnit.seconds);
+        stats.add(Stat.damage, damage);
     }
 
     @Override
@@ -130,9 +131,12 @@ public class Bomb extends Block {
             int y2 = (int) (by + Math.floor(range / 2));
             for (int ix = x1; ix <= x2; ix++) {
                 for (int iy = y1; iy <= y2; iy++) {
-                    Block tile = world.tile(ix, iy).floor();
-                    if(tile instanceof ExplodableFloor){
-                        world.tile(ix, iy).setFloorNet(((ExplodableFloor)tile).replacement);
+                    Tile tile = world.tile(ix, iy);
+                    if (tile == null) continue;
+
+                    Block floor = tile.floor();
+                    if(floor instanceof ExplodableFloor){
+                        world.tile(ix, iy).setFloorNet(((ExplodableFloor)floor).replacement);
                         world.tile(ix, iy).setOverlayNet(Blocks.air);
                         world.tile(ix, iy).setNet(Blocks.air);
                     }

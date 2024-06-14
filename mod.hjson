@@ -6,11 +6,13 @@ description: "Adds a new desert planet. Almost all life which once populated thi
 
 Special thanks:
 [#5865f2[]]@thisiscrimsoncheck[white[]] for several maps, suggestions and other contributions
-[#5865f2[]]@inxie_ratzey[white[]] for suggestions, sprites and maps
+[#5865f2[]]@inxie_ratzey[white[]] for suggestions, sprites, maps and other contributions
+
+Join our discord server: https://discord.gg/eBzANBKCBA
 
 If you like the mod, consider giving it a star on GitHub. Thank you"
 
-subtitle: "Now in Java!"
-version: 1.0
+subtitle: "v1.2"
+version: 1.2
 minGameVersion: 145
 java: true
