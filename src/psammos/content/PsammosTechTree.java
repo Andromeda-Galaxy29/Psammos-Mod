@@ -219,7 +219,7 @@ public class PsammosTechTree {
 
                     });
                     node(assaultUnitRecombiner, Seq.with(new OnSector(ruinousHollow)), ()->{
-                        node(spike, ()->{
+                        node(pike, ()->{
 
                         });
                     });
@@ -242,7 +242,7 @@ public class PsammosTechTree {
                                 });
                             });
                         });
-                        node(frontlineUnitForge, ()->{
+                        node(frontlineUnitForge, Seq.with(new OnSector(evaporatedBasin)), ()->{
                             node(pawn, ()->{
 
                             });
