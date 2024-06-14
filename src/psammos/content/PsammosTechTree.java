@@ -280,6 +280,9 @@ public class PsammosTechTree {
                                 });
                             });
                         });
+                        node(shatteredPathway, Seq.with(new SectorComplete(driedRiver)), ()->{
+
+                        });
                     });
                     node(cavern, Seq.with(new SectorComplete(quartzValley)), ()->{
 
