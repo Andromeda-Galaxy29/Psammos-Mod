@@ -186,7 +186,7 @@ public class PsammosTechTree {
                     node(gunslinger, Seq.with(new OnSector(ancientSwamp)), ()->{
                         node(spray, ()->{
                             node(burst, Seq.with(new OnSector(erodedDesert)), ()->{
-                                node(burden, Seq.with(new OnSector(scaldedPlains)), ()->{
+                                node(burden, Seq.with(new OnSector(searingChasms)), ()->{
 
                                 });
                             });
@@ -246,7 +246,7 @@ public class PsammosTechTree {
                             node(pawn, ()->{
 
                             });
-                            node(frontlineUnitRecombiner, Seq.with(new SectorComplete(ruinousHollow)), ()->{
+                            node(frontlineUnitRecombiner, Seq.with(new OnSector(searingChasms)), ()->{
                                 node(knight, ()->{
 
                                 });
@@ -264,7 +264,9 @@ public class PsammosTechTree {
                                 node(erodedDesert, Seq.with(new SectorComplete(oilRefiningFacility), new Research(coreDune)), ()->{
                                     node(ruinousHollow, Seq.with(new SectorComplete(erodedDesert)), ()->{
                                         node(scaldedPlains, Seq.with(new SectorComplete(ruinousHollow), new SectorComplete(craterousRange)), ()->{
+                                            node(searingChasms, Seq.with(new SectorComplete(scaldedPlains), new SectorComplete(craterousRange)), ()->{
 
+                                            });
                                         });
                                     });
                                 });

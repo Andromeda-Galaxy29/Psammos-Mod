@@ -792,6 +792,7 @@ public class PsammosBlocks {
             shootEffect = Fx.shootSmokeSmite;
             chargeSound = Sounds.lasercharge2;
             shootSound = Sounds.shootSmite;
+            extinguish = false;
 
             heatRequirement = 16f;
 
