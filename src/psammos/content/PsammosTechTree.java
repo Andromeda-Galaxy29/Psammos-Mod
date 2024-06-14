@@ -219,7 +219,7 @@ public class PsammosTechTree {
 
                     });
                     node(assaultUnitRecombiner, Seq.with(new OnSector(ruinousHollow)), ()->{
-                        node(spike, ()->{
+                        node(pike, ()->{
 
                         });
                     });
