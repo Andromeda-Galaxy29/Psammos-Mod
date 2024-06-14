@@ -1824,7 +1824,7 @@ public class PsammosBlocks {
             constructTime = 60f * 28f;
 
             upgrades.addAll(
-                    new UnitType[]{PsammosUnitTypes.tip, PsammosUnitTypes.spike}
+                    new UnitType[]{PsammosUnitTypes.tip, PsammosUnitTypes.pike}
             );
         }};
 
