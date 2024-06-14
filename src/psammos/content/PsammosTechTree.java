@@ -161,7 +161,11 @@ public class PsammosTechTree {
                             node(silverWallLarge, ()->{
                                 node(refinedMetalWall, ()->{
                                     node(refinedMetalWallLarge, ()->{
+                                        node(memoryWall, Seq.with(new OnSector(scaldedPlains)), ()->{
+                                            node(memoryWallLarge, Seq.with(new OnSector(scaldedPlains)), ()->{
 
+                                            });
+                                        });
                                     });
                                 });
                                 node(gate, Seq.with(new OnSector(driedRiver)), ()->{
