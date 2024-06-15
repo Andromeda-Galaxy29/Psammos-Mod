@@ -1,5 +1,6 @@
 package psammos.blocks;
 
+import arc.Core;
 import arc.audio.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
@@ -11,13 +12,14 @@ import arc.util.io.*;
 import mindustry.content.*;
 import mindustry.entities.*;
 import mindustry.entities.units.*;
+import mindustry.game.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.input.*;
 import mindustry.type.*;
 import mindustry.ui.*;
 import mindustry.world.*;
-import mindustry.content.*;
+import mindustry.world.blocks.environment.Floor;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 
@@ -28,6 +30,8 @@ public class Bomb extends Block {
     public int range = 3;
     public Color baseColor = Color.white;
     public float explodeTime = 15;
+    /** Whether the bomb can be placed near enemy buildings*/
+    public boolean protectEnemyBlocks = false;
 
     public DrawBlock drawer = new DrawDefault();
 
@@ -48,12 +52,12 @@ public class Bomb extends Block {
     public void drawPlace(int x, int y, int rotation, boolean valid){
         super.drawPlace(x, y, rotation, valid);
 
-        x *= tilesize;
-        y *= tilesize;
-        x += offset;
-        y += offset;
+        Drawf.dashSquare(baseColor, x*tilesize+offset, y*tilesize+offset, range * tilesize);
 
-        Drawf.dashSquare(baseColor, x, y, range * tilesize);
+        if(!protectEnemyBlocks) return;
+        if(nearEnemyBuildings(world.tile(x, y), player.team())) {
+            drawPlaceText(Core.bundle.get("dialog.psammos-enemy-buildings"), x, y, valid);
+        }
     }
 
     @Override
@@ -85,6 +89,28 @@ public class Bomb extends Block {
         stats.add(Stat.range, range, StatUnit.blocks);
         stats.add(Stat.productionTime, explodeTime / 60f, StatUnit.seconds);
         stats.add(Stat.damage, damage);
+        stats.add(new Stat("psammos-explodables", StatCat.crafting), table -> {
+            table.row();
+            table.table(c -> {
+                int i = 0;
+                for(Block block : content.blocks()){
+                    if(!(block instanceof ExplodableFloor)) continue;
+
+                    c.table(Styles.grayPanel, b -> {
+                        b.image(block.uiIcon).size(40).pad(10f).left().scaling(Scaling.fit);
+                        b.image(Icon.right).size(30).center().grow();
+
+                        Block outputBlock = ((ExplodableFloor) block).replacement;
+                        if(outputBlock instanceof Floor && ((Floor) outputBlock).isLiquid) {
+                            b.image(((Floor) outputBlock).liquidDrop.uiIcon).size(40).pad(10f).right().scaling(Scaling.fit);
+                        }else{
+                            b.image(outputBlock.uiIcon).size(40).pad(10f).right().scaling(Scaling.fit);
+                        }
+                    }).growX().pad(5);
+                    if(++i % 2 == 0) c.row();
+                }
+            }).growX().colspan(table.getColumns());
+        });
     }
 
     @Override
@@ -98,6 +124,37 @@ public class Bomb extends Block {
         if(!diagonal){
             Placement.calculateNodes(points, this, rotation, (point, other) -> Math.max(Math.abs(point.x - other.x), Math.abs(point.y - other.y)) <= range);
         }
+    }
+
+    @Override
+    public boolean canPlaceOn(Tile tile, Team team, int rotation){
+        super.canPlaceOn(tile, team, rotation);
+
+        if(protectEnemyBlocks) return!nearEnemyBuildings(tile, team);
+        return true;
+    }
+
+    public boolean nearEnemyBuildings(Tile tile, Team team){
+        if(tile == null) return false;
+
+        int x1 = (int) (tile.x - Math.floor((range+2) / 2) + (range%2==0 ? 1 : 0));
+        int x2 = (int) (tile.x + Math.floor((range+2) / 2));
+        int y1 = (int) (tile.y - Math.floor((range+2) / 2) + (range%2==0 ? 1 : 0));
+        int y2 = (int) (tile.y + Math.floor((range+2) / 2));
+        for (int ix = x1; ix <= x2; ix++) {
+            for (int iy = y1; iy <= y2; iy++) {
+                Tile currentTile = world.tile(ix, iy);
+                if (currentTile == null) continue;
+
+                Building build = currentTile.build;
+                if (build == null) continue;
+
+                if(!(build.team == team || build.team == Team.derelict)){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public class BombBuild extends Building {

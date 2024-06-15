@@ -13,6 +13,7 @@ import mindustry.graphics.*;
 import mindustry.input.Placement;
 import mindustry.ui.*;
 import mindustry.world.Block;
+import mindustry.world.Tile;
 import mindustry.world.blocks.power.*;
 import mindustry.world.meta.Stat;
 import mindustry.world.meta.StatUnit;
@@ -80,9 +81,11 @@ public class WindTurbine extends PowerGenerator {
             int y2 = (int) (by + Math.floor(range / 2));
             for (int ix = x1; ix <= x2; ix++) {
                 for (int iy = y1; iy <= y2; iy++) {
-                    Block tile = world.tile(ix, iy).block();
-                    Building build = world.tile(ix, iy).build;
-                    if(build != this && tile.solid){
+                    Tile tile = world.tile(ix, iy);
+                    if (tile == null) continue;
+
+                    Building build = tile.build;
+                    if(build != this && tile.block().solid){
                         efficiencyMultiplier -= 1f / (float)(range*range - size*size);
                     }
                 }

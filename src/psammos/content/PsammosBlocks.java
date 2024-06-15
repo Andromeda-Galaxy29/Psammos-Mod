@@ -32,6 +32,7 @@ import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 import psammos.*;
+import psammos.ai.AntiAirMissileAI;
 import psammos.blocks.*;
 import psammos.entities.bullet.*;
 
@@ -649,6 +650,7 @@ public class PsammosBlocks {
                             lifetime = 60f * 1.5f;
                             outlineColor = PPal.unitOutline;
                             health = 50;
+                            controller = u -> new AntiAirMissileAI();
 
                             weapons.add(new Weapon(){{
                                 shootCone = 360f;
@@ -883,6 +885,7 @@ public class PsammosBlocks {
             );
             explosionSound = Sounds.dullExplosion;
             shake = 2f;
+            protectEnemyBlocks = true;
         }};
 
         ammoniaBomb = new Bomb("ammonia-bomb"){{
