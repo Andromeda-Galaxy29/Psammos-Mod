@@ -827,19 +827,31 @@ public class PsammosBlocks {
 
         // Drills/Production
 
-        osmiumDrill = new Drill("1a-osmium-drill"){{
+        osmiumDrill = new RotaryBurstDrill("1a-osmium-drill"){{
             requirements(Category.production, with(PsammosItems.osmium, 15));
             alwaysUnlocked = true;
 
+            itemCapacity = 20;
             size = 2;
             tier = 2;
             drillTime = 400;
             ambientSoundVolume = 0.05f;
+            baseArrowColor = Color.valueOf("#a4a098");
+            rotateSpeed = 12f;
+            drillEffect = new MultiEffect(
+                    Fx.mineHuge,
+                    new Effect(30f, e -> {
+                        Draw.color(e.color);
+                        Lines.stroke(e.fout() * 1.5f);
+                        Lines.stroke(5f * e.fout());
+                        Lines.circle(e.x, e.y, e.finpow() * 12f);
+                    })
+            );
 
             consumeLiquid(PsammosLiquids.coldWater, 0.05f).boost();
         }};
 
-        detonationDrill = new BurstDrill("1b-detonation-drill"){{
+        detonationDrill = new RotaryBurstDrill("1b-detonation-drill"){{
             requirements(Category.production, with(PsammosItems.osmium, 20, PsammosItems.refinedMetal, 30, Items.blastCompound, 8));
 
             itemCapacity = 40;
@@ -848,9 +860,7 @@ public class PsammosBlocks {
             drillTime = 210;
             squareSprite = false;
             shake = 4;
-            arrows = 3;
             baseArrowColor = Color.valueOf("#a4a098");
-            arrowSpacing = 3;
             drillEffect = new MultiEffect(
                     Fx.mineImpact,
                     Fx.drillSteam,
