@@ -1,4 +1,4 @@
-package psammos.blocks;
+package psammos.blocks.defense;
 
 import arc.graphics.*;
 import mindustry.content.*;

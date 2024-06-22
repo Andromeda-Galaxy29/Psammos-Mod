@@ -1,4 +1,4 @@
-package psammos.blocks;
+package psammos.blocks.liquid;
 
 import arc.graphics.g2d.*;
 import arc.util.*;

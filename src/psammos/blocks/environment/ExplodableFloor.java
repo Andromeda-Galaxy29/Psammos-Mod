@@ -1,4 +1,4 @@
-package psammos.blocks;
+package psammos.blocks.environment;
 
 import arc.math.Interp;
 import mindustry.content.*;

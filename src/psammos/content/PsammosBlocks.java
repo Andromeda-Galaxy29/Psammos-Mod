@@ -33,7 +33,11 @@ import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 import psammos.*;
 import psammos.ai.AntiAirMissileAI;
-import psammos.blocks.*;
+import psammos.blocks.defense.*;
+import psammos.blocks.environment.*;
+import psammos.blocks.liquid.*;
+import psammos.blocks.power.*;
+import psammos.blocks.production.*;
 import psammos.entities.bullet.*;
 
 import static mindustry.type.ItemStack.*;
