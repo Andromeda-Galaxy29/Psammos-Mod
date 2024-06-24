@@ -32,6 +32,7 @@ public class PsammosItems {
             hardness = 1;
             explosiveness = 0.1f;
             flammability = 1f;
+            lowPriority = true;
         }};
 
         aerogel = new Item("aerogel", Color.valueOf("#a6ffda"));

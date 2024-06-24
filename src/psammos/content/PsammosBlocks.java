@@ -93,6 +93,7 @@ public class PsammosBlocks {
     peatFloor, quartzFloor, smallOilDeposit, oilDeposit,
     peatWall, quartzWall,
     peatBoulder, quartzBoulder,
+    crystalQuartz,
 
     //Internal/Compatibility
     influenceOld;
@@ -2009,13 +2010,13 @@ public class PsammosBlocks {
         }};
 
         peatFloor = new Floor("3b-peat-floor"){{
-            variants = 3;
+            variants = 4;
             itemDrop = PsammosItems.peat;
             playerUnmineable = true;
         }};
 
         quartzFloor = new Floor("3c-quartz-floor"){{
-            variants = 3;
+            variants = 4;
         }};
 
         smallOilDeposit = new ExplodableFloor("3e-small-oil-deposit"){{
@@ -2044,8 +2045,17 @@ public class PsammosBlocks {
             playerUnmineable = true;
         }};
 
+        peatBoulder = new Prop("peat-boulder"){{
+            variants = 2;
+        }};
+
         quartzBoulder = new Prop("5b-quartz-boulder"){{
+            variants = 2;
+        }};
+
+        crystalQuartz = new TallBlock("crystal-quartz"){{
             variants = 1;
+            clipSize = 128f;
         }};
     }
 }
