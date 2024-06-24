@@ -861,6 +861,7 @@ public class PsammosBlocks {
             squareSprite = false;
             shake = 4;
             baseArrowColor = Color.valueOf("#a4a098");
+            liquidBoostIntensity = 1f; //So it doesn't get boosted by the cold water it consumes
             drillEffect = new MultiEffect(
                     Fx.mineImpact,
                     Fx.drillSteam,
