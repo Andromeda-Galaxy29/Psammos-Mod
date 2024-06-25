@@ -13,7 +13,7 @@ public class PsammosLiquids {
             heatCapacity = 0.3f;
             viscosity = 0.8f;
             coolant = false;
-            effect = StatusEffects.slow;
+            effect = PsammosStatusEffects.quicksandSlowed;
             boilPoint = 0.5f;
             gasColor = Color.grays(0.9f);
         }};

@@ -515,6 +515,12 @@ public class PsammosBlocks {
             requirements(Category.turret, with(PsammosItems.refinedMetal, 25, PsammosItems.quartz, 40, PsammosItems.osmium, 35));
 
             ammo(
+                    Liquids.ozone, new GasBulletType(Liquids.ozone){{
+                        damage = 3f;
+                        knockback = 2.8f;
+                        layer = Layer.bullet - 2f;
+                        status = PsammosStatusEffects.combustible;
+                    }},
                     Liquids.nitrogen, new GasBulletType(Liquids.nitrogen){{
                         damage = 7f;
                         knockback = 2.2f;
@@ -838,7 +844,6 @@ public class PsammosBlocks {
             drillTime = 400;
             ambientSoundVolume = 0.05f;
             baseArrowColor = Color.valueOf("#a4a098");
-            rotateSpeed = 12f;
             drillEffect = new MultiEffect(
                     Fx.mineHuge,
                     new Effect(30f, e -> {
@@ -1996,6 +2001,7 @@ public class PsammosBlocks {
             cacheLayer = PsammosCacheLayers.quicksand;
             speedMultiplier = 0.1f;
             liquidDrop = PsammosLiquids.quicksand;
+            status = PsammosStatusEffects.quicksandSlowed;
             drownTime = 200;
             isLiquid = true;
         }};
@@ -2005,6 +2011,7 @@ public class PsammosBlocks {
             cacheLayer = PsammosCacheLayers.darkQuicksand;
             speedMultiplier = 0.1f;
             liquidDrop = PsammosLiquids.quicksand;
+            status = PsammosStatusEffects.quicksandSlowed;
             drownTime = 200;
             isLiquid = true;
         }};

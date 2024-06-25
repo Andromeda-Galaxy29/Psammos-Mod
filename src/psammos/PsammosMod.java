@@ -53,6 +53,8 @@ public class PsammosMod extends Mod{
 
         PsammosAttributes.load();
 
+        PsammosStatusEffects.load();
+
         PsammosItems.load();
         PsammosLiquids.load();
         PsammosUnitTypes.load();
