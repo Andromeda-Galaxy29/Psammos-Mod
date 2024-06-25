@@ -466,16 +466,23 @@ public class PsammosBlocks {
 
             ammo(
                 PsammosItems.refinedMetal, new BasicBulletType(){{
-                    speed = 4;
+                    speed = 5;
                     damage = 35;
-                    width = 8;
-                    height = 12;
+                    width = 12;
+                    height = 16;
                     lifetime = 45;
+                    trailWidth = 2.2f;
+                    trailLength = 5;
+                    trailEffect = Fx.colorTrail;
+                    trailInterval = 10f;
+                    trailColor = hitColor = Pal.bulletYellowBack;
                     sprite = "psammos-revolver-bullet";
+                    smokeEffect = Fx.shootSmokeSquareSparse;
+                    hitEffect = despawnEffect = Fx.hitBulletBig;
                 }}
             );
             shoot.shots = 6;
-            shoot.shotDelay = 5;
+            shoot.shotDelay = 7;
             ammoUseEffect = Fx.casing2Double;
 
             size = 3;
@@ -492,18 +499,19 @@ public class PsammosBlocks {
 
             drawer = new DrawTurret("heatproof-"){{
                 parts.addAll(
-                    new RegionPart("-cylinder"){{
-                        mirror = false;
-                        progress = PartProgress.reload;
-                        moveY = 2;
-                    }},
                     new RegionPart("-barrel"){{
                         mirror = false;
                         progress = PartProgress.recoil;
-                        moveY = -2.3f;
+                        moveY = -1.5f;
                     }},
-                    new RegionPart("-top"){{
-                        mirror = false;
+                    new RegionPart("-side"){{
+                        progress = PartProgress.warmup;
+                        moveY = -2f;
+                        moveRot = 15f;
+                        mirror = true;
+                        turretShading = true;
+                        under = true;
+                        moves.add(new PartMove(PartProgress.recoil, 0f, 0f, -15f));
                     }}
                 );
             }};
