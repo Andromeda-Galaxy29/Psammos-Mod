@@ -135,8 +135,8 @@ public class PsammosBlocks {
                     speed = 10;
                     damage = 32;
                     lifetime = 18;
-                    hitColor = backColor = Color.valueOf("#dc88e7");
-                    trailColor = Color.valueOf("#dc88e7");
+                    hitColor = backColor = PPal.memoryAlloy;
+                    trailColor = PPal.memoryAlloy;
                     trailWidth = 1;
                     trailLength = 3;
 
@@ -150,7 +150,7 @@ public class PsammosBlocks {
                     fragBullet = new LaserBulletType(){{
                         damage = 12;
                         colors = new Color[]{
-                                Color.valueOf("#dc88e7"),
+                                PPal.memoryAlloy,
                                 Color.valueOf("#ffffff")
                         };
                         hitEffect = Fx.hitLancer;
@@ -656,8 +656,6 @@ public class PsammosBlocks {
 
             ammo(
                     Liquids.hydrogen, new BulletType(0f, 1){{
-                        shootEffect = Fx.shootBig;
-                        smokeEffect = Fx.shootSmokeMissile;
                         ammoMultiplier = 1f;
 
                         spawnUnit = new MissileUnitType("dawn-missile"){{
@@ -1113,23 +1111,19 @@ public class PsammosBlocks {
 
         // Power
 
-        electricPole = new BeamNode("1a-electric-pole"){{
+        electricPole = new WireNode("1a-electric-pole"){{
             requirements(Category.power, with(PsammosItems.silver, 4));
 
             size = 1;
-            laserColor1 = Color.valueOf("#ffffff");
-            laserColor2 = Color.valueOf("#969696");
             pulseMag = 0;
             pulseScl = 0;
             range = 10;
         }};
 
-        electricDistributor = new BeamNode("1b-electric-distributor"){{
+        electricDistributor = new WireNode("1b-electric-distributor"){{
             requirements(Category.power, with(PsammosItems.silver, 25, Items.silicon, 10, PsammosItems.refinedMetal, 10));
 
             size = 3;
-            laserColor1 = Color.valueOf("#ffffff").a(1);
-            laserColor2 = Color.valueOf("#969696").a(1);
             pulseMag = 0;
             pulseScl = 0;
             range = 25;
