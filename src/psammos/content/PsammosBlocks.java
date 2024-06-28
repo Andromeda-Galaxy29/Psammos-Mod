@@ -38,6 +38,7 @@ import psammos.blocks.environment.*;
 import psammos.blocks.liquid.*;
 import psammos.blocks.power.*;
 import psammos.blocks.production.*;
+import psammos.blocks.units.StatusTower;
 import psammos.entities.bullet.*;
 
 import static mindustry.type.ItemStack.*;
@@ -79,6 +80,7 @@ public class PsammosBlocks {
     //Units/Payload
     specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge, frontlineUnitForge,
     specialistUnitRecombiner, assaultUnitRecombiner, supportUnitRecombiner, scoutUnitRecombiner, frontlineUnitRecombiner,
+    overclockTower,
     heatproofPayloadConveyor, heatproofPayloadRouter,
 
     //Effect/Storage
@@ -927,7 +929,7 @@ public class PsammosBlocks {
             size = 2;
             squareSprite = false;
             damage = 280;
-            explodeTime = 40;
+            explodeTime = 60;
             range = 8;
             baseColor = PsammosLiquids.ammonia.color;
             effect = new MultiEffect(
@@ -1897,6 +1899,20 @@ public class PsammosBlocks {
             upgrades.addAll(
                     new UnitType[]{PsammosUnitTypes.pawn, PsammosUnitTypes.knight}
             );
+        }};
+
+        overclockTower = new StatusTower("overclock-tower"){{
+            requirements(Category.units, with(PsammosItems.silver, 40, Items.silicon, 60, PsammosItems.refinedMetal, 80));
+
+            size = 2;
+            range = 80f;
+            status = StatusEffects.overclock;
+            statusDuration = 1500;
+
+            squareSprite = false;
+
+            consumeLiquid(Liquids.nitrogen, 4 /60f);
+            consumePower(60 /60f);
         }};
 
         heatproofPayloadConveyor = new PayloadConveyor("heatproof-payload-conveyor"){{
