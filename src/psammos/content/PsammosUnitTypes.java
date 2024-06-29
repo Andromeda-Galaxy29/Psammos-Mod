@@ -714,7 +714,7 @@ public class PsammosUnitTypes {
                     ejectEffect = Fx.none;
                     bullet = new BasicBulletType(){{
                         speed = 3;
-                        damage = 14;
+                        damage = 11;
                         lifetime = 20;
                         healPercent = 4;
                         collidesTeam = true;
@@ -773,7 +773,7 @@ public class PsammosUnitTypes {
                     }};
                     bullet = new BasicBulletType(){{
                         speed = 5;
-                        damage = 24;
+                        damage = 20;
                         lifetime = 20;
                         healPercent = 6;
                         collidesTeam = true;
@@ -832,9 +832,9 @@ public class PsammosUnitTypes {
                     ejectEffect = Fx.none;
                     bullet = new BasicBulletType(){{
                         speed = 3;
-                        damage = 28;
+                        damage = 24;
                         lifetime = 38;
-                        healPercent = 8;
+                        healPercent = 10;
                         collidesTeam = true;
                         width = 10;
                         height = 10;
@@ -853,7 +853,7 @@ public class PsammosUnitTypes {
                             speed = 4;
                             damage = 10;
                             lifetime = 15;
-                            healPercent = 1;
+                            healPercent = 2;
                             collidesTeam = true;
                             width = 6;
                             height = 6;
@@ -874,7 +874,7 @@ public class PsammosUnitTypes {
                     mirror = false;
                     rotate = false;
                     bullet = new LaserBulletType(){{
-                        damage = 40;
+                        damage = 35;
                         colors = new Color[]{
                             Color.valueOf("#84f491"),
                             Color.valueOf("#ffffff")
@@ -884,7 +884,7 @@ public class PsammosUnitTypes {
                         lifetime = 18;
                         drawSize = 500;
                         collidesAir = true;
-                        healPercent = 10;
+                        healPercent = 13;
                         collidesTeam = true;
                         length = 120;
                         width = 16;
@@ -917,36 +917,22 @@ public class PsammosUnitTypes {
             crashDamageMultiplier = 0f;
 
             engines.addAll(
-                    new UnitEngine(0, -16, 4, -90),
-                    new UnitEngine(8, -8, 3f, -90),
-                    new UnitEngine(-8, -8, 3f, -90),
-                    new UnitEngine(12, -9, 2.7f, -90),
-                    new UnitEngine(-12, -9, 2.7f, -90)
+                    new UnitEngine(0, -12, 4, -90),
+                    new UnitEngine(8, -7, 3f, -90),
+                    new UnitEngine(-8, -7, 3f, -90),
+                    new UnitEngine(14, -10f, 2.7f, -90),
+                    new UnitEngine(-14, -10f, 2.7f, -90)
             );
-
-            float orbRad = 3f, partRad = 3f;
-            int parts = 10;
-            for(int i : Mathf.signs){
-                abilities.add(new SuppressionFieldAbility(){{
-                    orbRadius = orbRad;
-                    particleSize = partRad;
-                    y = 1.5f;
-                    x = 7f * i;
-                    particles = parts;
-                    color = Pal.heal;
-                    particleColor = Pal.heal;
-                    active = false;
-                }});
-            }
 
             weapons.addAll(
                     new Weapon("psammos-quadrifol-weapon"){{
                         x = -44f / 4f;
-                        y = 37f / 4f;
+                        y = 30f / 4f;
                         reload = 40;
                         layerOffset = -0.01f;
                         shootSound = Sounds.missileLarge;
                         ejectEffect = Fx.shootSmokeSquareBig;
+                        shootY = 2f;
                         bullet = new BasicBulletType(){{
                             sprite = "missile-large";
                             width = 9.5f;
@@ -956,7 +942,7 @@ public class PsammosUnitTypes {
                             lifetime = 38;
 
                             pierceCap = 3;
-                            healPercent = 12;
+                            healPercent = 20;
                             collidesTeam = true;
 
                             trailWidth = 3;
