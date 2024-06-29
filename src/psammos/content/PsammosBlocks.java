@@ -38,7 +38,7 @@ import psammos.blocks.environment.*;
 import psammos.blocks.liquid.*;
 import psammos.blocks.power.*;
 import psammos.blocks.production.*;
-import psammos.blocks.units.StatusTower;
+import psammos.blocks.units.*;
 import psammos.entities.bullet.*;
 
 import static mindustry.type.ItemStack.*;
@@ -81,7 +81,7 @@ public class PsammosBlocks {
     specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge, frontlineUnitForge,
     specialistUnitRecombiner, assaultUnitRecombiner, supportUnitRecombiner, scoutUnitRecombiner, frontlineUnitRecombiner,
     overclockTower,
-    heatproofPayloadConveyor, heatproofPayloadRouter,
+    heatproofPayloadConveyor, heatproofPayloadRouter, heatproofPayloadGate,
 
     //Effect/Storage
     coreDust, coreDune, heatproofContainer, heatproofUnloader, healingProjector,
@@ -1927,6 +1927,13 @@ public class PsammosBlocks {
             canOverdrive = false;
             health = 500;
             moveTime = 40f;
+        }};
+
+        heatproofPayloadGate = new PayloadGate("heatproof-payload-gate"){{
+            requirements(Category.units, with(PsammosItems.refinedMetal, 35, Items.silicon, 20));
+            canOverdrive = false;
+            health = 800;
+            reload = 40f;
         }};
 
         // Effect/Storage

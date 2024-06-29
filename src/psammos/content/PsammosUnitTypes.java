@@ -1495,7 +1495,7 @@ public class PsammosUnitTypes {
             constructor = TankUnit::create;
 
             speed = 0.8f;
-            hitSize = 26f;
+            hitSize = 24f;
             rotateSpeed = 1.5f;
             health = 800;
             armor = 6;
