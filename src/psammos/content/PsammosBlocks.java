@@ -327,8 +327,8 @@ public class PsammosBlocks {
                         speed = 3;
                         lifetime = 80;
                         collidesTiles = false;
-                        splashDamageRadius = 25f;
-                        splashDamage = 18f;
+                        splashDamageRadius = 20f;
+                        splashDamage = 11f;
                         buildingDamageMultiplier = 0.01f;
                     }},
                     Items.silicon, new ArtilleryBulletType(){{
@@ -338,8 +338,8 @@ public class PsammosBlocks {
                         speed = 3;
                         lifetime = 80;
                         collidesTiles = false;
-                        splashDamageRadius = 25f;
-                        splashDamage = 18f;
+                        splashDamageRadius = 20f;
+                        splashDamage = 11f;
                         reloadMultiplier = 1.2f;
                         ammoMultiplier = 3f;
                         homingPower = 0.1f;
