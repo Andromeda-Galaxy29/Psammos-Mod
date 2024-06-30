@@ -39,6 +39,7 @@ import psammos.blocks.liquid.*;
 import psammos.blocks.power.*;
 import psammos.blocks.production.*;
 import psammos.blocks.units.*;
+import psammos.draw.DrawProgressGlowRegion;
 import psammos.entities.bullet.*;
 
 import static mindustry.type.ItemStack.*;
@@ -923,13 +924,14 @@ public class PsammosBlocks {
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
                     new DrawLiquidTile(PsammosLiquids.ammonia, 1.5f),
-                    new DrawDefault()
+                    new DrawDefault(),
+                    new DrawProgressGlowRegion(){{color = PsammosLiquids.ammonia.color.cpy();}}
             );
 
             size = 2;
             squareSprite = false;
             damage = 280;
-            explodeTime = 60;
+            explodeTime = 80;
             range = 8;
             baseColor = PsammosLiquids.ammonia.color;
             effect = new MultiEffect(
@@ -939,7 +941,7 @@ public class PsammosBlocks {
             explosionSound = Sounds.explosionbig;
             shake = 10f;
 
-            consumeLiquid(PsammosLiquids.ammonia, 0.1f/60f);
+            consumeLiquid(PsammosLiquids.ammonia, 1f/60f);
         }};
 
         // Distribution
