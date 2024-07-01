@@ -53,7 +53,7 @@ public class PsammosBlocks {
     cross, disseminate, hurl, influence, gunslinger, spray, seize, burst, dawn, burden,
 
     //Drills/Production
-    osmiumDrill, detonationDrill, excavatorDrill, seismicBomb, ammoniaBomb,
+    osmiumDrill, detonationDrill, excavatorDrill, quarryDrill, seismicBomb, ammoniaBomb,
 
     //Distribution
     heatproofConveyor, platedConveyor, heatproofJunction, heatproofRouter,
@@ -893,10 +893,27 @@ public class PsammosBlocks {
             size = 3;
             tier = 1;
             drillTime = 240;
-            rotateSpeed = 5;
+            rotateSpeed = 8;
             drawMineItem = false;
             ambientSoundVolume = 0.05f;
 
+            consumeLiquid(PsammosLiquids.coldWater, 0.05f).boost();
+        }};
+
+        quarryDrill = new Drill("quarry-drill"){{
+            requirements(Category.production, with(PsammosItems.osmium, 80, PsammosItems.quartz, 60, PsammosItems.memoryAlloy, 30, Items.silicon, 60));
+
+            size = 4;
+            tier = 1;
+            drillTime = 180;
+            rotateSpeed = 12;
+            drillEffectChance = 2.5f;
+            drawMineItem = false;
+            ambientSoundVolume = 0.1f;
+
+            liquidBoostIntensity = 1.4f;
+
+            consumePower(90 /60f);
             consumeLiquid(PsammosLiquids.coldWater, 0.05f).boost();
         }};
         
