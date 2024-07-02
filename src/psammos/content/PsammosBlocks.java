@@ -72,11 +72,12 @@ public class PsammosBlocks {
     memoryWall, memoryWallLarge,
 
     //Crafting
-    sieve, filter, siliconSynthesizer, centrifuge, thermolysisChamber,
-    refinery, blastManufacturer, oilDistillationTower, atmosphericSeparator,
-    heatExchanger, ozoneHeater, peatHeater, ammoniaHeater,
-    heatPump, heatPumpRouter, aerogelPressurizer, steamReformer,
-    ammoniaCompressor, memoryAlloyCrucible, obliterator,
+    sieve, filter, siliconSynthesizer, centrifuge,
+    purifier, thermolysisChamber, refinery, blastManufacturer,
+    oilDistillationTower, atmosphericSeparator, heatExchanger, ozoneHeater,
+    peatHeater, ammoniaHeater, heatPump, heatPumpRouter,
+    aerogelPressurizer, steamReformer, ammoniaCompressor, memoryAlloyCrucible,
+    obliterator,
 
     //Units/Payload
     specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge, frontlineUnitForge,
@@ -1379,9 +1380,8 @@ public class PsammosBlocks {
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
                     new DrawLiquidTile(PsammosLiquids.quicksand, 1),
-                    new DrawDefault(),
                     new DrawRegion("-rotator", 8, true),
-                    new DrawRegion("-top")
+                    new DrawDefault()
             );
 
             outputItem = new ItemStack(Items.sand, 2);
@@ -1390,6 +1390,30 @@ public class PsammosBlocks {
 
             consumeLiquid(PsammosLiquids.quicksand, 8 / 60f);
             consumePower(2f);
+        }};
+
+        purifier = new GenericCrafter("purifier"){{
+            requirements(Category.crafting, with(PsammosItems.refinedMetal, 80, PsammosItems.quartz, 80, Items.silicon, 60, PsammosItems.aerogel, 35));
+
+            size = 3;
+            squareSprite = false;
+            hasLiquids = true;
+            liquidCapacity = 30;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawLiquidTile(PsammosLiquids.quicksand, 3),
+                    new DrawRegion("-rotator", 12, true),
+                    new DrawDefault()
+            );
+
+            outputItem = new ItemStack(Items.sand, 6);
+            outputLiquid = new LiquidStack(Liquids.water, 20 / 60f);
+            craftTime = 60;
+
+            consumeLiquid(PsammosLiquids.quicksand, 24 / 60f);
+            consumeLiquid(PsammosLiquids.ammonia, 1 / 60f);
+            consumePower(4f);
         }};
 
         thermolysisChamber = new AttributeCrafter("4a-thermolysis-chamber"){{
@@ -1574,8 +1598,6 @@ public class PsammosBlocks {
 
             size = 3;
             squareSprite = false;
-            hasLiquids = true;
-            liquidCapacity = 15;
 
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
