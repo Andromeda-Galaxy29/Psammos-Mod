@@ -50,7 +50,7 @@ import static mindustry.type.ItemStack.*;
 public class PsammosBlocks {
     public static Block
     //Turrets
-    cross, disseminate, hurl, influence, gunslinger, spray, seize, burst, dawn, burden,
+    cross, disseminate, hurl, confine, influence, gunslinger, spray, seize, burst, dawn, burden,
 
     //Drills/Production
     osmiumDrill, detonationDrill, excavatorDrill, quarryDrill, seismicBomb, ammoniaBomb,
@@ -387,6 +387,75 @@ public class PsammosBlocks {
             }};
 
             coolant = consumeCoolant(0.1f);
+        }};
+
+        confine = new LiquidTurret("confine"){{
+            requirements(Category.turret, with(PsammosItems.quartz, 35, PsammosItems.osmium, 15, Items.sand, 20));
+
+            ammo(
+                    PsammosLiquids.quicksand, new WaveBulletType(PsammosLiquids.quicksand){{
+                        width = 16;
+                        height = 12;
+                        lifetime = 30f;
+                        speed = 4f;
+                        damage = 6f;
+                        drag = 0.05f;
+                        statusDuration = 60f * 3f;
+                        trailEffect = new Effect(40f, e -> {
+                            Draw.color(PsammosLiquids.quicksand.color);
+
+                            Angles.randLenVectors(e.id, 2, 1f + e.fin() * 2f, (x, y) -> {
+                                Fill.square(e.x + x, e.y + y, e.fout() * 1.2f, 45f);
+                            });
+                        });
+                        trailInterval = 4;
+                    }},
+                    PsammosLiquids.coldWater, new WaveBulletType(PsammosLiquids.coldWater){{
+                        width = 16;
+                        height = 12;
+                        lifetime = 30f;
+                        speed = 4f;
+                        damage = 6f;
+                        drag = 0.05f;
+                        statusDuration = 60f * 3f;
+                        trailEffect = new Effect(40f, e -> {
+                            Draw.color(PsammosLiquids.coldWater.color);
+
+                            Angles.randLenVectors(e.id, 2, 1f + e.fin() * 2f, (x, y) -> {
+                                Fill.circle(e.x + x, e.y + y, e.fout() * 1.2f);
+                            });
+                        });
+                        trailInterval = 4;
+                    }}
+            );
+
+            shoot = new ShootSpread(4, 12f);
+
+            hasPower = true;
+
+            size = 2;
+            reload = 30f;
+            outlineColor = PPal.turretOutline;
+            squareSprite = false;
+            recoil = 2f;
+            range = 80;
+            velocityRnd = 0f;
+            shootSound = Sounds.splash;
+            shootEffect = Fx.shootSmokeSquareSparse;
+
+            consumePower(1);
+
+            drawer = new DrawTurret("heatproof-"){{
+                parts.add(new RegionPart("-side"){{
+                    mirror = true;
+                    turretShading = true;
+                    progress = PartProgress.warmup;
+                    moveRot = 15f;
+                    moveX = -0.3f;
+                    moveY = -1f;
+                    moves.add(new PartMove(PartProgress.recoil, 0f, 0f, -10f));
+                }});
+            }};
         }};
 
         //Old version of Influence. Left here to prevent crashes from loading a map created in an older version
