@@ -565,7 +565,7 @@ public class PsammosBlocks {
             outlineColor = PPal.turretOutline;
             targetAir = true;
             targetGround = true;
-            range = 180;
+            range = 200;
             reload = 100;
             inaccuracy = 2;
             shootY = 6;
@@ -920,6 +920,7 @@ public class PsammosBlocks {
             itemCapacity = 20;
             size = 2;
             tier = 2;
+            shake = 0;
             drillTime = 400;
             ambientSoundVolume = 0.05f;
             baseArrowColor = Color.valueOf("#a4a098");
