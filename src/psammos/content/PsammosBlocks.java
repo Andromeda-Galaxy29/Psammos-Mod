@@ -35,11 +35,12 @@ import psammos.*;
 import psammos.ai.AntiAirMissileAI;
 import psammos.blocks.defense.*;
 import psammos.blocks.environment.*;
+import psammos.blocks.legacy.*;
 import psammos.blocks.liquid.*;
 import psammos.blocks.power.*;
 import psammos.blocks.production.*;
 import psammos.blocks.units.*;
-import psammos.draw.DrawProgressGlowRegion;
+import psammos.draw.*;
 import psammos.entities.bullet.*;
 
 import static mindustry.type.ItemStack.*;
@@ -99,8 +100,8 @@ public class PsammosBlocks {
     peatBoulder, quartzBoulder,
     crystalQuartz,
 
-    //Internal/Compatibility
-    influenceOld;
+    //Legacy
+    influenceOld, liquidFuelBurnerOld;
 
     public static void load(){
 
@@ -456,42 +457,6 @@ public class PsammosBlocks {
                     moves.add(new PartMove(PartProgress.recoil, 0f, 0f, -10f));
                 }});
             }};
-        }};
-
-        //Old version of Influence. Left here to prevent crashes from loading a map created in an older version
-        influenceOld = new PowerTurret("2a-influence"){{
-            shootType = new BasicBulletType(){{
-                collidesAir = false;
-                width = 10;
-                height = 10;
-                speed = 5;
-                damage = 16;
-                lifetime = 30;
-                hitColor = backColor = trailColor = lightningColor = Color.valueOf("#a9d8ff");
-                frontColor = lightColor = Color.valueOf("#ffffff");
-                trailWidth = 2;
-                trailLength = 5;
-                lightning = 4;
-                lightningLength = 8;
-                lightningDamage = 6;
-            }};
-
-            size = 2;
-            health = 450;
-            squareSprite = false;
-            shootSound = Sounds.shockBlast;
-            outlineColor = PPal.turretOutline;
-            targetAir = false;
-            targetGround = true;
-            range = 140;
-            reload = 60;
-            inaccuracy = 0;
-            shootY = -1.5f;
-
-            drawer = new DrawTurret("ohno");
-
-            consumePower(1);
-            coolant = consumeCoolant(0.1f);
         }};
 
         influence = new ItemTurret("influence"){{
@@ -1295,22 +1260,39 @@ public class PsammosBlocks {
             consume(new ConsumeItemExplosive(1f));
         }};
 
-        liquidFuelBurner = new ConsumeGenerator("3b-liquid-fuel-burner"){{
-            requirements(Category.power, with(PsammosItems.osmium, 40, PsammosItems.silver, 30, PsammosItems.refinedMetal, 40, PsammosItems.quartz, 20));
+        liquidFuelBurner = new ConsumeGenerator("liquid-fuel-burner"){{
+            requirements(Category.power, with(PsammosItems.osmium, 60, PsammosItems.silver, 30, PsammosItems.refinedMetal, 50, PsammosItems.quartz, 40));
 
-            size = 2;
-            powerProduction = 8;
+            size = 3;
+            powerProduction = 21;
             hasPower = true;
             outputsPower = true;
             squareSprite = false;
 
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
+                    new DrawLiquidTile(Liquids.ozone, 2),
+                    new DrawPistons(){{
+                        sinMag = 2f;
+                        sinScl = 3f;
+                        sides = 4;
+                        sideOffset = Mathf.PI;
+                    }},
+                    new DrawRegion("-mid"),
+                    new DrawLiquidTile(PsammosLiquids.fuel, 9),
                     new DrawDefault(),
-                    new DrawCrucibleFlame()
+                    new DrawGlowRegion(){{
+                        alpha = 0.8f;
+                        glowScale = 5f;
+                        color = Pal.slagOrange;
+                    }},
+                    new DrawBurnerFlame()
             );
 
-            consumeLiquid(PsammosLiquids.fuel, 1 / 60f);
+            outputLiquid = new LiquidStack(Liquids.water, 6 / 60f);
+
+            consumeLiquid(PsammosLiquids.fuel, 2 / 60f);
+            consumeLiquid(Liquids.ozone, 4 / 60f);
         }};
 
         // Defense
@@ -1496,7 +1478,7 @@ public class PsammosBlocks {
                     new DrawRegion("-bottom"),
                     new DrawCrucibleFlame(),
                     new DrawDefault(),
-                    new DrawGlowRegion(){{color = Color.valueOf("#ff9633");}},
+                    new DrawGlowRegion(){{color = Pal.slagOrange;}},
                     new DrawLiquidOutputs()
             );
             rotate = true;
@@ -2209,6 +2191,17 @@ public class PsammosBlocks {
         crystalQuartz = new TallBlock("crystal-quartz"){{
             variants = 1;
             clipSize = 128f;
+        }};
+
+        //Legacy
+
+        influenceOld = new LegacyTurret("2a-influence"){{
+            size = 2;
+            replacement = influence;
+        }};
+
+        liquidFuelBurnerOld = new LegacyPowerGenerator("3b-liquid-fuel-burner"){{
+            size = 2;
         }};
     }
 }
