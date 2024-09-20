@@ -22,7 +22,7 @@ public class PsammosSectors {
         }};
 
         cavern = new SectorPreset("cavern", PsammosPlanets.psammos, 5){{
-            difficulty = 3;
+            difficulty = 4;
             captureWave = 30;
         }};
 
