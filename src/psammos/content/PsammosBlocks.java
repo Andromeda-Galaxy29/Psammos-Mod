@@ -95,10 +95,10 @@ public class PsammosBlocks {
     //Environment
     osmiumOre, silverOre,
     quicksand, darkQuicksand,
-    peatFloor, quartzFloor, smallOilDeposit, oilDeposit,
-    peatWall, quartzWall,
-    peatBoulder, quartzBoulder,
-    crystalQuartz,
+    peatFloor, quartzFloor, osmicStone, desertGlass, smallOilDeposit, oilDeposit,
+    peatWall, quartzWall, osmicStoneWall, desertGlassWall,
+    peatBoulder, quartzBoulder, osmicBoulder, desertGlassBoulder,
+    crystalQuartz, crystalDesertGlass,
 
     //Legacy
     influenceOld, liquidFuelBurnerOld;
@@ -2154,6 +2154,14 @@ public class PsammosBlocks {
             variants = 4;
         }};
 
+        osmicStone = new Floor("osmic-stone"){{
+            variants = 2;
+        }};
+
+        desertGlass = new Floor("desert-glass"){{
+            variants = 3;
+        }};
+
         smallOilDeposit = new ExplodableFloor("3e-small-oil-deposit"){{
             variants = 3;
             itemDrop = Items.sand;
@@ -2172,24 +2180,53 @@ public class PsammosBlocks {
             variants = 2;
             itemDrop = PsammosItems.peat;
             playerUnmineable = true;
+            peatFloor.asFloor().wall = this;
         }};
 
         quartzWall = new StaticWall("4b-quartz-wall"){{
             variants = 2;
             itemDrop = PsammosItems.quartz;
             playerUnmineable = true;
+            quartzFloor.asFloor().wall = this;
+        }};
+
+        osmicStoneWall = new StaticWall("osmic-stone-wall"){{
+            variants = 2;
+            osmicStone.asFloor().wall = this;
+        }};
+
+        desertGlassWall = new StaticWall("desert-glass-wall"){{
+            variants = 2;
+            desertGlass.asFloor().wall = this;
         }};
 
         peatBoulder = new Prop("peat-boulder"){{
             variants = 2;
+            peatFloor.asFloor().decoration = this;
         }};
 
         quartzBoulder = new Prop("5b-quartz-boulder"){{
             variants = 2;
+            quartzFloor.asFloor().decoration = this;
+        }};
+
+        osmicBoulder = new Prop("osmic-boulder"){{
+            variants = 2;
+            osmicStone.asFloor().decoration = this;
+        }};
+
+        desertGlassBoulder = new Prop("desert-glass-boulder"){{
+            variants = 2;
+            desertGlass.asFloor().decoration = this;
         }};
 
         crystalQuartz = new TallBlock("crystal-quartz"){{
-            variants = 1;
+            variants = 2;
+            clipSize = 128f;
+        }};
+
+        crystalDesertGlass = new TallBlock("crystal-desert-glass"){{
+            variants = 2;
             clipSize = 128f;
         }};
 
