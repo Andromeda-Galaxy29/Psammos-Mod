@@ -95,9 +95,9 @@ public class PsammosBlocks {
     //Environment
     osmiumOre, silverOre,
     quicksand, darkQuicksand,
-    peatFloor, quartzFloor, osmicStone, desertGlass, smallOilDeposit, oilDeposit,
-    peatWall, quartzWall, osmicStoneWall, desertGlassWall,
-    peatBoulder, quartzBoulder, osmicBoulder, desertGlassBoulder,
+    smallOilDeposit, oilDeposit, peatFloor, quartzFloor, slate, smallSlateOilDeposit, slateOilDeposit, osmicStone, desertGlass,
+    peatWall, quartzWall, slateWall, osmicStoneWall, desertGlassWall,
+    peatBoulder, slateBoulder, quartzBoulder, osmicBoulder, desertGlassBoulder,
     crystalQuartz, crystalDesertGlass,
 
     //Legacy
@@ -954,7 +954,7 @@ public class PsammosBlocks {
         }};
         
         seismicBomb = new Bomb("3a-seismic-bomb"){{
-            requirements(Category.production, with(PsammosItems.silver, 4, Items.blastCompound, 10));
+            requirements(Category.production, with(PsammosItems.silver, 10, Items.blastCompound, 20));
 
             size = 1;
             squareSprite = false;
@@ -972,7 +972,7 @@ public class PsammosBlocks {
         }};
 
         ammoniaBomb = new Bomb("ammonia-bomb"){{
-            requirements(Category.production, with(PsammosItems.aerogel, 10, PsammosItems.silver, 8));
+            requirements(Category.production, with(PsammosItems.aerogel, 20, PsammosItems.silver, 12));
 
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
@@ -2144,6 +2144,20 @@ public class PsammosBlocks {
             isLiquid = true;
         }};
 
+        smallOilDeposit = new ExplodableFloor("3e-small-oil-deposit"){{
+            variants = 3;
+            itemDrop = Items.sand;
+            playerUnmineable = true;
+        }};
+
+        oilDeposit = new ExplodableFloor("3d-oil-deposit"){{
+            variants = 3;
+            itemDrop = Items.sand;
+            playerUnmineable = true;
+            replacement = Blocks.tar.asFloor();
+            ((ExplodableFloor) smallOilDeposit).replacement = this;
+        }};
+
         peatFloor = new Floor("3b-peat-floor"){{
             variants = 4;
             itemDrop = PsammosItems.peat;
@@ -2154,26 +2168,26 @@ public class PsammosBlocks {
             variants = 4;
         }};
 
+        slate = new Floor("slate"){{
+            variants = 3;
+        }};
+
+        smallSlateOilDeposit = new ExplodableFloor("small-slate-oil-deposit"){{
+            variants = 3;
+        }};
+
+        slateOilDeposit = new ExplodableFloor("slate-oil-deposit"){{
+            variants = 3;
+            replacement = Blocks.tar.asFloor();
+            ((ExplodableFloor) smallSlateOilDeposit).replacement = this;
+        }};
+
         osmicStone = new Floor("osmic-stone"){{
             variants = 2;
         }};
 
         desertGlass = new Floor("desert-glass"){{
             variants = 3;
-        }};
-
-        smallOilDeposit = new ExplodableFloor("3e-small-oil-deposit"){{
-            variants = 3;
-            itemDrop = Items.sand;
-            playerUnmineable = true;
-            replacement = Blocks.tar;
-        }};
-
-        oilDeposit = new ExplodableFloor("3d-oil-deposit"){{
-            variants = 3;
-            itemDrop = Items.sand;
-            playerUnmineable = true;
-            replacement = Blocks.tar;
         }};
 
         peatWall = new StaticWall("4a-peat-wall"){{
@@ -2188,6 +2202,11 @@ public class PsammosBlocks {
             itemDrop = PsammosItems.quartz;
             playerUnmineable = true;
             quartzFloor.asFloor().wall = this;
+        }};
+
+        slateWall = new StaticWall("slate-wall"){{
+            variants = 2;
+            slate.asFloor().wall = this;
         }};
 
         osmicStoneWall = new StaticWall("osmic-stone-wall"){{
@@ -2208,6 +2227,11 @@ public class PsammosBlocks {
         quartzBoulder = new Prop("5b-quartz-boulder"){{
             variants = 2;
             quartzFloor.asFloor().decoration = this;
+        }};
+
+        slateBoulder = new Prop("slate-boulder"){{
+            variants = 2;
+            slate.asFloor().decoration = this;
         }};
 
         osmicBoulder = new Prop("osmic-boulder"){{

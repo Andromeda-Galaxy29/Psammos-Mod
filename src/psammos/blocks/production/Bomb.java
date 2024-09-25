@@ -195,8 +195,10 @@ public class Bomb extends Block {
                     Block floor = tile.floor();
                     if(floor instanceof ExplodableFloor){
                         world.tile(ix, iy).setFloorNet(((ExplodableFloor)floor).replacement);
-                        world.tile(ix, iy).setOverlayNet(Blocks.air);
-                        world.tile(ix, iy).setNet(Blocks.air);
+                        if(((ExplodableFloor)floor).replacement.isLiquid){
+                            world.tile(ix, iy).setOverlayNet(Blocks.air);
+                            world.tile(ix, iy).setNet(Blocks.air);
+                        }
                     }
                 }
             }

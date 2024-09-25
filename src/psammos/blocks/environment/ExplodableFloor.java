@@ -6,11 +6,11 @@ import mindustry.world.*;
 import mindustry.world.blocks.environment.*;
 
 public class ExplodableFloor extends Floor {
-    public Block replacement;
+    public Floor replacement;
 
     public ExplodableFloor(String name){
         super(name);
 
-        this.replacement = Blocks.sand;
+        this.replacement = Blocks.sand.asFloor();
     }
 }
