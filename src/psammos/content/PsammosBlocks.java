@@ -92,12 +92,19 @@ public class PsammosBlocks {
     //Logic
     heatproofMessage,
 
-    //Environment
+        //Environment
+    //Ores
     osmiumOre, silverOre,
+    //Liquids
     quicksand, darkQuicksand,
-    smallOilDeposit, oilDeposit, peatFloor, quartzFloor, slate, smallSlateOilDeposit, slateOilDeposit, osmicStone, desertGlass,
-    peatWall, quartzWall, slateWall, osmicStoneWall, desertGlassWall,
-    peatBoulder, slateBoulder, quartzBoulder, osmicBoulder, desertGlassBoulder,
+    //Floors
+    smallOilDeposit, oilDeposit, peatFloor, burningPeatFloor, ash, quartzFloor,
+    slate, smallSlateOilDeposit, slateOilDeposit, osmicStone, desertGlass,
+    //Walls
+    peatWall, ashWall, quartzWall, slateWall, osmicStoneWall, desertGlassWall,
+    //Props
+    peatBoulder, ashBoulder, slateBoulder, quartzBoulder, osmicBoulder, desertGlassBoulder, ashPit,
+    //Crystals
     crystalQuartz, crystalDesertGlass,
 
     //Legacy
@@ -958,7 +965,7 @@ public class PsammosBlocks {
 
             size = 1;
             squareSprite = false;
-            damage = 80;
+            damage = 100;
             explodeTime = 5;
             range = 3;
             baseColor = Items.blastCompound.color;
@@ -983,7 +990,7 @@ public class PsammosBlocks {
 
             size = 2;
             squareSprite = false;
-            damage = 280;
+            damage = 300;
             explodeTime = 80;
             range = 8;
             baseColor = PsammosLiquids.ammonia.color;
@@ -2148,6 +2155,7 @@ public class PsammosBlocks {
             variants = 3;
             itemDrop = Items.sand;
             playerUnmineable = true;
+            blendGroup = Blocks.darksand;
         }};
 
         oilDeposit = new ExplodableFloor("3d-oil-deposit"){{
@@ -2155,6 +2163,7 @@ public class PsammosBlocks {
             itemDrop = Items.sand;
             playerUnmineable = true;
             replacement = Blocks.tar.asFloor();
+            blendGroup = Blocks.darksand;
             ((ExplodableFloor) smallOilDeposit).replacement = this;
         }};
 
@@ -2162,6 +2171,29 @@ public class PsammosBlocks {
             variants = 4;
             itemDrop = PsammosItems.peat;
             playerUnmineable = true;
+        }};
+
+        burningPeatFloor = new EffectFloor("burning-peat-floor"){{
+            variants = 4;
+            itemDrop = PsammosItems.peat;
+            playerUnmineable = true;
+
+            effect = new MultiEffect(Fx.fire, Fx.coalSmeltsmoke);
+            effectChance = 0.025f;
+            status = StatusEffects.burning;
+            attributes.set(Attribute.heat, 0.7f);
+
+            emitLight = true;
+            lightRadius = 30f;
+            lightColor = Color.orange.cpy().a(0.15f);
+        }};
+
+        ash = new EffectFloor("ash"){{
+            variants = 4;
+            effect = Fx.fire;
+            effectChance = 0.001f;
+            status = StatusEffects.burning;
+            attributes.set(Attribute.heat, 0.1f);
         }};
 
         quartzFloor = new Floor("3c-quartz-floor"){{
@@ -2174,11 +2206,13 @@ public class PsammosBlocks {
 
         smallSlateOilDeposit = new ExplodableFloor("small-slate-oil-deposit"){{
             variants = 3;
+            blendGroup = slate;
         }};
 
         slateOilDeposit = new ExplodableFloor("slate-oil-deposit"){{
             variants = 3;
             replacement = Blocks.tar.asFloor();
+            blendGroup = slate;
             ((ExplodableFloor) smallSlateOilDeposit).replacement = this;
         }};
 
@@ -2195,6 +2229,12 @@ public class PsammosBlocks {
             itemDrop = PsammosItems.peat;
             playerUnmineable = true;
             peatFloor.asFloor().wall = this;
+            burningPeatFloor.asFloor().wall = this;
+        }};
+
+        ashWall = new StaticWall("ash-wall"){{
+            variants = 2;
+            ash.asFloor().wall = this;
         }};
 
         quartzWall = new StaticWall("4b-quartz-wall"){{
@@ -2222,6 +2262,12 @@ public class PsammosBlocks {
         peatBoulder = new Prop("peat-boulder"){{
             variants = 2;
             peatFloor.asFloor().decoration = this;
+            burningPeatFloor.asFloor().decoration = this;
+        }};
+
+        ashBoulder = new Prop("ash-boulder"){{
+            variants = 2;
+            ash.asFloor().decoration = this;
         }};
 
         quartzBoulder = new Prop("5b-quartz-boulder"){{
@@ -2242,6 +2288,14 @@ public class PsammosBlocks {
         desertGlassBoulder = new Prop("desert-glass-boulder"){{
             variants = 2;
             desertGlass.asFloor().decoration = this;
+        }};
+
+        ashPit = new SteamVent("ash-pit"){{
+            parent = blendGroup = ash;
+            effect = Fx.fire;
+            effectSpacing = 6;
+            status = StatusEffects.burning;
+            attributes.set(Attribute.heat, 1f);
         }};
 
         crystalQuartz = new TallBlock("crystal-quartz"){{
