@@ -1008,7 +1008,7 @@ public class PsammosUnitTypes {
             health = 180;
             armor = 0;
             outlineColor = PPal.unitOutline;
-            faceTarget = true;
+            omniMovement = false;
             targetAir = true;
 
             hovering = true;
@@ -1045,13 +1045,13 @@ public class PsammosUnitTypes {
             weapons.addAll(
                 new Weapon("psammos-sciur-missile"){{
                     x = 0;
-                    y = -3;
+                    y = -3.5f;
                     reload = 28;
                     shootSound = Sounds.missile;
                     inaccuracy = 2;
                     velocityRnd = 0.1f;
                     mirror = false;
-                    rotate = false;
+                    rotate = true;
                     bullet = new MissileBulletType(){{
                         speed = 2;
                         damage = 7;
@@ -1064,11 +1064,23 @@ public class PsammosUnitTypes {
                         splashDamageRadius = 18;
                         splashDamage = 9;
                         lifetime = 40;
-                        trailColor = PPal.scoutPink;
-                        backColor = PPal.scoutPink;
+                        trailColor = backColor = hitColor = PPal.scoutPink;
                         frontColor = Color.valueOf("#e8def4");
-                        hitEffect = Fx.blastExplosion;
-                        despawnEffect = Fx.blastExplosion;
+                        shootEffect = Fx.shootSmallColor;
+                        hitEffect = despawnEffect = new Effect(22, e -> {
+                            Draw.color(PPal.scoutPink);
+
+                            e.scaled(6, i -> {
+                                Lines.stroke(3f * i.fout());
+                                Lines.circle(e.x, e.y, 3f + i.fin() * 15f);
+                            });
+
+                            Lines.stroke(e.fout() * 2f);
+                            Angles.randLenVectors(e.id, 6, e.finpow() * 18f, (x, y) -> {
+                                float ang = Mathf.angle(x, y);
+                                Lines.lineAngle(e.x + x, e.y + y, ang, e.fout() * 4 + 1f);
+                            });
+                        });
                         weaveScale = 5;
                         weaveMag = 0.8f;
                     }};
@@ -1087,7 +1099,7 @@ public class PsammosUnitTypes {
             health = 485;
             armor = 2;
             outlineColor = PPal.unitOutline;
-            faceTarget = false;
+            omniMovement = false;
             targetAir = true;
 
             hovering = true;
@@ -1158,7 +1170,7 @@ public class PsammosUnitTypes {
             health = 690;
             armor = 3;
             outlineColor = PPal.unitOutline;
-            faceTarget = false;
+            omniMovement = false;
             targetAir = true;
 
             hovering = true;
@@ -1230,14 +1242,14 @@ public class PsammosUnitTypes {
         aeretes = new UnitType("aeretes"){{
             constructor = ElevationMoveUnit::create;
 
-            speed = 3.3f;
+            speed = 3.2f;
             drag = 0.1f;
             hitSize = 30;
             rotateSpeed = 8;
             health = 7000;
             armor = 7;
             outlineColor = PPal.unitOutline;
-            faceTarget = false;
+            omniMovement = false;
             targetAir = true;
 
             hovering = true;
@@ -1283,7 +1295,10 @@ public class PsammosUnitTypes {
             abilities.addAll(
                     new MoveTrailAbility(0f, -9f, false, 2.1f, 15, PPal.scoutPink),
                     new MoveTrailAbility(7f, -9f, true, 1.2f, 10, PPal.scoutPink),
-                    new StatusFieldAbility(StatusEffects.overclock, 60f * 6, 60f * 6f, 60f)
+                    new StatusFieldAbility(StatusEffects.overclock, 60f * 6, 60f * 6f, 60f),
+                    new MoveLightningAbility(12, 9, 0.1f, 0, 1f, 3f, PPal.scoutPink, "psammos-aeretes-heat"){{
+                        x = 4;
+                    }}
             );
 
             weapons.addAll(
@@ -1304,7 +1319,7 @@ public class PsammosUnitTypes {
                                 width = 11f;
                                 height = 11;
                                 speed = 3;
-                                damage = 65;
+                                damage = 60;
                                 lifetime = 60;
                                 keepVelocity = false;
 
