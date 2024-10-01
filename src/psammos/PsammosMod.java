@@ -4,10 +4,12 @@ import arc.*;
 import arc.util.*;
 import mindustry.*;
 import mindustry.type.*;
+import mindustry.ui.fragments.MenuFragment;
 import psammos.content.*;
 import mindustry.game.EventType.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
+import psammos.graphics.PsammosMenuRenderer;
 
 import static arc.Core.*;
 import static mindustry.Vars.*;
@@ -29,7 +31,16 @@ public class PsammosMod extends Mod{
         loadSettings();
 
         Events.on(ClientLoadEvent.class, e -> {
-            if(settings.getBool("psammos-warning")) {
+            if (Core.settings.getBool("psammos-custom-menu", true)) {
+                try {
+                    Reflect.set(MenuFragment.class, Vars.ui.menufrag, "renderer", new PsammosMenuRenderer());
+                } catch (Exception except) {
+                    Log.err("Failed to replace renderer", except);
+                }
+            }
+
+
+            if(settings.getBool("psammos-warning", true)) {
                 Time.runTask(10f, () -> {
                     BaseDialog dialog = new BaseDialog("Psammos Mod");
                     dialog.cont.add(bundle.get("dialog.psammos-warning")).row();
@@ -70,7 +81,7 @@ public class PsammosMod extends Mod{
     void loadSettings(){
         ui.settings.addCategory(bundle.get("setting.psammos-category"), "psammos-settings-icon", t -> {
             t.checkPref("psammos-warning", true);
+            t.checkPref("psammos-custom-menu", true);
         });
     }
-
 }

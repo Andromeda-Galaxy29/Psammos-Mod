@@ -94,17 +94,18 @@ public class PsammosBlocks {
 
         //Environment
     //Ores
-    osmiumOre, silverOre,
+    osmiumOre, silverOre, peatOre,
     //Liquids
     quicksand, darkQuicksand,
     //Floors
-    smallOilDeposit, oilDeposit, peatFloor, burningPeatFloor, ash, quartzFloor,
+    smallOilDeposit, oilDeposit, peatFloor, packedPeatFloor, decayingFloor, bog, burningPeatFloor, ash, quartzFloor, crystallineQuartzFloor,
     slate, smallSlateOilDeposit, slateOilDeposit, osmicStone, desertGlass,
     //Walls
-    peatWall, ashWall, quartzWall, slateWall, osmicStoneWall, desertGlassWall,
+    peatWall, packedPeatWall, decayingWall, ashWall, quartzWall, slateWall, osmicStoneWall, desertGlassWall,
     //Props
-    peatBoulder, ashBoulder, slateBoulder, quartzBoulder, osmicBoulder, desertGlassBoulder, ashPit,
-    //Crystals
+    peatBoulder, packedPeatBoulder, decayingBoulder, ashBoulder, slateBoulder, quartzBoulder, osmicBoulder, desertGlassBoulder,
+    //Other
+    ashPit,
     crystalQuartz, crystalDesertGlass,
 
     //Legacy
@@ -2124,11 +2125,15 @@ public class PsammosBlocks {
         //Environment
 
         osmiumOre = new OreBlock("1a-osmium-ore", PsammosItems.osmium){{
-            variants = 1;
+            variants = 3;
         }};
 
         silverOre = new OreBlock("1b-silver-ore", PsammosItems.silver){{
-            variants = 1;
+            variants = 3;
+        }};
+
+        peatOre = new OreBlock("peat-ore", PsammosItems.peat){{
+            variants = 3;
         }};
 
         quicksand = new Floor("3a-quicksand"){{
@@ -2173,6 +2178,29 @@ public class PsammosBlocks {
             playerUnmineable = true;
         }};
 
+        packedPeatFloor = new Floor("packed-peat-floor"){{
+            variants = 3;
+            itemDrop = PsammosItems.peat;
+            playerUnmineable = true;
+        }};
+
+        decayingFloor = new Floor("decaying-floor"){{
+            variants = 3;
+        }};
+
+        bog = new Floor("bog"){{
+            speedMultiplier = 0.6f;
+            variants = 3;
+            status = StatusEffects.muddy;
+            statusDuration = 30f;
+            attributes.set(Attribute.water, 1f);
+            cacheLayer = CacheLayer.mud;
+            walkSound = Sounds.mud;
+            walkSoundVolume = 0.08f;
+            walkSoundPitchMin = 0.4f;
+            walkSoundPitchMax = 0.5f;
+        }};
+
         burningPeatFloor = new EffectFloor("burning-peat-floor"){{
             variants = 4;
             itemDrop = PsammosItems.peat;
@@ -2197,6 +2225,10 @@ public class PsammosBlocks {
         }};
 
         quartzFloor = new Floor("3c-quartz-floor"){{
+            variants = 4;
+        }};
+
+        crystallineQuartzFloor = new Floor("crystalline-quartz-floor"){{
             variants = 4;
         }};
 
@@ -2232,6 +2264,18 @@ public class PsammosBlocks {
             burningPeatFloor.asFloor().wall = this;
         }};
 
+        packedPeatWall = new StaticWall("packed-peat-wall"){{
+            variants = 2;
+            itemDrop = PsammosItems.peat;
+            playerUnmineable = true;
+            packedPeatFloor.asFloor().wall = this;
+        }};
+
+        decayingWall = new StaticWall("decaying-wall"){{
+            variants = 2;
+            decayingFloor.asFloor().wall = this;
+        }};
+
         ashWall = new StaticWall("ash-wall"){{
             variants = 2;
             ash.asFloor().wall = this;
@@ -2242,6 +2286,7 @@ public class PsammosBlocks {
             itemDrop = PsammosItems.quartz;
             playerUnmineable = true;
             quartzFloor.asFloor().wall = this;
+            crystallineQuartzFloor.asFloor().wall = this;
         }};
 
         slateWall = new StaticWall("slate-wall"){{
@@ -2265,6 +2310,16 @@ public class PsammosBlocks {
             burningPeatFloor.asFloor().decoration = this;
         }};
 
+        packedPeatBoulder = new Prop("packed-peat-boulder"){{
+            variants = 2;
+            packedPeatFloor.asFloor().decoration = this;
+        }};
+
+        decayingBoulder = new Prop("decaying-boulder"){{
+            variants = 2;
+            decayingFloor.asFloor().decoration = this;
+        }};
+
         ashBoulder = new Prop("ash-boulder"){{
             variants = 2;
             ash.asFloor().decoration = this;
@@ -2273,6 +2328,7 @@ public class PsammosBlocks {
         quartzBoulder = new Prop("5b-quartz-boulder"){{
             variants = 2;
             quartzFloor.asFloor().decoration = this;
+            crystallineQuartzFloor.asFloor().decoration = this;
         }};
 
         slateBoulder = new Prop("slate-boulder"){{
