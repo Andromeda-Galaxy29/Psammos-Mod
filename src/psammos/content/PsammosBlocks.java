@@ -102,6 +102,8 @@ public class PsammosBlocks {
     slate, smallSlateOilDeposit, slateOilDeposit, osmicStone, desertGlass,
     //Walls
     peatWall, packedPeatWall, decayingWall, ashWall, quartzWall, slateWall, osmicStoneWall, desertGlassWall,
+    //Cracked Walls
+    crackedSaltWall, crumblingSandWall, crumblingDuneWall, crumblingPeatWall, crumblingDecayingWall, crumblingAshWall, crackedQuartzWall,
     //Props
     peatBoulder, packedPeatBoulder, decayingBoulder, ashBoulder, slateBoulder, quartzBoulder, osmicBoulder, desertGlassBoulder,
     //Other
@@ -969,6 +971,7 @@ public class PsammosBlocks {
             damage = 100;
             explodeTime = 5;
             range = 3;
+            tier = 1;
             baseColor = Items.blastCompound.color;
             effect = new MultiEffect(
                     Fx.blastExplosion,
@@ -994,6 +997,7 @@ public class PsammosBlocks {
             damage = 300;
             explodeTime = 80;
             range = 8;
+            tier = 2;
             baseColor = PsammosLiquids.ammonia.color;
             effect = new MultiEffect(
                     Fx.missileTrailSmoke.wrap(Color.grays(0.5f)),
@@ -2188,12 +2192,15 @@ public class PsammosBlocks {
             variants = 3;
         }};
 
-        bog = new Floor("bog"){{
+        bog = new EffectFloor("bog"){{
             speedMultiplier = 0.6f;
             variants = 3;
             status = StatusEffects.muddy;
             statusDuration = 30f;
             attributes.set(Attribute.water, 1f);
+            effect = Fx.vapor;
+            effectChance = 0.0005f;
+            effectColor = Color.valueOf("#49492c");
             cacheLayer = CacheLayer.mud;
             walkSound = Sounds.mud;
             walkSoundVolume = 0.08f;
@@ -2304,10 +2311,48 @@ public class PsammosBlocks {
             desertGlass.asFloor().wall = this;
         }};
 
+        crackedSaltWall = new ExplodableWall("cracked-salt-wall"){{
+            variants = 2;
+            boulder = Blocks.snowBoulder;
+        }};
+
+        crumblingSandWall = new ExplodableWall("crumbling-sand-wall"){{
+            variants = 2;
+            attributes.set(Attribute.sand, 2f);
+            boulder = Blocks.sandBoulder;
+        }};
+
+        crumblingDuneWall = new ExplodableWall("crumbling-dune-wall"){{
+            variants = 2;
+            attributes.set(Attribute.sand, 2f);
+            boulder = Blocks.basaltBoulder;
+        }};
+
+        crumblingPeatWall = new ExplodableWall("crumbling-peat-wall"){{
+            variants = 2;
+            itemDrop = PsammosItems.peat;
+            playerUnmineable = true;
+        }};
+
+        crumblingDecayingWall = new ExplodableWall("crumbling-decaying-wall"){{
+            variants = 2;
+        }};
+
+        crumblingAshWall = new ExplodableWall("crumbling-ash-wall"){{
+            variants = 2;
+        }};
+
+        crackedQuartzWall = new ExplodableWall("cracked-quartz-wall"){{
+            variants = 2;
+            itemDrop = PsammosItems.quartz;
+            playerUnmineable = true;
+        }};
+
         peatBoulder = new Prop("peat-boulder"){{
             variants = 2;
             peatFloor.asFloor().decoration = this;
             burningPeatFloor.asFloor().decoration = this;
+            ((ExplodableWall)crumblingPeatWall).boulder = this;
         }};
 
         packedPeatBoulder = new Prop("packed-peat-boulder"){{
@@ -2318,17 +2363,20 @@ public class PsammosBlocks {
         decayingBoulder = new Prop("decaying-boulder"){{
             variants = 2;
             decayingFloor.asFloor().decoration = this;
+            ((ExplodableWall)crumblingDecayingWall).boulder = this;
         }};
 
         ashBoulder = new Prop("ash-boulder"){{
             variants = 2;
             ash.asFloor().decoration = this;
+            ((ExplodableWall)crumblingAshWall).boulder = this;
         }};
 
         quartzBoulder = new Prop("5b-quartz-boulder"){{
             variants = 2;
             quartzFloor.asFloor().decoration = this;
             crystallineQuartzFloor.asFloor().decoration = this;
+            ((ExplodableWall)crackedQuartzWall).boulder = this;
         }};
 
         slateBoulder = new Prop("slate-boulder"){{
@@ -2346,12 +2394,8 @@ public class PsammosBlocks {
             desertGlass.asFloor().decoration = this;
         }};
 
-        ashPit = new SteamVent("ash-pit"){{
+        ashPit = new FireVent("ash-pit"){{
             parent = blendGroup = ash;
-            effect = Fx.fire;
-            effectSpacing = 6;
-            status = StatusEffects.burning;
-            attributes.set(Attribute.heat, 1f);
         }};
 
         crystalQuartz = new TallBlock("crystal-quartz"){{

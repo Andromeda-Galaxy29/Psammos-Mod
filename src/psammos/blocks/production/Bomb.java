@@ -22,6 +22,7 @@ import mindustry.world.*;
 import mindustry.world.blocks.environment.Floor;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
+import psammos.blocks.environment.ExplodableBlock;
 import psammos.blocks.environment.ExplodableFloor;
 
 import static mindustry.Vars.*;
@@ -29,6 +30,7 @@ import static mindustry.Vars.*;
 public class Bomb extends Block {
     public int damage = 15;
     public int range = 3;
+    public int tier = 1;
     public Color baseColor = Color.white;
     public float explodeTime = 15;
     /** Whether the bomb can be placed near enemy buildings*/
@@ -95,19 +97,9 @@ public class Bomb extends Block {
             table.table(c -> {
                 int i = 0;
                 for(Block block : content.blocks()){
-                    if(!(block instanceof ExplodableFloor)) continue;
-
-                    c.table(Styles.grayPanel, b -> {
-                        b.image(block.uiIcon).size(40).pad(10f).left().scaling(Scaling.fit);
-                        b.image(Icon.right).size(30).center().grow();
-
-                        Block outputBlock = ((ExplodableFloor) block).replacement;
-                        if(outputBlock instanceof Floor && ((Floor) outputBlock).isLiquid) {
-                            b.image(((Floor) outputBlock).liquidDrop.uiIcon).size(40).pad(10f).right().scaling(Scaling.fit);
-                        }else{
-                            b.image(outputBlock.uiIcon).size(40).pad(10f).right().scaling(Scaling.fit);
-                        }
-                    }).growX().pad(5);
+                    if(!(block instanceof ExplodableBlock)) continue;
+                    if(((ExplodableBlock) block).hardness() > tier) continue;
+                    c.table(Styles.grayPanel, b -> { ((ExplodableBlock)block).setBombStatsTable(b); }).growX().pad(5);
                     if(++i % 2 == 0) c.row();
                 }
             }).growX().colspan(table.getColumns());
@@ -131,7 +123,7 @@ public class Bomb extends Block {
     public boolean canPlaceOn(Tile tile, Team team, int rotation){
         super.canPlaceOn(tile, team, rotation);
 
-        if(protectEnemyBlocks) return!nearEnemyBuildings(tile, team);
+        if(protectEnemyBlocks) return !nearEnemyBuildings(tile, team);
         return true;
     }
 
@@ -192,12 +184,20 @@ public class Bomb extends Block {
                     Tile tile = world.tile(ix, iy);
                     if (tile == null) continue;
 
-                    Block floor = tile.floor();
-                    if(floor instanceof ExplodableFloor){
-                        world.tile(ix, iy).setFloorNet(((ExplodableFloor)floor).replacement);
-                        if(((ExplodableFloor)floor).replacement.isLiquid){
-                            world.tile(ix, iy).setOverlayNet(Blocks.air);
-                            world.tile(ix, iy).setNet(Blocks.air);
+                    //Checks the floor, overlay, and block for explodability and explodes them
+                    if(tile.floor() instanceof ExplodableBlock){
+                        if(((ExplodableBlock)tile.floor()).hardness() <= tier){
+                            ((ExplodableBlock)tile.floor()).explode(tile);
+                        }
+                    }
+                    if(tile.overlay() instanceof ExplodableBlock){
+                        if(((ExplodableBlock)tile.overlay()).hardness() <= tier){
+                            ((ExplodableBlock)tile.overlay()).explode(tile);
+                        }
+                    }
+                    if(tile.block() instanceof ExplodableBlock){
+                        if(((ExplodableBlock)tile.block()).hardness() <= tier){
+                            ((ExplodableBlock)tile.block()).explode(tile);
                         }
                     }
                 }

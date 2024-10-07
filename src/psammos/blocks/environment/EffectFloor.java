@@ -24,9 +24,9 @@ public class EffectFloor extends Floor {
     }
 
     @Override
-    public void renderUpdate(UpdateRenderState tile) {
-        if(Mathf.chanceDelta(effectChance) && tile.tile.block() == Blocks.air) {
-            effect.at(tile.tile.worldx(), tile.tile.worldy(), effectColor);
+    public void renderUpdate(UpdateRenderState state) {
+        if(Mathf.chanceDelta(effectChance) && state.tile.block() == Blocks.air) {
+            effect.at(state.tile.worldx(), state.tile.worldy(), effectColor);
         }
     }
 }
