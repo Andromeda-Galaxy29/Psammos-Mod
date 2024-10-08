@@ -1733,8 +1733,9 @@ public class PsammosBlocks {
 
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
+                    new DrawItemPile(PsammosItems.peat, 8, 20),
                     new DrawSoftParticles(){{
-                        alpha = 0.35f;
+                        alpha = 0.2f;
                         color = Color.valueOf("#feb380");
                         color2 = Color.valueOf("#ea8878");
                         particleSize = 10;
