@@ -437,6 +437,18 @@ public class PsammosBlocks {
                             });
                         });
                         trailInterval = 4;
+                    }},
+                    PsammosLiquids.fuel, new WaveBulletType(PsammosLiquids.fuel){{
+                        width = 16;
+                        height = 12;
+                        lifetime = 30f;
+                        speed = 5f;
+                        damage = 6f;
+                        drag = 0.05f;
+                        statusDuration = 60f * 3f;
+                        trailEffect = Fx.fire;
+                        trailInterval = 2;
+                        status = StatusEffects.burning;
                     }}
             );
 
@@ -513,6 +525,22 @@ public class PsammosBlocks {
             requirements(Category.turret, with(PsammosItems.refinedMetal, 25, PsammosItems.silver, 30, Items.blastCompound, 10));
 
             ammo(
+                Items.silicon, new BasicBulletType(){{
+                    speed = 4;
+                    damage = 30;
+                    width = 12;
+                    height = 16;
+                    lifetime = 45;
+                    trailWidth = 2.2f;
+                    trailLength = 5;
+                    trailEffect = Fx.colorTrail;
+                    trailInterval = 10f;
+                    sprite = "psammos-revolver-bullet";
+                    smokeEffect = Fx.shootSmokeSquareSparse;
+                    hitEffect = despawnEffect = Fx.hitBulletBig;
+                    homingRange = 45;
+                    homingPower = 0.1f;
+                }},
                 PsammosItems.refinedMetal, new BasicBulletType(){{
                     speed = 5;
                     damage = 35;
@@ -527,6 +555,46 @@ public class PsammosBlocks {
                     sprite = "psammos-revolver-bullet";
                     smokeEffect = Fx.shootSmokeSquareSparse;
                     hitEffect = despawnEffect = Fx.hitBulletBig;
+                }},
+                PsammosItems.memoryAlloy, new BasicBulletType(){{
+                    speed = 5;
+                    damage = 40;
+                    width = 12;
+                    height = 16;
+                    lifetime = 45;
+                    trailWidth = 2.2f;
+                    trailLength = 5;
+                    trailEffect = Fx.colorTrail;
+                    trailInterval = 10f;
+                    trailColor = hitColor = PPal.memoryAlloy;
+                    backColor = PPal.memoryAlloy;
+                    sprite = "psammos-revolver-bullet";
+                    smokeEffect = Fx.shootSmokeSquareSparse;
+                    hitEffect = despawnEffect = Fx.hitSquaresColor;
+
+                    fragBullets = 3;
+                    fragSpread = 40;
+                    fragRandomSpread = 0;
+                    fragVelocityMin = 1;
+                    fragVelocityMax = 1;
+                    fragBullet = new LaserBulletType(){{
+                        damage = 12;
+                        colors = new Color[]{
+                                PPal.memoryAlloy,
+                                Color.valueOf("#ffffff")
+                        };
+                        hitEffect = Fx.hitLancer;
+                        laserEffect = Fx.none;
+                        hitSize = 3;
+                        lifetime = 12;
+                        drawSize = 400;
+                        collidesAir = true;
+                        length = 30;
+                        width = 5;
+                        pierceCap = 6;
+                        sideWidth = 0f;
+                        sideLength = 0;
+                    }};
                 }}
             );
             shoot.shots = 6;
@@ -798,7 +866,7 @@ public class PsammosBlocks {
 
             ammo(
                     PsammosLiquids.coldWater, new VortexBulletType(){{
-                        damage = 75;
+                        damage = 85;
                         speed = 3.5f;
 
                         trailWidth = 4;

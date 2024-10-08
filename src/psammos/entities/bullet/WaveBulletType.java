@@ -2,7 +2,9 @@ package psammos.entities.bullet;
 
 import arc.graphics.Color;
 import arc.util.*;
+import mindustry.Vars;
 import mindustry.content.Fx;
+import mindustry.content.StatusEffects;
 import mindustry.entities.*;
 import mindustry.entities.bullet.*;
 import mindustry.gen.*;

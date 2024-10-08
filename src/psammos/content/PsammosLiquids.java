@@ -34,6 +34,7 @@ public class PsammosLiquids {
             explosiveness = 0.6f;
             viscosity = 0.55f;
             coolant = false;
+            effect = StatusEffects.tarred;
             boilPoint = 0.5f;
             gasColor = Color.grays(0.5f);
         }};
