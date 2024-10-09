@@ -7,6 +7,8 @@ import mindustry.world.draw.*;
 
 public class DrawProgressGlowRegion extends DrawGlowRegion {
 
+    public Interp interp = Interp.sineIn;
+
     public DrawProgressGlowRegion(){
         super();
     }
@@ -26,7 +28,7 @@ public class DrawProgressGlowRegion extends DrawGlowRegion {
         if(layer > 0) Draw.z(layer);
         Draw.blend(blending);
         Draw.color(color);
-        Draw.alpha((Mathf.absin(build.totalProgress(), glowScale, alpha) * glowIntensity + 1f - glowIntensity) * build.progress() * alpha);
+        Draw.alpha((Mathf.absin(build.totalProgress(), glowScale, alpha) * glowIntensity + 1f - glowIntensity) * interp.apply(build.progress()) * alpha);
         Draw.rect(region, build.x, build.y, build.totalProgress() * rotateSpeed + (rotate ? build.rotdeg() : 0f));
         Draw.reset();
         Draw.blend();

@@ -1057,7 +1057,10 @@ public class PsammosBlocks {
                     new DrawRegion("-bottom"),
                     new DrawLiquidTile(PsammosLiquids.ammonia, 1.5f),
                     new DrawDefault(),
-                    new DrawProgressGlowRegion(){{color = PsammosLiquids.ammonia.color.cpy();}}
+                    new DrawProgressGlowRegion(){{
+                        color = PsammosLiquids.ammonia.color.cpy();
+                        alpha = 0.6f;
+                    }}
             );
 
             size = 2;
@@ -1934,8 +1937,15 @@ public class PsammosBlocks {
             liquidCapacity = 15;
 
             drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawArcSmeltReverse(){{
+                        flameColor = midColor = PsammosItems.memoryAlloy.color;
+                    }},
                     new DrawDefault(),
-                    new DrawFlame(Color.valueOf("#d194f3"))
+                    new DrawProgressGlowRegion(){{
+                        color = PsammosLiquids.ammonia.color.cpy();
+                        alpha = 0.6f;
+                    }}
             );
 
             craftEffect = new Effect(60f, e -> {
