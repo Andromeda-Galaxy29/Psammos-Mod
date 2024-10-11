@@ -1,4 +1,4 @@
-package psammos.blocks.units;
+package psammos.world.blocks.units;
 
 import arc.*;
 import arc.graphics.*;

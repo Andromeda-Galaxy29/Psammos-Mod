@@ -1,4 +1,4 @@
-package psammos.blocks.environment;
+package psammos.world.blocks.environment;
 
 import arc.scene.ui.layout.Table;
 import mindustry.world.Tile;

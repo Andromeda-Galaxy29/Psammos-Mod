@@ -1,7 +1,6 @@
-package psammos.draw;
+package psammos.world.draw;
 
 import arc.graphics.g2d.Draw;
-import arc.graphics.g2d.Fill;
 import arc.math.Angles;
 import mindustry.content.*;
 import mindustry.gen.Building;

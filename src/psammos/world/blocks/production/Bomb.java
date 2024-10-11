@@ -1,4 +1,4 @@
-package psammos.blocks.production;
+package psammos.world.blocks.production;
 
 import arc.Core;
 import arc.audio.*;
@@ -19,11 +19,9 @@ import mindustry.input.*;
 import mindustry.type.*;
 import mindustry.ui.*;
 import mindustry.world.*;
-import mindustry.world.blocks.environment.Floor;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
-import psammos.blocks.environment.ExplodableBlock;
-import psammos.blocks.environment.ExplodableFloor;
+import psammos.world.blocks.environment.ExplodableBlock;
 
 import static mindustry.Vars.*;
 

@@ -1,6 +1,5 @@
-package psammos.blocks.power;
+package psammos.world.blocks.power;
 
-import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.scene.ui.layout.*;

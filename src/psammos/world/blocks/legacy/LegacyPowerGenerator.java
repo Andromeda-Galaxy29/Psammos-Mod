@@ -1,9 +1,7 @@
-package psammos.blocks.legacy;
+package psammos.world.blocks.legacy;
 
 import arc.util.io.*;
-import mindustry.content.*;
 import mindustry.gen.*;
-import mindustry.world.*;
 import mindustry.world.blocks.legacy.*;
 
 public class LegacyPowerGenerator extends LegacyBlock {

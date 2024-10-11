@@ -1,18 +1,13 @@
-package psammos.blocks.power;
+package psammos.world.blocks.power;
 
 import arc.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
-import arc.math.geom.Point2;
-import arc.struct.Seq;
 import arc.util.*;
 import mindustry.content.*;
 import mindustry.entities.*;
 import mindustry.gen.Building;
 import mindustry.graphics.*;
-import mindustry.input.Placement;
-import mindustry.ui.*;
-import mindustry.world.Block;
 import mindustry.world.Tile;
 import mindustry.world.blocks.power.*;
 import mindustry.world.meta.Stat;

@@ -1,4 +1,4 @@
-package psammos.blocks.power;
+package psammos.world.blocks.power;
 
 import arc.Core;
 import arc.graphics.Color;

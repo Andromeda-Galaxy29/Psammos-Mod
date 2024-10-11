@@ -1,6 +1,5 @@
-package psammos.draw;
+package psammos.world.draw;
 
-import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.util.*;

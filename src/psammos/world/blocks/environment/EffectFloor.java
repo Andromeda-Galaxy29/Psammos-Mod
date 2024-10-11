@@ -1,4 +1,4 @@
-package psammos.blocks.environment;
+package psammos.world.blocks.environment;
 
 import arc.graphics.Color;
 import arc.math.Mathf;

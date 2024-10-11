@@ -1,12 +1,9 @@
-package psammos.blocks.units;
+package psammos.world.blocks.units;
 
 import arc.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
-import arc.math.geom.Vec2;
 import arc.util.*;
-import mindustry.ai.types.BuilderAI;
-import mindustry.content.Fx;
 import mindustry.entities.*;
 import mindustry.entities.units.BuildPlan;
 import mindustry.gen.*;

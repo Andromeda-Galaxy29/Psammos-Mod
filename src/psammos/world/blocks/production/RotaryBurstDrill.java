@@ -1,4 +1,4 @@
-package psammos.blocks.production;
+package psammos.world.blocks.production;
 
 import arc.graphics.*;
 import arc.graphics.g2d.*;

@@ -1,4 +1,4 @@
-package psammos.blocks.legacy;
+package psammos.world.blocks.legacy;
 
 import arc.struct.*;
 import arc.util.io.*;

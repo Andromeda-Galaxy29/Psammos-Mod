@@ -1,4 +1,4 @@
-package psammos.blocks.environment;
+package psammos.world.blocks.environment;
 
 import arc.math.*;
 import arc.scene.ui.layout.*;
@@ -9,8 +9,6 @@ import mindustry.gen.Icon;
 import mindustry.gen.Sounds;
 import mindustry.world.*;
 import mindustry.world.blocks.environment.*;
-
-import static mindustry.Vars.content;
 
 public class ExplodableWall extends StaticWall implements ExplodableBlock {
     //The chance that a boulder appears upon the wall being exploded

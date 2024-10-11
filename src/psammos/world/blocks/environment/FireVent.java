@@ -1,10 +1,6 @@
-package psammos.blocks.environment;
+package psammos.world.blocks.environment;
 
-import arc.math.*;
-import mindustry.Vars;
 import mindustry.content.*;
-import mindustry.entities.bullet.*;
-import mindustry.game.*;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.meta.Attribute;
 

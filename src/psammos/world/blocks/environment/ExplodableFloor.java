@@ -1,4 +1,4 @@
-package psammos.blocks.environment;
+package psammos.world.blocks.environment;
 
 import arc.scene.ui.layout.*;
 import arc.util.*;
