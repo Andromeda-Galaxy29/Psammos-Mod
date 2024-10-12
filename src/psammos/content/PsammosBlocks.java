@@ -33,6 +33,7 @@ import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 import psammos.*;
 import psammos.ai.AntiAirMissileAI;
+import psammos.entities.patterns.ShootBursts;
 import psammos.world.blocks.defense.*;
 import psammos.world.blocks.environment.*;
 import psammos.world.blocks.legacy.*;
@@ -51,7 +52,7 @@ import static mindustry.type.ItemStack.*;
 public class PsammosBlocks {
     public static Block
     //Turrets
-    cross, disseminate, hurl, confine, influence, gunslinger, spray, seize, burst, dawn, burden,
+    cross, disseminate, hurl, confine, influence, gunslinger, spray, seize, discharge, burst, dawn, burden,
 
     //Drills/Production
     osmiumDrill, detonationDrill, excavatorDrill, quarryDrill, seismicBomb, ammoniaBomb,
@@ -508,6 +509,7 @@ public class PsammosBlocks {
             squareSprite = false;
             shootSound = Sounds.shockBlast;
             outlineColor = PPal.turretOutline;
+            heatColor = Color.valueOf("#a9d8ff");
             targetAir = false;
             targetGround = true;
             range = 140;
@@ -725,6 +727,71 @@ public class PsammosBlocks {
             consumePower(3.5f);
         }};
 
+        discharge = new ItemTurret("discharge"){{
+            requirements(Category.turret, with(Items.silicon, 30, PsammosItems.refinedMetal, 15, PsammosItems.silver, 20));
+
+            ammo(
+                    PsammosItems.silver, new LightningTrailBulletType(){{
+                        sprite = "mine-bullet";
+                        backSprite = "mine-bullet-back";
+                        collidesAir = true;
+                        collidesGround = false;
+                        width = 15;
+                        height = 15;
+                        speed = 7;
+                        damage = 45;
+                        lifetime = 30;
+                        hitColor = backColor = trailColor = lightningColor = Color.valueOf("#a9d8ff");
+                        frontColor = lightColor = Color.valueOf("#ffffff");
+                        trailWidth = 3;
+                        trailLength = 8;
+                        trailEffect = Fx.shootSmokeSquare;
+                        trailInterval = 5;
+                        trailRotation = true;
+                        hitEffect = despawnEffect = Fx.hitSquaresColor;
+                    }}
+            );
+            shoot = new ShootBursts(4, 3,6f);
+            shoot.firstShotDelay = 20;
+            ((ShootBursts)shoot).burstDelay = 10;
+
+            size = 3;
+            health = 600;
+            squareSprite = false;
+            shootSound = Sounds.shotgun;
+            outlineColor = PPal.turretOutline;
+            heatColor = Color.valueOf("#a9d8ff");
+            targetAir = true;
+            targetGround = false;
+            range = 180;
+            reload = 180;
+            velocityRnd = 0.2f;
+            shootY = -1;
+
+            consumePower(3);
+            heatRequirement = 9;
+
+            drawer = new DrawTurret("heatproof-"){{
+                parts.addAll(
+                        new RegionPart("-side"){{
+                            mirror = true;
+                            turretShading = true;
+                            progress = PartProgress.warmup;
+                            heatProgress = PartProgress.recoil;
+                            heatColor = Color.valueOf("#a9d8ff");
+                            moveX = 1f;
+                            moveRot = -15;
+                        }},
+                        new RegionPart("-barrel"){{
+                            heatProgress = progress = PartProgress.recoil;
+                            heatColor = Color.valueOf("#a9d8ff");
+                            moveY = -4f;
+                            mirror = false;
+                        }}
+                );
+            }};
+        }};
+
         burst = new LiquidTurret("burst"){{
             requirements(Category.turret, with(PsammosItems.refinedMetal, 30, PsammosItems.quartz, 30, PsammosItems.aerogel, 20, Items.blastCompound, 15));
 
@@ -866,7 +933,7 @@ public class PsammosBlocks {
 
             ammo(
                     PsammosLiquids.coldWater, new VortexBulletType(){{
-                        damage = 85;
+                        damage = 95;
                         speed = 3.5f;
 
                         trailWidth = 4;
