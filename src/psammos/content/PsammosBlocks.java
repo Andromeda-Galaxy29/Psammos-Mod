@@ -35,6 +35,7 @@ import psammos.*;
 import psammos.ai.AntiAirMissileAI;
 import psammos.entities.patterns.ShootBursts;
 import psammos.world.blocks.defense.*;
+import psammos.world.blocks.distribution.*;
 import psammos.world.blocks.environment.*;
 import psammos.world.blocks.legacy.*;
 import psammos.world.blocks.liquid.*;
@@ -1149,7 +1150,7 @@ public class PsammosBlocks {
 
         // Distribution
 
-        heatproofConveyor = new Conveyor("1a-osmium-conveyor"){{
+        heatproofConveyor = new ShadedConveyor("1a-osmium-conveyor"){{
             requirements(Category.distribution, with(PsammosItems.osmium, 1));
             alwaysUnlocked = true;
 
@@ -1160,7 +1161,7 @@ public class PsammosBlocks {
             itemCapacity = 3;
         }};
 
-        platedConveyor = new ArmoredConveyor("plated-conveyor"){{
+        platedConveyor = new ArmoredShadedConveyor("plated-conveyor"){{
             requirements(Category.distribution, with(PsammosItems.memoryAlloy, 1, PsammosItems.refinedMetal, 1));
 
             health = 180;
