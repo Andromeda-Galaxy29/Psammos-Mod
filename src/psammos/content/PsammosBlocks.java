@@ -1171,7 +1171,7 @@ public class PsammosBlocks {
             itemCapacity = 3;
         }};
 
-        heatproofJunction = new Junction("2a-osmium-junction"){{
+        heatproofJunction = new BetterJunction("2a-osmium-junction"){{
             requirements(Category.distribution, with(PsammosItems.osmium, 2));
             alwaysUnlocked = true;
 
