@@ -1211,6 +1211,7 @@ public class PsammosBlocks {
             health = 40;
             speed = 4;
             buildCostMultiplier = 3f;
+            squareSprite = false;
         }};
 
         heatproofUnderflowGate = new OverflowDuct("5b-osmium-underflow-gate"){{
@@ -1219,6 +1220,7 @@ public class PsammosBlocks {
             health = 40;
             speed = 4;
             buildCostMultiplier = 3f;
+            squareSprite = false;
             invert = true;
         }};
 
