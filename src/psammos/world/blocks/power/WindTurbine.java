@@ -61,8 +61,13 @@ public class WindTurbine extends PowerGenerator {
         Drawf.dashSquare(Pal.techBlue, x, y, range * tilesize);
     }
 
+    @Override
+    public TextureRegion[] icons(){
+        return new TextureRegion[]{region, topRegion};
+    }
+
     public class WindTurbineBuild extends GeneratorBuild{
-        public float warmup, totalTime, efficiencyMultiplier = 1f;
+        public float warmup, totalTime, efficiencyMultiplier = 1f, turbineRotation = 0;
 
         @Override
         public void updateEfficiencyMultiplier(){
@@ -91,7 +96,8 @@ public class WindTurbine extends PowerGenerator {
         public void draw(){
             Draw.rect(region, x, y, 0);
             Draw.z(Layer.blockOver + 0.125f);
-            Drawf.spinSprite(rotatorRegion, x, y, totalProgress() * rotateSpeed * productionEfficiency + rotation);
+            Draw.rect(rotatorRegion, x, y, turbineRotation);
+            turbineRotation += rotateSpeed * productionEfficiency;
             Draw.rect(topRegion, x, y, 0);
         }
 

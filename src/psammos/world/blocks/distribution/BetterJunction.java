@@ -98,7 +98,7 @@ public class BetterJunction extends Junction {
         }
 
         public void drawItems(int dir, float speed){ //When erekir junctions are added, replace this with the better code from them
-            Draw.z(Layer.block - 0.1f); // By the way, hi Stabu. I know you're probably reading this while stealing my code. If you find a better solution for doing this, please DM me
+            Draw.z(Layer.block - 0.1f);
             for(int i = 0; i < dItems.size; i++){
                 if(dItemRotations.get(i) != dir) continue;
 
