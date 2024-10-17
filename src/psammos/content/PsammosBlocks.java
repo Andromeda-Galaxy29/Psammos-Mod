@@ -1237,7 +1237,7 @@ public class PsammosBlocks {
             consumePower(0.5f);
         }};
 
-        pipe = new Conduit("2a-quartz-conduit"){{
+        pipe = new ShadedConduit("2a-quartz-conduit"){{
             requirements(Category.liquid, with(PsammosItems.quartz, 1));
             buildCostMultiplier = 2f;
 
@@ -1245,7 +1245,7 @@ public class PsammosBlocks {
             liquidCapacity = 10;
         }};
 
-        vacuumPipe = new ArmoredConduit("vacuum-pipe"){{
+        vacuumPipe = new ArmoredShadedConduit("vacuum-pipe"){{
             requirements(Category.liquid, with(PsammosItems.aerogel, 1, PsammosItems.refinedMetal, 2));
             buildCostMultiplier = 2f;
 
