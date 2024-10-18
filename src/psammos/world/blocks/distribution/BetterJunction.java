@@ -81,8 +81,7 @@ public class BetterJunction extends Junction {
                 }
             }
 
-            Draw.z(Layer.block);
-            Draw.rect(block.region, x, y);
+            Draw.rect(region, x, y);
         }
 
         public Building findNextBuild(int x, int y, int rot){

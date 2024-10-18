@@ -1243,6 +1243,7 @@ public class PsammosBlocks {
 
             health = 45;
             liquidCapacity = 10;
+            botColor = Color.valueOf("#534d4a");
         }};
 
         vacuumPipe = new ArmoredShadedConduit("vacuum-pipe"){{
@@ -1252,9 +1253,10 @@ public class PsammosBlocks {
             liquidPressure = 1.03f;
             health = 60;
             liquidCapacity = 16;
+            botColor = Color.valueOf("#534d4a");
         }};
 
-        pipeJunction = new LiquidJunction("3a-quartz-liquid-junction"){{
+        pipeJunction = new BetterLiquidJunction("3a-quartz-liquid-junction"){{
             requirements(Category.liquid, with(PsammosItems.quartz, 8, PsammosItems.silver, 4));
             buildCostMultiplier = 2f;
 
