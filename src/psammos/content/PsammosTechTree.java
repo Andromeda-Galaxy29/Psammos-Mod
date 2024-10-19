@@ -35,7 +35,9 @@ public class PsammosTechTree {
                 });
                 node(heatproofPayloadConveyor, Seq.with(new OnSector(driedRiver)), ()->{
                     node(heatproofPayloadRouter, ()->{
+                        node(heatproofPayloadGate, ()->{
 
+                        });
                     });
                 });
                 node(platedConveyor, Seq.with(new Research(memoryAlloyCrucible)), ()->{
@@ -54,7 +56,9 @@ public class PsammosTechTree {
                                     });
                                 });
                                 node(heatproofLiquidContainer, ()->{
+                                    node(heatproofLiquidTank, ()->{
 
+                                    });
                                 });
                             });
                             node(tunnelPipe, ()->{
@@ -80,13 +84,20 @@ public class PsammosTechTree {
                                 });
                             });
                         });
+                        node(purifier, Seq.with(new Research(ammoniaCompressor)), ()->{
+
+                        });
                     });
                 });
 
                 node(excavatorDrill, Seq.with(new OnSector(quartzValley)), ()->{
-                    node(detonationDrill, Seq.with(new OnSector(ancientSwamp)),  ()->{
+                    node(quarryDrill, Seq.with(new OnSector(scaldedPlains)),  ()->{
 
                     });
+                });
+
+                node(detonationDrill, Seq.with(new OnSector(ancientSwamp)),  ()->{
+
                 });
 
                 node(windTurbine, Seq.with(new OnSector(quartzValley)), ()->{
@@ -178,8 +189,10 @@ public class PsammosTechTree {
                     });
                 });
                 node(disseminate, ()->{
-                    node(dawn, Seq.with(new OnSector(erodedDesert)), ()->{
+                    node(discharge, Seq.with(new OnSector(ancientSwamp)), ()->{
+                        node(dawn, Seq.with(new OnSector(erodedDesert)), ()->{
 
+                        });
                     });
                 });
                 node(influence, Seq.with(new OnSector(quartzValley)), ()->{
@@ -193,7 +206,9 @@ public class PsammosTechTree {
                         });
                     });
                     node(hurl, Seq.with(new OnSector(quartzValley)), ()->{
+                        node(confine, Seq.with(new OnSector(quartzValley)), ()->{
 
+                        });
                     });
                     node(seize, Seq.with(new OnSector(ancientSwamp)), ()->{
 
@@ -206,6 +221,9 @@ public class PsammosTechTree {
             });
 
             node(specialistUnitForge, Seq.with(new OnSector(driedRiver)), ()->{
+                node(overclockTower, Seq.with(new OnSector(oilRefiningFacility)), ()->{
+
+                });
                 node(fang, ()->{
 
                 });
