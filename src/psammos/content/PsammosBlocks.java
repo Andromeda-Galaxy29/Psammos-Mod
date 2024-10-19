@@ -2015,14 +2015,14 @@ public class PsammosBlocks {
                     }},
                     new DrawDefault(),
                     new DrawProgressGlowRegion(){{
-                        color = PsammosLiquids.ammonia.color.cpy();
+                        color = PsammosItems.memoryAlloy.color.cpy();
                         alpha = 0.6f;
                     }}
             );
 
             craftEffect = new Effect(60f, e -> {
                 Vec2 v = new Vec2();
-                Draw.color(Color.valueOf("#d194f3"));
+                Draw.color(PsammosItems.memoryAlloy.color);
                 Draw.alpha(0.5f);
                 Mathf.rand.setSeed(e.id);
                 for(int i = 0; i < 30; i++){

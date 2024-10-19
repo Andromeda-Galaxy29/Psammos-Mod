@@ -37,7 +37,7 @@ public class PsammosItems {
 
         aerogel = new Item("aerogel", Color.valueOf("#a6ffda"));
 
-        memoryAlloy = new Item("memory-alloy", Color.valueOf("#b15dc3")) {{
+        memoryAlloy = new Item("memory-alloy", Color.valueOf("#b675cf")) {{
             charge = 0.05f;
         }};
 
