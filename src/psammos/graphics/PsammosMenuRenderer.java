@@ -60,20 +60,14 @@ public class PsammosMenuRenderer extends MenuRenderer {
         int offset = (int) random(100000);
         int s1 = offset, s2 = offset + 1, s3 = offset + 2;
         Block[] selected = (Block[]) randomFromArray(new Block[][]{
-                new Block[]{Blocks.sand, Blocks.sandWall},
-                new Block[]{PsammosBlocks.quartzFloor, PsammosBlocks.quartzWall},
-                new Block[]{PsammosBlocks.crystallineQuartzFloor, PsammosBlocks.quartzWall},
-                new Block[]{PsammosBlocks.peatFloor, PsammosBlocks.peatWall},
-                new Block[]{PsammosBlocks.decayingFloor, PsammosBlocks.decayingWall},
-                new Block[]{Blocks.darksand, Blocks.duneWall}
-        });
-        Block[] selected2 = (Block[]) randomFromArray(new Block[][]{
-                new Block[]{Blocks.ferricStone, Blocks.ferricStoneWall},
-                new Block[]{PsammosBlocks.slate, PsammosBlocks.slateWall},
-                new Block[]{PsammosBlocks.osmicStone, PsammosBlocks.osmicStoneWall},
-                new Block[]{Blocks.carbonStone, Blocks.carbonWall},
-                new Block[]{Blocks.salt, Blocks.saltWall},
-                new Block[]{PsammosBlocks.packedPeatFloor, PsammosBlocks.packedPeatWall},
+                new Block[]{Blocks.sand, Blocks.ferricStone},
+                new Block[]{Blocks.sand, PsammosBlocks.quartzFloor},
+                new Block[]{PsammosBlocks.peatFloor, PsammosBlocks.ash},
+                new Block[]{PsammosBlocks.peatFloor, PsammosBlocks.decayingFloor},
+                new Block[]{Blocks.darksand, Blocks.carbonStone},
+                new Block[]{Blocks.carbonStone, PsammosBlocks.slate},
+                new Block[]{PsammosBlocks.slate, PsammosBlocks.osmicStone},
+                new Block[]{PsammosBlocks.osmicStone, PsammosBlocks.desertGlass}
         });
 
         Block ore1 = ores.get((int)random(ores.size));
@@ -82,10 +76,9 @@ public class PsammosMenuRenderer extends MenuRenderer {
 
         double tr1 = random(0.65f, 0.85f);
         double tr2 = random(0.65f, 0.85f);
-        boolean doheat = Math.random() < 0.25;
 
-        Block floord = selected[0], walld = selected[1];
-        Block floord2 = selected2[0], walld2 = selected2[1];
+        Block floord = selected[0], walld = selected[0].asFloor().wall;
+        Block floord2 = selected[1], walld2 = selected[1].asFloor().wall;
 
         for(int x = 0; x < width; x++){
             for(int y = 0; y < height; y++){
@@ -110,25 +103,6 @@ public class PsammosMenuRenderer extends MenuRenderer {
 
                 if(Simplex.noise2d(s2, 2, 0.2, 1/15.0, x, y+99999) > tr2){
                     ore = ore2;
-                }
-
-                if(doheat){
-                    double heat = Simplex.noise2d(s3, 4, 0.6, 1 / 50.0, x, y + 9999);
-                    double base = 0.65;
-
-                    if(heat > base){
-                        ore = Blocks.air;
-                        wall = Blocks.air;
-                        floor = PsammosBlocks.peatFloor;
-
-                        if(heat > base + 0.1){
-                            floor = PsammosBlocks.burningPeatFloor;
-
-                            if(heat > base + 0.15){
-                                floor = PsammosBlocks.ash;
-                            }
-                        }
-                    }
                 }
 
                 Tile tile;
