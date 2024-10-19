@@ -10,12 +10,15 @@ import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
 import mindustry.world.blocks.distribution.*;
+import mindustry.world.blocks.liquid.LiquidBlock;
 
 import java.util.Arrays;
 
 import static mindustry.Vars.*;
 
 public class BetterJunction extends Junction {
+
+    public float itemSpeed = 0.12f;
 
     public TextureRegion bottomRegion;
     public TextureRegion[] inRegions;
@@ -75,34 +78,21 @@ public class BetterJunction extends Junction {
                         Draw.rect(outRegions[frame], x, y, i * 90);
 
                         if(nearby(i) instanceof JunctionBuild){ // Draws items between junctions
-                            drawItems(i, ((Conveyor)b.block).speed);
+                            drawItems(i);
                         }
                     }
                 }
             }
 
+            Draw.z(Layer.block);
             Draw.rect(region, x, y);
         }
 
-        public Building findNextBuild(int x, int y, int rot){
-            int cx = x + Geometry.d4x(rot);
-            int cy = y + Geometry.d4y(rot);
-            Building b = world.build(cx, cy);
-            while(b instanceof JunctionBuild){ //Skips all other junctions until a different building is found
-                cx += Geometry.d4x(rot);
-                cy += Geometry.d4y(rot);
-                b = world.build(cx, cy);
-            }
-            return b;
-        }
-
-        public void drawItems(int dir, float speed){ //When erekir junctions are added, replace this with the better code from them
-            Draw.z(Layer.block - 0.1f);
+        @Override
+        public void updateTile(){
+            super.updateTile();
             for(int i = 0; i < dItems.size; i++){
-                if(dItemRotations.get(i) != dir) continue;
-
-                Draw.rect(dItems.get(i).fullIcon, x + Geometry.d4x(dir) * tilesize * dItemMoves.get(i), y + Geometry.d4y(dir) * tilesize * dItemMoves.get(i), itemSize, itemSize);
-                dItemMoves.set(i, dItemMoves.get(i) + (enabled && !state.isPaused() ? speed * timeScale * efficiency : 0));
+                dItemMoves.set(i, dItemMoves.get(i) + (enabled && !state.isPaused() ? itemSpeed * timeScale * efficiency : 0));
                 if(dItemMoves.get(i) > 1){
                     dItems.remove(i);
                     dItemRotations.remove(i);
@@ -117,6 +107,26 @@ public class BetterJunction extends Junction {
             dItems.add(item);
             dItemRotations.add((int)source.relativeTo(this));
             dItemMoves.add(0f);
+        }
+
+        public Building findNextBuild(int x, int y, int rot){
+            int cx = x + Geometry.d4x(rot);
+            int cy = y + Geometry.d4y(rot);
+            Building b = world.build(cx, cy);
+            while(b instanceof JunctionBuild){ //Skips all other junctions until a different building is found
+                cx += Geometry.d4x(rot);
+                cy += Geometry.d4y(rot);
+                b = world.build(cx, cy);
+            }
+            return b;
+        }
+
+        public void drawItems(int dir){ //When erekir junctions are added, replace this with the better code from them
+            Draw.z(Layer.block - 0.1f);
+            for(int i = 0; i < dItems.size; i++){
+                if(dItemRotations.get(i) != dir) continue;
+                Draw.rect(dItems.get(i).fullIcon, x + Geometry.d4x(dir) * tilesize * dItemMoves.get(i), y + Geometry.d4y(dir) * tilesize * dItemMoves.get(i), itemSize, itemSize);
+            }
         }
     }
 }
