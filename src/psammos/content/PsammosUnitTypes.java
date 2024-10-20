@@ -208,9 +208,9 @@ public class PsammosUnitTypes {
             speed = 1;
             omniMovement = false;
             rotateSpeed = 2;
-            health = 120;
+            health = 200;
             hitSize = 9;
-            armor = 0;
+            armor = 1;
             outlineColor = PPal.unitOutline;
             faceTarget = true;
             targetAir = false;
@@ -231,9 +231,9 @@ public class PsammosUnitTypes {
             speed = 1.2f;
             omniMovement = false;
             rotateSpeed = 2;
-            health = 420;
+            health = 520;
             hitSize = 11;
-            armor = 3;
+            armor = 4;
             outlineColor = PPal.unitOutline;
             faceTarget = true;
             targetAir = false;
@@ -276,9 +276,9 @@ public class PsammosUnitTypes {
             speed = 0.9f;
             omniMovement = false;
             rotateSpeed = 2.6f;
-            health = 680;
+            health = 780;
             hitSize = 17;
-            armor = 5;
+            armor = 6;
             outlineColor = PPal.unitOutline;
             faceTarget = true;
             targetAir = false;
@@ -323,9 +323,9 @@ public class PsammosUnitTypes {
             speed = 0.8f;
             omniMovement = false;
             rotateSpeed = 1.8f;
-            health = 6000;
+            health = 7000;
             hitSize = 28;
-            armor = 7;
+            armor = 8;
             outlineColor = PPal.unitOutline;
             faceTarget = true;
             targetAir = false;
@@ -735,7 +735,7 @@ public class PsammosUnitTypes {
 
         helix = new UnitType("4b-helix"){{
             researchCostMultiplier = 0f;
-            constructor = UnitEntity::create;
+            constructor = PayloadUnit::create;
 
             lowAltitude = true;
             speed = 2.3f;
@@ -753,6 +753,7 @@ public class PsammosUnitTypes {
             mineSpeed = 5;
             buildSpeed = 0.1f;
             buildBeamOffset = 4;
+            payloadCapacity = (1.5f * 1.5f) * Vars.tilePayload;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
             crashDamageMultiplier = 0f;
 
