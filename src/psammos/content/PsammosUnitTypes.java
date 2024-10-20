@@ -753,7 +753,7 @@ public class PsammosUnitTypes {
             mineSpeed = 5;
             buildSpeed = 0.1f;
             buildBeamOffset = 4;
-            payloadCapacity = (1.5f * 1.5f) * Vars.tilePayload;
+            payloadCapacity = (1.2f * 1.2f) * Vars.tilePayload;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
             crashDamageMultiplier = 0f;
 
