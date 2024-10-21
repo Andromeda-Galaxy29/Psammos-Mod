@@ -24,6 +24,7 @@ import psammos.*;
 import psammos.entities.abilities.*;
 import mindustry.*;
 import psammos.entities.bullet.GasBulletType;
+import psammos.type.ItemBlacklistUnitType;
 
 public class PsammosUnitTypes {
 
@@ -684,7 +685,7 @@ public class PsammosUnitTypes {
             );
         }};
 
-        sine = new UnitType("4a-sine"){{
+        sine = new ItemBlacklistUnitType("4a-sine"){{
             constructor = UnitEntity::create;
             researchCostMultiplier = 0;
 
@@ -703,6 +704,7 @@ public class PsammosUnitTypes {
             mineTier = 2;
             mineSpeed = 3;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
+            itemBlacklist.add(Items.blastCompound);
             crashDamageMultiplier = 0f;
 
             weapons.addAll(
@@ -733,7 +735,7 @@ public class PsammosUnitTypes {
             );
         }};
 
-        helix = new UnitType("4b-helix"){{
+        helix = new ItemBlacklistUnitType("4b-helix"){{
             researchCostMultiplier = 0f;
             constructor = PayloadUnit::create;
 
@@ -755,6 +757,7 @@ public class PsammosUnitTypes {
             buildBeamOffset = 4;
             payloadCapacity = (1.2f * 1.2f) * Vars.tilePayload;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
+            itemBlacklist.add(Items.blastCompound);
             crashDamageMultiplier = 0f;
 
             abilities.addAll(
@@ -791,7 +794,7 @@ public class PsammosUnitTypes {
             );
         }};
 
-        trisect = new UnitType("4c-trisect"){{
+        trisect = new ItemBlacklistUnitType("4c-trisect"){{
             constructor = PayloadUnit::create;
 
             lowAltitude = false;
@@ -811,6 +814,7 @@ public class PsammosUnitTypes {
             buildBeamOffset = 6;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
             payloadCapacity = (2 * 2) * Vars.tilePayload;
+            itemBlacklist.add(Items.blastCompound);
             crashDamageMultiplier = 0f;
 
             engines.addAll(
@@ -895,7 +899,7 @@ public class PsammosUnitTypes {
             );
         }};
 
-        quadrifol = new UnitType("quadrifol"){{
+        quadrifol = new ItemBlacklistUnitType("quadrifol"){{
             constructor = PayloadUnit::create;
 
             lowAltitude = false;
@@ -915,6 +919,7 @@ public class PsammosUnitTypes {
             buildBeamOffset = 12;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
             payloadCapacity = (3 * 3) * Vars.tilePayload;
+            itemBlacklist.add(Items.blastCompound);
             crashDamageMultiplier = 0f;
 
             engines.addAll(
