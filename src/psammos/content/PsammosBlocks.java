@@ -829,6 +829,7 @@ public class PsammosBlocks {
             drawer = new DrawTurret("heatproof-"){{
                 parts.add(new RegionPart("-front"){{
                     progress = PartProgress.warmup;
+                    heatProgress = PartProgress.recoil;
                     moveRot = -10f;
                     mirror = true;
                     moves.add(new PartMove(PartProgress.recoil, 0f, -2f, -5f));
