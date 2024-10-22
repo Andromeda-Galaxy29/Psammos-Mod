@@ -209,7 +209,7 @@ public class PsammosUnitTypes {
             speed = 1;
             omniMovement = false;
             rotateSpeed = 2;
-            health = 190;
+            health = 200;
             hitSize = 9;
             armor = 1;
             outlineColor = PPal.unitOutline;
@@ -277,7 +277,7 @@ public class PsammosUnitTypes {
             speed = 0.9f;
             omniMovement = false;
             rotateSpeed = 2.6f;
-            health = 740;
+            health = 760;
             hitSize = 17;
             armor = 6;
             outlineColor = PPal.unitOutline;
