@@ -195,7 +195,7 @@ public class PsammosTechTree {
                         });
                     });
                 });
-                node(influence, Seq.with(new OnSector(quartzValley)), ()->{
+                node(hurl, Seq.with(new OnSector(quartzValley)), ()->{
                     node(gunslinger, Seq.with(new OnSector(ancientSwamp)), ()->{
                         node(spray, ()->{
                             node(burst, Seq.with(new OnSector(erodedDesert)), ()->{
@@ -205,13 +205,15 @@ public class PsammosTechTree {
                             });
                         });
                     });
-                    node(hurl, Seq.with(new OnSector(quartzValley)), ()->{
+                    node(influence, Seq.with(new OnSector(quartzValley)), ()->{
                         node(confine, Seq.with(new OnSector(quartzValley)), ()->{
+                            node(overflow, Seq.with(new OnSector(erodedDesert)), ()->{
+
+                            });
+                        });
+                        node(seize, Seq.with(new OnSector(ancientSwamp)), ()->{
 
                         });
-                    });
-                    node(seize, Seq.with(new OnSector(ancientSwamp)), ()->{
-
                     });
                 });
             });

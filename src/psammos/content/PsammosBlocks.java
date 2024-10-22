@@ -53,7 +53,7 @@ import static mindustry.type.ItemStack.*;
 public class PsammosBlocks {
     public static Block
     //Turrets
-    cross, disseminate, hurl, confine, influence, gunslinger, spray, seize, discharge, burst, dawn, burden,
+    cross, disseminate, hurl, confine, influence, gunslinger, spray, seize, discharge, burst, overflow, dawn, burden,
 
     //Drills/Production
     osmiumDrill, detonationDrill, excavatorDrill, quarryDrill, seismicBomb, ammoniaBomb,
@@ -813,6 +813,7 @@ public class PsammosBlocks {
             shoot = new ShootSpread(6, 4f);
 
             size = 3;
+            health = 650;
             reload = 50f;
             outlineColor = PPal.turretOutline;
             squareSprite = false;
@@ -832,6 +833,107 @@ public class PsammosBlocks {
                     mirror = true;
                     moves.add(new PartMove(PartProgress.recoil, 0f, -2f, -5f));
                 }});
+            }};
+        }};
+
+        overflow = new LiquidTurret("overflow"){{
+            requirements(Category.turret, with(PsammosItems.silver, 40, PsammosItems.quartz, 30, PsammosItems.aerogel, 30, PsammosItems.refinedMetal, 25));
+
+            ammo(
+                    Liquids.water, new LiquidBulletType(Liquids.water){{
+                        lifetime = 49f;
+                        speed = 4f;
+                        knockback = 0.9f;
+                        puddleSize = 8f;
+                        orbSize = 5f;
+                        drag = 0.001f;
+                        ammoMultiplier = 0.4f;
+                        statusDuration = 60f * 2f;
+                        damage = 0.6f;
+                        layer = Layer.bullet - 2f;
+
+                        intervalBullet = new LightningBulletType(){{
+                            damage = 6;
+                            lightningColor = Liquids.water.color;
+                            lightningLength = 5;
+                            lightningLengthRand = 4;
+                            status = StatusEffects.electrified;
+
+                            lightningType = new BulletType(0.0001f, 0f){{
+                                lifetime = Fx.lightning.lifetime;
+                                hitEffect = Fx.hitLancer;
+                                despawnEffect = Fx.none;
+                                status = StatusEffects.electrified;
+                                statusDuration = 60f * 4f;
+                                hittable = false;
+                                lightColor = Color.white;
+                            }};
+                        }};
+                        bulletInterval = 6f;
+                        intervalAngle = 0;
+                        intervalRandomSpread = 15;
+                    }},
+                    PsammosLiquids.coldWater, new LiquidBulletType(PsammosLiquids.coldWater){{
+                        lifetime = 49f;
+                        speed = 4f;
+                        knockback = 0.7f;
+                        puddleSize = 8f;
+                        orbSize = 5f;
+                        drag = 0.001f;
+                        ammoMultiplier = 0.4f;
+                        statusDuration = 60f * 4f;
+                        damage = 0.8f;
+                        layer = Layer.bullet - 2f;
+
+                        intervalBullet = new LightningBulletType(){{
+                            damage = 6;
+                            lightningColor = PsammosLiquids.coldWater.color;
+                            lightningLength = 5;
+                            lightningLengthRand = 4;
+                            status = StatusEffects.electrified;
+
+                            lightningType = new BulletType(0.0001f, 0f){{
+                                lifetime = Fx.lightning.lifetime;
+                                hitEffect = Fx.hitLancer;
+                                despawnEffect = Fx.none;
+                                status = StatusEffects.electrified;
+                                statusDuration = 60f * 4f;
+                                hittable = false;
+                                lightColor = Color.white;
+                            }};
+                        }};
+                        bulletInterval = 6f;
+                        intervalAngle = 0;
+                        intervalRandomSpread = 15;
+                    }}
+            );
+
+            size = 3;
+            health = 650;
+            squareSprite = false;
+            outlineColor = PPal.turretOutline;
+            reload = 5f;
+            shoot.shots = 2;
+            velocityRnd = 0.2f;
+            inaccuracy = 3f;
+            recoil = 1f;
+            shootCone = 45f;
+            liquidCapacity = 40f;
+            shootEffect = Fx.shootLiquid;
+            range = 190f;
+            flags = EnumSet.of(BlockFlag.turret, BlockFlag.extinguisher);
+
+            consumePower(4f);
+
+            drawer = new DrawTurret("heatproof-"){{
+                parts.addAll(
+                        new RegionPart("-back"){{
+                            progress = PartProgress.warmup;
+                            under = true;
+                            moveY = -2;
+                            mirror = false;
+                        }}
+                );
             }};
         }};
 
@@ -911,7 +1013,7 @@ public class PsammosBlocks {
                             moveY = -3.8f;
                             mirror = false;
                         }},
-                        new RegionPart("-missile"){{
+                        new RegionPart("-turret-missile"){{
                             progress = PartProgress.reload.curve(Interp.pow2In);
 
                             colorTo = new Color(1f, 1f, 1f, 0f);
