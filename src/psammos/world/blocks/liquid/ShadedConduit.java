@@ -45,6 +45,7 @@ public class ShadedConduit extends Conduit {
         Draw.rect(botRegions[bits[0]], plan.drawx(), plan.drawy(), plan.rotation * 90);
         Draw.color();
 
+        Draw.scl(1, 1);
         int blendbits2 = bits[0];
         if (blendbits2 == 1 && (bits[1] != 1 || bits[2] != 1)) { //Flips corner conduits
             blendbits2 = 5;

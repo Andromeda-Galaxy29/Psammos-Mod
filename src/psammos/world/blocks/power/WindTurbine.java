@@ -97,7 +97,6 @@ public class WindTurbine extends PowerGenerator {
             Draw.rect(region, x, y, 0);
             Draw.z(Layer.blockOver + 0.125f);
             Draw.rect(rotatorRegion, x, y, turbineRotation);
-            turbineRotation += rotateSpeed * productionEfficiency;
             Draw.rect(topRegion, x, y, 0);
         }
 
@@ -113,6 +112,8 @@ public class WindTurbine extends PowerGenerator {
             boolean valid = efficiency > 0;
 
             warmup = Mathf.lerpDelta(warmup, valid ? 1f : 0f, warmupSpeed);
+
+            turbineRotation += rotateSpeed * productionEfficiency;
 
             productionEfficiency = efficiency * efficiencyMultiplier;
             totalTime += warmup * Time.delta;
