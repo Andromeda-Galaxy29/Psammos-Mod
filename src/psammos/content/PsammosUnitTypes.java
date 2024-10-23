@@ -1010,8 +1010,8 @@ public class PsammosUnitTypes {
             speed = 2.5f;
             drag = 0.1f;
             hitSize = 9;
-            rotateSpeed = 8;
-            health = 180;
+            rotateSpeed = 10;
+            health = 150;
             armor = 0;
             outlineColor = PPal.unitOutline;
             omniMovement = false;
@@ -1059,8 +1059,8 @@ public class PsammosUnitTypes {
                     mirror = false;
                     rotate = true;
                     bullet = new MissileBulletType(){{
-                        speed = 2;
-                        damage = 7;
+                        speed = 4;
+                        damage = 10;
                         width = 8;
                         height = 8;
                         shrinkY = 0;
@@ -1069,7 +1069,7 @@ public class PsammosUnitTypes {
                         keepVelocity = false;
                         splashDamageRadius = 18;
                         splashDamage = 9;
-                        lifetime = 40;
+                        lifetime = 25;
                         trailColor = backColor = hitColor = PPal.scoutPink;
                         frontColor = Color.valueOf("#e8def4");
                         shootEffect = Fx.shootSmallColor;
@@ -1101,8 +1101,8 @@ public class PsammosUnitTypes {
             speed = 2.8f;
             drag = 0.1f;
             hitSize = 12;
-            rotateSpeed = 9;
-            health = 485;
+            rotateSpeed = 10;
+            health = 440;
             armor = 2;
             outlineColor = PPal.unitOutline;
             omniMovement = false;
@@ -1158,7 +1158,7 @@ public class PsammosUnitTypes {
                         lifetime = 16;
                         drawSize = 300;
                         collidesAir = true;
-                        length = 80;
+                        length = 90;
                         width = 6;
                         pierceCap = 2;
                     }};
@@ -1172,8 +1172,8 @@ public class PsammosUnitTypes {
             speed = 3.2f;
             drag = 0.1f;
             hitSize = 16;
-            rotateSpeed = 8;
-            health = 690;
+            rotateSpeed = 10;
+            health = 680;
             armor = 3;
             outlineColor = PPal.unitOutline;
             omniMovement = false;
@@ -1251,8 +1251,8 @@ public class PsammosUnitTypes {
             speed = 3.2f;
             drag = 0.1f;
             hitSize = 30;
-            rotateSpeed = 8;
-            health = 7000;
+            rotateSpeed = 10;
+            health = 6800;
             armor = 7;
             outlineColor = PPal.unitOutline;
             omniMovement = false;
