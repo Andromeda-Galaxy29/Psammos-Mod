@@ -1774,7 +1774,7 @@ public class PsammosBlocks {
             craftTime = 120;
 
             consumeLiquid(Liquids.slag, 8 / 60f);
-            consumeLiquid(Liquids.ozone, 4 / 60f);
+            consumeLiquid(Liquids.ozone, 2 / 60f);
             consumeLiquid(Liquids.water, 4 / 60f);
             consumePower(1f);
         }};

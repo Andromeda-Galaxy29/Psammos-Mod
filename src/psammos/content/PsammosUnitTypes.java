@@ -1011,7 +1011,7 @@ public class PsammosUnitTypes {
             drag = 0.1f;
             hitSize = 9;
             rotateSpeed = 10;
-            health = 150;
+            health = 160;
             armor = 0;
             outlineColor = PPal.unitOutline;
             omniMovement = false;
