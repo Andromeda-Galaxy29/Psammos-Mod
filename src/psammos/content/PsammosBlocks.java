@@ -681,8 +681,6 @@ public class PsammosBlocks {
             recoil = 0f;
             reload = 40f;
             inaccuracy = 6f;
-            liquidCapacity = 10f;
-            ammoPerShot = 2;
             shootEffect = Fx.shootLiquid;
             shootSound = Sounds.cannon;
             range = 90f;

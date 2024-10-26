@@ -2,23 +2,24 @@ displayName: "Psammos Mod"
 name: "psammos"
 author: "AndromedaGalaxy29"
 main: "psammos.PsammosMod"
-description: "Adds a new desert planet. Almost all life which once populated this planet was wiped out by a cataclysmic event known as the Incineration. Survive in these harsh conditions and conquer Psammos.
+description: "Adds a new desert planet. Almost all life which once populated this planet was wiped out by a cataclysmic event known as the Incineration. Survive in these harsh conditions and conquer [accent[]]Psammos[white[]].
 
-Contributors:
-[#5865f2[]]@inxie_ratzey[white[]] for suggestions, sprites, many maps and other contributions
-[#5865f2[]]@thisiscrimsoncheck[white[]] for several maps, suggestions and other contributions
-[#5865f2[]]@tinport[white[]] for various suggestions and maps
+Join our discord server: [#5865f2[]]https://discord.gg/eBzANBKCBA[white[]]
 
-Suggestions:
-[#5865f2[]]@nekoarkbruhagain_07111[white[]] for the suggestion of Confine
+If you like the mod, consider giving it a star on GitHub. Thank you
 
-Special thanks:
-[#5865f2[]]@chozochorizo[white[]] for help with balancing the mod
-[#5865f2[]]@thomas_has_things[white[]] and [#5865f2[]]@twcash.[white[]] for the main menu title font
 
-Join our discord server: https://discord.gg/eBzANBKCBA
+[#31fea7[]]Contributors:[white[]]
+- [#5865f2[]]@inxie_ratzey[white[]] for suggestions, sprites, many maps and other contributions
+- [#5865f2[]]@thisiscrimsoncheck[white[]] for several maps, suggestions and other contributions
+- [#5865f2[]]@tinport[white[]] for various suggestions and maps
 
-If you like the mod, consider giving it a star on GitHub. Thank you"
+[#9b59b6[]]Special thanks:[white[]]
+- [#5865f2[]]@chozochorizo[white[]] for help with balancing the mod
+- [#5865f2[]]@thomas_has_things[white[]] and [#5865f2[]]@twcash.[white[]] for the main menu title font
+
+[#abe2ca[]]Suggestions:[white[]]
+- [#5865f2[]]@nekoarkbruhagain_07111[white[]] for the suggestion of Confine"
 
 subtitle: "v1.3 BETA 2"
 version: 1.3

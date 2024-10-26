@@ -1148,7 +1148,7 @@ public class PsammosUnitTypes {
                     mirror = true;
                     rotate = true;
                     bullet = new LaserBulletType(){{
-                        damage = 22;
+                        damage = 23;
                         colors = new Color[]{
                             PPal.scoutPink,
                             Color.valueOf("#ffffff")
@@ -1224,7 +1224,7 @@ public class PsammosUnitTypes {
                         rotate = true;
                         shoot = new ShootSpread(3, 15f);
                         bullet = new LaserBulletType(){{
-                            damage = 50;
+                            damage = 55;
                             colors = new Color[]{
                                     PPal.scoutPink,
                                     Color.valueOf("#ffffff")
@@ -1400,7 +1400,7 @@ public class PsammosUnitTypes {
                     new Weapon("psammos-pawn-weapon"){{
                         x = -3;
                         y = -5;
-                        reload = 20;
+                        reload = 25;
                         mirror = true;
                         rotate = true;
                         alternate = false;
@@ -1414,7 +1414,7 @@ public class PsammosUnitTypes {
                             height = 8;
                             trailWidth = 1.5f;
                             trailLength = 6;
-                            lifetime = 45;
+                            lifetime = 50;
                             trailColor = Pal.techBlue;
                             backColor = Pal.techBlue;
                             hitColor = Pal.techBlue;
@@ -1438,7 +1438,7 @@ public class PsammosUnitTypes {
             speed = 1f;
             hitSize = 18f;
             rotateSpeed = 2.9f;
-            health = 520;
+            health = 550;
             armor = 5;
             outlineColor = PPal.unitOutline;
             faceTarget = false;
@@ -1453,7 +1453,7 @@ public class PsammosUnitTypes {
             };
             treadPullOffset = 0;
 
-            abilities.add(new EnergyFieldAbility(12f, 70f, 40f){{
+            abilities.add(new EnergyFieldAbility(12f, 70f, 48f){{
                 statusDuration = 20f;
                 maxTargets = 5;
                 color = Pal.techBlue;
