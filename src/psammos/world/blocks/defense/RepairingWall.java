@@ -1,6 +1,7 @@
 package psammos.world.blocks.defense;
 
 import arc.graphics.*;
+import arc.util.Time;
 import mindustry.content.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.world.meta.*;
@@ -30,7 +31,7 @@ public class RepairingWall extends Wall {
         public void updateTile(){
             boolean canHeal = !checkSuppression();
 
-            charge += 1;
+            charge += Time.delta;
 
             if(charge >= reload && canHeal && health() < maxHealth()){
                 charge = 0f;

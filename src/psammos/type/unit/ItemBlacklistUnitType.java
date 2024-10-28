@@ -1,4 +1,4 @@
-package psammos.type;
+package psammos.type.unit;
 
 import arc.struct.*;
 import mindustry.content.Fx;

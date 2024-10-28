@@ -9,7 +9,7 @@ import mindustry.gen.*;
 import mindustry.type.*;
 
 public class PsammosStatusEffects {
-    public static StatusEffect quicksandSlowed, combustible;
+    public static StatusEffect quicksandSlowed, infested, combustible;
 
     public static void load(){
         quicksandSlowed = new StatusEffect("quicksand-slowed"){{
@@ -23,6 +23,12 @@ public class PsammosStatusEffects {
                     Fill.square(e.x + x, e.y + y, e.fslope() * 1.1f, 45f);
                 });
             });
+        }};
+
+        infested = new StatusEffect("infested"){{
+            color = Color.white;
+            damage = 0.17f;
+            transitionDamage = 6f;
         }};
 
         combustible = new StatusEffect("combustible"){{

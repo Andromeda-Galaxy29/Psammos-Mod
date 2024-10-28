@@ -495,7 +495,7 @@ public class PsammosBlocks {
                         speed = 5;
                         damage = 16;
                         lifetime = 30;
-                        hitColor = backColor = trailColor = lightningColor = Color.valueOf("#a9d8ff");
+                        hitColor = backColor = trailColor = lightningColor = PPal.electric;
                         frontColor = lightColor = Color.valueOf("#ffffff");
                         trailWidth = 2;
                         trailLength = 5;
@@ -510,7 +510,7 @@ public class PsammosBlocks {
             squareSprite = false;
             shootSound = Sounds.shockBlast;
             outlineColor = PPal.turretOutline;
-            heatColor = Color.valueOf("#a9d8ff");
+            heatColor = PPal.electric;
             targetAir = false;
             targetGround = true;
             range = 140;
@@ -740,7 +740,7 @@ public class PsammosBlocks {
                         speed = 7;
                         damage = 45;
                         lifetime = 30;
-                        hitColor = backColor = trailColor = lightningColor = Color.valueOf("#a9d8ff");
+                        hitColor = backColor = trailColor = lightningColor = PPal.electric;
                         frontColor = lightColor = Color.valueOf("#ffffff");
                         trailWidth = 3;
                         trailLength = 8;
@@ -759,7 +759,7 @@ public class PsammosBlocks {
             squareSprite = false;
             shootSound = Sounds.shotgun;
             outlineColor = PPal.turretOutline;
-            heatColor = Color.valueOf("#a9d8ff");
+            heatColor = PPal.electric;
             targetAir = true;
             targetGround = false;
             range = 180;
@@ -777,13 +777,13 @@ public class PsammosBlocks {
                             turretShading = true;
                             progress = PartProgress.warmup;
                             heatProgress = PartProgress.recoil;
-                            heatColor = Color.valueOf("#a9d8ff");
+                            heatColor = PPal.electric;
                             moveX = 1f;
                             moveRot = -15;
                         }},
                         new RegionPart("-barrel"){{
                             heatProgress = progress = PartProgress.recoil;
-                            heatColor = Color.valueOf("#a9d8ff");
+                            heatColor = PPal.electric;
                             moveY = -4f;
                             mirror = false;
                         }}

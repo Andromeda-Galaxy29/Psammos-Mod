@@ -20,10 +20,12 @@ public class MoveTrailAbility extends Ability {
     private float sizeMult;
 
     public MoveTrailAbility(){
+        super();
         display = false;
     }
 
     public MoveTrailAbility(float x, float y, boolean mirror, float width, int length, Color color){
+        super();
         this.x = x;
         this.y = y;
         this.mirror = mirror;

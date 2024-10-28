@@ -10,5 +10,6 @@ public class PPal {
 
     scoutPink = Color.valueOf("#c3aedd"),
 
-    memoryAlloy = Color.valueOf("#dc88e7");
+    memoryAlloy = Color.valueOf("#dc88e7"),
+    electric = Color.valueOf("#a9d8ff");
 }

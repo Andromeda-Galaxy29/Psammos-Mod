@@ -24,7 +24,8 @@ import psammos.*;
 import psammos.entities.abilities.*;
 import mindustry.*;
 import psammos.entities.bullet.GasBulletType;
-import psammos.type.ItemBlacklistUnitType;
+import psammos.type.unit.CrawlUnitType;
+import psammos.type.unit.ItemBlacklistUnitType;
 
 public class PsammosUnitTypes {
 
@@ -134,23 +135,18 @@ public class PsammosUnitTypes {
             );
         }};
 
-        plump = new UnitType("plump"){{
+        plump = new CrawlUnitType("plump"){{
             controller = u -> new HugAI();
-            constructor = CrawlUnit::create;
 
             speed = 0.8f;
-            omniMovement = false;
             rotateSpeed = 2;
             health = 70;
             hitSize = 6;
             armor = 0;
             outlineColor = PPal.unitOutline;
-            faceTarget = true;
-            targetAir = false;
             crushDamage = 0.1f;
 
             segments = 2;
-            drawBody = false;
             segmentScl = 3;
             segmentPhase = 5;
             segmentMag = 0.3f;
@@ -169,6 +165,7 @@ public class PsammosUnitTypes {
             );
 
             immunities.addAll(
+                    PsammosStatusEffects.infested,
                     StatusEffects.melting,
                     StatusEffects.burning
             );
@@ -201,50 +198,44 @@ public class PsammosUnitTypes {
             );
         }};
 
-        fang = new UnitType("2a-fang"){{
+        fang = new CrawlUnitType("2a-fang"){{
             researchCostMultiplier = 0;
-            aiController = HugAI::new;
-            constructor = CrawlUnit::create;
 
             speed = 1;
-            omniMovement = false;
             rotateSpeed = 2;
             health = 200;
             hitSize = 9;
             armor = 1;
             outlineColor = PPal.unitOutline;
-            faceTarget = true;
-            targetAir = false;
             crushDamage = 0.2f;
 
             segments = 3;
-            drawBody = false;
             segmentScl = 3;
             segmentPhase = 5;
             segmentMag = 0.5f;
+
+            abilities.add(new SwarmAbility(24));
+            immunities.add(PsammosStatusEffects.infested);
         }};
 
-        jaw = new UnitType("2b-jaw"){{
+        jaw = new CrawlUnitType("2b-jaw"){{
             researchCostMultiplier = 0f;
-            aiController = HugAI::new;
-            constructor = CrawlUnit::create;
 
             speed = 1.2f;
-            omniMovement = false;
             rotateSpeed = 2;
             health = 520;
             hitSize = 11;
             armor = 4;
             outlineColor = PPal.unitOutline;
-            faceTarget = true;
-            targetAir = false;
             crushDamage = 0.5f;
 
             segments = 3;
-            drawBody = false;
             segmentScl = 3;
             segmentPhase = 5;
             segmentMag = 0.5f;
+
+            abilities.add(new SwarmAbility(24));
+            immunities.add(PsammosStatusEffects.infested);
 
             weapons.addAll(
                 new Weapon("psammos-jaw-gun"){{
@@ -270,26 +261,22 @@ public class PsammosUnitTypes {
             );
         }};
 
-        maw = new UnitType("2c-maw"){{
-            aiController = HugAI::new;
-            constructor = CrawlUnit::create;
-
+        maw = new CrawlUnitType("2c-maw"){{
             speed = 0.9f;
-            omniMovement = false;
             rotateSpeed = 2.6f;
             health = 760;
             hitSize = 17;
             armor = 6;
             outlineColor = PPal.unitOutline;
-            faceTarget = true;
-            targetAir = false;
             crushDamage = 1f;
 
             segments = 3;
-            drawBody = false;
             segmentScl = 3;
             segmentPhase = 5;
             segmentMag = 0.5f;
+
+            abilities.add(new SwarmAbility(24));
+            immunities.add(PsammosStatusEffects.infested);
 
             weapons.addAll(
                 new Weapon("psammos-maw-gun"){{
@@ -317,23 +304,16 @@ public class PsammosUnitTypes {
             );
         }};
 
-        gorge = new UnitType("gorge"){{
-            aiController = HugAI::new;
-            constructor = CrawlUnit::create;
-
+        gorge = new CrawlUnitType("gorge"){{
             speed = 0.8f;
-            omniMovement = false;
             rotateSpeed = 1.8f;
             health = 7000;
             hitSize = 28;
             armor = 8;
             outlineColor = PPal.unitOutline;
-            faceTarget = true;
-            targetAir = false;
             crushDamage = 1.3f;
 
             segments = 4;
-            drawBody = false;
             segmentScl = 3;
             segmentPhase = 5;
             segmentMag = 0.8f;
@@ -343,6 +323,9 @@ public class PsammosUnitTypes {
                     StatusEffects.melting,
                     StatusEffects.burning
             );
+
+            abilities.add(new SwarmAbility(32));
+            immunities.add(PsammosStatusEffects.infested);
 
             weapons.addAll(
                     new Weapon("psammos-gorge-gun"){{
@@ -377,6 +360,11 @@ public class PsammosUnitTypes {
                     }}
             );
         }};
+
+        ((SwarmAbility) fang.abilities.get(0)).swarmWhitelist.addAll(fang, jaw, maw, gorge, gluttony);
+        ((SwarmAbility) jaw.abilities.get(0)).swarmWhitelist.addAll(fang, jaw, maw, gorge, gluttony);
+        ((SwarmAbility) maw.abilities.get(0)).swarmWhitelist.addAll(fang, jaw, maw, gorge, gluttony);
+        ((SwarmAbility) gorge.abilities.get(0)).swarmWhitelist.addAll(fang, jaw, maw, gorge, gluttony);
 
         tip = new UnitType("3a-tip"){{
             researchCostMultiplier = 0;
