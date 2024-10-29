@@ -11,8 +11,9 @@ import mindustry.world.*;
 import mindustry.world.blocks.environment.*;
 
 public class ExplodableWall extends StaticWall implements ExplodableBlock {
-    //The chance that a boulder appears upon the wall being exploded
+    /** The chance that a boulder appears upon the wall being exploded */
     public float boulderChance = 0.3f;
+    /** The boulder that appears upon the wall being exploded */
     public Block boulder = Blocks.air;
     public int hardness = 2;
 
