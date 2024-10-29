@@ -47,7 +47,7 @@ public class PsammosUnitTypes {
     sciur, glirid, exilis, aeretes, paraxerus,
 
     //Frontline
-    pawn, knight, bishop, rook, monarch;
+    pawn, knight, bishop, rook, queen;
 
     public static void load() {
         gradient = new UnitType("1a-gradient"){{
@@ -472,6 +472,16 @@ public class PsammosUnitTypes {
                         shootEffect = Fx.shootSmall;
                         smokeEffect = Fx.shootSmallSmoke;
                     }};
+
+                    layerOffset = 0.01f;
+                    parts.addAll(
+                            new RegionPart("-barrel"){{
+                                mirror = false;
+                                under = true;
+                                progress = PartProgress.recoil;
+                                moveY = -1f;
+                            }}
+                    );
                 }}
             );
         }};
@@ -545,6 +555,16 @@ public class PsammosUnitTypes {
                         shootEffect = Fx.shootSmall;
                         smokeEffect = Fx.shootSmallSmoke;
                     }};
+
+                    layerOffset = 0.01f;
+                    parts.addAll(
+                            new RegionPart("-barrel"){{
+                                mirror = false;
+                                under = true;
+                                progress = PartProgress.recoil;
+                                moveY = -2f;
+                            }}
+                    );
                 }}
             );
         }};
@@ -634,6 +654,7 @@ public class PsammosUnitTypes {
                         mirror = false;
                         rotate = true;
                         rotateSpeed = 1f;
+                        shootY = 1;
                         bullet = new BasicBulletType(){{
                             sprite = "missile-large";
                             speed = 8f;
@@ -668,6 +689,16 @@ public class PsammosUnitTypes {
                                 hitEffect = despawnEffect = Fx.blastExplosion;
                             }};
                         }};
+
+                        layerOffset = 0.01f;
+                        parts.addAll(
+                                new RegionPart("-barrel"){{
+                                    mirror = false;
+                                    under = true;
+                                    progress = PartProgress.recoil;
+                                    moveY = -2.5f;
+                                }}
+                        );
                     }}
             );
         }};
@@ -975,6 +1006,15 @@ public class PsammosUnitTypes {
                             });
                             hitEffect = despawnEffect = effect;
                         }};
+
+                        parts.addAll(
+                                new RegionPart("-side"){{
+                                    mirror = true;
+                                    progress = PartProgress.warmup;
+                                    moveRot = -15f;
+                                    moves.add(new PartMove(PartProgress.recoil, 0f, 0f, -10f));
+                                }}
+                        );
                     }},
                     new RepairBeamWeapon("psammos-quadrifol-repair-beam"){{
                         x = 51f / 4f;
