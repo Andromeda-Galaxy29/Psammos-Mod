@@ -31,9 +31,7 @@ public class CrawlUnitType extends UnitType {
         super.load();
         segmentCellRegions = new TextureRegion[segments];
         for(int i = 0; i < segments; i++) {
-            if(Core.atlas.has(name + "-segment" + i + "-cell")){
-                segmentCellRegions[i] = Core.atlas.find(name + "-segment" + i + "-cell");
-            }
+            segmentCellRegions[i] = Core.atlas.find(name + "-segment" + i + "-cell");
         }
     }
 
@@ -53,7 +51,7 @@ public class CrawlUnitType extends UnitType {
                 Draw.rect(regions[i], unit.x + tx, unit.y + ty, rot - 90);
 
                 // Draws the cells
-                if(p != 0 && segmentCellRegions[i] != null){
+                if(p != 0 && segmentCellRegions[i].found()){
                     Draw.color(cellColor(unit));
                     Draw.rect(segmentCellRegions[i], unit.x + tx, unit.y + ty, rot - 90);
                     Draw.reset();
