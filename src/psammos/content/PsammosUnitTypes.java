@@ -397,6 +397,7 @@ public class PsammosUnitTypes {
             legMoveSpace = 1;
 
             shadowElevation = 0.1f;
+            groundLayer = Layer.legUnit - 1f;
 
             weapons.addAll(
                 new Weapon("psammos-tip-gun"){{
@@ -450,6 +451,7 @@ public class PsammosUnitTypes {
             legForwardScl = 0.7f;
 
             shadowElevation = 0.2f;
+            groundLayer = Layer.legUnit - 1f;
 
             weapons.addAll(
                 new Weapon("psammos-spike-gun"){{
@@ -516,6 +518,7 @@ public class PsammosUnitTypes {
             legMoveSpace = 1;
 
             shadowElevation = 0.3f;
+            groundLayer = Layer.legUnit - 1f;
 
             weapons.addAll(
                 new Weapon("psammos-spear-gun"){{
@@ -600,6 +603,7 @@ public class PsammosUnitTypes {
             rippleScale = 2f;
 
             shadowElevation = 0.4f;
+            groundLayer = Layer.legUnit;
 
             weapons.addAll(
                     new Weapon("psammos-javelin-weapon"){{
