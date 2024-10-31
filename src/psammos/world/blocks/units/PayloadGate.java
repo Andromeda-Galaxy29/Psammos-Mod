@@ -78,8 +78,12 @@ public class PayloadGate extends UnitBlock {
             if(!enabled) return;
             if(payload == null && fract() >= 0.95f) {
                 float wh = size * 0.5f * tilesize;
-                Units.nearby(team, x - wh/2, y - wh/2, wh, wh, u -> { target = u; });
-                if(target != null && !target.spawnedByCore && controllable(target) && !target.dead && target.hitSize / tilesize <= payloadLimit) {
+                Units.nearby(team, x - wh/2, y - wh/2, wh, wh, u -> {
+                    if(!u.spawnedByCore && controllable(u) && !u.dead && u.hitSize / tilesize <= payloadLimit){
+                        target = u;
+                    }
+                });
+                if(target != null){
                     if(target.isCommandable()) target.command().targetPos = null;
 
                     payload = new UnitPayload(target);

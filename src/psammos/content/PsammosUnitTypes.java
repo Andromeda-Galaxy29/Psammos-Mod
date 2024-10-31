@@ -752,6 +752,8 @@ public class PsammosUnitTypes {
                         despawnEffect = Fx.hitLaser;
                         weaveScale = 1;
                         weaveMag = 8;
+                        homingRange = 20;
+                        homingPower = 0.05f;
                     }};
                 }}
             );

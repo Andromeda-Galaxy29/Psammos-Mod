@@ -38,6 +38,7 @@ public class ShadedConveyor extends Conveyor {
 
         TextureRegion region = regions[bits[0]][0];
         Draw.rect(region, plan.drawx(), plan.drawy(), region.width * bits[1] * region.scl(), region.height * bits[2] * region.scl(), plan.rotation * 90);
+
         int blendbits2 = bits[0];
         if(blendbits2 == 1 && (bits[1] != 1 || bits[2] != 1)){ //Flips corner conveyors
             blendbits2 = 5;

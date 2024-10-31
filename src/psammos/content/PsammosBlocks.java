@@ -2321,7 +2321,7 @@ public class PsammosBlocks {
 
         coreDune = new CoreBlock("core-dune"){{
             requirements(Category.effect, with(PsammosItems.osmium, 3000, PsammosItems.silver, 3000, Items.silicon, 2000, PsammosItems.refinedMetal, 1000));
-            researchCostMultiplier = 0.15f;
+            researchCostMultiplier = 0.07f;
 
             health = 3800;
             size = 4;
@@ -2459,6 +2459,8 @@ public class PsammosBlocks {
             walkSoundVolume = 0.08f;
             walkSoundPitchMin = 0.4f;
             walkSoundPitchMax = 0.5f;
+            drownTime = 300;
+            isLiquid = true;
         }};
 
         burningPeatFloor = new EffectFloor("burning-peat-floor"){{

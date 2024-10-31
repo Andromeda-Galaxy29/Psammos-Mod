@@ -76,7 +76,7 @@ public class SwarmAbility extends Ability {
 
         // Applies status effect to enemy units
         if(swarm.size > 1){
-            Units.nearbyEnemies(unit.team, unit.x, unit.y, range, other -> {
+            Units.nearbyEnemies(unit.team, unit.x, unit.y, range*warmup, other -> {
                 other.apply(status, statusDuration);
             });
         }
