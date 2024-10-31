@@ -62,7 +62,9 @@ public class PsammosMenuRenderer extends MenuRenderer {
         Block[] selected = (Block[]) randomFromArray(new Block[][]{
                 new Block[]{Blocks.sand, Blocks.ferricStone},
                 new Block[]{Blocks.sand, PsammosBlocks.quartzFloor},
-                new Block[]{PsammosBlocks.peatFloor, PsammosBlocks.ash},
+                new Block[]{PsammosBlocks.peatFloor, PsammosBlocks.burningPeatFloor},
+                new Block[]{PsammosBlocks.burningPeatFloor, PsammosBlocks.ash},
+                new Block[]{PsammosBlocks.peatFloor, PsammosBlocks.packedPeatFloor},
                 new Block[]{PsammosBlocks.peatFloor, PsammosBlocks.decayingFloor},
                 new Block[]{Blocks.darksand, Blocks.carbonStone},
                 new Block[]{Blocks.carbonStone, PsammosBlocks.slate},

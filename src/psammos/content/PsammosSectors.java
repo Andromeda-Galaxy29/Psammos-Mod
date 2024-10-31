@@ -18,7 +18,7 @@ public class PsammosSectors {
 
         quartzValley = new SectorPreset("quartz-valley", PsammosPlanets.psammos, 3){{
             difficulty = 1;
-            captureWave = 20;
+            captureWave = 21;
         }};
 
         cavern = new SectorPreset("cavern", PsammosPlanets.psammos, 5){{
@@ -36,7 +36,7 @@ public class PsammosSectors {
 
         ancientSwamp = new SectorPreset("ancient-swamp", PsammosPlanets.psammos, 14){{
             difficulty = 3;
-            captureWave = 25;
+            captureWave = 18;
         }};
 
         evaporatedBasin = new SectorPreset("evaporated-basin", PsammosPlanets.psammos, 28){{
