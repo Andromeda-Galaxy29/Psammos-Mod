@@ -22,6 +22,7 @@ import mindustry.graphics.Pal;
 import mindustry.type.*;
 import mindustry.type.weapons.*;
 import psammos.*;
+import psammos.ai.HugCommandAI;
 import psammos.entities.abilities.*;
 import psammos.entities.bullet.*;
 import psammos.type.unit.*;
@@ -47,7 +48,9 @@ public class PsammosUnitTypes {
     sciur, glirid, exilis, aeretes, paraxerus,
 
     //Frontline
-    pawn, knight, bishop, rook, queen;
+    pawn, knight, bishop, rook, queen,
+
+    secretGerb;
 
     public static void load() {
         gradient = new UnitType("1a-gradient"){{
@@ -1749,6 +1752,37 @@ public class PsammosUnitTypes {
                         }};
                     }}
             );
+        }};
+
+        secretGerb = new UnitType("secret-gerb"){{
+            constructor = LegsUnit::create;
+
+            health = 210;
+            armor = 1;
+            hitSize = 24f;
+            speed = 0.45f;
+            drawCell = false;
+            outlines = false;
+            faceTarget = true;
+            circleTarget = true;
+
+            legStraightness = 0.3f;
+            baseLegStraightness = 0.5f;
+            lockLegBase = true;
+            legCount = 6;
+            legMinLength = 0.9f;
+            legMaxLength = 1.1f;
+            hitSize = 12;
+            legMoveSpace = 1.2f;
+            legLength = 10;
+            legPairOffset = 1;
+            legExtension = 0.5f;
+            rotateSpeed = 6;
+            legBaseOffset = 4;
+            allowLegStep = false;
+            mechStepParticles = true;
+            legContinuousMove = true;
+            legSplashDamage = 20f;
         }};
     }
 }
