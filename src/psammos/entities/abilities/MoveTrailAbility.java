@@ -17,12 +17,15 @@ public class MoveTrailAbility extends Ability {
 
     private Trail trail;
     private Trail secondTrail;
+    private float sizeMult;
 
     public MoveTrailAbility(){
+        super();
         display = false;
     }
 
     public MoveTrailAbility(float x, float y, boolean mirror, float width, int length, Color color){
+        super();
         this.x = x;
         this.y = y;
         this.mirror = mirror;
@@ -49,15 +52,21 @@ public class MoveTrailAbility extends Ability {
 
         Tmp.v1.trns(unit.rotation - 90f, x, y);
         Tmp.v2.trns(unit.rotation - 90f, -x, y);
-        float sizeMult = Mathf.clamp(unit.vel.len2(), 0, unit.speed()) / unit.speed();
+        sizeMult = Mathf.lerpDelta(
+                sizeMult,
+                Mathf.clamp(unit.vel.len2(), 0, unit.speed()) / unit.speed(),
+                0.05f
+        );
 
         Draw.z(Layer.effect);
 
         trail.draw(color, width * sizeMult);
+        Draw.color(color);
         Fill.circle(Tmp.v1.x + unit.x, Tmp.v1.y + unit.y, width * sizeMult);
 
         if(mirror) {
             secondTrail.draw(color, width * sizeMult);
+            Draw.color(color);
             Fill.circle(Tmp.v2.x + unit.x, Tmp.v2.y + unit.y, width * sizeMult);
         };
     }

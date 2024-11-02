@@ -8,5 +8,8 @@ public class PPal {
     unitOutline = Color.valueOf("#3c3835"),
     turretOutline = Color.valueOf("#534d4a"),
 
-    scoutPink = Color.valueOf("#c3aedd");
+    scoutPink = Color.valueOf("#c3aedd"),
+
+    memoryAlloy = Color.valueOf("#dc88e7"),
+    electric = Color.valueOf("#a9d8ff");
 }

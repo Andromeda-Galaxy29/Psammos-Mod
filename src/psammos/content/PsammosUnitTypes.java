@@ -6,6 +6,7 @@ import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.math.geom.*;
 import arc.struct.Seq;
+import mindustry.*;
 import mindustry.ai.types.*;
 import mindustry.content.*;
 import mindustry.entities.*;
@@ -21,9 +22,10 @@ import mindustry.graphics.Pal;
 import mindustry.type.*;
 import mindustry.type.weapons.*;
 import psammos.*;
+import psammos.ai.HugCommandAI;
 import psammos.entities.abilities.*;
-import mindustry.*;
-import psammos.entities.bullet.GasBulletType;
+import psammos.entities.bullet.*;
+import psammos.type.unit.*;
 
 public class PsammosUnitTypes {
 
@@ -46,7 +48,9 @@ public class PsammosUnitTypes {
     sciur, glirid, exilis, aeretes, paraxerus,
 
     //Frontline
-    pawn, knight, bishop, rook, monarch;
+    pawn, knight, bishop, rook, queen,
+
+    secretGerb;
 
     public static void load() {
         gradient = new UnitType("1a-gradient"){{
@@ -133,23 +137,18 @@ public class PsammosUnitTypes {
             );
         }};
 
-        plump = new UnitType("plump"){{
+        plump = new CrawlUnitType("plump"){{
             controller = u -> new HugAI();
-            constructor = CrawlUnit::create;
 
             speed = 0.8f;
-            omniMovement = false;
             rotateSpeed = 2;
             health = 70;
             hitSize = 6;
             armor = 0;
             outlineColor = PPal.unitOutline;
-            faceTarget = true;
-            targetAir = false;
             crushDamage = 0.1f;
 
             segments = 2;
-            drawBody = false;
             segmentScl = 3;
             segmentPhase = 5;
             segmentMag = 0.3f;
@@ -168,6 +167,7 @@ public class PsammosUnitTypes {
             );
 
             immunities.addAll(
+                    PsammosStatusEffects.infested,
                     StatusEffects.melting,
                     StatusEffects.burning
             );
@@ -200,50 +200,44 @@ public class PsammosUnitTypes {
             );
         }};
 
-        fang = new UnitType("2a-fang"){{
+        fang = new CrawlUnitType("2a-fang"){{
             researchCostMultiplier = 0;
-            aiController = HugAI::new;
-            constructor = CrawlUnit::create;
 
             speed = 1;
-            omniMovement = false;
             rotateSpeed = 2;
-            health = 120;
+            health = 200;
             hitSize = 9;
-            armor = 0;
+            armor = 1;
             outlineColor = PPal.unitOutline;
-            faceTarget = true;
-            targetAir = false;
             crushDamage = 0.2f;
 
             segments = 3;
-            drawBody = false;
             segmentScl = 3;
             segmentPhase = 5;
             segmentMag = 0.5f;
+
+            abilities.add(new SwarmAbility(24));
+            immunities.add(PsammosStatusEffects.infested);
         }};
 
-        jaw = new UnitType("2b-jaw"){{
+        jaw = new CrawlUnitType("2b-jaw"){{
             researchCostMultiplier = 0f;
-            aiController = HugAI::new;
-            constructor = CrawlUnit::create;
 
             speed = 1.2f;
-            omniMovement = false;
             rotateSpeed = 2;
-            health = 420;
+            health = 520;
             hitSize = 11;
-            armor = 3;
+            armor = 4;
             outlineColor = PPal.unitOutline;
-            faceTarget = true;
-            targetAir = false;
             crushDamage = 0.5f;
 
             segments = 3;
-            drawBody = false;
             segmentScl = 3;
             segmentPhase = 5;
             segmentMag = 0.5f;
+
+            abilities.add(new SwarmAbility(24));
+            immunities.add(PsammosStatusEffects.infested);
 
             weapons.addAll(
                 new Weapon("psammos-jaw-gun"){{
@@ -269,26 +263,22 @@ public class PsammosUnitTypes {
             );
         }};
 
-        maw = new UnitType("2c-maw"){{
-            aiController = HugAI::new;
-            constructor = CrawlUnit::create;
-
+        maw = new CrawlUnitType("2c-maw"){{
             speed = 0.9f;
-            omniMovement = false;
             rotateSpeed = 2.6f;
-            health = 680;
+            health = 760;
             hitSize = 17;
-            armor = 5;
+            armor = 6;
             outlineColor = PPal.unitOutline;
-            faceTarget = true;
-            targetAir = false;
             crushDamage = 1f;
 
             segments = 3;
-            drawBody = false;
             segmentScl = 3;
             segmentPhase = 5;
             segmentMag = 0.5f;
+
+            abilities.add(new SwarmAbility(24));
+            immunities.add(PsammosStatusEffects.infested);
 
             weapons.addAll(
                 new Weapon("psammos-maw-gun"){{
@@ -316,23 +306,16 @@ public class PsammosUnitTypes {
             );
         }};
 
-        gorge = new UnitType("gorge"){{
-            aiController = HugAI::new;
-            constructor = CrawlUnit::create;
-
+        gorge = new CrawlUnitType("gorge"){{
             speed = 0.8f;
-            omniMovement = false;
             rotateSpeed = 1.8f;
-            health = 6000;
+            health = 7000;
             hitSize = 28;
-            armor = 7;
+            armor = 8;
             outlineColor = PPal.unitOutline;
-            faceTarget = true;
-            targetAir = false;
             crushDamage = 1.3f;
 
             segments = 4;
-            drawBody = false;
             segmentScl = 3;
             segmentPhase = 5;
             segmentMag = 0.8f;
@@ -342,6 +325,9 @@ public class PsammosUnitTypes {
                     StatusEffects.melting,
                     StatusEffects.burning
             );
+
+            abilities.add(new SwarmAbility(32));
+            immunities.add(PsammosStatusEffects.infested);
 
             weapons.addAll(
                     new Weapon("psammos-gorge-gun"){{
@@ -377,6 +363,11 @@ public class PsammosUnitTypes {
             );
         }};
 
+        ((SwarmAbility) fang.abilities.get(0)).swarmWhitelist.addAll(fang, jaw, maw, gorge, gluttony);
+        ((SwarmAbility) jaw.abilities.get(0)).swarmWhitelist.addAll(fang, jaw, maw, gorge, gluttony);
+        ((SwarmAbility) maw.abilities.get(0)).swarmWhitelist.addAll(fang, jaw, maw, gorge, gluttony);
+        ((SwarmAbility) gorge.abilities.get(0)).swarmWhitelist.addAll(fang, jaw, maw, gorge, gluttony);
+
         tip = new UnitType("3a-tip"){{
             researchCostMultiplier = 0;
             constructor = LegsUnit::create;
@@ -409,6 +400,7 @@ public class PsammosUnitTypes {
             legMoveSpace = 1;
 
             shadowElevation = 0.1f;
+            groundLayer = Layer.legUnit - 1f;
 
             weapons.addAll(
                 new Weapon("psammos-tip-gun"){{
@@ -462,6 +454,7 @@ public class PsammosUnitTypes {
             legForwardScl = 0.7f;
 
             shadowElevation = 0.2f;
+            groundLayer = Layer.legUnit - 1f;
 
             weapons.addAll(
                 new Weapon("psammos-spike-gun"){{
@@ -484,6 +477,16 @@ public class PsammosUnitTypes {
                         shootEffect = Fx.shootSmall;
                         smokeEffect = Fx.shootSmallSmoke;
                     }};
+
+                    layerOffset = 0.01f;
+                    parts.addAll(
+                            new RegionPart("-barrel"){{
+                                mirror = false;
+                                under = true;
+                                progress = PartProgress.recoil;
+                                moveY = -1f;
+                            }}
+                    );
                 }}
             );
         }};
@@ -518,6 +521,7 @@ public class PsammosUnitTypes {
             legMoveSpace = 1;
 
             shadowElevation = 0.3f;
+            groundLayer = Layer.legUnit - 1f;
 
             weapons.addAll(
                 new Weapon("psammos-spear-gun"){{
@@ -557,6 +561,16 @@ public class PsammosUnitTypes {
                         shootEffect = Fx.shootSmall;
                         smokeEffect = Fx.shootSmallSmoke;
                     }};
+
+                    layerOffset = 0.01f;
+                    parts.addAll(
+                            new RegionPart("-barrel"){{
+                                mirror = false;
+                                under = true;
+                                progress = PartProgress.recoil;
+                                moveY = -2f;
+                            }}
+                    );
                 }}
             );
         }};
@@ -592,6 +606,7 @@ public class PsammosUnitTypes {
             rippleScale = 2f;
 
             shadowElevation = 0.4f;
+            groundLayer = Layer.legUnit;
 
             weapons.addAll(
                     new Weapon("psammos-javelin-weapon"){{
@@ -646,6 +661,7 @@ public class PsammosUnitTypes {
                         mirror = false;
                         rotate = true;
                         rotateSpeed = 1f;
+                        shootY = 1;
                         bullet = new BasicBulletType(){{
                             sprite = "missile-large";
                             speed = 8f;
@@ -680,11 +696,21 @@ public class PsammosUnitTypes {
                                 hitEffect = despawnEffect = Fx.blastExplosion;
                             }};
                         }};
+
+                        layerOffset = 0.01f;
+                        parts.addAll(
+                                new RegionPart("-barrel"){{
+                                    mirror = false;
+                                    under = true;
+                                    progress = PartProgress.recoil;
+                                    moveY = -2.5f;
+                                }}
+                        );
                     }}
             );
         }};
 
-        sine = new UnitType("4a-sine"){{
+        sine = new ItemBlacklistUnitType("4a-sine"){{
             constructor = UnitEntity::create;
             researchCostMultiplier = 0;
 
@@ -703,6 +729,7 @@ public class PsammosUnitTypes {
             mineTier = 2;
             mineSpeed = 3;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
+            itemBlacklist.add(Items.blastCompound);
             crashDamageMultiplier = 0f;
 
             weapons.addAll(
@@ -714,7 +741,7 @@ public class PsammosUnitTypes {
                     ejectEffect = Fx.none;
                     bullet = new BasicBulletType(){{
                         speed = 3;
-                        damage = 14;
+                        damage = 11;
                         lifetime = 20;
                         healPercent = 4;
                         collidesTeam = true;
@@ -728,14 +755,16 @@ public class PsammosUnitTypes {
                         despawnEffect = Fx.hitLaser;
                         weaveScale = 1;
                         weaveMag = 8;
+                        homingRange = 20;
+                        homingPower = 0.05f;
                     }};
                 }}
             );
         }};
 
-        helix = new UnitType("4b-helix"){{
+        helix = new ItemBlacklistUnitType("4b-helix"){{
             researchCostMultiplier = 0f;
-            constructor = UnitEntity::create;
+            constructor = PayloadUnit::create;
 
             lowAltitude = true;
             speed = 2.3f;
@@ -753,7 +782,9 @@ public class PsammosUnitTypes {
             mineSpeed = 5;
             buildSpeed = 0.1f;
             buildBeamOffset = 4;
+            payloadCapacity = (1.2f * 1.2f) * Vars.tilePayload;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
+            itemBlacklist.add(Items.blastCompound);
             crashDamageMultiplier = 0f;
 
             abilities.addAll(
@@ -773,7 +804,7 @@ public class PsammosUnitTypes {
                     }};
                     bullet = new BasicBulletType(){{
                         speed = 5;
-                        damage = 24;
+                        damage = 20;
                         lifetime = 20;
                         healPercent = 6;
                         collidesTeam = true;
@@ -790,7 +821,7 @@ public class PsammosUnitTypes {
             );
         }};
 
-        trisect = new UnitType("4c-trisect"){{
+        trisect = new ItemBlacklistUnitType("4c-trisect"){{
             constructor = PayloadUnit::create;
 
             lowAltitude = false;
@@ -810,6 +841,7 @@ public class PsammosUnitTypes {
             buildBeamOffset = 6;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
             payloadCapacity = (2 * 2) * Vars.tilePayload;
+            itemBlacklist.add(Items.blastCompound);
             crashDamageMultiplier = 0f;
 
             engines.addAll(
@@ -832,9 +864,9 @@ public class PsammosUnitTypes {
                     ejectEffect = Fx.none;
                     bullet = new BasicBulletType(){{
                         speed = 3;
-                        damage = 28;
+                        damage = 24;
                         lifetime = 38;
-                        healPercent = 8;
+                        healPercent = 10;
                         collidesTeam = true;
                         width = 10;
                         height = 10;
@@ -853,7 +885,7 @@ public class PsammosUnitTypes {
                             speed = 4;
                             damage = 10;
                             lifetime = 15;
-                            healPercent = 1;
+                            healPercent = 2;
                             collidesTeam = true;
                             width = 6;
                             height = 6;
@@ -874,7 +906,7 @@ public class PsammosUnitTypes {
                     mirror = false;
                     rotate = false;
                     bullet = new LaserBulletType(){{
-                        damage = 40;
+                        damage = 35;
                         colors = new Color[]{
                             Color.valueOf("#84f491"),
                             Color.valueOf("#ffffff")
@@ -884,7 +916,7 @@ public class PsammosUnitTypes {
                         lifetime = 18;
                         drawSize = 500;
                         collidesAir = true;
-                        healPercent = 10;
+                        healPercent = 13;
                         collidesTeam = true;
                         length = 120;
                         width = 16;
@@ -894,7 +926,7 @@ public class PsammosUnitTypes {
             );
         }};
 
-        quadrifol = new UnitType("quadrifol"){{
+        quadrifol = new ItemBlacklistUnitType("quadrifol"){{
             constructor = PayloadUnit::create;
 
             lowAltitude = false;
@@ -914,39 +946,26 @@ public class PsammosUnitTypes {
             buildBeamOffset = 12;
             mineItems = Seq.with(PsammosItems.osmium, PsammosItems.silver);
             payloadCapacity = (3 * 3) * Vars.tilePayload;
+            itemBlacklist.add(Items.blastCompound);
             crashDamageMultiplier = 0f;
 
             engines.addAll(
-                    new UnitEngine(0, -16, 4, -90),
-                    new UnitEngine(8, -8, 3f, -90),
-                    new UnitEngine(-8, -8, 3f, -90),
-                    new UnitEngine(12, -9, 2.7f, -90),
-                    new UnitEngine(-12, -9, 2.7f, -90)
+                    new UnitEngine(0, -12, 4, -90),
+                    new UnitEngine(8, -7, 3f, -90),
+                    new UnitEngine(-8, -7, 3f, -90),
+                    new UnitEngine(14, -10f, 2.7f, -90),
+                    new UnitEngine(-14, -10f, 2.7f, -90)
             );
-
-            float orbRad = 3f, partRad = 3f;
-            int parts = 10;
-            for(int i : Mathf.signs){
-                abilities.add(new SuppressionFieldAbility(){{
-                    orbRadius = orbRad;
-                    particleSize = partRad;
-                    y = 1.5f;
-                    x = 7f * i;
-                    particles = parts;
-                    color = Pal.heal;
-                    particleColor = Pal.heal;
-                    active = false;
-                }});
-            }
 
             weapons.addAll(
                     new Weapon("psammos-quadrifol-weapon"){{
                         x = -44f / 4f;
-                        y = 37f / 4f;
+                        y = 30f / 4f;
                         reload = 40;
                         layerOffset = -0.01f;
                         shootSound = Sounds.missileLarge;
                         ejectEffect = Fx.shootSmokeSquareBig;
+                        shootY = 2f;
                         bullet = new BasicBulletType(){{
                             sprite = "missile-large";
                             width = 9.5f;
@@ -956,7 +975,7 @@ public class PsammosUnitTypes {
                             lifetime = 38;
 
                             pierceCap = 3;
-                            healPercent = 12;
+                            healPercent = 20;
                             collidesTeam = true;
 
                             trailWidth = 3;
@@ -996,6 +1015,15 @@ public class PsammosUnitTypes {
                             });
                             hitEffect = despawnEffect = effect;
                         }};
+
+                        parts.addAll(
+                                new RegionPart("-side"){{
+                                    mirror = true;
+                                    progress = PartProgress.warmup;
+                                    moveRot = -15f;
+                                    moves.add(new PartMove(PartProgress.recoil, 0f, 0f, -10f));
+                                }}
+                        );
                     }},
                     new RepairBeamWeapon("psammos-quadrifol-repair-beam"){{
                         x = 51f / 4f;
@@ -1018,11 +1046,11 @@ public class PsammosUnitTypes {
             speed = 2.5f;
             drag = 0.1f;
             hitSize = 9;
-            rotateSpeed = 8;
-            health = 180;
+            rotateSpeed = 10;
+            health = 160;
             armor = 0;
             outlineColor = PPal.unitOutline;
-            faceTarget = true;
+            omniMovement = false;
             targetAir = true;
 
             hovering = true;
@@ -1059,16 +1087,16 @@ public class PsammosUnitTypes {
             weapons.addAll(
                 new Weapon("psammos-sciur-missile"){{
                     x = 0;
-                    y = -3;
+                    y = -3.5f;
                     reload = 28;
                     shootSound = Sounds.missile;
                     inaccuracy = 2;
                     velocityRnd = 0.1f;
                     mirror = false;
-                    rotate = false;
+                    rotate = true;
                     bullet = new MissileBulletType(){{
-                        speed = 2;
-                        damage = 7;
+                        speed = 4;
+                        damage = 10;
                         width = 8;
                         height = 8;
                         shrinkY = 0;
@@ -1077,12 +1105,24 @@ public class PsammosUnitTypes {
                         keepVelocity = false;
                         splashDamageRadius = 18;
                         splashDamage = 9;
-                        lifetime = 40;
-                        trailColor = PPal.scoutPink;
-                        backColor = PPal.scoutPink;
+                        lifetime = 25;
+                        trailColor = backColor = hitColor = PPal.scoutPink;
                         frontColor = Color.valueOf("#e8def4");
-                        hitEffect = Fx.blastExplosion;
-                        despawnEffect = Fx.blastExplosion;
+                        shootEffect = Fx.shootSmallColor;
+                        hitEffect = despawnEffect = new Effect(22, e -> {
+                            Draw.color(PPal.scoutPink);
+
+                            e.scaled(6, i -> {
+                                Lines.stroke(3f * i.fout());
+                                Lines.circle(e.x, e.y, 3f + i.fin() * 15f);
+                            });
+
+                            Lines.stroke(e.fout() * 2f);
+                            Angles.randLenVectors(e.id, 6, e.finpow() * 18f, (x, y) -> {
+                                float ang = Mathf.angle(x, y);
+                                Lines.lineAngle(e.x + x, e.y + y, ang, e.fout() * 4 + 1f);
+                            });
+                        });
                         weaveScale = 5;
                         weaveMag = 0.8f;
                     }};
@@ -1097,11 +1137,11 @@ public class PsammosUnitTypes {
             speed = 2.8f;
             drag = 0.1f;
             hitSize = 12;
-            rotateSpeed = 9;
-            health = 485;
+            rotateSpeed = 10;
+            health = 440;
             armor = 2;
             outlineColor = PPal.unitOutline;
-            faceTarget = false;
+            omniMovement = false;
             targetAir = true;
 
             hovering = true;
@@ -1144,7 +1184,7 @@ public class PsammosUnitTypes {
                     mirror = true;
                     rotate = true;
                     bullet = new LaserBulletType(){{
-                        damage = 22;
+                        damage = 23;
                         colors = new Color[]{
                             PPal.scoutPink,
                             Color.valueOf("#ffffff")
@@ -1154,7 +1194,7 @@ public class PsammosUnitTypes {
                         lifetime = 16;
                         drawSize = 300;
                         collidesAir = true;
-                        length = 80;
+                        length = 90;
                         width = 6;
                         pierceCap = 2;
                     }};
@@ -1168,11 +1208,11 @@ public class PsammosUnitTypes {
             speed = 3.2f;
             drag = 0.1f;
             hitSize = 16;
-            rotateSpeed = 8;
-            health = 690;
+            rotateSpeed = 10;
+            health = 680;
             armor = 3;
             outlineColor = PPal.unitOutline;
-            faceTarget = false;
+            omniMovement = false;
             targetAir = true;
 
             hovering = true;
@@ -1220,7 +1260,7 @@ public class PsammosUnitTypes {
                         rotate = true;
                         shoot = new ShootSpread(3, 15f);
                         bullet = new LaserBulletType(){{
-                            damage = 50;
+                            damage = 55;
                             colors = new Color[]{
                                     PPal.scoutPink,
                                     Color.valueOf("#ffffff")
@@ -1244,14 +1284,14 @@ public class PsammosUnitTypes {
         aeretes = new UnitType("aeretes"){{
             constructor = ElevationMoveUnit::create;
 
-            speed = 3.3f;
+            speed = 3.2f;
             drag = 0.1f;
             hitSize = 30;
-            rotateSpeed = 8;
-            health = 7000;
+            rotateSpeed = 10;
+            health = 6800;
             armor = 7;
             outlineColor = PPal.unitOutline;
-            faceTarget = false;
+            omniMovement = false;
             targetAir = true;
 
             hovering = true;
@@ -1297,7 +1337,10 @@ public class PsammosUnitTypes {
             abilities.addAll(
                     new MoveTrailAbility(0f, -9f, false, 2.1f, 15, PPal.scoutPink),
                     new MoveTrailAbility(7f, -9f, true, 1.2f, 10, PPal.scoutPink),
-                    new StatusFieldAbility(StatusEffects.overclock, 60f * 6, 60f * 6f, 60f)
+                    new StatusFieldAbility(StatusEffects.overclock, 60f * 6, 60f * 6f, 60f),
+                    new MoveLightningAbility(12, 9, 0.1f, 0, 1f, 3f, PPal.scoutPink, "psammos-aeretes-heat"){{
+                        x = 4;
+                    }}
             );
 
             weapons.addAll(
@@ -1318,7 +1361,7 @@ public class PsammosUnitTypes {
                                 width = 11f;
                                 height = 11;
                                 speed = 3;
-                                damage = 65;
+                                damage = 60;
                                 lifetime = 60;
                                 keepVelocity = false;
 
@@ -1393,7 +1436,7 @@ public class PsammosUnitTypes {
                     new Weapon("psammos-pawn-weapon"){{
                         x = -3;
                         y = -5;
-                        reload = 20;
+                        reload = 25;
                         mirror = true;
                         rotate = true;
                         alternate = false;
@@ -1407,7 +1450,7 @@ public class PsammosUnitTypes {
                             height = 8;
                             trailWidth = 1.5f;
                             trailLength = 6;
-                            lifetime = 45;
+                            lifetime = 50;
                             trailColor = Pal.techBlue;
                             backColor = Pal.techBlue;
                             hitColor = Pal.techBlue;
@@ -1431,7 +1474,7 @@ public class PsammosUnitTypes {
             speed = 1f;
             hitSize = 18f;
             rotateSpeed = 2.9f;
-            health = 520;
+            health = 550;
             armor = 5;
             outlineColor = PPal.unitOutline;
             faceTarget = false;
@@ -1446,7 +1489,7 @@ public class PsammosUnitTypes {
             };
             treadPullOffset = 0;
 
-            abilities.add(new EnergyFieldAbility(12f, 70f, 40f){{
+            abilities.add(new EnergyFieldAbility(12f, 70f, 48f){{
                 statusDuration = 20f;
                 maxTargets = 5;
                 color = Pal.techBlue;
@@ -1495,7 +1538,7 @@ public class PsammosUnitTypes {
             constructor = TankUnit::create;
 
             speed = 0.8f;
-            hitSize = 26f;
+            hitSize = 24f;
             rotateSpeed = 1.5f;
             health = 800;
             armor = 6;
@@ -1709,6 +1752,37 @@ public class PsammosUnitTypes {
                         }};
                     }}
             );
+        }};
+
+        secretGerb = new UnitType("secret-gerb"){{
+            constructor = LegsUnit::create;
+
+            health = 210;
+            armor = 1;
+            hitSize = 24f;
+            speed = 0.45f;
+            drawCell = false;
+            outlines = false;
+            faceTarget = true;
+            circleTarget = true;
+
+            legStraightness = 0.3f;
+            baseLegStraightness = 0.5f;
+            lockLegBase = true;
+            legCount = 6;
+            legMinLength = 0.9f;
+            legMaxLength = 1.1f;
+            hitSize = 12;
+            legMoveSpace = 1.2f;
+            legLength = 10;
+            legPairOffset = 1;
+            legExtension = 0.5f;
+            rotateSpeed = 6;
+            legBaseOffset = 4;
+            allowLegStep = false;
+            mechStepParticles = true;
+            legContinuousMove = true;
+            legSplashDamage = 20f;
         }};
     }
 }
