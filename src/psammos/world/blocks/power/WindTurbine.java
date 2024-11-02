@@ -73,12 +73,10 @@ public class WindTurbine extends PowerGenerator {
         public void updateEfficiencyMultiplier(){
             efficiencyMultiplier = 1f;
 
-            int bx = (int) Math.floor(x / tilesize);
-            int by = (int) Math.floor(y / tilesize);
-            int x1 = (int) (bx - Math.floor(range / 2) + (range%2==0 ? 1 : 0));
-            int x2 = (int) (bx + Math.floor(range / 2));
-            int y1 = (int) (by - Math.floor(range / 2) + (range%2==0 ? 1 : 0));
-            int y2 = (int) (by + Math.floor(range / 2));
+            int x1 = (int) (tileX() - Math.floor(range / 2) + (range%2==0 ? 1 : 0));
+            int x2 = (int) (tileX() + Math.floor(range / 2));
+            int y1 = (int) (tileY() - Math.floor(range / 2) + (range%2==0 ? 1 : 0));
+            int y2 = (int) (tileY() + Math.floor(range / 2));
             for (int ix = x1; ix <= x2; ix++) {
                 for (int iy = y1; iy <= y2; iy++) {
                     Tile tile = world.tile(ix, iy);

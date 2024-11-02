@@ -170,13 +170,13 @@ public class Bomb extends Block {
             explosionSound.at(x, y, 1f, 1f);
             Damage.damage(x, y, range * tilesize, damage);
 
+            world.tile(tileX(), tileY()).setNet(Blocks.air);
+
             // Some bad math. It works though
-            int bx = (int) Math.floor(x / tilesize);
-            int by = (int) Math.floor(y / tilesize);
-            int x1 = (int) (bx - Math.floor(range / 2) + (range%2==0 ? 1 : 0));
-            int x2 = (int) (bx + Math.floor(range / 2));
-            int y1 = (int) (by - Math.floor(range / 2) + (range%2==0 ? 1 : 0));
-            int y2 = (int) (by + Math.floor(range / 2));
+            int x1 = (int) (tileX() - Math.floor(range / 2) + (range%2==0 ? 1 : 0));
+            int x2 = (int) (tileX() + Math.floor(range / 2));
+            int y1 = (int) (tileY() - Math.floor(range / 2) + (range%2==0 ? 1 : 0));
+            int y2 = (int) (tileY() + Math.floor(range / 2));
             for (int ix = x1; ix <= x2; ix++) {
                 for (int iy = y1; iy <= y2; iy++) {
                     Tile tile = world.tile(ix, iy);
@@ -200,7 +200,6 @@ public class Bomb extends Block {
                     }
                 }
             }
-            world.tile(bx, by).setNet(Blocks.air);
         }
 
         @Override
