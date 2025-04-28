@@ -8,6 +8,7 @@ import arc.scene.ui.layout.Table;
 import arc.struct.*;
 import arc.util.Strings;
 import mindustry.Vars;
+import mindustry.content.StatusEffects;
 import mindustry.entities.*;
 import mindustry.entities.abilities.*;
 import mindustry.gen.*;
@@ -26,9 +27,13 @@ public class SwarmAbility extends Ability {
     /** The radius at which units can join this swarm */
     public float range;
     /** Status effect which is applied to enemy units inside the swarm */
-    public StatusEffect status;
+    public StatusEffect enemyStatus;
     /** Duration of the status effect which is applied to enemy units inside the swarm */
-    public float statusDuration;
+    public float enemyStatusDuration;
+    /** Status effect which is applied to allied units inside the swarm */
+    public StatusEffect allyStatus;
+    /** Duration of the status effect which is applied to allied units inside the swarm */
+    public float allyStatusDuration;
 
     private boolean shouldUpdate = true;
     private Seq<Unit> swarm;
@@ -37,8 +42,10 @@ public class SwarmAbility extends Ability {
     public SwarmAbility(){
         super();
         this.range = 24f;
-        this.status = PsammosStatusEffects.infested;
-        this.statusDuration = 5*60;
+        this.enemyStatus = PsammosStatusEffects.infested;
+        this.enemyStatusDuration = 5*60;
+        this.allyStatus = StatusEffects.shielded;
+        this.allyStatusDuration = 60;
     }
 
     public SwarmAbility(float range){
@@ -51,7 +58,11 @@ public class SwarmAbility extends Ability {
         super.addStats(t);
         t.add(Core.bundle.format("bullet.range", Strings.autoFixed(range / Vars.tilesize, 2)));
         t.row();
-        t.add((status.hasEmoji() ? status.emoji() : "") + "[stat]" + status.localizedName + (status.reactive ? "" : "[lightgray] ~ [stat]" + ((int)(statusDuration / 60f)) + "[lightgray] " + Core.bundle.get("unit.seconds")));
+        t.add(Core.bundle.get("stat.psammos-swarm-enemy-status"));
+        t.add((enemyStatus.hasEmoji() ? enemyStatus.emoji() : "") + "[stat]" + enemyStatus.localizedName + (enemyStatus.reactive ? "" : "[lightgray] ~ [stat]" + ((int)(enemyStatusDuration / 60f)) + "[lightgray] " + Core.bundle.get("unit.seconds")));
+        t.row();
+        t.add(Core.bundle.get("stat.psammos-swarm-ally-status"));
+        t.add((allyStatus.hasEmoji() ? allyStatus.emoji() : "") + "[stat]" + allyStatus.localizedName + (allyStatus.reactive ? "" : "[lightgray] ~ [stat]" + ((int)(allyStatusDuration / 60f)) + "[lightgray] " + Core.bundle.get("unit.seconds")));
     }
 
     @Override
@@ -77,8 +88,13 @@ public class SwarmAbility extends Ability {
         // Applies status effect to enemy units
         if(swarm.size > 1){
             Units.nearbyEnemies(unit.team, unit.x, unit.y, range*warmup, other -> {
-                other.apply(status, statusDuration);
+                other.apply(enemyStatus, enemyStatusDuration);
             });
+        }
+
+        // Applies status effect to allied units
+        for (Unit u : swarm) {
+            u.apply(allyStatus, allyStatusDuration);
         }
 
         shouldUpdate = true;
