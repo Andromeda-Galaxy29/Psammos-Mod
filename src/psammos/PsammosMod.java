@@ -28,6 +28,10 @@ public class PsammosMod extends Mod{
 
     @Override
     public void init(){
+        super.init();
+        PsammosIcons.load();
+        PsammosTeams.load();
+
         for (Planet planet : Vars.content.planets()) {
             if (planet != PsammosPlanets.psammos) {
                 planet.hiddenItems.addAll(PsammosItems.psammosItems);

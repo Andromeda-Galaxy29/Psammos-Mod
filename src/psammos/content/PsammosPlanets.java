@@ -50,7 +50,7 @@ public class PsammosPlanets {
             hasAtmosphere = true;
 
             ruleSetter = r -> {
-                r.waveTeam = Team.blue;
+                r.waveTeam = PsammosTeams.erimos;
                 r.showSpawns = true;
 
                 Weather.WeatherEntry permanentSandstorm = new Weather.WeatherEntry(Weathers.sandstorm);
