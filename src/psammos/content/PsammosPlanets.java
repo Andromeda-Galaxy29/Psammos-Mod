@@ -57,9 +57,6 @@ public class PsammosPlanets {
                 permanentSandstorm.always = true;
                 r.weather.add(permanentSandstorm);
             };
-
-            itemWhitelist = PsammosItems.psammosItems.copy();
-            itemWhitelist.addAll(Items.sand, Items.silicon, Items.blastCompound);
         }};
     }
 }

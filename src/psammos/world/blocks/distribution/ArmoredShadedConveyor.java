@@ -42,7 +42,7 @@ public class ArmoredShadedConveyor extends ShadedConveyor{
     public class ArmoredShadedConveyorBuild extends ShadedConveyorBuild{
         @Override
         public boolean acceptItem(Building source, Item item){
-            return super.acceptItem(source, item) && (source.block instanceof Conveyor || Edges.getFacingEdge(source.tile(), tile).relativeTo(tile) == rotation);
+            return super.acceptItem(source, item) && (source.block instanceof Conveyor || Edges.getFacingEdge(source.tileOn(), tile).relativeTo(tile) == rotation);
         }
     }
 }

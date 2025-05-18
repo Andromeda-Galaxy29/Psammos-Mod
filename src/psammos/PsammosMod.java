@@ -32,12 +32,6 @@ public class PsammosMod extends Mod{
         PsammosIcons.load();
         PsammosTeams.load();
 
-        for (Planet planet : Vars.content.planets()) {
-            if (planet != PsammosPlanets.psammos) {
-                planet.hiddenItems.addAll(PsammosItems.psammosItems);
-            }
-        }
-
         loadSettings();
 
         Events.on(ClientLoadEvent.class, e -> {

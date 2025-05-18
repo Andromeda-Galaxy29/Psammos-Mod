@@ -51,7 +51,7 @@ public class PsammosStatusEffects {
 
         swarmProtection = new StatusEffect("swarm-protection"){{
             color = Color.white;
-            healthMultiplier = 1.5f;
+            healthMultiplier = 1.2f;
         }
             @Override
             public String emoji() {

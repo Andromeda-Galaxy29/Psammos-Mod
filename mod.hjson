@@ -4,23 +4,23 @@ author: "AndromedaGalaxy29"
 main: "psammos.PsammosMod"
 description: "Adds a new desert planet. Almost all life which once populated this planet was wiped out by a cataclysmic event known as the Incineration. Survive in these harsh conditions and conquer [accent[]]Psammos[white[]].
 
-Join our discord server: [#5865f2[]]https://discord.gg/eBzANBKCBA[white[]]
+Join our discord server: [#5865f2[]]https://discord.gg/eBzANBKCBA[[]]
 
 If you like the mod, consider giving it a star on GitHub. Thank you
 
-[#31fea7[]]Contributors:[white[]]
-- [#5865f2[]]@inxie_ratzey[white[]] for suggestions, sprites, many maps and other contributions
-- [#5865f2[]]@thisiscrimsoncheck[white[]] for several maps, suggestions and other contributions
-- [#5865f2[]]@tinport[white[]] for various suggestions and maps
+[#31fea7[]]Contributors:[[]]
+- [#5865f2[]]@inxie_ratzey[[]] for suggestions, sprites, many maps and other contributions
+- [#5865f2[]]@thisiscrimsoncheck[[]] for several maps, suggestions and other contributions
+- [#5865f2[]]@tinport[[]] for various suggestions and maps
 
-[#9b59b6[]]Special thanks:[white[]]
-- [#5865f2[]]@chozochorizo[white[]] for help with balancing the mod
-- [#5865f2[]]@thomas_has_things[white[]] and [#5865f2[]]@twcash.[white[]] for the main menu title font
+[#9b59b6[]]Special thanks:[[]]
+- [#5865f2[]]@chozochorizo[[]] for help with balancing the mod
+- [#5865f2[]]@thomas_has_things[[]] and [#5865f2[]]@twcash.[[]] for the main menu title font
 
-[#abe2ca[]]Suggestions:[white[]]
-- [#5865f2[]]@nekoarkbruhagain_07111[white[]] for the suggestion of Confine"
+[#abe2ca[]]Suggestions:[[]]
+- [#5865f2[]]@nekoarkbruhagain_07111[[]] for the suggestion of Confine"
 
 subtitle: "v1.4"
 version: 1.4
-minGameVersion: 145
+minGameVersion: 147
 java: true
