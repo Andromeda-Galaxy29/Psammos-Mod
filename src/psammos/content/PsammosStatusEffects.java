@@ -9,7 +9,7 @@ import mindustry.gen.*;
 import mindustry.type.*;
 
 public class PsammosStatusEffects {
-    public static StatusEffect quicksandSlowed, infested, combustible;
+    public static StatusEffect quicksandSlowed, infested, swarmProtection, combustible;
 
     public static void load(){
         quicksandSlowed = new StatusEffect("quicksand-slowed"){{
@@ -23,13 +23,45 @@ public class PsammosStatusEffects {
                     Fill.square(e.x + x, e.y + y, e.fslope() * 1.1f, 45f);
                 });
             });
-        }};
+        }
+            @Override
+            public String emoji() {
+                return "\uECC4";
+            }
+            @Override
+            public boolean hasEmoji() {
+                return true;
+            }
+        };
 
         infested = new StatusEffect("infested"){{
             color = Color.white;
             damage = 0.17f;
             transitionDamage = 6f;
-        }};
+        }
+            @Override
+            public String emoji() {
+                return "\uECC5";
+            }
+            @Override
+            public boolean hasEmoji() {
+                return true;
+            }
+        };
+
+        swarmProtection = new StatusEffect("swarm-protection"){{
+            color = Color.white;
+            healthMultiplier = 1.5f;
+        }
+            @Override
+            public String emoji() {
+                return "\uECC6";
+            }
+            @Override
+            public boolean hasEmoji() {
+                return true;
+            }
+        };
 
         combustible = new StatusEffect("combustible"){{
             color = Liquids.ozone.color;
@@ -57,6 +89,14 @@ public class PsammosStatusEffects {
                 if(unit.hasEffect(StatusEffects.burning) || unit.hasEffect(StatusEffects.melting)){
                     unit.damageContinuousPierce(0.2f);
                 }
+            }
+            @Override
+            public String emoji() {
+                return "\uECC7";
+            }
+            @Override
+            public boolean hasEmoji() {
+                return true;
             }
         };
     }

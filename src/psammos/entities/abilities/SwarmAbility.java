@@ -44,7 +44,7 @@ public class SwarmAbility extends Ability {
         this.range = 24f;
         this.enemyStatus = PsammosStatusEffects.infested;
         this.enemyStatusDuration = 5*60;
-        this.allyStatus = StatusEffects.shielded;
+        this.allyStatus = PsammosStatusEffects.swarmProtection;
         this.allyStatusDuration = 60;
     }
 
@@ -85,16 +85,16 @@ public class SwarmAbility extends Ability {
             u.speedMultiplier(avgSpeed / u.type.speed);
         }
 
-        // Applies status effect to enemy units
         if(swarm.size > 1){
+            // Applies status effect to enemy units
             Units.nearbyEnemies(unit.team, unit.x, unit.y, range*warmup, other -> {
                 other.apply(enemyStatus, enemyStatusDuration);
             });
-        }
 
-        // Applies status effect to allied units
-        for (Unit u : swarm) {
-            u.apply(allyStatus, allyStatusDuration);
+            // Applies status effect to allied units
+            for (Unit u : swarm) {
+                u.apply(allyStatus, allyStatusDuration);
+            }
         }
 
         shouldUpdate = true;

@@ -13,6 +13,10 @@ public class PsammosIcons {
 
     public static void load(){
         loadIcon(60611, "psammos-team-blue"); // \uECC3
+        loadIcon(60612, "psammos-quicksand-slowed"); // \uECC4
+        loadIcon(60613, "psammos-infested"); // \uECC5
+        loadIcon(60614, "psammos-swarm-protection"); // \uECC6
+        loadIcon(60615, "psammos-combustible"); // \uECC7
     }
 
     public static void loadIcon(int id, String regionName){
