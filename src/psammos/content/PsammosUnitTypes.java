@@ -22,7 +22,7 @@ import mindustry.graphics.Pal;
 import mindustry.type.*;
 import mindustry.type.weapons.*;
 import psammos.*;
-import psammos.ai.HugCommandAI;
+import psammos.ai.RepairDroneAI;
 import psammos.entities.abilities.*;
 import psammos.entities.bullet.*;
 import psammos.type.unit.*;
@@ -50,7 +50,8 @@ public class PsammosUnitTypes {
     //Frontline
     pawn, knight, bishop, rook, queen,
 
-    secretGerb;
+    //Other
+    repairDrone, secretGerb;
 
     public static void load() {
         gradient = new UnitType("1a-gradient"){{
@@ -1751,6 +1752,49 @@ public class PsammosUnitTypes {
                             shootSound = Sounds.cannon;
                         }};
                     }}
+            );
+        }};
+
+        repairDrone = new UnitType("repair-drone"){{
+            controller = u -> new RepairDroneAI();
+            constructor = BuildingTetherPayloadUnit::create;
+
+            speed = 3f;
+            rotateSpeed = 8f;
+            health = 80;
+            hitSize = 8;
+            armor = 0;
+            outlineColor = PPal.unitOutline;
+            flying = true;
+            engineSize = 0;
+            lowAltitude = false;
+            crashDamageMultiplier = 0;
+            payloadCapacity = 0f;
+
+            range = maxRange = 8 * 20;
+
+            allowedInPayloads = false;
+            logicControllable = false;
+            playerControllable = false;
+            hidden = true;
+            isEnemy = false;
+
+            parts.add(
+                    new HoverPart(){{
+                        x = 0f;
+                        y = -5f;
+                        mirror = false;
+                        radius = 5;
+                        phase = 90;
+                        stroke = 2;
+                        layerOffset = -0.001f;
+                        color = Pal.heal;
+                    }}
+            );
+
+            abilities.addAll(
+                    new MoveTrailAbility(0f, -4.4f, false, 1.8f, 10, Pal.heal),
+                    new RepairExplosionAbility(60, 16)
             );
         }};
 

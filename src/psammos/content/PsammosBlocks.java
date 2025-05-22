@@ -32,8 +32,8 @@ import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 import psammos.*;
-import psammos.ai.AntiAirMissileAI;
-import psammos.entities.patterns.ShootBursts;
+import psammos.ai.*;
+import psammos.entities.patterns.*;
 import psammos.world.blocks.defense.*;
 import psammos.world.blocks.distribution.*;
 import psammos.world.blocks.environment.*;
@@ -85,7 +85,7 @@ public class PsammosBlocks {
     //Units/Payload
     specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge, frontlineUnitForge,
     specialistUnitRecombiner, assaultUnitRecombiner, supportUnitRecombiner, scoutUnitRecombiner, frontlineUnitRecombiner,
-    overclockTower,
+    overclockTower, repairDroneAssembler,
     heatproofPayloadConveyor, heatproofPayloadRouter, heatproofPayloadGate,
 
     //Effect/Storage
@@ -2266,6 +2266,21 @@ public class PsammosBlocks {
             upgrades.addAll(
                     new UnitType[]{PsammosUnitTypes.pawn, PsammosUnitTypes.knight}
             );
+        }};
+
+        repairDroneAssembler = new RepairDroneAssembler("repair-drone-assembler"){{
+            requirements(Category.units, with(PsammosItems.osmium, 20, Items.silicon, 80, PsammosItems.refinedMetal, 80));
+            size = 2;
+            unitBuildTime = 2f * 60f;
+            range = 10 * 8f;
+            statsRepairSpeed = 30;
+
+            unitType = PsammosUnitTypes.repairDrone;
+
+            squareSprite = false;
+
+            consumeLiquid(Liquids.oil, 10f / 60f);
+            consumePower(1f);
         }};
 
         overclockTower = new StatusTower("overclock-tower"){{
