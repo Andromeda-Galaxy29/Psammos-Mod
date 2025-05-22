@@ -1055,6 +1055,7 @@ public class PsammosUnitTypes {
             targetAir = true;
 
             hovering = true;
+            canDrown = false;
 
             shadowElevation = 0.1f;
 
@@ -1146,6 +1147,7 @@ public class PsammosUnitTypes {
             targetAir = true;
 
             hovering = true;
+            canDrown = false;
 
             shadowElevation = 0.15f;
 
@@ -1217,6 +1219,7 @@ public class PsammosUnitTypes {
             targetAir = true;
 
             hovering = true;
+            canDrown = false;
 
             shadowElevation = 0.18f;
 
@@ -1296,6 +1299,7 @@ public class PsammosUnitTypes {
             targetAir = true;
 
             hovering = true;
+            canDrown = false;
 
             shadowElevation = 0.18f;
 
