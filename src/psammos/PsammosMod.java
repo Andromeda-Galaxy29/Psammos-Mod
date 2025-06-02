@@ -77,6 +77,7 @@ public class PsammosMod extends Mod{
 
         PsammosAttributes.setAttributes();
 
+        PsammosWeathers.load();
         PsammosPlanets.load();
         PsammosSectors.load();
         PsammosTechTree.load();

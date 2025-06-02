@@ -53,9 +53,12 @@ public class PsammosPlanets {
                 r.waveTeam = PsammosTeams.erimos;
                 r.showSpawns = true;
 
-                Weather.WeatherEntry permanentSandstorm = new Weather.WeatherEntry(Weathers.sandstorm);
-                permanentSandstorm.always = true;
-                r.weather.add(permanentSandstorm);
+                r.weather.addAll(
+                        new Weather.WeatherEntry(PsammosWeathers.lightSandstorm){{
+                            always = true;
+                        }},
+                        new Weather.WeatherEntry(PsammosWeathers.heavySandstorm)
+                );
             };
         }};
     }
