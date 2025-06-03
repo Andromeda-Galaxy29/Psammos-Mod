@@ -1,6 +1,7 @@
 package psammos.content;
 
 import arc.graphics.*;
+import mindustry.game.Gamemode;
 import psammos.planet.PsammosPlanetGenerator;
 import mindustry.content.*;
 import mindustry.game.Team;
@@ -59,6 +60,10 @@ public class PsammosPlanets {
                         }},
                         new Weather.WeatherEntry(PsammosWeathers.heavySandstorm)
                 );
+
+                if(r.mode() == Gamemode.attack || r.mode() == Gamemode.pvp){
+                    r.weather.add(new Weather.WeatherEntry(PsammosWeathers.smog));
+                }
             };
         }};
     }
