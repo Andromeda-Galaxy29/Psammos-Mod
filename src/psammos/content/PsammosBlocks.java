@@ -75,12 +75,12 @@ public class PsammosBlocks {
     memoryWall, memoryWallLarge,
 
     //Crafting
-    sieve, filter, siliconSynthesizer, centrifuge,
-    purifier, thermolysisChamber, refinery, blastManufacturer,
-    oilDistillationTower, atmosphericSeparator, heatExchanger, ozoneHeater,
-    peatHeater, ammoniaHeater, heatPump, heatPumpRouter,
-    aerogelPressurizer, steamReformer, ammoniaCompressor, memoryAlloyCrucible,
-    obliterator,
+    sieve, filter, siliconSynthesizer, siliconSynthesisChamber,
+    centrifuge, purifier, thermolysisChamber, refinery,
+    blastManufacturer, oilDistillationTower, atmosphericSeparator, heatExchanger,
+    ozoneHeater, peatHeater, ammoniaHeater, heatPump,
+    heatPumpRouter, aerogelPressurizer, steamReformer, ammoniaCompressor,
+    memoryAlloyCrucible, obliterator,
 
     //Units/Payload
     specialistUnitForge, assaultUnitForge, supportUnitForge, scoutUnitForge, frontlineUnitForge,
@@ -1664,10 +1664,24 @@ public class PsammosBlocks {
 
             size = 3;
             squareSprite = false;
+            craftEffect = new Effect(100f, e -> {
+                Vec2 v = new Vec2();
+
+                Draw.color(e.color, Pal.vent2, e.fin());
+
+                Draw.alpha(e.fslope() * 0.78f);
+
+                float length = 1f + e.finpow() * 5f;
+                Mathf.rand.setSeed(e.id);
+                for(int i = 0; i < Mathf.rand.random(3, 5); i++){
+                    v.trns(Mathf.rand.random(360f), Mathf.rand.random(length));
+                    Fill.circle(e.x + v.x, e.y + v.y, Mathf.rand.random(1.2f, 3.5f) + e.fslope() * 1.1f);
+                }
+            }).layer(Layer.darkness - 1);
 
             drawer = new DrawMulti(
                     new DrawDefault(),
-                    new DrawFlame(Color.valueOf("#ffef99"))
+                    new DrawGlowRegion(){{color = Color.valueOf("#ffef99");}}
             );
 
             outputItem = new ItemStack(Items.silicon, 1);
@@ -1675,6 +1689,28 @@ public class PsammosBlocks {
 
             consumeItem(PsammosItems.quartz, 2);
             consumePower(0.5f);
+        }};
+
+        siliconSynthesisChamber = new HeatCrafter("silicon-synthesis-chamber"){{
+            requirements(Category.crafting, with(PsammosItems.osmium, 40, Items.silicon, 30, PsammosItems.memoryAlloy, 20, PsammosItems.aerogel, 10, PsammosItems.refinedMetal, 30));
+
+            size = 4;
+            squareSprite = false;
+            craftEffect = new RadialEffect(Fx.surgeCruciSmoke, 4, 90f, 8f);
+
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawGlowRegion(){{color = Color.valueOf("#ffef99");}},
+                    new DrawHeatInput()
+            );
+
+            outputItem = new ItemStack(Items.silicon, 2);
+            craftTime = 30;
+
+            heatRequirement = 6f;
+            consumeItem(PsammosItems.quartz, 3);
+            consumeLiquid(PsammosLiquids.methane, 10/60f);
+            consumePower(2.5f);
         }};
 
         centrifuge = new GenericCrafter("3a-centrifuge"){{
