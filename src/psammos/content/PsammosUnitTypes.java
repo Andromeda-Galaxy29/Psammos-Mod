@@ -1777,6 +1777,7 @@ public class PsammosUnitTypes {
 
             range = maxRange = 8 * 20;
 
+            useUnitCap = false;
             allowedInPayloads = false;
             logicControllable = false;
             playerControllable = false;
