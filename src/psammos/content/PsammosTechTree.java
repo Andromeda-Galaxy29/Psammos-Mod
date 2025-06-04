@@ -121,6 +121,9 @@ public class PsammosTechTree {
                     });
                     node(sieve, Seq.with(new OnSector(quartzValley)), ()->{
                         node(siliconSynthesizer, ()->{
+                            node(siliconSynthesisChamber, Seq.with(new OnSector(scaldedPlains), new Research(memoryAlloyCrucible)),  ()->{
+
+                            });
                             node(thermolysisChamber, Seq.with(new OnSector(driedRiver)), ()->{
                                 node(refinery, ()->{
                                     node(atmosphericSeparator, Seq.with(new OnSector(ancientSwamp)), ()->{
@@ -223,8 +226,10 @@ public class PsammosTechTree {
             });
 
             node(specialistUnitForge, Seq.with(new OnSector(driedRiver)), ()->{
-                node(overclockTower, Seq.with(new OnSector(oilRefiningFacility), new Research(atmosphericSeparator)), ()->{
+                node(repairDroneAssembler, Seq.with(new OnSector(oilRefiningFacility), new Research(oilDistillationTower)), ()->{
+                    node(overclockTower, Seq.with(new OnSector(oilRefiningFacility), new Research(atmosphericSeparator)), ()->{
 
+                    });
                 });
                 node(fang, ()->{
 
