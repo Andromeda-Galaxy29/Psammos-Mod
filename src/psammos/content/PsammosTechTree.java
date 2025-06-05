@@ -181,10 +181,10 @@ public class PsammosTechTree {
                                             });
                                         });
                                     });
-                                });
-                                node(gate, Seq.with(new OnSector(driedRiver)), ()->{
-                                    node(gateLarge, ()->{
+                                    node(gate, ()->{
+                                        node(gateLarge, ()->{
 
+                                        });
                                     });
                                 });
                             });
