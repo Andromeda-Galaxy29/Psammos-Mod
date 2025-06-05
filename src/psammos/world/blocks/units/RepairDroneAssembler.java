@@ -1,7 +1,9 @@
 package psammos.world.blocks.units;
 
+import mindustry.gen.Building;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Pal;
+import mindustry.type.Item;
 import mindustry.ui.Bar;
 import mindustry.world.Block;
 import mindustry.world.blocks.units.UnitCargoLoader;
@@ -57,6 +59,14 @@ public class RepairDroneAssembler extends UnitCargoLoader {
             super.drawSelect();
 
             Drawf.dashCircle(x + offset, y + offset, range, Pal.placing);
+        }
+
+        @Override
+        public boolean acceptItem(Building source, Item item){
+            if(!hasItems){
+                return false;
+            }
+            return items.total() < itemCapacity;
         }
     }
 }
