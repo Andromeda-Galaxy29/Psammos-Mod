@@ -171,21 +171,29 @@ public class PsammosTechTree {
             node(cross, ()->{
                 node(osmiumWall, ()->{
                     node(osmiumWallLarge, ()->{
-                        node(silverWall, ()->{
-                            node(silverWallLarge, ()->{
-                                node(refinedMetalWall, ()->{
-                                    node(refinedMetalWallLarge, ()->{
-                                        node(memoryWall, Seq.with(new OnSector(scaldedPlains)), ()->{
-                                            node(memoryWallLarge, Seq.with(new OnSector(scaldedPlains)), ()->{
 
-                                            });
-                                        });
-                                    });
-                                    node(gate, ()->{
-                                        node(gateLarge, ()->{
+                    });
+                    node(silverWall, ()->{
+                        node(silverWallLarge, ()->{
 
-                                        });
-                                    });
+                        });
+                        node(refinedMetalWall, ()->{
+                            node(refinedMetalWallLarge, ()->{
+
+                            });
+                            node(gate, ()->{
+                                node(gateLarge, ()->{
+
+                                });
+                            });
+                            node(floatingWall, Seq.with(new OnSector(erodedDesert)), ()->{
+                                node(floatingWallLarge, ()->{
+
+                                });
+                            });
+                            node(memoryWall, Seq.with(new OnSector(scaldedPlains)), ()->{
+                                node(memoryWallLarge, Seq.with(new OnSector(scaldedPlains)), ()->{
+
                                 });
                             });
                         });

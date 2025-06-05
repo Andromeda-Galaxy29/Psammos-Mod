@@ -71,8 +71,8 @@ public class PsammosBlocks {
 
     //Defense
     osmiumWall, osmiumWallLarge, silverWall, silverWallLarge,
-    gate, gateLarge, refinedMetalWall, refinedMetalWallLarge,
-    memoryWall, memoryWallLarge,
+    refinedMetalWall, refinedMetalWallLarge, gate, gateLarge,
+    floatingWall, floatingWallLarge, memoryWall, memoryWallLarge,
 
     //Crafting
     sieve, filter, siliconSynthesizer, siliconSynthesisChamber,
@@ -1579,6 +1579,17 @@ public class PsammosBlocks {
             size = 2;
         }};
 
+        refinedMetalWall = new Wall("3a-refined-metal-wall"){{
+            requirements(Category.defense, with(PsammosItems.refinedMetal, 6));
+            health = 120 * wallHealthMultiplier;
+        }};
+
+        refinedMetalWallLarge = new Wall("3b-refined-metal-wall-large"){{
+            requirements(Category.defense, mult(refinedMetalWall.requirements, 4));
+            health = 120 * wallHealthMultiplier * 4;
+            size = 2;
+        }};
+
         gate = new AutoDoor("gate"){{
             requirements(Category.defense, with(PsammosItems.quartz, 6, Items.silicon, 4));
             health = 110 * wallHealthMultiplier;
@@ -1590,15 +1601,17 @@ public class PsammosBlocks {
             size = 2;
         }};
 
-        refinedMetalWall = new Wall("3a-refined-metal-wall"){{
-            requirements(Category.defense, with(PsammosItems.refinedMetal, 6));
-            health = 120 * wallHealthMultiplier;
+        floatingWall = new Wall("floating-wall"){{
+            requirements(Category.defense, with(PsammosItems.refinedMetal, 2, PsammosItems.aerogel, 5));
+            health = 80 * wallHealthMultiplier;
+            placeableLiquid = true;
         }};
 
-        refinedMetalWallLarge = new Wall("3b-refined-metal-wall-large"){{
-            requirements(Category.defense, mult(refinedMetalWall.requirements, 4));
-            health = 120 * wallHealthMultiplier * 4;
+        floatingWallLarge = new Wall("floating-wall-large"){{
+            requirements(Category.defense, mult(floatingWall.requirements, 4));
+            health = 80 * wallHealthMultiplier * 4;
             size = 2;
+            placeableLiquid = true;
         }};
 
         memoryWall = new RepairingWall("memory-wall"){{
