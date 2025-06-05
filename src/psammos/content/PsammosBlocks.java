@@ -145,6 +145,7 @@ public class PsammosBlocks {
                     trailLength = 3;
                     homingRange = 45;
                     homingPower = 0.1f;
+                    reloadMultiplier = 1.5f;
                 }},
                 PsammosItems.memoryAlloy, new BasicBulletType(){{
                     width = 4;
@@ -543,6 +544,7 @@ public class PsammosBlocks {
                     hitEffect = despawnEffect = Fx.hitBulletBig;
                     homingRange = 45;
                     homingPower = 0.1f;
+                    reloadMultiplier = 1.2f;
                 }},
                 PsammosItems.refinedMetal, new BasicBulletType(){{
                     speed = 5;
