@@ -92,9 +92,7 @@ public class SwarmAbility extends Ability {
             });
 
             // Applies status effect to allied units
-            for (Unit u : swarm) {
-                u.apply(allyStatus, allyStatusDuration);
-            }
+            unit.apply(allyStatus, allyStatusDuration);
         }
 
         shouldUpdate = true;

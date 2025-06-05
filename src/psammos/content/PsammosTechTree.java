@@ -209,7 +209,7 @@ public class PsammosTechTree {
                         });
                     });
                     node(influence, Seq.with(new OnSector(quartzValley)), ()->{
-                        node(confine, Seq.with(new OnSector(quartzValley)), ()->{
+                        node(confine, Seq.with(new OnSector(excavationSite)), ()->{
                             node(overflow, Seq.with(new OnSector(erodedDesert)), ()->{
 
                             });
@@ -248,7 +248,7 @@ public class PsammosTechTree {
 
                         });
                     });
-                    node(scoutUnitForge, Seq.with(new SectorComplete(ancientSwamp)), ()->{
+                    node(scoutUnitForge, Seq.with(new SectorComplete(excavationSite)), ()->{
                         node(sciur, ()->{
 
                         });
@@ -306,6 +306,9 @@ public class PsammosTechTree {
 
                                 });
                             });
+                        });
+                        node(excavationSite, Seq.with(new SectorComplete(driedRiver)), ()->{
+
                         });
                         node(shatteredPathway, Seq.with(new SectorComplete(driedRiver)), ()->{
 
