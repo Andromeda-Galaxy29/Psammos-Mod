@@ -294,6 +294,9 @@ public class PsammosTechTree {
                                             });
                                         });
                                     });
+                                    node(enfer, Seq.with(new SectorComplete(erodedDesert)), ()->{
+
+                                    });
                                 });
                                 node(ferricSummit, Seq.with(new SectorComplete(oilRefiningFacility)), ()->{
                                     node(craterousRange, Seq.with(new SectorComplete(ferricSummit), new SectorComplete(ruinousHollow)), ()->{
