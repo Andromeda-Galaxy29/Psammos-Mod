@@ -1642,7 +1642,7 @@ public class PsammosBlocks {
 
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
-                    new DrawRegion("-rotator", 3, true),
+                    new DrawRegion("-rotator", 3, false),
                     new DrawDefault()
             );
 
@@ -1662,7 +1662,7 @@ public class PsammosBlocks {
 
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
-                    new DrawRegion("-rotator", 4, true),
+                    new DrawRegion("-rotator", 4, false),
                     new DrawDefault()
             );
 
