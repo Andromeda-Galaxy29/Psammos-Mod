@@ -91,10 +91,7 @@ public class PsammosMod extends Mod{
             // Thank you, developers of Subvoyage, for this code
             t.pref(new ButtonPref(bundle.get("setting.psammos-clear-tech-tree"),Icon.trash,() -> {
                 ui.showConfirm("@confirm", bundle.get("setting.psammos-clear-tech-tree.confirm"), () -> {
-                    PsammosPlanets.psammos.techTree.reset();
-                    for(TechTree.TechNode node : PsammosPlanets.psammos.techTree.children){
-                        node.reset();
-                    }
+                    fullResetNode(PsammosPlanets.psammos.techTree);
                     content.each(c -> {
                         if(c instanceof UnlockableContent u && c.minfo != null && c.minfo.mod != null && c.minfo.mod.name.equals("psammos")){
                             u.clearUnlock();
@@ -120,5 +117,12 @@ public class PsammosMod extends Mod{
                 });
             }));
         });
+    }
+
+    void fullResetNode(TechTree.TechNode node){
+        for (TechTree.TechNode child : node.children){
+            fullResetNode(child);
+            node.reset();
+        }
     }
 }
