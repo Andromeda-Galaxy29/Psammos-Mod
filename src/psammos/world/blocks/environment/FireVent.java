@@ -11,6 +11,6 @@ public class FireVent extends SteamVent {
         this.effect = Fx.fire;
         this.effectSpacing = 6;
         this.status = StatusEffects.burning;
-        this.attributes.set(Attribute.heat, 1f);
+        this.attributes.set(Attribute.heat, 2.5f/9f);
     }
 }

@@ -67,7 +67,7 @@ public class PsammosBlocks {
 
     //Power
     electricPole, electricDistributor, led, accumulator,
-    windTurbine, piezoelectricGenerator, impulseGenerator, liquidFuelBurner,
+    windTurbine, piezoelectricGenerator, impulseGenerator, liquidFuelBurner, thermoelectricGenerator,
 
     //Defense
     osmiumWall, osmiumWallLarge, silverWall, silverWallLarge,
@@ -1553,6 +1553,29 @@ public class PsammosBlocks {
             consumeLiquid(Liquids.ozone, 4 / 60f);
         }};
 
+        thermoelectricGenerator = new ConsumeThermalGenerator("thermoelectric-generator"){{
+            requirements(Category.power, with(PsammosItems.silver, 40, PsammosItems.refinedMetal, 40, Items.silicon, 35, PsammosItems.quartz, 40));
+            powerProduction = 4f;
+            generateEffect = Fx.redgeneratespark;
+            effectChance = 0.1f;
+            size = 3;
+            squareSprite = false;
+            floating = true;
+            ambientSound = Sounds.hum;
+            ambientSoundVolume = 0.06f;
+
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawGlowRegion(){{
+                        alpha = 0.8f;
+                        glowScale = 5f;
+                        color = Pal.slagOrange;
+                    }}
+            );
+
+            consumeLiquid(PsammosLiquids.coldWater, 3 / 60f);
+        }};
+
         // Defense
         int wallHealthMultiplier = 4;
 
@@ -2537,7 +2560,7 @@ public class PsammosBlocks {
             effect = new MultiEffect(Fx.fire, Fx.coalSmeltsmoke);
             effectChance = 0.025f;
             status = StatusEffects.burning;
-            attributes.set(Attribute.heat, 0.7f);
+            attributes.set(Attribute.heat, 5f/3f/9f); // 1.666 / 9
 
             emitLight = true;
             lightRadius = 30f;
@@ -2549,7 +2572,7 @@ public class PsammosBlocks {
             effect = Fx.fire;
             effectChance = 0.001f;
             status = StatusEffects.burning;
-            attributes.set(Attribute.heat, 0.1f);
+            attributes.set(Attribute.heat, 1/9f);
         }};
 
         quartzFloor = new Floor("3c-quartz-floor"){{
