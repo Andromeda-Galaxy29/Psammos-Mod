@@ -2082,6 +2082,7 @@ public class PsammosBlocks {
                 new DrawPistons(){{
                     sinMag = 2.5f;
                     sinScl = 3;
+                    angleOffset = 45;
                 }},
                 new DrawDefault(),
                 new DrawGlowRegion(){{
