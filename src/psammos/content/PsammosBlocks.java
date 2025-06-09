@@ -1743,11 +1743,12 @@ public class PsammosBlocks {
             );
 
             outputItem = new ItemStack(Items.silicon, 2);
+            outputLiquid = new LiquidStack(Liquids.water, 3/60f);
             craftTime = 30;
 
             heatRequirement = 6f;
             consumeItem(PsammosItems.quartz, 3);
-            consumeLiquid(PsammosLiquids.methane, 10/60f);
+            consumeLiquid(PsammosLiquids.methane, 6/60f);
             consumePower(2.5f);
         }};
 
