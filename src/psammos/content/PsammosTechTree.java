@@ -115,7 +115,7 @@ public class PsammosTechTree {
                     node(piezoelectricGenerator, ()->{
                         node(impulseGenerator, Seq.with(new OnSector(ancientSwamp), new Research(blastManufacturer)), ()->{
                             node(liquidFuelBurner, Seq.with(new OnSector(oilRefiningFacility), new Research(oilDistillationTower), new Research(thermolysisChamber)), ()->{
-                                node(thermoelectricGenerator, new Research(heatExchanger), ()->{
+                                node(thermoelectricGenerator, Seq.with(new Research(heatExchanger)), ()->{
 
                                 });
                             });
