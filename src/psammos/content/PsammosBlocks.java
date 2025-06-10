@@ -1965,7 +1965,7 @@ public class PsammosBlocks {
 
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
-                    new DrawLiquidTile(Liquids.ozone),
+                    new DrawLiquidTile(Liquids.ozone, 1),
                     new DrawDefault(),
                     new DrawHeatOutput(),
                     new DrawGlowRegion()
