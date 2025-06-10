@@ -1809,7 +1809,10 @@ public class PsammosBlocks {
                     new DrawRegion("-bottom"),
                     new DrawCrucibleFlame(),
                     new DrawDefault(),
-                    new DrawGlowRegion(){{color = Pal.slagOrange;}},
+                    new DrawGlowRegion(){{
+                        color = Pal.slagOrange;
+                        alpha = 0.6f;
+                    }},
                     new DrawLiquidOutputs()
             );
             rotate = true;
