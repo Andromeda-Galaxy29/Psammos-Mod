@@ -221,7 +221,7 @@ public class PsammosBlocks {
                 );
             }};
 
-            coolant = consumeCoolant(0.1f);
+            coolant = consume(new ConsumeCoolant(0.1f){{maxFlammability = 1f; allowGas = true;}});
         }};
 
         disseminate = new ItemTurret("1b-disseminate"){{
@@ -328,7 +328,7 @@ public class PsammosBlocks {
                 );
             }};
 
-            coolant = consumeCoolant(0.1f);
+            coolant = consume(new ConsumeCoolant(0.1f){{maxFlammability = 1f; allowGas = true;}});
         }};
 
         hurl = new ItemTurret("hurl"){{
@@ -401,7 +401,7 @@ public class PsammosBlocks {
                 );
             }};
 
-            coolant = consumeCoolant(0.1f);
+            coolant = consume(new ConsumeCoolant(0.1f){{maxFlammability = 1f; allowGas = true;}});
         }};
 
         confine = new LiquidTurret("confine"){{
@@ -523,7 +523,7 @@ public class PsammosBlocks {
             drawer = new DrawTurret("heatproof-");
 
             consumePower(1);
-            coolant = consumeCoolant(0.1f);
+            coolant = consume(new ConsumeCoolant(0.1f){{maxFlammability = 1f; allowGas = true;}});
         }};
 
         gunslinger = new ItemTurret("3a-gunslinger"){{
@@ -638,7 +638,7 @@ public class PsammosBlocks {
                 );
             }};
 
-            coolant = consumeCoolant(0.1f);
+            coolant = consume(new ConsumeCoolant(0.1f){{maxFlammability = 1f; allowGas = true;}});
         }};
 
         spray = new LiquidTurret("spray"){{
@@ -727,6 +727,8 @@ public class PsammosBlocks {
             status = StatusEffects.electrified;
 
             consumePower(3.5f);
+
+            coolant = consume(new ConsumeCoolant(0.1f){{maxFlammability = 1f; allowGas = true;}});
         }};
 
         discharge = new ItemTurret("discharge"){{
@@ -792,6 +794,8 @@ public class PsammosBlocks {
                         }}
                 );
             }};
+
+            coolant = consume(new ConsumeCoolant(0.1f){{maxFlammability = 1f; allowGas = true;}});
         }};
 
         burst = new LiquidTurret("burst"){{

@@ -4,6 +4,7 @@ import arc.*;
 import arc.struct.*;
 import arc.util.*;
 import mindustry.*;
+import mindustry.content.Liquids;
 import mindustry.content.TechTree;
 import mindustry.ctype.UnlockableContent;
 import mindustry.game.*;
@@ -29,6 +30,9 @@ public class PsammosMod extends Mod{
     @Override
     public void init(){
         super.init();
+        Liquids.arkycite.coolant = false;
+        Liquids.nitrogen.coolant = false;
+
         PsammosIcons.load();
         PsammosTeams.load();
 
