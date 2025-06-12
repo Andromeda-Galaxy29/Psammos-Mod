@@ -15,6 +15,7 @@ import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
 import mindustry.type.unit.MissileUnitType;
+import mindustry.ui.Bar;
 import mindustry.world.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.world.blocks.defense.turrets.*;
@@ -67,7 +68,7 @@ public class PsammosBlocks {
 
     //Power
     electricPole, electricDistributor, led, accumulator,
-    windTurbine, piezoelectricGenerator, impulseGenerator, liquidFuelBurner, thermoelectricGenerator,
+    windTurbine, piezoelectricGenerator, impulseGenerator, liquidFuelBurner, thermoelectricGenerator, heatEngine,
 
     //Defense
     osmiumWall, osmiumWallLarge, silverWall, silverWallLarge,
@@ -1575,6 +1576,50 @@ public class PsammosBlocks {
 
             consumeLiquid(PsammosLiquids.coldWater, 3 / 60f);
         }};
+
+        heatEngine = new VariableReactor("heat-engine"){{
+            requirements(Category.power, with(PsammosItems.silver, 60, Items.silicon, 20, PsammosItems.memoryAlloy, 40, PsammosItems.aerogel, 40, PsammosItems.refinedMetal, 60));
+
+            size = 4;
+            powerProduction = 35;
+            hasPower = true;
+            outputsPower = true;
+            squareSprite = false;
+            effect = Fx.none;
+            flashColor2 = Color.valueOf("d194f3");
+            explosionRadius = 10;
+            explosionDamage = 800;
+            explodeEffect = new MultiEffect(Fx.bigShockwave, Fx.titanSmoke.wrap(Pal.slagOrange));
+            explodeSound = Sounds.explosionbig;
+            explosionPuddles = 50;
+            explosionPuddleRange = 32;
+            explosionPuddleLiquid = Liquids.slag;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawLiquidTile(PsammosLiquids.ammonia, 4),
+                    new DrawPistons(){{
+                        sinMag = 2f;
+                        sinScl = 3f;
+                        sides = 4;
+                        angleOffset = 45;
+                        sideOffset = Mathf.PI;
+                    }},
+                    new DrawRegion("-rotator", 10,  true),
+                    new DrawDefault(),
+                    new DrawHeatInput()
+            );
+
+            consumeLiquid(PsammosLiquids.ammonia, 4 / 60f);
+            maxHeat = 16;
+        }
+            @Override
+            public void setBars() {
+                super.setBars();
+                removeBar("instability");
+                addBar("overheat", (entity) -> new Bar("bar.psammos-overheat", Pal.redderDust, () -> ((VariableReactorBuild)entity).instability));
+            }
+        };
 
         // Defense
         int wallHealthMultiplier = 4;

@@ -49,7 +49,7 @@ public class PsammosLiquids {
         ammonia = new Liquid("ammonia", Color.valueOf("d194f3")){{
             gas = true;
             heatCapacity = 0.9f;
-            temperature = 0.45f;
+            temperature = 0.3f;
             flammability = 0.75f;
             explosiveness = 1.75f;
             coolant = true;
