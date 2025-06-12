@@ -118,6 +118,9 @@ public class PsammosTechTree {
                                 node(thermoelectricGenerator, Seq.with(new Research(heatExchanger)), ()->{
 
                                 });
+                                node(heatEngine, Seq.with(new OnSector(scaldedPlains), new Research(ammoniaCompressor), new Research(memoryAlloyCrucible)), ()->{
+
+                                });
                             });
                         });
                     });
