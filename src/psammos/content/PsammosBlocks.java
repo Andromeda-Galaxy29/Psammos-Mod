@@ -102,9 +102,10 @@ public class PsammosBlocks {
     quicksand, darkQuicksand,
     //Floors
     smallOilDeposit, oilDeposit, peatFloor, packedPeatFloor, decayingFloor, bog, burningPeatFloor, ash, quartzFloor, crystallineQuartzFloor,
-    slate, smallSlateOilDeposit, slateOilDeposit, osmicStone, desertGlass,
+    slate, smallSlateOilDeposit, slateOilDeposit, osmicStone, desertGlass, metallicFloor, rustedMetallicFloor,
     //Walls
     peatWall, packedPeatWall, decayingWall, ashWall, quartzWall, slateWall, osmicStoneWall, desertGlassWall,
+    metallicWall, rustedMetallicWall,
     //Cracked Walls
     crackedSaltWall, crumblingSandWall, crumblingDuneWall, crumblingPeatWall, crumblingDecayingWall, crumblingAshWall, crackedQuartzWall,
     //Props
@@ -2661,6 +2662,14 @@ public class PsammosBlocks {
             variants = 3;
         }};
 
+        metallicFloor = new Floor("metallic-floor"){{
+            variants = 3;
+        }};
+
+        rustedMetallicFloor = new Floor("rusted-metallic-floor"){{
+            variants = 3;
+        }};
+
         peatWall = new StaticWall("4a-peat-wall"){{
             variants = 2;
             itemDrop = PsammosItems.peat;
@@ -2707,6 +2716,16 @@ public class PsammosBlocks {
         desertGlassWall = new StaticWall("desert-glass-wall"){{
             variants = 2;
             desertGlass.asFloor().wall = this;
+        }};
+
+        metallicWall = new StaticWall("metallic-wall"){{
+            variants = 2;
+            metallicFloor.asFloor().wall = this;
+        }};
+
+        rustedMetallicWall = new StaticWall("rusted-metallic-wall"){{
+            variants = 2;
+            rustedMetallicFloor.asFloor().wall = this;
         }};
 
         crackedSaltWall = new ExplodableWall("cracked-salt-wall"){{
