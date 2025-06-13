@@ -5,9 +5,9 @@ import mindustry.type.*;
 public class PsammosSectors {
     public static SectorPreset
 
-    landing, quartzValley, cavern, driedRiver, shatteredPathway, ancientSwamp, evaporatedBasin,
-    coruscatedCrevice, oilRefiningFacility, ferricSummit, craterousRange, erodedDesert, ruinousHollow,
-    scaldedPlains, searingChasms;
+    landing, quartzValley, cavern, driedRiver, excavationSite, shatteredPathway, ancientSwamp,
+    evaporatedBasin, coruscatedCrevice, oilRefiningFacility, ferricSummit, craterousRange, erodedDesert,
+    enfer, ruinousHollow, scaldedPlains, searingChasms;
 
     public static void load(){
         landing = new SectorPreset("landing", PsammosPlanets.psammos, 0){{
@@ -27,6 +27,10 @@ public class PsammosSectors {
         }};
 
         driedRiver = new SectorPreset("dried-river", PsammosPlanets.psammos, 4){{
+            difficulty = 2;
+        }};
+
+        excavationSite = new SectorPreset("excavation-site", PsammosPlanets.psammos, 6){{
             difficulty = 2;
         }};
 
@@ -63,6 +67,11 @@ public class PsammosSectors {
         erodedDesert = new SectorPreset("eroded-desert", PsammosPlanets.psammos, 27){{
             difficulty = 4;
             captureWave = 35;
+        }};
+
+        enfer = new SectorPreset("enfer", PsammosPlanets.psammos, 31){{
+            difficulty = 2;
+            captureWave = 40;
         }};
 
         ruinousHollow = new SectorPreset("ruinous-hollow", PsammosPlanets.psammos, 39){{

@@ -1,6 +1,7 @@
 package psammos.content;
 
 import arc.graphics.*;
+import mindustry.game.Gamemode;
 import psammos.planet.PsammosPlanetGenerator;
 import mindustry.content.*;
 import mindustry.game.Team;
@@ -50,16 +51,21 @@ public class PsammosPlanets {
             hasAtmosphere = true;
 
             ruleSetter = r -> {
-                r.waveTeam = Team.blue;
+                r.waveTeam = PsammosTeams.erimos;
                 r.showSpawns = true;
+                r.teams.get(r.waveTeam).rtsAi = true;
 
-                Weather.WeatherEntry permanentSandstorm = new Weather.WeatherEntry(Weathers.sandstorm);
-                permanentSandstorm.always = true;
-                r.weather.add(permanentSandstorm);
+                r.weather.addAll(
+                        new Weather.WeatherEntry(PsammosWeathers.lightSandstorm){{
+                            always = true;
+                        }},
+                        new Weather.WeatherEntry(PsammosWeathers.heavySandstorm)
+                );
+
+                if(r.mode() == Gamemode.attack || r.mode() == Gamemode.pvp){
+                    r.weather.add(new Weather.WeatherEntry(PsammosWeathers.smog));
+                }
             };
-
-            itemWhitelist = PsammosItems.psammosItems.copy();
-            itemWhitelist.addAll(Items.sand, Items.silicon, Items.blastCompound);
         }};
     }
 }
