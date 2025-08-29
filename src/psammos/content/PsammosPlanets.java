@@ -13,13 +13,13 @@ public class PsammosPlanets {
     public static Planet psammos;
 
     public static void load(){
-        psammos = new Planet("psammos", Planets.sun, 1.2f, 2){{
+        psammos = new Planet("psammos", Planets.sun, 1f, 2){{
             generator = new PsammosPlanetGenerator();
 
             meshLoader = () -> new HexMesh(this, 5);
             cloudMeshLoader = () -> new MultiMesh(
-                    new HexSkyMesh(this, 42, 2f, 0.13f, 5, Color.valueOf("d2ae8d").a(0.75f), 3, 0.7f, 1f, 0.43f),
-                    new HexSkyMesh(this, 69, 2.4f, 0.12f, 5, Color.valueOf("f7cba4").a(0.75f), 3, 0.7f, 1f, 0.45f)
+                    new HexSkyMesh(this, 42, 2f, 0.13f, 5, Color.valueOf("edcbac").a(0.75f), 3, 0.7f, 1f, 0.43f),
+                    new HexSkyMesh(this, 69, 2.4f, 0.12f, 5, Color.valueOf("dfb794").a(0.75f), 3, 0.7f, 1f, 0.45f)
             );
 
             alwaysUnlocked = true;
@@ -46,6 +46,7 @@ public class PsammosPlanets {
             sectorSeed = 1204;
             bloom = false;
             visible = true;
+            landCloudColor = Color.valueOf("edcbac");
             atmosphereColor = Color.valueOf("1c513aaa");
             iconColor = Color.valueOf("31ffa4");
             hasAtmosphere = true;
