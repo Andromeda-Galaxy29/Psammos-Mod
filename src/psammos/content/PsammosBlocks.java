@@ -1984,13 +1984,13 @@ public class PsammosBlocks {
             requirements(Category.crafting, with(PsammosItems.osmium, 15, PsammosItems.silver, 20, PsammosItems.quartz, 40, PsammosItems.refinedMetal, 20));
 
             size = 2;
-            squareSprite = true;
+            squareSprite = false;
             hasLiquids = true;
             liquidCapacity = 15;
-
+            
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
-                    new DrawLiquidTile(PsammosLiquids.coldWater),
+                    new DrawLiquidTile(PsammosLiquids.coldWater, 1),
                     new DrawDefault(),
                     new DrawHeatOutput()
             );
