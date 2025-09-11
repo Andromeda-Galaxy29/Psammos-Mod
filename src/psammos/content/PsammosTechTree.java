@@ -23,7 +23,7 @@ public class PsammosTechTree {
 
                             });
                         });
-                        node(heatproofContainer, Seq.with(new Research(refinery)), ()->{
+                        node(heatproofContainer, Seq.with(new OnSector(excavationSite), new Research(refinery)), ()->{
                             node(heatproofUnloader, ()->{
 
                             });
@@ -33,14 +33,14 @@ public class PsammosTechTree {
 
                     });
                 });
-                node(heatproofPayloadConveyor, Seq.with(new OnSector(driedRiver), new Research(refinery)), ()->{
+                node(heatproofPayloadConveyor, Seq.with(new OnSector(excavationSite), new Research(specialistUnitForge), new Research(refinery)), ()->{
                     node(heatproofPayloadRouter, ()->{
                         node(heatproofPayloadGate, ()->{
 
                         });
                     });
                 });
-                node(platedConveyor, Seq.with(new Research(memoryAlloyCrucible)), ()->{
+                node(platedConveyor, Seq.with(new OnSector(scaldedPlains), new Research(memoryAlloyCrucible)), ()->{
 
                 });
             });
@@ -55,7 +55,7 @@ public class PsammosTechTree {
 
                                     });
                                 });
-                                node(heatproofLiquidContainer, ()->{
+                                node(heatproofLiquidContainer, Seq.with(new OnSector(excavationSite), new Research(refinery)), ()->{
                                     node(heatproofLiquidTank, ()->{
 
                                     });
@@ -65,12 +65,12 @@ public class PsammosTechTree {
 
                             });
                         });
-                        node(vacuumPipe, Seq.with(new Research(aerogelPressurizer)), ()->{
+                        node(vacuumPipe, Seq.with(new OnSector(erodedDesert), new Research(aerogelPressurizer)), ()->{
 
                         });
                     });
                     node(centrifuge, Seq.with(new OnSector(quartzValley)), ()->{
-                        node(heatExchanger, Seq.with(new Research(refinery)), ()->{
+                        node(heatExchanger, Seq.with(new OnSector(excavationSite), new Research(refinery)), ()->{
                             node(heatPump, Seq.with(new OnSector(erodedDesert), new Research(aerogelPressurizer)), ()->{
                                 node(heatPumpRouter, ()->{
 
@@ -78,25 +78,25 @@ public class PsammosTechTree {
                             });
                             node(ozoneHeater, Seq.with(new OnSector(oilRefiningFacility), new Research(thermolysisChamber)), ()->{
                                 node(peatHeater, Seq.with(new OnSector(erodedDesert), new Research(aerogelPressurizer)), ()->{
-                                    node(ammoniaHeater, Seq.with(new Research(ammoniaCompressor)), ()->{
+                                    node(ammoniaHeater, Seq.with(new OnSector(erodedDesert), new Research(ammoniaCompressor)), ()->{
 
                                     });
                                 });
                             });
                         });
-                        node(purifier, Seq.with(new Research(ammoniaCompressor)), ()->{
+                        node(purifier, Seq.with(new OnSector(erodedDesert), new Research(ammoniaCompressor)), ()->{
 
                         });
                     });
                 });
 
                 node(excavatorDrill, Seq.with(new OnSector(quartzValley)), ()->{
-                    node(quarryDrill, Seq.with(new OnSector(scaldedPlains), new Research(memoryAlloyCrucible)),  ()->{
+                    node(quarryDrill, Seq.with(new OnSector(scaldedPlains), new Research(memoryAlloyCrucible)), ()->{
 
                     });
                 });
 
-                node(detonationDrill, Seq.with(new OnSector(ancientSwamp), new Research(blastManufacturer)),  ()->{
+                node(detonationDrill, Seq.with(new OnSector(ancientSwamp), new Research(blastManufacturer)), ()->{
 
                 });
 
@@ -115,7 +115,7 @@ public class PsammosTechTree {
                     node(piezoelectricGenerator, ()->{
                         node(impulseGenerator, Seq.with(new OnSector(ancientSwamp), new Research(blastManufacturer)), ()->{
                             node(liquidFuelBurner, Seq.with(new OnSector(oilRefiningFacility), new Research(oilDistillationTower), new Research(thermolysisChamber)), ()->{
-                                node(thermoelectricGenerator, Seq.with(new Research(heatExchanger)), ()->{
+                                node(thermoelectricGenerator, Seq.with(new OnSector(oilRefiningFacility), new Research(heatExchanger)), ()->{
 
                                 });
                                 node(heatEngine, Seq.with(new OnSector(scaldedPlains), new Research(ammoniaCompressor), new Research(memoryAlloyCrucible)), ()->{
@@ -129,7 +129,7 @@ public class PsammosTechTree {
                             node(siliconSynthesisChamber, Seq.with(new OnSector(scaldedPlains), new Research(memoryAlloyCrucible)),  ()->{
 
                             });
-                            node(thermolysisChamber, Seq.with(new OnSector(driedRiver)), ()->{
+                            node(thermolysisChamber, Seq.with(new OnSector(excavationSite)), ()->{
                                 node(refinery, ()->{
                                     node(atmosphericSeparator, Seq.with(new OnSector(ancientSwamp)), ()->{
 
@@ -191,13 +191,13 @@ public class PsammosTechTree {
 
                                 });
                             });
-                            node(floatingWall, Seq.with(new OnSector(erodedDesert)), ()->{
+                            node(floatingWall, Seq.with(new OnSector(erodedDesert), new Research(aerogelPressurizer)), ()->{
                                 node(floatingWallLarge, ()->{
 
                                 });
                             });
-                            node(memoryWall, Seq.with(new OnSector(scaldedPlains)), ()->{
-                                node(memoryWallLarge, Seq.with(new OnSector(scaldedPlains)), ()->{
+                            node(memoryWall, Seq.with(new OnSector(scaldedPlains), new Research(memoryAlloyCrucible)), ()->{
+                                node(memoryWallLarge, ()->{
 
                                 });
                             });
@@ -206,16 +206,16 @@ public class PsammosTechTree {
                 });
                 node(disseminate, ()->{
                     node(discharge, Seq.with(new OnSector(ancientSwamp)), ()->{
-                        node(dawn, Seq.with(new OnSector(erodedDesert)), ()->{
+                        node(dawn, Seq.with(new OnSector(erodedDesert), new Research(aerogelPressurizer), new Research(steamReformer)), ()->{
 
                         });
                     });
                 });
                 node(hurl, Seq.with(new OnSector(quartzValley)), ()->{
-                    node(gunslinger, Seq.with(new OnSector(ancientSwamp)), ()->{
+                    node(gunslinger, Seq.with(new OnSector(ancientSwamp), new Research(blastManufacturer)), ()->{
                         node(spray, ()->{
-                            node(burst, Seq.with(new OnSector(erodedDesert)), ()->{
-                                node(burden, Seq.with(new OnSector(searingChasms)), ()->{
+                            node(burst, Seq.with(new OnSector(erodedDesert), new Research(aerogelPressurizer)), ()->{
+                                node(burden, Seq.with(new OnSector(searingChasms), new Research(memoryAlloyCrucible)), ()->{
 
                                 });
                             });
@@ -234,7 +234,7 @@ public class PsammosTechTree {
                 });
             });
 
-            node(coreDune, Seq.with(new OnSector(oilRefiningFacility)), ()->{
+            node(coreDune, Seq.with(new SectorComplete(oilRefiningFacility)), ()->{
 
             });
 
@@ -265,7 +265,7 @@ public class PsammosTechTree {
                         node(sciur, ()->{
 
                         });
-                        node(scoutUnitRecombiner, Seq.with(new SectorComplete(ruinousHollow)), ()->{
+                        node(scoutUnitRecombiner, Seq.with(new OnSector(scaldedPlains)), ()->{
                             node(glirid, ()->{
 
                             });
