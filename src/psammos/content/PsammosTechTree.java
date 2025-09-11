@@ -297,37 +297,36 @@ public class PsammosTechTree {
             node(landing, ()->{
                 node(quartzValley, Seq.with(new SectorComplete(landing)), ()->{
                     node(driedRiver, Seq.with(new SectorComplete(quartzValley)), ()->{
-                        node(ancientSwamp, Seq.with(new SectorComplete(driedRiver)), ()->{
-                            node(oilRefiningFacility, Seq.with(new SectorComplete(ancientSwamp)), ()->{
-                                node(erodedDesert, Seq.with(new SectorComplete(oilRefiningFacility), new Research(coreDune)), ()->{
-                                    node(ruinousHollow, Seq.with(new SectorComplete(erodedDesert)), ()->{
-                                        node(scaldedPlains, Seq.with(new SectorComplete(ruinousHollow), new SectorComplete(craterousRange)), ()->{
-                                            node(searingChasms, Seq.with(new SectorComplete(scaldedPlains), new SectorComplete(craterousRange)), ()->{
+                        node(excavationSite, Seq.with(new SectorComplete(driedRiver)), ()->{
+                            node(ancientSwamp, Seq.with(new SectorComplete(excavationSite)), ()->{
+                                node(evaporatedBasin, Seq.with(new SectorComplete(ancientSwamp)), ()->{
+                                    node(oilRefiningFacility, Seq.with(new SectorComplete(evaporatedBasin)), ()->{
+                                        node(erodedDesert, Seq.with(new SectorComplete(oilRefiningFacility), new Research(coreDune)), ()->{
+                                            node(ruinousHollow, Seq.with(new SectorComplete(erodedDesert)), ()->{
+                                                node(scaldedPlains, Seq.with(new SectorComplete(ruinousHollow), new SectorComplete(craterousRange)), ()->{
+                                                    node(searingChasms, Seq.with(new SectorComplete(scaldedPlains)), ()->{
+
+                                                    });
+                                                });
+                                            });
+                                            node(enfer, Seq.with(new SectorComplete(erodedDesert)), ()->{
 
                                             });
                                         });
-                                    });
-                                    node(enfer, Seq.with(new SectorComplete(erodedDesert)), ()->{
+                                        node(ferricSummit, Seq.with(new SectorComplete(oilRefiningFacility)), ()->{
+                                            node(craterousRange, Seq.with(new SectorComplete(ferricSummit), new SectorComplete(ruinousHollow)), ()->{
 
-                                    });
-                                });
-                                node(ferricSummit, Seq.with(new SectorComplete(oilRefiningFacility)), ()->{
-                                    node(craterousRange, Seq.with(new SectorComplete(ferricSummit), new SectorComplete(ruinousHollow)), ()->{
+                                            });
+                                        });
+                                        node(coruscatedCrevice, Seq.with(new SectorComplete(oilRefiningFacility), new SectorComplete(ferricSummit)), ()->{
 
+                                        });
                                     });
-                                });
-                            });
-                            node(evaporatedBasin, Seq.with(new SectorComplete(ancientSwamp)), ()->{
-                                node(coruscatedCrevice, Seq.with(new SectorComplete(evaporatedBasin), new SectorComplete(ferricSummit)), ()->{
-
                                 });
                             });
-                        });
-                        node(excavationSite, Seq.with(new SectorComplete(driedRiver)), ()->{
+                            node(shatteredPathway, Seq.with(new SectorComplete(excavationSite)), ()->{
 
-                        });
-                        node(shatteredPathway, Seq.with(new SectorComplete(driedRiver)), ()->{
-
+                            });
                         });
                     });
                     node(cavern, Seq.with(new SectorComplete(quartzValley)), ()->{
