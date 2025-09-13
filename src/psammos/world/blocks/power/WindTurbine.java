@@ -94,7 +94,7 @@ public class WindTurbine extends PowerGenerator {
         public void draw(){
             Draw.rect(region, x, y, 0);
             Draw.z(Layer.blockOver + 0.125f);
-            Draw.rect(rotatorRegion, x, y, turbineRotation);
+            Drawf.spinSprite(rotatorRegion, x, y, turbineRotation);
             Draw.rect(topRegion, x, y, 0);
         }
 
