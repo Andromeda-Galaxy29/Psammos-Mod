@@ -2307,7 +2307,7 @@ public class PsammosBlocks {
             requirements(Category.units, with(PsammosItems.osmium, 50, PsammosItems.silver, 20, Items.silicon, 25));
             size = 3;
             configurable = false;
-            plans.add(new UnitPlan(PsammosUnitTypes.tip, 1080, with(PsammosItems.osmium, 25, Items.silicon, 15)));
+            plans.add(new UnitPlan(PsammosUnitTypes.glaive, 1080, with(PsammosItems.osmium, 25, Items.silicon, 15)));
             researchCost = with(PsammosItems.osmium, 120, PsammosItems.silver, 100, Items.silicon, 100);
             consumePower(1.4f);
         }};
@@ -2362,7 +2362,7 @@ public class PsammosBlocks {
             constructTime = 60f * 28f;
 
             upgrades.addAll(
-                    new UnitType[]{PsammosUnitTypes.tip, PsammosUnitTypes.pike}
+                    new UnitType[]{PsammosUnitTypes.glaive, PsammosUnitTypes.pike}
             );
         }};
 

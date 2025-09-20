@@ -9,7 +9,6 @@ import arc.math.Mathf;
 import arc.math.geom.Vec2;
 import arc.struct.Seq;
 import arc.util.Scaling;
-import arc.util.Strings;
 import arc.util.Tmp;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
@@ -26,14 +25,15 @@ import mindustry.world.Block;
 import mindustry.world.blocks.environment.TallBlock;
 import mindustry.world.blocks.heat.HeatConsumer;
 import mindustry.world.meta.Stat;
-import mindustry.world.meta.StatCat;
 import mindustry.world.meta.StatUnit;
 import mindustry.world.meta.StatValues;
 import psammos.graphics.PDraw;
-import psammos.world.blocks.environment.ExplodableBlock;
 
 import static mindustry.Vars.*;
 
+
+//TODO: When placed directly adjacent to a block it produces items every frame
+//And the time of production is not consistent
 public class MechanicalArm extends Block {
 
     public float heatRequirement = 10f;

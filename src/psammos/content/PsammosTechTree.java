@@ -253,7 +253,7 @@ public class PsammosTechTree {
                     });
                 });
                 node(assaultUnitForge, ()->{
-                    node(tip, ()->{
+                    node(glaive, ()->{
 
                     });
                     node(assaultUnitRecombiner, Seq.with(new OnSector(ruinousHollow)), ()->{

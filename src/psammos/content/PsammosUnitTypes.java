@@ -39,7 +39,7 @@ public class PsammosUnitTypes {
     fang, jaw, maw, gorge, gluttony,
 
     //Assault
-    tip, pike, spear, javelin, trident,
+    glaive, pike, spear, javelin, trident,
 
     //Support
     sine, helix, trisect, quadrifol, lemniscate,
@@ -111,7 +111,7 @@ public class PsammosUnitTypes {
             armor = 1;
             itemCapacity = 50;
             outlineColor = PPal.unitOutline;
-            engineOffset = 5.5f;
+            engineOffset = 5f;
             faceTarget = false;
             mineTier = 2;
             mineSpeed = 5;
@@ -121,7 +121,7 @@ public class PsammosUnitTypes {
 
             weapons.addAll(
                     new Weapon("psammos-ascent-gun"){{
-                        x = 2.5f;
+                        x = 3f;
                         y = -2.5f;
                         reload = 14;
                         mirror = true;
@@ -369,7 +369,7 @@ public class PsammosUnitTypes {
         ((SwarmAbility) maw.abilities.get(0)).swarmWhitelist.addAll(fang, jaw, maw, gorge, gluttony);
         ((SwarmAbility) gorge.abilities.get(0)).swarmWhitelist.addAll(fang, jaw, maw, gorge, gluttony);
 
-        tip = new UnitType("3a-tip"){{
+        glaive = new UnitType("3a-tip"){{
             researchCostMultiplier = 0;
             constructor = LegsUnit::create;
 
