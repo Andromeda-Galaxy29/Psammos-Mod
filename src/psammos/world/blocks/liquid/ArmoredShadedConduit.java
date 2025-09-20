@@ -22,7 +22,6 @@ public class ArmoredShadedConduit extends ShadedConduit{
     public class ArmoredShadedConduitBuild extends ShadedConduitBuild{
         @Override
         public boolean acceptLiquid(Building source, Liquid liquid){
-            //TODO the proximity check is a super hacky solution for block-to-conduit through a junction...
             return super.acceptLiquid(source, liquid) && (tile == null || source.block instanceof Conduit || source.block instanceof DirectionLiquidBridge || source.block instanceof LiquidJunction ||
                     source.tile.absoluteRelativeTo(tile.x, tile.y) == rotation || !source.proximity.contains(this));
         }
