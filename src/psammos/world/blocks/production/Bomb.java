@@ -95,7 +95,7 @@ public class Bomb extends Block {
             table.table(c -> {
                 int i = 0;
                 for(Block block : content.blocks()){
-                    if(!(block instanceof ExplodableBlock)) continue;
+                    if(!(block instanceof ExplodableBlock && (indexer.isBlockPresent(block) || state.isMenu()))) continue;
                     if(((ExplodableBlock) block).hardness() > tier) continue;
                     c.table(Styles.grayPanel, b -> { ((ExplodableBlock)block).setBombStatsTable(b); }).growX().pad(5);
                     if(++i % 2 == 0) c.row();
