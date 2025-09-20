@@ -2848,6 +2848,7 @@ public class PsammosBlocks {
         crystalDesertGlass = new TallBlock("crystal-desert-glass"){{
             variants = 2;
             clipSize = 128f;
+            itemDrop = PsammosItems.desertGlassShard;
         }};
 
         //Legacy

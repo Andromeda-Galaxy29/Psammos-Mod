@@ -7,7 +7,7 @@ import mindustry.type.*;
 
 public class PsammosItems {
     public static Item
-    osmium, silver, quartz, refinedMetal, peat, aerogel, memoryAlloy;
+    osmium, silver, quartz, refinedMetal, peat, aerogel, memoryAlloy, desertGlassShard;
 
     public static final Seq<Item> psammosItems = new Seq<>();
 
@@ -41,8 +41,13 @@ public class PsammosItems {
             charge = 0.05f;
         }};
 
+        desertGlassShard = new Item("desert-glass-shard", Color.valueOf("#82f3c8")) {{
+            charge = 0.5f;
+            radioactivity = 0.01f;
+        }};
+
         psammosItems.addAll(
-                osmium, silver, quartz, refinedMetal, peat, aerogel, memoryAlloy
+                osmium, silver, quartz, refinedMetal, peat, aerogel, memoryAlloy, desertGlassShard
         );
     }
 }
