@@ -46,6 +46,7 @@ import psammos.world.blocks.units.*;
 import psammos.world.draw.*;
 import psammos.entities.bullet.*;
 
+import static mindustry.Vars.tilesize;
 import static mindustry.type.ItemStack.*;
 
 // Some of the block IDs have number prefixes before them.
@@ -57,7 +58,7 @@ public class PsammosBlocks {
     cross, disseminate, hurl, confine, influence, gunslinger, spray, seize, discharge, burst, overflow, dawn, burden,
 
     //Drills/Production
-    osmiumDrill, detonationDrill, excavatorDrill, quarryDrill, seismicBomb, ammoniaBomb,
+    osmiumDrill, detonationDrill, excavatorDrill, quarryDrill, seismicBomb, ammoniaBomb, crystalSampler,
 
     //Distribution
     heatproofConveyor, platedConveyor, heatproofJunction, heatproofRouter,
@@ -1255,6 +1256,19 @@ public class PsammosBlocks {
             shake = 10f;
 
             consumeLiquid(PsammosLiquids.ammonia, 1f/60f);
+        }};
+
+        crystalSampler = new MechanicalArm("crystal-sampler"){{
+            requirements(Category.production, with(PsammosItems.refinedMetal, 20, PsammosItems.memoryAlloy, 20, PsammosItems.aerogel, 15));
+
+            size = 2;
+            squareSprite = false;
+            baseColor = PPal.memoryAlloy;
+            range = tilesize * 5;
+            maxEfficiency = 3f;
+            armSpeed = 0.03f;
+            outputAmount = 2;
+            itemCapacity = 30;
         }};
 
         // Distribution
@@ -2818,6 +2832,7 @@ public class PsammosBlocks {
         crystalQuartz = new TallBlock("crystal-quartz"){{
             variants = 2;
             clipSize = 128f;
+            itemDrop = PsammosItems.quartz;
         }};
 
         crystalDesertGlass = new TallBlock("crystal-desert-glass"){{
