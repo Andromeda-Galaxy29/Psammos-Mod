@@ -4,29 +4,24 @@ import arc.graphics.Color;
 import mindustry.game.Team;
 
 public class PsammosTeams {
-    public static Team erimos;
+    public static Team erimos = Team.blue;
 
     public static void load(){
-        erimos = editTeam(Team.blue, "\uECC3", "erimos", Color.valueOf("6c87fd"),
-                Color.valueOf("6c87fd"),
-                Color.valueOf("5a6dda"),
-                Color.valueOf("5a41ab")
+        erimos = editTeam(erimos, "erimos", Color.valueOf("7494e5"),
+                Color.valueOf("90baed"),
+                Color.valueOf("7590d3"),
+                Color.valueOf("5557a7")
         );
     }
 
-    public static Team editTeam(Team team, String icon, String name, Color color, Color pal1, Color pal2, Color pal3){
-        team.emoji = icon;
+    public static void init(){
+        erimos.emoji = "\uECC3";
+    }
+
+    public static Team editTeam(Team team, String name, Color color, Color pal1, Color pal2, Color pal3){
         team.name = name;
+        team.setPalette(pal1, pal2, pal3);
         team.color.set(color);
-        team.palette[0] = pal1;
-        team.palette[1] = pal2;
-        team.palette[2] = pal3;
-
-        for(int i = 0; i < 3; i++){
-            team.palettei[i] = team.palette[i].rgba();
-        }
-
-        team.hasPalette = true;
 
         return team;
     }
