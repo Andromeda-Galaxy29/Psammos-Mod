@@ -27,6 +27,9 @@ public class PsammosTechTree {
                             node(heatproofUnloader, ()->{
 
                             });
+                            node(heatproofVault, Seq.with(new SectorComplete(scaldedPlains), new Research(memoryAlloyCrucible)), ()->{
+
+                            });
                         });
                     });
                     node(heatproofTunnelConveyor, ()->{

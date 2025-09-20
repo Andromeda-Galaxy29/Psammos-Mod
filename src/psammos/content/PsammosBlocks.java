@@ -91,7 +91,7 @@ public class PsammosBlocks {
     heatproofPayloadConveyor, heatproofPayloadRouter, heatproofPayloadGate,
 
     //Effect/Storage
-    coreDust, coreDune, heatproofContainer, heatproofUnloader, healingProjector,
+    coreDust, coreDune, heatproofContainer, heatproofVault, heatproofUnloader, healingProjector,
 
     //Logic
     heatproofMessage,
@@ -2497,6 +2497,16 @@ public class PsammosBlocks {
             health = 250;
             size = 2;
             itemCapacity = 400;
+            squareSprite = false;
+        }};
+
+        heatproofVault = new StorageBlock("heatproof-vault"){{
+            requirements(Category.effect, with(PsammosItems.refinedMetal, 200, PsammosItems.memoryAlloy, 80));
+            researchCostMultiplier = 0.5f;
+
+            health = 520;
+            size = 3;
+            itemCapacity = 1080;
             squareSprite = false;
         }};
 
