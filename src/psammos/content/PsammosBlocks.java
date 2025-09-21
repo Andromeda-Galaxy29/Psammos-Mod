@@ -1660,12 +1660,14 @@ public class PsammosBlocks {
         silverWall = new Wall("2a-silver-wall"){{
             requirements(Category.defense, with(PsammosItems.silver, 6));
             health = 100 * wallHealthMultiplier;
+            conductivePower = true;
         }};
 
         silverWallLarge = new Wall("2b-silver-wall-large"){{
             requirements(Category.defense, mult(silverWall.requirements, 4));
             health = 100 * wallHealthMultiplier * 4;
             size = 2;
+            conductivePower = true;
         }};
 
         refinedMetalWall = new Wall("3a-refined-metal-wall"){{
