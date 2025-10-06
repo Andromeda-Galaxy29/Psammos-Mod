@@ -11,7 +11,7 @@ import mindustry.ui.Fonts;
 
 public class PsammosIcons {
 
-    public static void load(){
+    public static void init(){
         loadIcon(60611, "psammos-team-blue"); // \uECC3
         loadIcon(60612, "psammos-quicksand-slowed"); // \uECC4
         loadIcon(60613, "psammos-infested"); // \uECC5

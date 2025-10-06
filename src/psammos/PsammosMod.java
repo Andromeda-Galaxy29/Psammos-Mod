@@ -9,7 +9,6 @@ import mindustry.content.TechTree;
 import mindustry.ctype.UnlockableContent;
 import mindustry.game.*;
 import mindustry.gen.*;
-import mindustry.type.*;
 import mindustry.ui.fragments.*;
 import psammos.content.*;
 import mindustry.game.EventType.*;
@@ -33,8 +32,8 @@ public class PsammosMod extends Mod{
         Liquids.arkycite.coolant = false;
         Liquids.nitrogen.coolant = false;
 
-        PsammosIcons.load();
-        PsammosTeams.load();
+        PsammosIcons.init();
+        PsammosTeams.init();
 
         loadSettings();
 
@@ -67,6 +66,8 @@ public class PsammosMod extends Mod{
 
     @Override
     public void loadContent(){
+        PsammosTeams.load();
+
         PsammosShaders.load();
         PsammosCacheLayers.load();
 

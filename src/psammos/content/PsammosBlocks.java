@@ -46,6 +46,7 @@ import psammos.world.blocks.units.*;
 import psammos.world.draw.*;
 import psammos.entities.bullet.*;
 
+import static mindustry.Vars.tilesize;
 import static mindustry.type.ItemStack.*;
 
 // Some of the block IDs have number prefixes before them.
@@ -57,7 +58,7 @@ public class PsammosBlocks {
     cross, disseminate, hurl, confine, influence, gunslinger, spray, seize, discharge, burst, overflow, dawn, burden,
 
     //Drills/Production
-    osmiumDrill, detonationDrill, excavatorDrill, quarryDrill, seismicBomb, ammoniaBomb,
+    osmiumDrill, detonationDrill, excavatorDrill, quarryDrill, seismicBomb, ammoniaBomb, crystalSampler,
 
     //Distribution
     heatproofConveyor, platedConveyor, heatproofJunction, heatproofRouter,
@@ -90,7 +91,7 @@ public class PsammosBlocks {
     heatproofPayloadConveyor, heatproofPayloadRouter, heatproofPayloadGate,
 
     //Effect/Storage
-    coreDust, coreDune, heatproofContainer, heatproofUnloader, healingProjector,
+    coreDust, coreDune, heatproofContainer, heatproofVault, heatproofUnloader, healingProjector,
 
     //Logic
     heatproofMessage,
@@ -1257,6 +1258,19 @@ public class PsammosBlocks {
             consumeLiquid(PsammosLiquids.ammonia, 1f/60f);
         }};
 
+        crystalSampler = new MechanicalArm("crystal-sampler"){{
+            requirements(Category.production, with(PsammosItems.refinedMetal, 20, PsammosItems.memoryAlloy, 20, PsammosItems.aerogel, 15));
+
+            size = 2;
+            squareSprite = false;
+            baseColor = PPal.memoryAlloy;
+            range = tilesize * 5;
+            maxEfficiency = 3f;
+            armSpeed = 0.03f;
+            outputAmount = 2;
+            itemCapacity = 30;
+        }};
+
         // Distribution
 
         heatproofConveyor = new ShadedConveyor("1a-osmium-conveyor"){{
@@ -1646,12 +1660,14 @@ public class PsammosBlocks {
         silverWall = new Wall("2a-silver-wall"){{
             requirements(Category.defense, with(PsammosItems.silver, 6));
             health = 100 * wallHealthMultiplier;
+            conductivePower = true;
         }};
 
         silverWallLarge = new Wall("2b-silver-wall-large"){{
             requirements(Category.defense, mult(silverWall.requirements, 4));
             health = 100 * wallHealthMultiplier * 4;
             size = 2;
+            conductivePower = true;
         }};
 
         refinedMetalWall = new Wall("3a-refined-metal-wall"){{
@@ -1984,13 +2000,13 @@ public class PsammosBlocks {
             requirements(Category.crafting, with(PsammosItems.osmium, 15, PsammosItems.silver, 20, PsammosItems.quartz, 40, PsammosItems.refinedMetal, 20));
 
             size = 2;
-            squareSprite = true;
+            squareSprite = false;
             hasLiquids = true;
             liquidCapacity = 15;
-
+            
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
-                    new DrawLiquidTile(PsammosLiquids.coldWater),
+                    new DrawLiquidTile(PsammosLiquids.coldWater, 1),
                     new DrawDefault(),
                     new DrawHeatOutput()
             );
@@ -2293,7 +2309,7 @@ public class PsammosBlocks {
             requirements(Category.units, with(PsammosItems.osmium, 50, PsammosItems.silver, 20, Items.silicon, 25));
             size = 3;
             configurable = false;
-            plans.add(new UnitPlan(PsammosUnitTypes.tip, 1080, with(PsammosItems.osmium, 25, Items.silicon, 15)));
+            plans.add(new UnitPlan(PsammosUnitTypes.glaive, 1080, with(PsammosItems.osmium, 25, Items.silicon, 15)));
             researchCost = with(PsammosItems.osmium, 120, PsammosItems.silver, 100, Items.silicon, 100);
             consumePower(1.4f);
         }};
@@ -2348,7 +2364,7 @@ public class PsammosBlocks {
             constructTime = 60f * 28f;
 
             upgrades.addAll(
-                    new UnitType[]{PsammosUnitTypes.tip, PsammosUnitTypes.pike}
+                    new UnitType[]{PsammosUnitTypes.glaive, PsammosUnitTypes.pike}
             );
         }};
 
@@ -2483,6 +2499,16 @@ public class PsammosBlocks {
             health = 250;
             size = 2;
             itemCapacity = 400;
+            squareSprite = false;
+        }};
+
+        heatproofVault = new StorageBlock("heatproof-vault"){{
+            requirements(Category.effect, with(PsammosItems.refinedMetal, 200, PsammosItems.memoryAlloy, 80));
+            researchCostMultiplier = 0.5f;
+
+            health = 520;
+            size = 3;
+            itemCapacity = 1080;
             squareSprite = false;
         }};
 
@@ -2818,11 +2844,13 @@ public class PsammosBlocks {
         crystalQuartz = new TallBlock("crystal-quartz"){{
             variants = 2;
             clipSize = 128f;
+            itemDrop = PsammosItems.quartz;
         }};
 
         crystalDesertGlass = new TallBlock("crystal-desert-glass"){{
             variants = 2;
             clipSize = 128f;
+            itemDrop = PsammosItems.desertGlassShard;
         }};
 
         //Legacy
