@@ -32,8 +32,7 @@ import psammos.graphics.PDraw;
 import static mindustry.Vars.*;
 
 
-//TODO: When placed directly adjacent to a block it produces items every frame
-//And the time of production is not consistent
+//This code is probably attrociously bad but if it works it works I guess
 public class MechanicalArm extends Block {
 
     public float heatRequirement = 10f;
@@ -43,7 +42,9 @@ public class MechanicalArm extends Block {
 
     public int outputAmount = 5;
     public float range = tilesize * 5;
+    /**Visual speed of the arm*/
     public float armSpeed = 0.05f;
+    public float produceTime = 60f;
 
     public Color baseColor = Color.white;
     public float itemOffset = 5f;
@@ -76,10 +77,10 @@ public class MechanicalArm extends Block {
         super.setBars();
 
         addBar("heat", (MechanicalArmBuild entity) ->
-                new Bar(() ->
-                        Core.bundle.format("bar.heatpercent", (int)(entity.heat + 0.01f), (int)(entity.efficiencyScale() * 100 + 0.01f)),
-                        () -> Pal.lightOrange,
-                        () -> entity.heat / heatRequirement));
+            new Bar(() ->
+                Core.bundle.format("bar.heatpercent", (int)(entity.heat + 0.01f), (int)(entity.efficiencyScale() * 100 + 0.01f)),
+                () -> Pal.lightOrange,
+                () -> entity.heat / heatRequirement));
     }
 
     @Override
@@ -132,7 +133,7 @@ public class MechanicalArm extends Block {
         for (int ix = x1; ix <= x2; ix++) {
             for (int iy = y1; iy <= y2; iy++) {
                 if (new Vec2(x * tilesize + offset, y * tilesize + offset).dst(ix * tilesize, iy * tilesize) > range) continue;
-                if (world.tile(ix, iy).block() instanceof TallBlock tb && tb.itemDrop != null) {
+                if (world.tile(ix, iy) != null && world.tile(ix, iy).block() instanceof TallBlock tb && tb.itemDrop != null) {
                     targets.add(new Vec2(ix * tilesize, iy * tilesize));
                 }
             }
@@ -147,11 +148,11 @@ public class MechanicalArm extends Block {
 
         public Vec2 armPos = null;
         public Vec2 target = null;
+
         public Seq<Vec2> targets = new Seq<>();
         public int targetIndex = 0;
-        public boolean isReturning = true;
 
-        Item currentItem;
+        public float progress = 0;
 
         @Override
         public void updateTile() {
@@ -164,46 +165,56 @@ public class MechanicalArm extends Block {
                 });
             }
 
+            if(efficiency > 0) {
+                progress += getProgressIncrease(produceTime);
+            }
+
             if (armPos == null) armPos = new Vec2(x - tilesize * size / 2f, y + tilesize * size / 2f);
-            if (target == null) target = armPos;
 
             //TODO: Maybe don't make this run every frame? Might be laggy
             targets = getPossibleTargets(tileX(), tileY());
             if (targets.isEmpty()) {
                 return;
             }
+            if (target == null){
+                target = targets.get(0);
+            }
 
-            // Reached target
-            if (armPos.dst(target) <= tilesize){
-                if (isReturning) {
-                    if (items.total() + outputAmount <= itemCapacity) {
-                        if (currentItem != null){
-                            consume();
-                            Fx.itemTransfer.create(armPos.x, armPos.y, 0, currentItem.color, new Vec2(x, y));
-                            for(int i = 0; i < outputAmount; i++){
-                                offload(currentItem);
-                            }
-                        }
-
-                        // Start moving to next available target
-                        targetIndex += 1;
-                        if (targetIndex >= targets.size) {
-                            targetIndex = 0;
-                        }
-                        target = targets.get(targetIndex);
-
-                        isReturning = false;
-                    }
-                } else {
-                    // Return arm
-                    currentItem = world.tileWorld(target.x, target.y).block().itemDrop;
-                    target = new Vec2(x, y);
-                    isReturning = true;
+            // Move arm to target
+            if (progress >= 0.5f) {
+                if (armPos.dst(x, y) >= tilesize) {
+                    armPos.x = Mathf.lerpDelta(armPos.x, x, armSpeed * efficiency);
+                    armPos.y = Mathf.lerpDelta(armPos.y, y, armSpeed * efficiency);
                 }
-            // Move to target
             }else {
-                armPos.x = Mathf.lerpDelta(armPos.x, target.x, armSpeed * efficiency);
-                armPos.y = Mathf.lerpDelta(armPos.y, target.y, armSpeed * efficiency);
+                if (target != null && armPos.dst(target) >= tilesize) {
+                    armPos.x = Mathf.lerpDelta(armPos.x, target.x, armSpeed * efficiency);
+                    armPos.y = Mathf.lerpDelta(armPos.y, target.y, armSpeed * efficiency);
+                }
+            }
+
+            // Finished producing
+            if (progress >= 1f) {
+                if (target != null && items.total() + outputAmount <= itemCapacity) {
+                    Item currentItem = world.tileWorld(target.x, target.y).block().itemDrop;
+
+                    if (currentItem != null){
+                        consume();
+                        Fx.itemTransfer.create(armPos.x, armPos.y, 0, currentItem.color, new Vec2(x, y));
+                        for(int i = 0; i < outputAmount; i++){
+                            offload(currentItem);
+                        }
+                    }
+
+                    // Start moving to next available target
+                    targetIndex += 1;
+                    if (targetIndex >= targets.size) {
+                        targetIndex = 0;
+                    }
+                    target = targets.get(targetIndex);
+
+                    progress -= 1f;
+                }
             }
         }
 
@@ -231,10 +242,14 @@ public class MechanicalArm extends Block {
             PDraw.spinLineSprite(armRegion, (armPos.x + jointPos.x) / 2f, (armPos.y + jointPos.y) / 2f, armAngle + angleOffset);
             Draw.rect(jointRegion, jointPos.x, jointPos.y);
 
-            Tmp.v1.set(armPos).sub(jointPos).nor().scl(itemOffset);
-            if (currentItem != null && isReturning) {
-                Draw.rect(currentItem.fullIcon, armPos.x + Tmp.v1.x, armPos.y + Tmp.v1.y, itemSize, itemSize);
+            if (target != null) {
+                Item currentItem = world.tileWorld(target.x, target.y).block().itemDrop;
+                if (currentItem != null && progress >= 0.5f) {
+                    Tmp.v1.set(armPos).sub(jointPos).nor().scl(itemOffset);
+                    Draw.rect(currentItem.fullIcon, armPos.x + Tmp.v1.x, armPos.y + Tmp.v1.y, itemSize, itemSize);
+                }
             }
+
             PDraw.spinLineSprite(clawRegion, armPos.x, armPos.y, armAngle + angleOffset);
             Draw.rect(jointRegion, armPos.x, armPos.y);
         }
@@ -289,8 +304,7 @@ public class MechanicalArm extends Block {
             super.read(read, revision);
             armPos = new Vec2(read.f(), read.f());
             target = new Vec2(read.f(), read.f());
-            isReturning = read.bool();
-            currentItem = content.item(read.i());
+            progress = read.f();
         }
 
         @Override
@@ -302,8 +316,7 @@ public class MechanicalArm extends Block {
             write.f(target.x);
             write.f(target.y);
 
-            write.bool(isReturning);
-            write.i(currentItem.id);
+            write.f(progress);
         }
     }
 }

@@ -1267,6 +1267,7 @@ public class PsammosBlocks {
             range = tilesize * 5;
             maxEfficiency = 3f;
             armSpeed = 0.03f;
+            produceTime = 90f;
             outputAmount = 2;
             itemCapacity = 30;
         }};
