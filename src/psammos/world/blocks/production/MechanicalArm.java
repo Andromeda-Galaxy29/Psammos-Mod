@@ -9,6 +9,7 @@ import arc.math.Mathf;
 import arc.math.geom.Vec2;
 import arc.struct.Seq;
 import arc.util.Scaling;
+import arc.util.Strings;
 import arc.util.Tmp;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
@@ -76,6 +77,9 @@ public class MechanicalArm extends Block {
     public void setBars(){
         super.setBars();
 
+        addBar("drillspeed", (MechanicalArmBuild entity) ->
+                new Bar(() -> Core.bundle.format("bar.drillspeed", Strings.fixed((outputAmount / produceTime * 60f) * entity.efficiency * entity.timeScale(), 2)), () -> Pal.ammo, () -> entity.progress));
+
         addBar("heat", (MechanicalArmBuild entity) ->
             new Bar(() ->
                 Core.bundle.format("bar.heatpercent", (int)(entity.heat + 0.01f), (int)(entity.efficiencyScale() * 100 + 0.01f)),
@@ -87,15 +91,13 @@ public class MechanicalArm extends Block {
     public void setStats(){
         super.setStats();
 
-        stats.add(Stat.input, heatRequirement, StatUnit.heatUnits);
-        stats.add(Stat.maxEfficiency, (int)(maxEfficiency * 100f), StatUnit.percent);
-        stats.add(Stat.range, range / tilesize, StatUnit.blocks);
         stats.add(Stat.drillTier, table -> {
             table.row();
             table.table(c -> {
                 int i = 0;
                 for(Block block : content.blocks()){
                     if(!(block instanceof TallBlock && block.itemDrop != null && (indexer.isBlockPresent(block) || state.isMenu()))) continue;
+
                     c.table(Styles.grayPanel, b -> {
                         b.image(block.uiIcon).size(40).pad(10f).left().scaling(Scaling.fit);
                         b.table(info -> {
@@ -103,11 +105,17 @@ public class MechanicalArm extends Block {
                             info.add(block.localizedName).left().row();
                             info.add(block.itemDrop.emoji()).with(l -> StatValues.withTooltip(l, block.itemDrop)).left();
                         }).grow();
+                        b.add(Strings.autoFixed(outputAmount / produceTime * 60f, 2) + StatUnit.perSecond.localized())
+                                .right().pad(10f).padRight(15f).color(Color.lightGray);
                     }).growX().pad(5);
                     if(++i % 2 == 0) c.row();
                 }
             }).growX().colspan(table.getColumns());
         });
+
+        stats.add(Stat.input, heatRequirement, StatUnit.heatUnits);
+        stats.add(Stat.maxEfficiency, (int)(maxEfficiency * 100f), StatUnit.percent);
+        stats.add(Stat.range, range / tilesize, StatUnit.blocks);
     }
 
     @Override
