@@ -18,6 +18,7 @@ import mindustry.world.meta.*;
 import psammos.content.*;
 import psammos.type.RadiationStack;
 import psammos.type.RadiationType;
+import psammos.world.blocks.crafting.RadiationCrafter;
 import psammos.world.blocks.heat.RadiationHeatProducer;
 import psammos.world.blocks.radiation.RadiationProducer;
 import psammos.world.draw.*;
@@ -654,10 +655,9 @@ public class PsammosCraftingBlocks {
             consumeItem(PsammosItems.silver, 3);
         }};
         
-        splitterCell = new GenericCrafter("splitter-cell"){{
+        splitterCell = new RadiationCrafter("splitter-cell"){{
             requirements(Category.crafting, with(PsammosItems.desertGlassShard, 20, Items.silicon, 60, PsammosItems.quartz, 20, PsammosItems.refinedMetal, 40));
             size = 3;
-
             craftTime = 10f;
             rotate = true;
             invertFlip = true;
@@ -669,7 +669,8 @@ public class PsammosCraftingBlocks {
 
             consumeLiquid(Liquids.water, 12f / 60f);
             consumePower(2f);
-            // + ultraviolet ig cuz it seems to be nearby in progression
+            radiationRequirements = Seq.with(new RadiationStack(RadiationType.UV, 4f));
+            maxEfficiency = 1f;
 
             drawer = new DrawMulti(
                 new DrawRegion("-bottom"),
