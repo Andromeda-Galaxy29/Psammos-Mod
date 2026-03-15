@@ -35,11 +35,11 @@ import static mindustry.type.ItemStack.*;
 public class PsammosTurrets {
     public static Block
             //Turrets
-            cross, disseminate, hurl, confine, influence, gunslinger,
-            spray, seize, discharge, burst, overflow, dawn, burden,
+            cross, disseminate, hurl, influence, gunslinger,
+            spray, discharge, burst, overflow, dawn, burden,
             luminosity, meteor,
             //Legacy
-            influenceOld;
+            influenceOld, seize, confine;
 
     public static void load(){
         cross = new ItemTurret("1a-cross"){{
@@ -342,87 +342,6 @@ public class PsammosTurrets {
             coolant = consume(new ConsumeCoolant(0.1f){{maxFlammability = 1f; allowGas = true;}});
         }};
 
-        confine = new LiquidTurret("confine"){{
-            requirements(Category.turret, with(PsammosItems.quartz, 35, PsammosItems.osmium, 15, Items.sand, 20));
-
-            ammo(
-                    PsammosLiquids.quicksand, new WaveBulletType(PsammosLiquids.quicksand){{
-                        width = 16;
-                        height = 12;
-                        lifetime = 30f;
-                        speed = 4f;
-                        damage = 6f;
-                        drag = 0.05f;
-                        statusDuration = 60f * 3f;
-                        trailEffect = new Effect(40f, e -> {
-                            Draw.color(PsammosLiquids.quicksand.color);
-
-                            Angles.randLenVectors(e.id, 2, 1f + e.fin() * 2f, (x, y) -> {
-                                Fill.square(e.x + x, e.y + y, e.fout() * 1.2f, 45f);
-                            });
-                        });
-                        trailInterval = 4;
-                    }},
-                    PsammosLiquids.coldWater, new WaveBulletType(PsammosLiquids.coldWater){{
-                        width = 16;
-                        height = 12;
-                        lifetime = 30f;
-                        speed = 4f;
-                        damage = 6f;
-                        drag = 0.05f;
-                        statusDuration = 60f * 3f;
-                        trailEffect = new Effect(40f, e -> {
-                            Draw.color(PsammosLiquids.coldWater.color);
-
-                            Angles.randLenVectors(e.id, 2, 1f + e.fin() * 2f, (x, y) -> {
-                                Fill.circle(e.x + x, e.y + y, e.fout() * 1.2f);
-                            });
-                        });
-                        trailInterval = 4;
-                    }},
-                    PsammosLiquids.fuel, new WaveBulletType(PsammosLiquids.fuel){{
-                        width = 16;
-                        height = 12;
-                        lifetime = 30f;
-                        speed = 5f;
-                        damage = 6f;
-                        drag = 0.05f;
-                        statusDuration = 60f * 3f;
-                        trailEffect = Fx.fire;
-                        trailInterval = 2;
-                        status = StatusEffects.burning;
-                    }}
-            );
-
-            shoot = new ShootSpread(4, 12f);
-
-            hasPower = true;
-
-            size = 2;
-            reload = 30f;
-            outlineColor = PPal.turretOutline;
-            squareSprite = false;
-            recoil = 2f;
-            range = 80;
-            velocityRnd = 0f;
-            shootSound = Sounds.splash;
-            shootEffect = Fx.shootSmokeSquareSparse;
-
-            consumePower(1);
-
-            drawer = new DrawTurret("heatproof-"){{
-                parts.add(new RegionPart("-side"){{
-                    mirror = true;
-                    turretShading = true;
-                    progress = PartProgress.warmup;
-                    moveRot = 15f;
-                    moveX = -0.3f;
-                    moveY = -1f;
-                    moves.add(new PartMove(PartProgress.recoil, 0f, 0f, -10f));
-                }});
-            }};
-        }};
-
         influence = new ItemTurret("influence"){{
             requirements(Category.turret, with(PsammosItems.silver, 20, Items.silicon, 10));
             researchCostMultiplier = 0.5f;
@@ -644,29 +563,6 @@ public class PsammosTurrets {
                         }}
                 );
             }};
-        }};
-
-        seize = new TractorBeamTurret("seize"){{
-            requirements(Category.turret, with(PsammosItems.refinedMetal, 80, Items.silicon, 60, PsammosItems.quartz, 40));
-
-            hasPower = true;
-            size = 2;
-            health = 600;
-            force = 30f;
-            scaledForce = 12f;
-            range = 220f;
-            damage = 0.4f;
-            scaledHealth = 160;
-            rotateSpeed = 10;
-            targetGround = true;
-            targetAir = false;
-            laserColor = Pal.berylShot;
-            outlineColor = PPal.turretOutline;
-            status = StatusEffects.electrified;
-
-            consumePower(3.5f);
-
-            coolant = consume(new ConsumeCoolant(0.1f){{maxFlammability = 1f; allowGas = true;}});
         }};
 
         discharge = new ItemTurret("discharge"){{
@@ -1298,6 +1194,100 @@ public class PsammosTurrets {
         influenceOld = new LegacyTurret("2a-influence"){{
             size = 2;
             replacement = influence;
+        }};
+
+        confine = new LiquidTurret("confine"){{
+            requirements(Category.turret, with(PsammosItems.quartz, 35, PsammosItems.osmium, 15, Items.sand, 20));
+            buildVisibility = BuildVisibility.hidden;
+
+            ammo(
+                    PsammosLiquids.quicksand, new WaveBulletType(PsammosLiquids.quicksand){{
+                        width = 16;
+                        height = 12;
+                        lifetime = 30f;
+                        speed = 4f;
+                        damage = 6f;
+                        drag = 0.05f;
+                        statusDuration = 60f * 3f;
+                        trailEffect = new Effect(40f, e -> {
+                            Draw.color(PsammosLiquids.quicksand.color);
+
+                            Angles.randLenVectors(e.id, 2, 1f + e.fin() * 2f, (x, y) -> {
+                                Fill.square(e.x + x, e.y + y, e.fout() * 1.2f, 45f);
+                            });
+                        });
+                        trailInterval = 4;
+                    }},
+                    PsammosLiquids.coldWater, new WaveBulletType(PsammosLiquids.coldWater){{
+                        width = 16;
+                        height = 12;
+                        lifetime = 30f;
+                        speed = 4f;
+                        damage = 6f;
+                        drag = 0.05f;
+                        statusDuration = 60f * 3f;
+                        trailEffect = new Effect(40f, e -> {
+                            Draw.color(PsammosLiquids.coldWater.color);
+
+                            Angles.randLenVectors(e.id, 2, 1f + e.fin() * 2f, (x, y) -> {
+                                Fill.circle(e.x + x, e.y + y, e.fout() * 1.2f);
+                            });
+                        });
+                        trailInterval = 4;
+                    }},
+                    PsammosLiquids.fuel, new WaveBulletType(PsammosLiquids.fuel){{
+                        width = 16;
+                        height = 12;
+                        lifetime = 30f;
+                        speed = 5f;
+                        damage = 6f;
+                        drag = 0.05f;
+                        statusDuration = 60f * 3f;
+                        trailEffect = Fx.fire;
+                        trailInterval = 2;
+                        status = StatusEffects.burning;
+                    }}
+            );
+
+            shoot = new ShootSpread(4, 12f);
+
+            hasPower = true;
+
+            size = 2;
+            reload = 30f;
+            outlineColor = PPal.turretOutline;
+            squareSprite = false;
+            recoil = 2f;
+            range = 80;
+            velocityRnd = 0f;
+            shootSound = Sounds.splash;
+            shootEffect = Fx.shootSmokeSquareSparse;
+
+            consumePower(1);
+        }};
+
+        seize = new TractorBeamTurret("seize"){{
+            requirements(Category.turret, with(PsammosItems.refinedMetal, 80, Items.silicon, 60, PsammosItems.quartz, 40));
+            buildVisibility = BuildVisibility.hidden;
+
+            hasPower = true;
+            size = 2;
+            health = 600;
+            force = 30f;
+            scaledForce = 12f;
+            range = 220f;
+            damage = 0.4f;
+            scaledHealth = 160;
+            rotateSpeed = 10;
+            targetGround = true;
+            targetAir = false;
+            laserColor = Pal.berylShot;
+            outlineColor = PPal.turretOutline;
+            status = StatusEffects.electrified;
+
+            consumePower(3.5f);
+
+            coolant = consume(new ConsumeCoolant(0.1f){{maxFlammability = 1f; allowGas = true;}});
         }};
     }
 }

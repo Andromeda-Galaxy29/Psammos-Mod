@@ -235,12 +235,7 @@ public class PsammosTechTree {
                         });
                     });
                     node(influence, Seq.with(new OnSector(quartzValley)), ()->{
-                        node(confine, Seq.with(new OnSector(excavationSite)), ()->{
-                            node(overflow, Seq.with(new OnSector(erodedDesert)), ()->{
-
-                            });
-                        });
-                        node(seize, Seq.with(new OnSector(ancientSwamp)), ()->{
+                        node(overflow, Seq.with(new OnSector(erodedDesert)), ()->{
 
                         });
                     });
