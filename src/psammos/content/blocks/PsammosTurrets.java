@@ -24,9 +24,11 @@ import psammos.ai.*;
 import psammos.content.*;
 import psammos.entities.bullet.*;
 import psammos.entities.patterns.*;
+import psammos.type.RadiationStack;
 import psammos.type.RadiationType;
 import psammos.world.blocks.legacy.LegacyTurret;
 import psammos.world.blocks.turrets.ContinuousRadiationTurret;
+import psammos.world.blocks.turrets.RadiationItemTurret;
 
 import static mindustry.type.ItemStack.*;
 
@@ -35,7 +37,7 @@ public class PsammosTurrets {
             //Turrets
             cross, disseminate, hurl, confine, influence, gunslinger,
             spray, seize, discharge, burst, overflow, dawn, burden,
-            luminosity,
+            luminosity, meteor,
             //Legacy
             influenceOld;
 
@@ -1120,6 +1122,177 @@ public class PsammosTurrets {
                         }}
                 );
             }};
+        }};
+
+        meteor = new RadiationItemTurret("meteor"){{
+            requirements(Category.turret, with(PsammosItems.osmium, 200, Items.silicon, 100, Items.blastCompound, 40, PsammosItems.aerogel, 80, PsammosItems.desertGlassShard, 30));
+            researchCostMultiplier = 0.5f;
+            ammo(
+                    Items.blastCompound, new ArtilleryBulletType(){{
+                        sprite = "large-bomb";
+                        backSprite = "large-bomb-back";
+                        collidesAir = false;
+                        width = 20;
+                        height = 20;
+                        speed = 2;
+                        lifetime = 170;
+                        collidesTiles = true;
+                        splashDamageRadius = 48f;
+                        splashDamage = 240f;
+                        buildingDamageMultiplier = 0.01f;
+                        status = StatusEffects.blasted;
+                        frontColor = PPal.blast;
+                        backColor = PPal.blast2;
+                        trailColor = PPal.blast2;
+                        trailWidth = 3;
+                        trailLength = 32;
+                        statusDuration = 300f;
+                        fragSpread = 360;
+                        fragBullets = 7;
+                        fragOnHit = true;
+                        shootEffect = new WrapEffect(Fx.colorSparkBig, PPal.blast);
+                        hitSound = despawnSound = Sounds.explosionbig;
+                        hitEffect = despawnEffect = new MultiEffect(
+                                new ExplosionEffect(){{
+                                    waveColor = PPal.blast;
+                                    smokeColor = Color.gray;
+                                    sparkColor = PPal.blast;
+                                    waveStroke = 6f;
+                                    waveRad = 48f;
+                                    lifetime = 48f;
+                                }},
+                                new WaveEffect(){{
+                                    colorFrom = PPal.blast;
+                                    colorTo = PPal.blast2;
+                                    strokeFrom = 8f;
+                                    strokeTo = 0f;
+                                    sizeFrom = 1f;
+                                    sizeTo = 48f;
+                                    lifetime = 48f;
+                                }}
+                        );
+                        fragBullet = new ArtilleryBulletType(){{
+                            collidesAir = false;
+                            width = 4;
+                            height = 4;
+                            speed = 2;
+                            lifetime = 24;
+                            collidesTiles = false;
+                            splashDamageRadius = 8f;
+                            splashDamage = 22f;
+                            buildingDamageMultiplier = 0.01f;
+                            status = StatusEffects.blasted;
+                            frontColor = PPal.blast;
+                            backColor = PPal.blast2;
+                            statusDuration = 300f;
+                            hitSound = despawnSound = Sounds.bang;
+                            hitEffect = despawnEffect = new ExplosionEffect(){{
+                                waveColor = PPal.blast;
+                                smokeColor = Color.gray;
+                                sparkColor = PPal.blast;
+                                waveStroke = 3f;
+                                waveRad = 16f;
+                                lifetime = 32f;
+                            }};
+                        }};
+                    }},
+                    PsammosItems.desertGlassShard, new ArtilleryBulletType(){{
+                        sprite = "large-bomb";
+                        backSprite = "large-bomb-back";
+                        collidesAir = false;
+                        width = 18;
+                        height = 18;
+                        speed = 2;
+                        lifetime = 190;
+                        rangeChange = 40f;
+                        collidesTiles = true;
+                        splashDamageRadius = 72f;
+                        splashDamage = 480f;
+                        reloadMultiplier = 0.8f;
+                        buildingDamageMultiplier = 0.01f;
+                        frontColor = Color.white;
+                        backColor = PPal.desertGlass;
+                        trailColor = PPal.desertGlass;
+                        trailWidth = 3;
+                        trailLength = 32;
+                        shootEffect = new WrapEffect(Fx.colorSparkBig, PPal.desertGlass);
+                        hitSound = despawnSound = Sounds.explosionbig;
+                        hitEffect = despawnEffect = new MultiEffect(
+                                // TODO: Add Quell hit effect after port to v154
+                                new ExplosionEffect(){{
+                                    waveColor = PPal.desertGlass;
+                                    smokeColor = Color.gray;
+                                    sparkColor = PPal.desertGlass;
+                                    waveStroke = 6f;
+                                    waveRad = 72f;
+                                    lifetime = 32f;
+                                }},
+                                new WaveEffect(){{
+                                    colorFrom = Color.white;
+                                    colorTo = PPal.desertGlass;
+                                    strokeFrom = 8f;
+                                    strokeTo = 0f;
+                                    sizeFrom = 1f;
+                                    sizeTo = 72f;
+                                    lifetime = 32f;
+                                }},
+                                new WrapEffect(Fx.dynamicExplosion,PPal.desertGlass),
+                                new WrapEffect(Fx.sparkExplosion,PPal.desertGlass)
+                        );
+                    }}
+            );
+            size = 4;
+            health = 1280;
+            squareSprite = false;
+            outlineColor = PPal.turretOutline;
+            shootSound = Sounds.artillery;
+            targetAir = false;
+            targetGround = true;
+            range = 340;
+            shootY = -2f;
+            inaccuracy = 0f;
+            velocityRnd = 0f;
+            ammoPerShot = 3;
+            reload = 180;
+
+            drawer = new DrawTurret("heatproof-"){{
+                parts.addAll(
+                        new RegionPart("-side"){{
+                            mirror = true;
+                            progress = PartProgress.recoil;
+                            moveY = 1f;
+                        }},
+                        new RegionPart("-bottom"){{
+                            mirror = true;
+                            turretShading = true;
+                            moveY = 2f;
+                        }},
+                        new RegionPart("-low-wing"){{
+                            mirror = true;
+                            turretShading = true;
+                            progress = PartProgress.warmup;
+                            moveX = -2f;
+                            moveY = -2f;
+                            moveRot = 12f;
+                        }},
+                        new RegionPart("-high-wing"){{
+                            mirror = true;
+                            turretShading = true;
+                            progress = PartProgress.warmup;
+                            moveRot = 3f;
+                            moveY = 1f;
+                        }},
+                        new RegionPart("-barrel"){{
+                            mirror = false;
+                            progress = PartProgress.recoil;
+                            moveY = -4f;
+                        }}
+                );
+            }};
+            rotateSpeed = 0.9f;
+            radiationRequirements = Seq.with(new RadiationStack(RadiationType.UV, 3f));
+            maxRadiationEfficiency = 1f;
+            coolant = consume(new ConsumeCoolant(0.1f){{maxFlammability = 1f; allowGas = true;}});
         }};
 
         influenceOld = new LegacyTurret("2a-influence"){{

@@ -429,8 +429,8 @@ public class PsammosCraftingBlocks {
             size = 3;
             squareSprite = false;
 
-            heatRequirement = 10;
-            maxEfficiency = 4f;
+            heatRequirement = 100;
+            maxEfficiency = 1f;
 
             drawer = new DrawMulti(
                     new DrawDefault(),
@@ -445,7 +445,7 @@ public class PsammosCraftingBlocks {
             rotate = true;
             rotateDraw = false;
 
-            radOutputAmount = 9;
+            radOutputAmount = 95;
             radOutputType = RadiationType.IR;
             craftTime = 60;
         }};
@@ -456,8 +456,8 @@ public class PsammosCraftingBlocks {
             size = 3;
             squareSprite = false;
 
-            radiationRequirements = Seq.with(new RadiationStack(RadiationType.IR, 10f));
-            maxEfficiency = 4f;
+            radiationRequirements = Seq.with(new RadiationStack(RadiationType.IR, 100f));
+            maxEfficiency = 1f;
 
             drawer = new DrawMulti(
                     new DrawDefault(),
@@ -470,7 +470,7 @@ public class PsammosCraftingBlocks {
             rotate = true;
             rotateDraw = false;
 
-            heatOutput = 9;
+            heatOutput = 95;
             craftTime = 60;
         }};
 
