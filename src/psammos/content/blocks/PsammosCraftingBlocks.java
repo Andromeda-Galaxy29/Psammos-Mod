@@ -20,7 +20,7 @@ import psammos.type.RadiationStack;
 import psammos.type.RadiationType;
 import psammos.world.blocks.crafting.RadiationCrafter;
 import psammos.world.blocks.heat.RadiationHeatProducer;
-import psammos.world.blocks.radiation.RadiationProducer;
+import psammos.world.blocks.radiation.HeatRadiationProducer;
 import psammos.world.draw.*;
 
 import static mindustry.type.ItemStack.with;
@@ -423,7 +423,7 @@ public class PsammosCraftingBlocks {
             consumeLiquid(PsammosLiquids.ammonia, 0.5f / 60f);
         }};
 
-        heatRadiator = new RadiationProducer("heat-radiator"){{
+        heatRadiator = new HeatRadiationProducer("heat-radiator"){{
             requirements(Category.crafting, with(PsammosItems.aerogel, 40, Items.silicon, 20, PsammosItems.refinedMetal, 20, PsammosItems.desertGlassShard, 20));
 
             size = 3;

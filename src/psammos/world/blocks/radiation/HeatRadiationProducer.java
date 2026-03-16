@@ -4,7 +4,6 @@ import arc.Core;
 import arc.math.geom.Geometry;
 import mindustry.graphics.Drawf;
 import mindustry.ui.Bar;
-import mindustry.world.blocks.production.GenericCrafter;
 import mindustry.world.blocks.production.HeatCrafter;
 import mindustry.world.meta.Stat;
 import mindustry.world.meta.StatUnit;
@@ -14,12 +13,12 @@ import psammos.world.meta.PsammosStats;
 
 import static mindustry.Vars.tilesize;
 
-public class RadiationProducer extends GenericCrafter {
+public class HeatRadiationProducer extends HeatCrafter {
     public RadiationType radOutputType = RadiationType.light;
     public float radOutputAmount = 10f;
     public int range = 10;
 
-    public RadiationProducer(String name) {
+    public HeatRadiationProducer(String name) {
         super(name);
         rotate = true;
         rotateDraw = false;
@@ -37,7 +36,7 @@ public class RadiationProducer extends GenericCrafter {
     @Override
     public void setBars() {
         super.setBars();
-        addBar("psammos-radiation", (RadiationProducerBuild b) -> new Bar(
+        addBar("psammos-radiation", (HeatRadiationProducerBuild b) -> new Bar(
                 () -> Core.bundle.format("bar.psammos-radiation-amount", radOutputType.localizedName(), radOutputAmount * b.efficiency),
                 () -> radOutputType.color,
                 () -> b.efficiency
@@ -59,7 +58,7 @@ public class RadiationProducer extends GenericCrafter {
         );
     }
 
-    public class RadiationProducerBuild extends GenericCrafterBuild implements RadiationEmitter {
+    public class HeatRadiationProducerBuild extends HeatCrafterBuild implements RadiationEmitter{
 
         @Override
         public void updateTile() {
