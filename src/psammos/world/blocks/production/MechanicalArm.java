@@ -36,11 +36,6 @@ import static mindustry.Vars.*;
 //This code is probably attrociously bad but if it works it works I guess
 public class MechanicalArm extends Block {
 
-    public float heatRequirement = 10f;
-    public float maxEfficiency = 4f;
-    public Color heatColor = new Color(1f, 0.22f, 0.22f, 0.8f);
-    public float heatPulse = 0.3f, heatPulseScl = 10f;
-
     public int outputAmount = 5;
     public float range = tilesize * 5;
     /**Visual speed of the arm*/
@@ -50,7 +45,6 @@ public class MechanicalArm extends Block {
     public Color baseColor = Color.white;
     public float itemOffset = 5f;
 
-    public TextureRegion heatRegion;
     public TextureRegion topRegion;
     public TextureRegion jointRegion;
     public TextureRegion clawRegion;
@@ -66,7 +60,6 @@ public class MechanicalArm extends Block {
     @Override
     public void load() {
         super.load();
-        heatRegion = Core.atlas.find(name + "-heat");
         topRegion = Core.atlas.find(name + "-top");
         jointRegion = Core.atlas.find(name + "-joint");
         clawRegion = Core.atlas.find(name + "-claw");
@@ -79,12 +72,6 @@ public class MechanicalArm extends Block {
 
         addBar("drillspeed", (MechanicalArmBuild entity) ->
                 new Bar(() -> Core.bundle.format("bar.drillspeed", Strings.fixed((outputAmount / produceTime * 60f) * entity.efficiency * entity.timeScale(), 2)), () -> Pal.ammo, () -> entity.progress));
-
-        addBar("heat", (MechanicalArmBuild entity) ->
-            new Bar(() ->
-                Core.bundle.format("bar.heatpercent", (int)(entity.heat + 0.01f), (int)(entity.efficiencyScale() * 100 + 0.01f)),
-                () -> Pal.lightOrange,
-                () -> entity.heat / heatRequirement));
     }
 
     @Override
@@ -113,8 +100,6 @@ public class MechanicalArm extends Block {
             }).growX().colspan(table.getColumns());
         });
 
-        stats.add(Stat.input, heatRequirement, StatUnit.heatUnits);
-        stats.add(Stat.maxEfficiency, (int)(maxEfficiency * 100f), StatUnit.percent);
         stats.add(Stat.range, range / tilesize, StatUnit.blocks);
     }
 
@@ -150,10 +135,7 @@ public class MechanicalArm extends Block {
         return targets;
     }
 
-    public class MechanicalArmBuild extends Building implements HeatConsumer, Ranged {
-        public float[] sideHeat = new float[4];
-        public float heat = 0f;
-
+    public class MechanicalArmBuild extends Building implements Ranged {
         public Vec2 armPos = null;
         public Vec2 target = null;
 
@@ -165,7 +147,6 @@ public class MechanicalArm extends Block {
         @Override
         public void updateTile() {
             super.updateTile();
-            heat = calculateHeat(sideHeat);
 
             if (timer(timerDump, dumpTime / timeScale)) {
                 items.each((item, n) -> {
@@ -230,8 +211,6 @@ public class MechanicalArm extends Block {
         public void draw() {
             super.draw();
 
-            drawHeat();
-
             float armLength = range / 2f;
             float armAngle = new Vec2(x, y).angleTo(armPos.x, armPos.y);
             float dist = new Vec2(x, y).dst(armPos.x, armPos.y);
@@ -262,21 +241,6 @@ public class MechanicalArm extends Block {
             Draw.rect(jointRegion, armPos.x, armPos.y);
         }
 
-        public void drawHeat(){
-            Draw.z(Layer.blockAdditive);
-            float[] side = sideHeat();
-            for(int i = 0; i < 4; i++){
-                if(side[i] > 0){
-                    Draw.blend(Blending.additive);
-                    Draw.color(heatColor, side[i] / heatRequirement() * (heatColor.a * (1f - heatPulse + Mathf.absin(heatPulseScl, heatPulse))));
-                    Draw.rect(heatRegion, x, y, i * 90f);
-                    Draw.blend();
-                    Draw.color();
-                }
-            }
-            Draw.z(Layer.block);
-        }
-
         @Override
         public void drawSelect(){
             Drawf.dashCircle(x, y, range, baseColor);
@@ -288,23 +252,8 @@ public class MechanicalArm extends Block {
         }
 
         @Override
-        public float[] sideHeat() {
-            return sideHeat;
-        }
-
-        @Override
-        public float heatRequirement() {
-            return heatRequirement;
-        }
-
-        @Override
         public float range() {
             return range;
-        }
-
-        @Override
-        public float efficiencyScale(){
-            return Math.min(heat / heatRequirement, maxEfficiency);
         }
 
         @Override

@@ -159,11 +159,12 @@ public class PsammosProductionBlocks {
             squareSprite = false;
             baseColor = PPal.memoryAlloy;
             range = tilesize * 5;
-            maxEfficiency = 3f;
             armSpeed = 0.03f;
-            produceTime = 90f;
+            produceTime = 70f;
             outputAmount = 2;
             itemCapacity = 30;
+
+            consumeLiquid(PsammosLiquids.ammonia, 2f/60f);
         }};
     }
 }
