@@ -995,6 +995,8 @@ public class PsammosTurrets {
             loopSound = Sounds.flux;
             loopSoundVolume = 4.5f;
             shootSound = Sounds.plasmadrop;
+            Color hc = Pal.accent;
+            heatColor = hc;
 
             drawer = new DrawTurret("heatproof-"){{
                 parts.addAll(
@@ -1007,6 +1009,7 @@ public class PsammosTurrets {
                             y = -3;
                             mirror = true;
                             turretShading = true;
+                            heatColor = hc;
                         }},
                         new RegionPart("-arm"){{
                             progress = PartProgress.warmup;
@@ -1015,6 +1018,7 @@ public class PsammosTurrets {
                             moveX = 1f;
                             mirror = true;
                             turretShading = true;
+                            heatColor = hc;
                         }}
                 );
             }};
