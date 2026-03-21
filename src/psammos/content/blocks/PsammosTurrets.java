@@ -587,6 +587,48 @@ public class PsammosTurrets {
                         trailInterval = 5;
                         trailRotation = true;
                         hitEffect = despawnEffect = Fx.hitSquaresColor;
+                    }},
+                    PsammosItems.memoryAlloy, new LightningTrailBulletType(){{
+                        sprite = "mine-bullet";
+                        backSprite = "mine-bullet-back";
+                        collidesAir = true;
+                        collidesGround = false;
+                        width = 15;
+                        height = 15;
+                        speed = 7;
+                        damage = 70;
+                        lifetime = 30;
+                        hitColor = backColor = trailColor = lightningColor = PPal.memoryAlloy;
+                        frontColor = lightColor = Color.valueOf("#ffffff");
+                        trailWidth = 3;
+                        trailLength = 8;
+                        trailEffect = Fx.shootSmokeSquare;
+                        trailInterval = 5;
+                        trailRotation = true;
+                        hitEffect = despawnEffect = Fx.hitSquaresColor;
+                        fragOnHit = true;
+                        fragBullets = 1;
+                        fragRandomSpread = 0;
+                        fragSpread = 0;
+                        fragOnAbsorb = true;
+                        fragBullet = new LaserBulletType(){{
+                            damage = 12;
+                            frontColor = Color.white;
+                            backColor = PPal.memoryAlloy;
+                            hitEffect = Fx.hitLancer;
+                            laserEffect = Fx.none;
+                            hitSize = 3;
+                            lifetime = 12;
+                            drawSize = 400;
+                            collidesAir = true;
+                            collidesGround = false;
+                            collidesTiles = false;
+                            length = 45;
+                            width = 7;
+                            pierceCap = 6;
+                            sideWidth = 1f;
+                            sideLength = 2;
+                        }};
                     }}
             );
             shoot = new ShootBursts(4, 3,6f);
@@ -1152,7 +1194,7 @@ public class PsammosTurrets {
             shootY = -2f;
             inaccuracy = 0f;
             velocityRnd = 0f;
-            ammoPerShot = 3;
+            ammoPerShot = 9;
             reload = 180;
 
             drawer = new DrawTurret("heatproof-"){{

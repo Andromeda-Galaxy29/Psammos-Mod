@@ -18,9 +18,9 @@ import mindustry.world.meta.*;
 import psammos.content.*;
 import psammos.type.RadiationStack;
 import psammos.type.RadiationType;
-import psammos.world.blocks.crafting.RadiationCrafter;
-import psammos.world.blocks.heat.RadiationHeatProducer;
-import psammos.world.blocks.radiation.HeatRadiationProducer;
+import psammos.world.blocks.crafting.*;
+import psammos.world.blocks.heat.*;
+import psammos.world.blocks.radiation.*;
 import psammos.world.draw.*;
 
 import static mindustry.type.ItemStack.with;
@@ -29,7 +29,7 @@ public class PsammosCraftingBlocks {
     public static Block
             //Factories
             sieve, filter, siliconSynthesizer, siliconSynthesisChamber,
-            centrifuge, purifier, thermolysisChamber, refinery,
+            centrifuge, purifier, thermolysisChamber, thermolysisTower, refinery,
             blastManufacturer, oilDistillationTower, atmosphericSeparator,
             //Heat
             heatExchanger, ozoneHeater, peatHeater, ammoniaHeater, heatRadiator, infraredHeater, heatPump, heatPumpRouter,
@@ -210,6 +210,41 @@ public class PsammosCraftingBlocks {
             craftTime = 30;
 
             consumePower(2f);
+        }};
+
+        thermolysisTower = new AttributeRadiationCrafter("thermolysis-tower"){{
+            requirements(Category.crafting, with(PsammosItems.osmium, 60, PsammosItems.aerogel, 40, PsammosItems.quartz, 60, PsammosItems.desertGlassShard, 20, Items.silicon, 30));
+
+            size = 4;
+            squareSprite = false;
+
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawCrucibleFlame(){{
+                        flameRad = 1.6f;
+                        particleLife = 120;
+                    }},
+                    new DrawDefault(),
+                    new DrawGlowRegion(){{
+                        color = Pal.slagOrange;
+                        alpha = 0.6f;
+                    }},
+                    new DrawLiquidOutputs()
+            );
+            rotate = true;
+            rotateDraw = false;
+
+            baseEfficiency = 0;
+            boostScale = 1/16f;
+            minEfficiency = 1f;
+            maxEfficiency = 1f;
+            attribute = Attribute.get("ferric-stone");
+            outputLiquids = LiquidStack.with(Liquids.slag, 16/60f, Liquids.ozone, 10/60f);
+            liquidOutputDirections = new int[]{1, 3};
+            craftTime = 30;
+            radiationRequirements = Seq.with(new RadiationStack(RadiationType.light, 6f));
+
+            consumePower(6f);
         }};
 
         refinery = new GenericCrafter("5a-refinery"){{

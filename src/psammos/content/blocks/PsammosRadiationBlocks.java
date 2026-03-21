@@ -1,16 +1,24 @@
 package psammos.content.blocks;
 
+import arc.graphics.Color;
+import mindustry.content.Items;
 import mindustry.type.Category;
 import mindustry.world.Block;
+import mindustry.world.draw.DrawDefault;
+import mindustry.world.draw.DrawGlowRegion;
+import mindustry.world.draw.DrawMulti;
 import psammos.content.PsammosItems;
+import psammos.content.PsammosLiquids;
 import psammos.type.RadiationType;
 import psammos.world.blocks.radiation.*;
+import psammos.world.draw.DrawDirectionalRegion;
+import psammos.world.draw.DrawRadiationBeams;
 
 import static mindustry.type.ItemStack.with;
 
 public class PsammosRadiationBlocks {
     public static Block
-            radiationSource, radiationVoid, focuser, mirror, convexLens, concaveLens, solarCollector;
+            radiationSource, radiationVoid, focuser, mirror, convexLens, concaveLens, solarCollector, ultravioletLamp;
 
     public static void load() {
         radiationSource = new RadiationSource("radiation-source"){{
@@ -44,6 +52,35 @@ public class PsammosRadiationBlocks {
             size = 3;
             radOutputAmount = 3f;
             radOutputType = RadiationType.light;
+        }};
+
+        ultravioletLamp = new RadiationProducer("uv-lamp"){{
+            requirements(Category.power, with( Items.silicon, 20, PsammosItems.refinedMetal, 30, PsammosItems.desertGlassShard, 20, PsammosItems.osmium, 60));
+
+            size = 3;
+            squareSprite = false;
+            hasItems = false;
+            hasLiquids = true;
+            liquidCapacity = 15;
+
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawDirectionalRegion(),
+                    new DrawGlowRegion(){{
+                        color = new Color(1f, 0.22f, 0.22f, 0.8f);
+                        alpha = 0.8f;
+                    }},
+                    new DrawRadiationBeams()
+            );
+            rotate = true;
+            rotateDraw = false;
+
+            consumePower(240f/60f);
+            consumeLiquid(PsammosLiquids.quicksand, 12/60f);
+
+            radOutputAmount = 10;
+            radOutputType = RadiationType.UV;
+            craftTime = 60;
         }};
     }
 }
