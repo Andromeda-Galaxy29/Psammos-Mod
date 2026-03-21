@@ -10,7 +10,7 @@ If you like the mod, consider giving it a star on GitHub. Thank you
 
 [#f1c40f[]]Team members:[[]]
 - [#5865f2[]]@andromeda_galaxy29[[]] - me
-- [#5865f2[]]@inxie_ratzey[[]]
+- [#5865f2[]]@fake_inxie_ratzey[[]]
 
 [#31fea7[]]Contributors:[[]]
 - [#5865f2[]]@thisiscrimsoncheck[[]] - several maps, suggestions and other contributions
@@ -27,5 +27,5 @@ If you like the mod, consider giving it a star on GitHub. Thank you
 
 subtitle: "v1.5 - Radiation age"
 version: 1.5
-minGameVersion: 153
+minGameVersion: 155
 java: true
