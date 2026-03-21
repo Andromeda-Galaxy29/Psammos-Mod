@@ -106,7 +106,7 @@ public class PsammosEnvironmentBlocks {
             effectChance = 0.0005f;
             effectColor = Color.valueOf("#49492c");
             cacheLayer = CacheLayer.mud;
-            walkSound = Sounds.mud;
+            walkSound = Sounds.stepMud;
             walkSoundVolume = 0.08f;
             walkSoundPitchMin = 0.4f;
             walkSoundPitchMax = 0.5f;

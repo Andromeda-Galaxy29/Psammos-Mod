@@ -151,7 +151,7 @@ public class PsammosPowerBlocks {
             size = 3;
             squareSprite = false;
             floating = true;
-            ambientSound = Sounds.hum;
+            ambientSound = Sounds.loopElectricHum;
             ambientSoundVolume = 0.06f;
 
             drawer = new DrawMulti(
@@ -177,7 +177,7 @@ public class PsammosPowerBlocks {
             explosionRadius = 10;
             explosionDamage = 800;
             explodeEffect = new MultiEffect(Fx.bigShockwave, Fx.titanSmoke.wrap(Pal.slagOrange));
-            explodeSound = Sounds.explosionbig;
+            explodeSound = Sounds.explosionReactor;
             explosionPuddles = 50;
             explosionPuddleRange = 32;
             explosionPuddleLiquid = Liquids.slag;

@@ -113,7 +113,7 @@ public class PsammosTurrets {
             size = 2;
             health = 350;
             squareSprite = false;
-            shootSound = Sounds.shootAlt;
+            shootSound = Sounds.shoot;
             outlineColor = PPal.turretOutline;
             targetAir = true;
             targetGround = true;
@@ -227,7 +227,7 @@ public class PsammosTurrets {
             size = 2;
             health = 350;
             squareSprite = false;
-            shootSound = Sounds.cannon;
+            shootSound = Sounds.shootCyclone;
             outlineColor = PPal.turretOutline;
             targetAir = true;
             targetGround = false;
@@ -306,7 +306,7 @@ public class PsammosTurrets {
             health = 450;
             squareSprite = false;
             outlineColor = PPal.turretOutline;
-            shootSound = Sounds.bang;
+            shootSound = Sounds.shootArtillerySmall;
             targetAir = true;
             targetGround = true;
             range = 200;
@@ -367,7 +367,7 @@ public class PsammosTurrets {
             size = 2;
             health = 450;
             squareSprite = false;
-            shootSound = Sounds.shockBlast;
+            shootSound = Sounds.shootArc;
             outlineColor = PPal.turretOutline;
             heatColor = PPal.electric;
             targetAir = false;
@@ -467,7 +467,7 @@ public class PsammosTurrets {
             size = 3;
             health = 600;
             squareSprite = false;
-            shootSound = Sounds.shootSnap;
+            shootSound = Sounds.shootDisperse;
             outlineColor = PPal.turretOutline;
             targetAir = true;
             targetGround = true;
@@ -542,8 +542,7 @@ public class PsammosTurrets {
             reload = 40f;
             inaccuracy = 6f;
             shootEffect = Fx.shootLiquid;
-            shootSound = Sounds.cannon;
-            range = 90f;
+            shootSound = Sounds.shoot;
             shootY = 8;
             flags = EnumSet.of(BlockFlag.turret, BlockFlag.extinguisher);
 
@@ -638,7 +637,7 @@ public class PsammosTurrets {
             size = 3;
             health = 600;
             squareSprite = false;
-            shootSound = Sounds.shotgun;
+            shootSound = Sounds.shootToxopidShotgun;
             outlineColor = PPal.turretOutline;
             heatColor = PPal.electric;
             targetAir = true;
@@ -704,7 +703,7 @@ public class PsammosTurrets {
             inaccuracy = 0.2f;
             velocityRnd = 0.2f;
             shake = 1f;
-            shootSound = Sounds.cannon;
+            shootSound = Sounds.shootArtillerySap;
             shootEffect = Fx.shootPyraFlame;
 
             drawer = new DrawTurret("heatproof-"){{
@@ -802,6 +801,7 @@ public class PsammosTurrets {
             shootCone = 45f;
             liquidCapacity = 40f;
             shootEffect = Fx.shootLiquid;
+            shootSound = Sounds.shootAtrax;
             range = 190f;
             flags = EnumSet.of(BlockFlag.turret, BlockFlag.extinguisher);
 
@@ -864,7 +864,7 @@ public class PsammosTurrets {
             shoot.shotDelay = 6;
             recoil = 0.5f;
 
-            shootSound = Sounds.largeCannon;
+            shootSound = Sounds.shootAfflict;
 
             minWarmup = 0.94f;
             shootWarmupSpeed = 0.03f;
@@ -979,7 +979,7 @@ public class PsammosTurrets {
             moveWhileCharging = false;
             accurateDelay = false;
             shootEffect = Fx.shootSmokeSmite;
-            chargeSound = Sounds.lasercharge2;
+            chargeSound = Sounds.chargeLancer;
             shootSound = Sounds.shootSmite;
             extinguish = false;
 
@@ -1034,9 +1034,9 @@ public class PsammosTurrets {
             range = 110;
             shootY = 2;
             recoil = 0;
-            loopSound = Sounds.flux;
+            loopSound = Sounds.loopFlux;
             loopSoundVolume = 4.5f;
-            shootSound = Sounds.plasmadrop;
+            shootSound = Sounds.shootFlamePlasma;
             Color hc = Pal.accent;
             heatColor = hc;
 
@@ -1093,7 +1093,7 @@ public class PsammosTurrets {
                         fragBullets = 7;
                         fragOnHit = true;
                         shootEffect = new WrapEffect(Fx.colorSparkBig, PPal.blast);
-                        hitSound = despawnSound = Sounds.explosionbig;
+                        hitSound = despawnSound = Sounds.explosionMissile;
                         hitEffect = despawnEffect = new MultiEffect(
                                 new ExplosionEffect(){{
                                     waveColor = PPal.blast;
@@ -1127,7 +1127,7 @@ public class PsammosTurrets {
                             frontColor = PPal.blast;
                             backColor = PPal.blast2;
                             statusDuration = 300f;
-                            hitSound = despawnSound = Sounds.bang;
+                            hitSound = despawnSound = Sounds.explosionDull;
                             hitEffect = despawnEffect = new ExplosionEffect(){{
                                 waveColor = PPal.blast;
                                 smokeColor = Color.gray;
@@ -1158,26 +1158,9 @@ public class PsammosTurrets {
                         trailWidth = 3;
                         trailLength = 32;
                         shootEffect = new WrapEffect(Fx.colorSparkBig, PPal.desertGlass);
-                        hitSound = despawnSound = Sounds.explosionbig;
+                        hitSound = despawnSound = Sounds.explosionNavanax;
                         hitEffect = despawnEffect = new MultiEffect(
-                                // TODO: Add Quell hit effect after port to v154
-                                new ExplosionEffect(){{
-                                    waveColor = PPal.desertGlass;
-                                    smokeColor = Color.gray;
-                                    sparkColor = PPal.desertGlass;
-                                    waveStroke = 6f;
-                                    waveRad = 72f;
-                                    lifetime = 32f;
-                                }},
-                                new WaveEffect(){{
-                                    colorFrom = Color.white;
-                                    colorTo = PPal.desertGlass;
-                                    strokeFrom = 8f;
-                                    strokeTo = 0f;
-                                    sizeFrom = 1f;
-                                    sizeTo = 72f;
-                                    lifetime = 32f;
-                                }},
+                                new WrapEffect(PsammosFx.glassMeteorExplosion, PPal.desertGlass),
                                 new WrapEffect(Fx.dynamicExplosion,PPal.desertGlass),
                                 new WrapEffect(Fx.sparkExplosion,PPal.desertGlass)
                         );
@@ -1187,7 +1170,8 @@ public class PsammosTurrets {
             health = 1280;
             squareSprite = false;
             outlineColor = PPal.turretOutline;
-            shootSound = Sounds.artillery;
+            shootSound = Sounds.shootConquer;
+            shootSoundVolume = 0.6f;
             targetAir = false;
             targetGround = true;
             range = 340;
@@ -1306,7 +1290,6 @@ public class PsammosTurrets {
             recoil = 2f;
             range = 80;
             velocityRnd = 0f;
-            shootSound = Sounds.splash;
             shootEffect = Fx.shootSmokeSquareSparse;
 
             consumePower(1);

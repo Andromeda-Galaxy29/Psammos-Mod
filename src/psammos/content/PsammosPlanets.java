@@ -29,7 +29,6 @@ public class PsammosPlanets {
             allowLaunchLoadout = false;
             allowSectorInvasion = false;
             startSector = 0;
-            allowWaveSimulation = true;
             clearSectorOnLose = true;
             allowWaves = true;
             prebuildBase = false;

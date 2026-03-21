@@ -117,7 +117,7 @@ public class PsammosProductionBlocks {
                     Fx.blastExplosion,
                     Fx.dynamicSpikes.wrap(Items.blastCompound.color, 18)
             );
-            explosionSound = Sounds.dullExplosion;
+            explosionSound = Sounds.explosionDull;
             shake = 2f;
             protectEnemyBlocks = true;
         }};
@@ -146,7 +146,7 @@ public class PsammosProductionBlocks {
                     Fx.missileTrailSmoke.wrap(Color.grays(0.5f)),
                     Fx.dynamicSpikes.wrap(PsammosLiquids.ammonia.color, 32)
             );
-            explosionSound = Sounds.explosionbig;
+            explosionSound = Sounds.explosionArtillery;
             shake = 10f;
 
             consumeLiquid(PsammosLiquids.ammonia, 1f/60f);

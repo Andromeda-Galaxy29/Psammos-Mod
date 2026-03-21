@@ -37,7 +37,7 @@ public class Bomb extends Block {
     public DrawBlock drawer = new DrawDefault();
 
     public Effect effect = Fx.blastExplosion;
-    public Sound explosionSound = Sounds.dullExplosion;
+    public Sound explosionSound = Sounds.explosionDull;
     public float shake = 2f;
 
     public Bomb(String name){

@@ -28,7 +28,7 @@ public class ItemBlacklistUnitType extends UnitType {
         if(unit.stack().amount > 0 && itemBlacklist.contains(unit.item())){
             Effect.shake(unit.item().explosiveness, 2, unit.x, unit.y);
             Fx.blastExplosion.at(unit.x, unit.y);
-            Sounds.dullExplosion.at(unit.x, unit.y, 1f, 1f);
+            Sounds.explosionDull.at(unit.x, unit.y, 1f, 1f);
             unit.damage(unit.item().explosiveness * unit.stack().amount * 5);
             unit.clearItem();
         }
