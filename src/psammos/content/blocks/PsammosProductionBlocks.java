@@ -153,7 +153,7 @@ public class PsammosProductionBlocks {
         }};
 
         crystalSampler = new MechanicalArm("crystal-sampler"){{
-            requirements(Category.production, with(PsammosItems.refinedMetal, 20, PsammosItems.memoryAlloy, 20, PsammosItems.aerogel, 15));
+            requirements(Category.production, with(PsammosItems.refinedMetal, 20, PsammosItems.quartz, 30, PsammosItems.aerogel, 15));
 
             size = 2;
             squareSprite = false;

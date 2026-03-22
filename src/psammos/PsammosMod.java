@@ -68,6 +68,7 @@ public class PsammosMod extends Mod{
     public void loadContent(){
         PsammosTeams.load();
 
+        PsammosSounds.load();
         PsammosShaders.load();
         PsammosCacheLayers.load();
 

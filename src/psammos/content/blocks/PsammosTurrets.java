@@ -114,6 +114,7 @@ public class PsammosTurrets {
             health = 350;
             squareSprite = false;
             shootSound = Sounds.shoot;
+            shootEffect = new SoundEffect(Sounds.shootMissile,Fx.shootSmallColor);
             outlineColor = PPal.turretOutline;
             targetAir = true;
             targetGround = true;
@@ -467,7 +468,7 @@ public class PsammosTurrets {
             size = 3;
             health = 600;
             squareSprite = false;
-            shootSound = Sounds.shootDisperse;
+            shootSound = Sounds.shootReign;
             outlineColor = PPal.turretOutline;
             targetAir = true;
             targetGround = true;
@@ -542,7 +543,8 @@ public class PsammosTurrets {
             reload = 40f;
             inaccuracy = 6f;
             shootEffect = Fx.shootLiquid;
-            shootSound = Sounds.shoot;
+            shootSound = PsammosSounds.shootSpray;
+            shootSoundVolume = 0.8f;
             shootY = 8;
             flags = EnumSet.of(BlockFlag.turret, BlockFlag.extinguisher);
 
@@ -637,7 +639,7 @@ public class PsammosTurrets {
             size = 3;
             health = 600;
             squareSprite = false;
-            shootSound = Sounds.shootToxopidShotgun;
+            shootSound = PsammosSounds.shootDischarge;
             outlineColor = PPal.turretOutline;
             heatColor = PPal.electric;
             targetAir = true;
@@ -687,6 +689,7 @@ public class PsammosTurrets {
                         drag = 0.001f;
                         ammoMultiplier = 0.4f;
                         statusDuration = 60f * 4f;
+                        collidesAir = false;
                     }}
             );
 
@@ -703,8 +706,10 @@ public class PsammosTurrets {
             inaccuracy = 0.2f;
             velocityRnd = 0.2f;
             shake = 1f;
-            shootSound = Sounds.shootArtillerySap;
+            shootSound = Sounds.shootAvert;
             shootEffect = Fx.shootPyraFlame;
+            rotateSpeed = 1.3f;
+            targetAir = false;
 
             drawer = new DrawTurret("heatproof-"){{
                 parts.add(new RegionPart("-front"){{
@@ -1007,7 +1012,7 @@ public class PsammosTurrets {
         }};
 
         luminosity = new ContinuousRadiationTurret("luminosity"){{
-            requirements(Category.turret, with(Items.sand, 80, PsammosItems.refinedMetal, 80, PsammosItems.desertGlassShard, 30, PsammosItems.memoryAlloy, 30, PsammosItems.silver, 130));
+            requirements(Category.turret, with(Items.sand, 80, PsammosItems.refinedMetal, 80, PsammosItems.desertGlassShard, 45, PsammosItems.memoryAlloy, 30, PsammosItems.silver, 130));
 
             ammo(
                     RadiationType.light, new LightBeamBulletType(){{
@@ -1039,6 +1044,7 @@ public class PsammosTurrets {
             shootSound = Sounds.shootFlamePlasma;
             Color hc = Pal.accent;
             heatColor = hc;
+            rotateSpeed = 0.9f;
 
             drawer = new DrawTurret("heatproof-"){{
                 parts.addAll(

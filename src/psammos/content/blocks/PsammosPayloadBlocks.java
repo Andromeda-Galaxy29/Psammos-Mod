@@ -165,7 +165,7 @@ public class PsammosPayloadBlocks {
         
         //TODO: Build requirements
         specialistUnitWelder = new UnitAssembler("specialist-unit-welder"){{
-            requirements(Category.units, with(Items.silicon, 1));
+            requirements(Category.units, with(Items.silicon, 200, PsammosItems.refinedMetal, 120, PsammosItems.quartz, 80, PsammosItems.osmium, 120, PsammosItems.desertGlassShard, 60));
 
             droneType = PsammosUnitTypes.weldingDrone;
             size = 5;
@@ -179,7 +179,7 @@ public class PsammosPayloadBlocks {
         }};
 
         assaultUnitWelder = new UnitAssembler("assault-unit-welder"){{
-            requirements(Category.units, with(Items.silicon, 1));
+            requirements(Category.units, with(Items.silicon, 200, PsammosItems.refinedMetal, 120, PsammosItems.quartz, 80, PsammosItems.osmium, 120, PsammosItems.desertGlassShard, 60));
 
             droneType = PsammosUnitTypes.weldingDrone;
             size = 5;
@@ -193,7 +193,7 @@ public class PsammosPayloadBlocks {
         }};
 
         supportUnitWelder = new UnitAssembler("support-unit-welder"){{
-            requirements(Category.units, with(Items.silicon, 1));
+            requirements(Category.units, with(Items.silicon, 200, PsammosItems.refinedMetal, 120, PsammosItems.quartz, 80, PsammosItems.osmium, 120, PsammosItems.desertGlassShard, 60));
 
             droneType = PsammosUnitTypes.weldingDrone;
             size = 5;
@@ -207,7 +207,7 @@ public class PsammosPayloadBlocks {
         }};
 
         scoutUnitWelder = new UnitAssembler("scout-unit-welder"){{
-            requirements(Category.units, with(Items.silicon, 1));
+            requirements(Category.units, with(Items.silicon, 200, PsammosItems.refinedMetal, 120, PsammosItems.quartz, 80, PsammosItems.osmium, 120, PsammosItems.desertGlassShard, 60));
 
             droneType = PsammosUnitTypes.weldingDrone;
             size = 5;
@@ -221,7 +221,7 @@ public class PsammosPayloadBlocks {
         }};
 
         frontlineUnitWelder = new UnitAssembler("frontline-unit-welder"){{
-            requirements(Category.units, with(Items.silicon, 1));
+            requirements(Category.units, with(Items.silicon, 200, PsammosItems.refinedMetal, 120, PsammosItems.quartz, 80, PsammosItems.osmium, 120, PsammosItems.desertGlassShard, 60));
 
             droneType = PsammosUnitTypes.weldingDrone;
             size = 5;
