@@ -162,8 +162,7 @@ public class PsammosPayloadBlocks {
             hasPower = consumesPower = false;
             filter = Seq.with(centralProcessingUnit);
         }};
-        
-        //TODO: Build requirements
+
         specialistUnitWelder = new UnitAssembler("specialist-unit-welder"){{
             requirements(Category.units, with(Items.silicon, 200, PsammosItems.refinedMetal, 120, PsammosItems.quartz, 80, PsammosItems.osmium, 120, PsammosItems.desertGlassShard, 60));
 

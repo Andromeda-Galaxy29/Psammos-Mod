@@ -37,7 +37,6 @@ public interface RadiationEmitter {
         }
     }
 
-    //TODO: account for team
     /** Finds the tile radiation hits if the building emits it in the specified direction.
      * Returns null if no target was found */
     default Tile findRadiationTarget(Building build, int rotation){
@@ -53,6 +52,7 @@ public interface RadiationEmitter {
                 world.tile(x, y).block() instanceof StaticWall ||
                 world.tile(x, y).build instanceof RadiationConsumer consumer &&
                         emitter.outputRadiation()[rotation] != null &&
+                        world.tile(x, y).build.team == build.team &&
                         consumer.acceptsRadiation(emitter.outputRadiation()[rotation].type, (rotation + 2) % 4))){
             x += Geometry.d4x(rotation);
             y += Geometry.d4y(rotation);
