@@ -242,7 +242,7 @@ public class PsammosCraftingBlocks {
             outputLiquids = LiquidStack.with(Liquids.slag, 16/60f, Liquids.ozone, 10/60f);
             liquidOutputDirections = new int[]{1, 3};
             craftTime = 30;
-            radiationRequirements = Seq.with(new RadiationStack(RadiationType.light, 6f));
+            radiationRequirements = Seq.with(new RadiationStack(PsammosRadTypes.light, 6f));
 
             consumePower(6f);
         }};
@@ -481,7 +481,7 @@ public class PsammosCraftingBlocks {
             rotateDraw = false;
 
             radOutputAmount = 95;
-            radOutputType = RadiationType.IR;
+            radOutputType = PsammosRadTypes.IR;
             craftTime = 60;
         }};
         
@@ -491,7 +491,7 @@ public class PsammosCraftingBlocks {
             size = 3;
             squareSprite = false;
 
-            radiationRequirements = Seq.with(new RadiationStack(RadiationType.IR, 100f));
+            radiationRequirements = Seq.with(new RadiationStack(PsammosRadTypes.IR, 100f));
             maxEfficiency = 1f;
 
             drawer = new DrawMulti(
@@ -704,7 +704,7 @@ public class PsammosCraftingBlocks {
 
             consumeLiquid(Liquids.water, 12f / 60f);
             consumePower(2f);
-            radiationRequirements = Seq.with(new RadiationStack(RadiationType.UV, 4f));
+            radiationRequirements = Seq.with(new RadiationStack(PsammosRadTypes.UV, 4f));
             maxEfficiency = 1f;
 
             drawer = new DrawMulti(

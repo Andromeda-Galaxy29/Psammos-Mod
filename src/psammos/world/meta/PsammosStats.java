@@ -32,7 +32,7 @@ public class PsammosStats {
         Table t = new Table();
 
         t.add(new Stack(){{
-            add(new Image(stack.type.icon()).setScaling(Scaling.fit));
+            add(new Image(stack.type.uiIcon).setScaling(Scaling.fit));
 
             if(stack.amount != 0){
                 Table t = new Table().left().bottom();
@@ -41,7 +41,7 @@ public class PsammosStats {
             }
         }}).size(iconMed).padRight(3  + (stack.amount != 0 ? (Strings.autoFixed(stack.amount, 2).length() - 1) * 10 : 0));
 
-        t.add(stack.type.localizedName());
+        t.add(stack.type.localizedName);
 
         return t;
     }

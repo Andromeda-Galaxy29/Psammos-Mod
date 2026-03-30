@@ -157,8 +157,8 @@ public class PsammosPayloadBlocks {
             requirements(Category.units, with(PsammosItems.quartz, 60, PsammosItems.refinedMetal, 70, PsammosItems.desertGlassShard, 30));
 
             size = 3;
-            color = RadiationType.UV.color;
-            radiationRequirements = Seq.with(new RadiationStack(RadiationType.UV, 10f));
+            color = PsammosRadTypes.UV.color;
+            radiationRequirements = Seq.with(new RadiationStack(PsammosRadTypes.UV, 10f));
             hasPower = consumesPower = false;
             filter = Seq.with(centralProcessingUnit);
         }};

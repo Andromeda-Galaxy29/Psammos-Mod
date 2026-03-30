@@ -1015,7 +1015,7 @@ public class PsammosTurrets {
             requirements(Category.turret, with(Items.sand, 80, PsammosItems.refinedMetal, 80, PsammosItems.desertGlassShard, 45, PsammosItems.memoryAlloy, 30, PsammosItems.silver, 130));
 
             ammo(
-                    RadiationType.light, new LightBeamBulletType(){{
+                    PsammosRadTypes.light, new LightBeamBulletType(){{
                         damage = 6f;
                         length = 110;
                         angleWidth = 60;
@@ -1222,7 +1222,7 @@ public class PsammosTurrets {
                 );
             }};
             rotateSpeed = 0.9f;
-            radiationRequirements = Seq.with(new RadiationStack(RadiationType.UV, 3f));
+            radiationRequirements = Seq.with(new RadiationStack(PsammosRadTypes.UV, 3f));
             maxRadiationEfficiency = 1f;
             coolant = consume(new ConsumeCoolant(0.1f){{maxFlammability = 1f; allowGas = true;}});
         }};

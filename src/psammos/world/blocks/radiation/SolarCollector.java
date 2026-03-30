@@ -15,6 +15,7 @@ import mindustry.world.meta.Attribute;
 import mindustry.world.meta.Stat;
 import mindustry.world.meta.StatUnit;
 import psammos.PPal;
+import psammos.content.PsammosRadTypes;
 import psammos.type.*;
 import psammos.world.draw.*;
 import psammos.world.meta.PsammosStats;
@@ -27,7 +28,7 @@ public class SolarCollector extends Block {
     public DrawBlock drawer = new DrawMulti(new DrawDefault(), new DrawDirectionalRegion(), new DrawRadiationBeams());
 
     public float radOutputAmount = 10f;
-    public RadiationType radOutputType = RadiationType.light;
+    public RadiationType radOutputType = PsammosRadTypes.light;
     public int range = 10;
 
     public SolarCollector(String name) {
@@ -57,7 +58,7 @@ public class SolarCollector extends Block {
     public void setBars() {
         super.setBars();
         addBar("psammos-radiation", (SolarCollectorBuild b) -> new Bar(
-                () -> Core.bundle.format("bar.psammos-radiation-amount", radOutputType.localizedName(), radOutputAmount * b.efficiency),
+                () -> Core.bundle.format("bar.psammos-radiation-amount", radOutputType.localizedName, radOutputAmount * b.efficiency),
                 () -> radOutputType.color,
                 () -> b.efficiency
         ));

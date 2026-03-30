@@ -72,7 +72,7 @@ public class Mirror extends Block {
     public void addRadiationBar(int i){
         addBar("psammos-radiation-" + i, (MirrorBuild b) -> new Bar(
                 () -> Core.bundle.format("bar.psammos-" + (i == 0 ? "right" : i == 1 ? "up" : i == 2 ? "left" : "down"),
-                        b.outputRadiation()[i] == null ? Core.bundle.get("bar.psammos-radiation") : Core.bundle.format("bar.psammos-radiation-amount", b.outputRadiation()[i].type.localizedName(), b.outputRadiation()[i].amount)),
+                        b.outputRadiation()[i] == null ? Core.bundle.get("bar.psammos-radiation") : Core.bundle.format("bar.psammos-radiation-amount", b.outputRadiation()[i].type.localizedName, b.outputRadiation()[i].amount)),
                 () -> b.outputRadiation()[i] == null ? Color.clear : b.outputRadiation()[i].type.color,
                 () -> b.outputRadiation()[i] == null ?  0f : b.outputRadiation()[i].amount / visualMaxRadiation
         ));

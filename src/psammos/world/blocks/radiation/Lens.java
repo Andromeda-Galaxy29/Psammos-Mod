@@ -60,7 +60,7 @@ public class Lens extends Block {
     public void setBars() {
         super.setBars();
         addBar("psammos-radiation", (LensBuild b) -> new Bar(
-                () -> b.barRad() == null ? Core.bundle.get("bar.psammos-radiation") : Core.bundle.format("bar.psammos-radiation-amount", b.barRad().type.localizedName(), b.barRad().amount),
+                () -> b.barRad() == null ? Core.bundle.get("bar.psammos-radiation") : Core.bundle.format("bar.psammos-radiation-amount", b.barRad().type.localizedName, b.barRad().amount),
                 () -> b.barRad() == null ? Color.clear : b.barRad().type.color,
                 () -> b.barRad() == null ?  0f : b.barRad().amount / visualMaxRadiation
         ));

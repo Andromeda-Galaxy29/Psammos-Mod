@@ -7,6 +7,8 @@ import mindustry.entities.bullet.*;
 import mindustry.gen.Building;
 import mindustry.ui.Bar;
 import mindustry.world.blocks.defense.turrets.*;
+import mindustry.world.meta.Stat;
+import mindustry.world.meta.StatValues;
 import psammos.type.RadiationStack;
 import psammos.type.RadiationType;
 import psammos.world.blocks.radiation.RadiationConsumer;
@@ -27,7 +29,7 @@ public class ContinuousRadiationTurret extends ContinuousTurret {
     @Override
     public void setStats() {
         super.setStats();
-        //TODO
+        this.stats.replace(Stat.ammo, StatValues.ammo(this.ammoTypes));
     }
 
     @Override
@@ -36,7 +38,7 @@ public class ContinuousRadiationTurret extends ContinuousTurret {
         addBar("psammos-radiation", (ContinuousRadiationTurretBuild b) -> new Bar(
                 () -> b.barRad() == null ? Core.bundle.get("bar.psammos-radiation") :
                         Core.bundle.format("bar.psammos-radiation-percent",
-                                b.barRad().type.localizedName(),
+                                b.barRad().type.localizedName,
                                 b.barRad().amount,
                                 (int) Math.min(b.barRad().amount / radiationRequirement * 100, maxRadiationEfficiency * 100)
                         ),

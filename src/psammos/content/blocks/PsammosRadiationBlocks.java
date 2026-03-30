@@ -9,6 +9,7 @@ import mindustry.world.draw.DrawGlowRegion;
 import mindustry.world.draw.DrawMulti;
 import psammos.content.PsammosItems;
 import psammos.content.PsammosLiquids;
+import psammos.content.PsammosRadTypes;
 import psammos.type.RadiationType;
 import psammos.world.blocks.radiation.*;
 import psammos.world.draw.DrawDirectionalRegion;
@@ -51,7 +52,7 @@ public class PsammosRadiationBlocks {
             requirements(Category.power, with(PsammosItems.refinedMetal, 10, PsammosItems.silver, 30, PsammosItems.desertGlassShard, 30));
             size = 3;
             radOutputAmount = 3f;
-            radOutputType = RadiationType.light;
+            radOutputType = PsammosRadTypes.light;
         }};
 
         ultravioletLamp = new RadiationProducer("uv-lamp"){{
@@ -79,7 +80,7 @@ public class PsammosRadiationBlocks {
             consumeLiquid(PsammosLiquids.quicksand, 12/60f);
 
             radOutputAmount = 10;
-            radOutputType = RadiationType.UV;
+            radOutputType = PsammosRadTypes.UV;
             craftTime = 60;
         }};
     }

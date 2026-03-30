@@ -215,7 +215,7 @@ public class PsammosPowerBlocks {
             powerProduction = 2f;
             squareSprite = false;
 
-            radiationRequirements = Seq.with(new RadiationStack(RadiationType.light, 12f));
+            radiationRequirements = Seq.with(new RadiationStack(PsammosRadTypes.light, 12f));
 
             drawer = new DrawMulti(
                     new DrawDefault(),

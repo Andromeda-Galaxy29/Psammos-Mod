@@ -10,15 +10,19 @@ import arc.scene.ui.ImageButton;
 import arc.scene.ui.layout.*;
 import arc.util.Eachable;
 import arc.util.io.*;
+import mindustry.Vars;
 import mindustry.entities.units.BuildPlan;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.ui.Bar;
 import mindustry.ui.Styles;
 import mindustry.world.*;
+import mindustry.world.blocks.ItemSelection;
+import mindustry.world.blocks.sandbox.ItemSource;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 import psammos.*;
+import psammos.content.PsammosRadTypes;
 import psammos.type.*;
 import psammos.world.draw.*;
 
@@ -69,7 +73,7 @@ public class RadiationSource extends Block {
     public void setBars() {
         super.setBars();
         addBar("psammos-radiation", (RadiationSourceBuild b) -> new Bar(
-                () -> b.radOutputType == null ? Core.bundle.get("bar.psammos-radiation") : Core.bundle.format("bar.psammos-radiation-amount", b.radOutputType.localizedName(), radOutputAmount),
+                () -> b.radOutputType == null ? Core.bundle.get("bar.psammos-radiation") : Core.bundle.format("bar.psammos-radiation-amount", b.radOutputType.localizedName, radOutputAmount),
                 () -> b.radOutputType == null ? Color.clear : b.radOutputType.color,
                 () -> b.radOutputType == null ? 0f : 1f
         ));
@@ -96,7 +100,7 @@ public class RadiationSource extends Block {
     }
 
     public class RadiationSourceBuild extends Building implements RadiationEmitter {
-        public RadiationType radOutputType = RadiationType.light;
+        public RadiationType radOutputType = PsammosRadTypes.light;
 
         @Override
         public void draw() {
@@ -128,12 +132,12 @@ public class RadiationSource extends Block {
             if (radOutputType != null) {
                 float dx = x - block.size * tilesize / 2f;
                 float dy = y + block.size * tilesize / 2f;
-                float s = 6f * radOutputType.icon().ratio();
+                float s = 6f * radOutputType.fullIcon.ratio();
                 float h = 6f;
                 Draw.mixcol(Color.darkGray, 1f);
-                Draw.rect(radOutputType.icon(), dx, dy - 1f, s, h);
+                Draw.rect(radOutputType.fullIcon, dx, dy - 1f, s, h);
                 Draw.reset();
-                Draw.rect(radOutputType.icon(), dx, dy, s, h);
+                Draw.rect(radOutputType.fullIcon, dx, dy, s, h);
             }
         }
 
@@ -153,21 +157,7 @@ public class RadiationSource extends Block {
 
         @Override
         public void buildConfiguration(Table table){
-            ButtonGroup<ImageButton> group = new ButtonGroup<>();
-            group.setMinCheckCount(0);
-            Table cont = new Table().background(Styles.black6).top();
-            cont.defaults().size(40);
-
-            for(RadiationType type : RadiationType.values()){
-                ImageButton button = cont.button(Tex.whiteui, Styles.clearNoneTogglei, 24f, () -> {
-                    control.input.config.hideConfig();
-                }).tooltip(type.localizedName()).group(group).get();
-                button.changed(() -> configure(button.isChecked() ? type : null));
-                button.getStyle().imageUp = new TextureRegionDrawable(type.icon());
-                button.update(() -> button.setChecked(radOutputType == type));
-            }
-
-            table.add(cont);
+            ItemSelection.buildTable(RadiationSource.this, table, content.getBy(RadiationType.ct), () -> this.radOutputType, this::configure, RadiationSource.this.selectionRows, RadiationSource.this.selectionColumns);
         }
 
         @Override
@@ -177,13 +167,13 @@ public class RadiationSource extends Block {
 
         public void write(Writes write) {
             super.write(write);
-            write.i(radOutputType == null ? -1 : radOutputType.ordinal());
+            write.i(radOutputType == null ? -1 : radOutputType.id);
         }
 
         public void read(Reads read, byte revision) {
             super.read(read, revision);
             int readRadOutputType = read.i();
-            radOutputType = readRadOutputType == -1 ? null : RadiationType.values()[readRadOutputType];
+            radOutputType = readRadOutputType == -1 ? null : content.getByID(RadiationType.ct, readRadOutputType);
         }
     }
 }

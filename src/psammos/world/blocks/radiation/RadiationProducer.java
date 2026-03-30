@@ -8,6 +8,7 @@ import mindustry.world.blocks.production.GenericCrafter;
 import mindustry.world.blocks.production.HeatCrafter;
 import mindustry.world.meta.Stat;
 import mindustry.world.meta.StatUnit;
+import psammos.content.PsammosRadTypes;
 import psammos.type.RadiationStack;
 import psammos.type.RadiationType;
 import psammos.world.meta.PsammosStats;
@@ -15,7 +16,7 @@ import psammos.world.meta.PsammosStats;
 import static mindustry.Vars.tilesize;
 
 public class RadiationProducer extends GenericCrafter {
-    public RadiationType radOutputType = RadiationType.light;
+    public RadiationType radOutputType = PsammosRadTypes.light;
     public float radOutputAmount = 10f;
     public int range = 10;
 
@@ -38,7 +39,7 @@ public class RadiationProducer extends GenericCrafter {
     public void setBars() {
         super.setBars();
         addBar("psammos-radiation", (RadiationProducerBuild b) -> new Bar(
-                () -> Core.bundle.format("bar.psammos-radiation-amount", radOutputType.localizedName(), radOutputAmount * b.efficiency),
+                () -> Core.bundle.format("bar.psammos-radiation-amount", radOutputType.localizedName, radOutputAmount * b.efficiency),
                 () -> radOutputType.color,
                 () -> b.efficiency
         ));

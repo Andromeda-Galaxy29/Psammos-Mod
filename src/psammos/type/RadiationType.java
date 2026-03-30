@@ -1,31 +1,59 @@
 package psammos.type;
 
-import arc.Core;
 import arc.graphics.Color;
-import arc.graphics.g2d.TextureRegion;
-import mindustry.graphics.Pal;
+import mindustry.ctype.ContentType;
+import mindustry.ctype.UnlockableContent;
+import mindustry.logic.LAccess;
+import mindustry.logic.Senseable;
+import mindustry.type.Planet;
 
-public enum RadiationType {
-    radio("radio-waves", Color.valueOf("ab9fbc")),
-    IR("infrared-light", Color.valueOf("ff5740")),
-    light("visible-light", Pal.accent.cpy()),
-    UV("ultraviolet-light", Color.valueOf("a53cf0")),
-    xRays("x-rays", Color.valueOf("6aaaf6")),
-    gamma("gamma-rays", Color.valueOf("ea833e"));
+public class RadiationType extends UnlockableContent implements Senseable {
 
-    public final String name;
-    public final Color color;
+    public static ContentType ct = ContentType.effect_UNUSED;
 
-    RadiationType(String name, Color color){
-        this.name = name;
+    public Color color = Color.black;
+    public boolean hidden;
+
+    public RadiationType(String name, Color color) {
+        super(name);
         this.color = color;
     }
 
-    public TextureRegion icon() {
-        return Core.atlas.find("psammos-" + name);
+    public RadiationType(String name) {
+        super(name);
     }
 
-    public String localizedName() {
-        return Core.bundle.get("radiation.psammos-" + name + ".name");
+    @Override
+    public ContentType getContentType() {
+        return ct;
+    }
+
+    @Override
+    public boolean isOnPlanet(Planet planet) {
+        return super.isOnPlanet(planet) && !this.hidden;
+    }
+
+    @Override
+    public boolean isHidden() {
+        return this.hidden;
+    }
+
+    @Override
+    public String toString() {
+        return this.localizedName;
+    }
+
+    @Override
+    public double sense(LAccess sensor) {
+        if (sensor == LAccess.color) {
+            return this.color.toDoubleBits();
+        } else {
+            return sensor == LAccess.id ? (double)this.getLogicId() : Double.NaN;
+        }
+    }
+
+    @Override
+    public Object senseObject(LAccess sensor) {
+        return sensor == LAccess.name ? this.name : noSensed;
     }
 }

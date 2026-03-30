@@ -40,7 +40,7 @@ public class RadiationItemTurret extends ItemTurret {
         radiationRequirements.forEach(req -> {
             addBar(req.type.name, (RadiationItemTurretBuild b) -> new Bar(
                     () -> Core.bundle.format("bar.psammos-radiation-percent",
-                            req.type.localizedName(),
+                            req.type.localizedName,
                             b.radiations.containsKey(req.type) ? b.radiations.get(req.type) : 0,
                             b.radiations.containsKey(req.type) ? (int) Math.min(b.radiations.get(req.type) / req.amount * 100, maxRadiationEfficiency * 100) : 0),
                     () -> req.type.color,
