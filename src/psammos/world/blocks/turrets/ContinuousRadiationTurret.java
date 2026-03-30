@@ -8,10 +8,12 @@ import mindustry.gen.Building;
 import mindustry.ui.Bar;
 import mindustry.world.blocks.defense.turrets.*;
 import mindustry.world.meta.Stat;
+import mindustry.world.meta.StatUnit;
 import mindustry.world.meta.StatValues;
 import psammos.type.RadiationStack;
 import psammos.type.RadiationType;
 import psammos.world.blocks.radiation.RadiationConsumer;
+import psammos.world.meta.PsammosStats;
 
 public class ContinuousRadiationTurret extends ContinuousTurret {
     public ObjectMap<RadiationType, BulletType> ammoTypes = new ObjectMap<>();
@@ -29,7 +31,8 @@ public class ContinuousRadiationTurret extends ContinuousTurret {
     @Override
     public void setStats() {
         super.setStats();
-        this.stats.replace(Stat.ammo, StatValues.ammo(this.ammoTypes));
+        stats.add(Stat.input, radiationRequirement, PsammosStats.radiationUnits);
+        stats.replace(Stat.ammo, StatValues.ammo(ammoTypes));
     }
 
     @Override

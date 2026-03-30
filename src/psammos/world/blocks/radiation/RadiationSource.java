@@ -25,6 +25,7 @@ import psammos.*;
 import psammos.content.PsammosRadTypes;
 import psammos.type.*;
 import psammos.world.draw.*;
+import psammos.world.meta.PsammosStats;
 
 import static mindustry.Vars.*;
 
@@ -67,6 +68,7 @@ public class RadiationSource extends Block {
         super.setStats();
 
         stats.add(Stat.range, range, StatUnit.blocks);
+        stats.add(Stat.output, radOutputAmount, PsammosStats.radiationUnits);
     }
 
     @Override

@@ -12,6 +12,8 @@ import mindustry.world.meta.*;
 import static mindustry.Vars.iconMed;
 
 public class PsammosStats {
+    public static final StatUnit radiationUnits = new StatUnit("psammos-radiation-units", "[#6ddac3]\uECC8[]");
+
     public static StatValue radiations(Seq<RadiationStack> stacks){
         return table -> {
             stacks.forEach(stack -> {
