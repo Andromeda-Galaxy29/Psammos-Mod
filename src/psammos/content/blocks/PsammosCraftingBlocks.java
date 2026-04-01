@@ -333,15 +333,13 @@ public class PsammosCraftingBlocks {
                         strokeMin = 0.3f;
                     }},
                     new DrawDefault(),
-                    new DrawLiquidOutputs(),
                     new DrawHeatInput()
             );
             rotate = true;
             rotateDraw = false;
 
             heatRequirement = 6;
-            outputLiquids = LiquidStack.with(PsammosLiquids.fuel, 4/60f, PsammosLiquids.methane, 4/60f);
-            liquidOutputDirections = new int[]{1, 3};
+            outputLiquid = new LiquidStack(PsammosLiquids.methane, 4/60f);
             craftTime = 60;
 
             consumePower(2f);

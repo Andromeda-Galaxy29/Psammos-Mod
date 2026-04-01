@@ -127,7 +127,7 @@ public class PsammosPowerBlocks {
                         sideOffset = Mathf.PI;
                     }},
                     new DrawRegion("-mid"),
-                    new DrawLiquidTile(PsammosLiquids.fuel, 9),
+                    new DrawLiquidTile(Liquids.oil, 9),
                     new DrawDefault(),
                     new DrawGlowRegion(){{
                         alpha = 0.8f;
@@ -139,7 +139,7 @@ public class PsammosPowerBlocks {
 
             outputLiquid = new LiquidStack(Liquids.water, 6 / 60f);
 
-            consumeLiquid(PsammosLiquids.fuel, 2 / 60f);
+            consumeLiquid(Liquids.oil, 2 / 60f);
             consumeLiquid(Liquids.ozone, 4 / 60f);
         }};
 

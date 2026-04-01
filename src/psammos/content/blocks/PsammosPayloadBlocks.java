@@ -77,7 +77,7 @@ public class PsammosPayloadBlocks {
 
             size = 3;
             consumePower(3f);
-            consumeLiquid(PsammosLiquids.fuel, 2f / 60f);
+            consumeLiquid(Liquids.oil, 2f / 60f);
             consumeItems(with(Items.silicon, 30, PsammosItems.refinedMetal, 20));
 
             constructTime = 60f * 18f;
@@ -92,7 +92,7 @@ public class PsammosPayloadBlocks {
 
             size = 3;
             consumePower(3f);
-            consumeLiquid(PsammosLiquids.fuel, 2f / 60f);
+            consumeLiquid(Liquids.oil, 2f / 60f);
             consumeItems(with(Items.silicon, 30, PsammosItems.refinedMetal, 40));
 
             constructTime = 60f * 28f;
@@ -107,7 +107,7 @@ public class PsammosPayloadBlocks {
 
             size = 3;
             consumePower(3f);
-            consumeLiquid(PsammosLiquids.fuel, 2f / 60f);
+            consumeLiquid(Liquids.oil, 2f / 60f);
             consumeItems(with(Items.silicon, 50, PsammosItems.refinedMetal, 20));
 
             constructTime = 60f * 30f;
@@ -122,7 +122,7 @@ public class PsammosPayloadBlocks {
 
             size = 3;
             consumePower(3f);
-            consumeLiquid(PsammosLiquids.fuel, 2f / 60f);
+            consumeLiquid(Liquids.oil, 2f / 60f);
             consumeItems(with(Items.silicon, 30, PsammosItems.refinedMetal, 50));
 
             constructTime = 60f * 33f;
@@ -137,7 +137,7 @@ public class PsammosPayloadBlocks {
 
             size = 3;
             consumePower(3f);
-            consumeLiquid(PsammosLiquids.fuel, 2f / 60f);
+            consumeLiquid(Liquids.oil, 2f / 60f);
             consumeItems(with(Items.silicon, 40, PsammosItems.refinedMetal, 40));
 
             constructTime = 60f * 30f;

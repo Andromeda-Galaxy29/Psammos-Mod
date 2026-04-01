@@ -89,7 +89,7 @@ public class PsammosEffectBlocks {
 
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
-                    new DrawLiquidTile(PsammosLiquids.fuel, 2),
+                    new DrawLiquidTile(PsammosLiquids.methane, 2),
                     new DrawDefault(),
                     new DrawPulseShape(false){{
                         layer = Layer.effect;
@@ -97,7 +97,7 @@ public class PsammosEffectBlocks {
                     }}
             );
 
-            consumeLiquid(PsammosLiquids.fuel, 1 / 60f);
+            consumeLiquid(PsammosLiquids.methane, 1 / 60f);
         }};
     }
 }

@@ -1270,18 +1270,6 @@ public class PsammosTurrets {
                             });
                         });
                         trailInterval = 4;
-                    }},
-                    PsammosLiquids.fuel, new WaveBulletType(PsammosLiquids.fuel){{
-                        width = 16;
-                        height = 12;
-                        lifetime = 30f;
-                        speed = 5f;
-                        damage = 6f;
-                        drag = 0.05f;
-                        statusDuration = 60f * 3f;
-                        trailEffect = Fx.fire;
-                        trailInterval = 2;
-                        status = StatusEffects.burning;
                     }}
             );
 

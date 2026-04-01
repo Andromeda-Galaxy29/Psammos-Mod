@@ -420,9 +420,6 @@ public class PsammosTechTree {
                             nodeProduce(ozone, ()->{
                                 nodeProduce(blastCompound, ()->{
                                     nodeProduce(oil, ()->{
-                                        nodeProduce(fuel, ()->{
-
-                                        });
                                         nodeProduce(methane, ()->{
                                             nodeProduce(aerogel, ()->{
 
