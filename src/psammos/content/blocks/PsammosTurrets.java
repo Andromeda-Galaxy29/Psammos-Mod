@@ -614,8 +614,10 @@ public class PsammosTurrets {
                         fragOnAbsorb = true;
                         fragBullet = new LaserBulletType(){{
                             damage = 12;
-                            frontColor = PPal.memoryAlloy;
-                            backColor = Color.white;
+                            colors = new Color[]{
+                                    PPal.memoryAlloy,
+                                    Color.valueOf("#ffffff")
+                            };
                             hitEffect = Fx.hitLancer;
                             laserEffect = Fx.none;
                             hitSize = 3;
