@@ -121,8 +121,7 @@ public class PsammosCraftingBlocks {
 
             drawer = new DrawMulti(
                     new DrawDefault(),
-                    new DrawGlowRegion(){{color = Color.valueOf("#ffef99");}},
-                    new DrawHeatInput()
+                    new DrawGlowRegion(){{color = Color.valueOf("#ffef99");}}
             );
 
             outputItem = new ItemStack(Items.silicon, 2);
