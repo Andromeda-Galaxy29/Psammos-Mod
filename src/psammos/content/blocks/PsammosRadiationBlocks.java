@@ -60,9 +60,9 @@ public class PsammosRadiationBlocks {
 
             size = 3;
             squareSprite = false;
-            hasItems = false;
-            hasLiquids = true;
-            liquidCapacity = 15;
+            hasItems = true;
+            hasLiquids = false;
+            itemCapacity = 10;
 
             drawer = new DrawMulti(
                     new DrawDefault(),
@@ -76,12 +76,13 @@ public class PsammosRadiationBlocks {
             rotate = true;
             rotateDraw = false;
 
-            consumePower(240f/60f);
-            consumeLiquid(PsammosLiquids.quicksand, 12/60f);
+            consumePower(240f/60f*4f);
+            consumeItem(PsammosItems.peat, 2);
+            consumeItem(PsammosItems.quartz, 1);
 
-            radOutputAmount = 10;
+            radOutputAmount = 40;
             radOutputType = PsammosRadTypes.UV;
-            craftTime = 60;
+            craftTime = 240;
         }};
     }
 }

@@ -112,7 +112,7 @@ public class PsammosCraftingBlocks {
             consumePower(0.5f);
         }};
 
-        siliconSynthesisChamber = new HeatCrafter("silicon-synthesis-chamber"){{
+        siliconSynthesisChamber = new GenericCrafter("silicon-synthesis-chamber"){{
             requirements(Category.crafting, with(PsammosItems.osmium, 40, Items.silicon, 30, PsammosItems.memoryAlloy, 20, PsammosItems.aerogel, 10, PsammosItems.refinedMetal, 30));
 
             size = 4;
@@ -129,7 +129,6 @@ public class PsammosCraftingBlocks {
             outputLiquid = new LiquidStack(Liquids.water, 3/60f);
             craftTime = 30;
 
-            heatRequirement = 6f;
             consumeItem(PsammosItems.quartz, 3);
             consumeLiquid(PsammosLiquids.methane, 6/60f);
             consumePower(2.5f);
@@ -339,7 +338,7 @@ public class PsammosCraftingBlocks {
             rotateDraw = false;
 
             heatRequirement = 6;
-            outputLiquid = new LiquidStack(PsammosLiquids.methane, 4/60f);
+            outputLiquid = new LiquidStack(PsammosLiquids.methane, 8/60f);
             craftTime = 60;
 
             consumePower(2f);
@@ -731,7 +730,7 @@ public class PsammosCraftingBlocks {
         }};
 
         obliterator = new Incinerator("Zz-obliterator"){{
-            requirements(Category.crafting, with(PsammosItems.refinedMetal, 16, Items.blastCompound, 10));
+            requirements(Category.crafting, with(PsammosItems.silver, 16, Items.blastCompound, 10));
 
             size = 1;
             hasPower = false;

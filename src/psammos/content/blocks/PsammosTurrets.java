@@ -735,7 +735,7 @@ public class PsammosTurrets {
                         puddleSize = 8f;
                         orbSize = 5f;
                         drag = 0.001f;
-                        ammoMultiplier = 0.4f;
+                        ammoMultiplier = 1f;
                         statusDuration = 60f * 2f;
                         damage = 0.6f;
                         layer = Layer.bullet - 2f;
@@ -768,7 +768,7 @@ public class PsammosTurrets {
                         puddleSize = 8f;
                         orbSize = 5f;
                         drag = 0.001f;
-                        ammoMultiplier = 0.4f;
+                        ammoMultiplier = 1f;
                         statusDuration = 60f * 4f;
                         damage = 0.8f;
                         layer = Layer.bullet - 2f;
@@ -1024,7 +1024,7 @@ public class PsammosTurrets {
                         buildingDamageMultiplier = 0f;
                         timescaleDamage = true;
 
-                        collidesAir = false;
+                        collidesAir = true;
                         collidesTiles = false;
 
                         color = Pal.accent.cpy().a(0.8f);
@@ -1036,7 +1036,7 @@ public class PsammosTurrets {
             health = 1020;
             squareSprite = false;
             targetGround = true;
-            targetAir = false;
+            targetAir = true;
             targetBlocks = false;
             range = 110;
             shootY = 2;
