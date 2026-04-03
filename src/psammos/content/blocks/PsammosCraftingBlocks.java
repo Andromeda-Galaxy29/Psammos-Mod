@@ -336,12 +336,13 @@ public class PsammosCraftingBlocks {
             rotate = true;
             rotateDraw = false;
 
-            heatRequirement = 6;
-            outputLiquid = new LiquidStack(PsammosLiquids.methane, 8/60f);
+            heatRequirement = 24;
+            maxEfficiency = 1f;
+            outputLiquid = new LiquidStack(PsammosLiquids.methane, 32/60f);
             craftTime = 60;
 
-            consumePower(2f);
-            consumeLiquid(Liquids.oil, 8 / 60f);
+            consumePower(8f);
+            consumeLiquid(Liquids.oil, 32 / 60f);
         }};
 
         heatExchanger = new HeatProducer("8a-heat-exchanger"){{
@@ -597,12 +598,13 @@ public class PsammosCraftingBlocks {
             rotate = true;
             rotateDraw = false;
 
-            outputLiquid = new LiquidStack(Liquids.hydrogen, 6 / 60f);
+            outputLiquid = new LiquidStack(Liquids.hydrogen, 24 / 60f);
             craftTime = 60;
 
-            heatRequirement = 4;
-            consumeLiquid(Liquids.water, 2/60f);
-            consumeLiquid(PsammosLiquids.methane, 2/60f);
+            heatRequirement = 16;
+            maxEfficiency = 1f;
+            consumeLiquid(Liquids.water, 8/60f);
+            consumeLiquid(PsammosLiquids.methane, 8/60f);
         }};
 
         ammoniaCompressor = new HeatCrafter("ammonia-compressor"){{
@@ -638,10 +640,11 @@ public class PsammosCraftingBlocks {
             outputLiquid = new LiquidStack(PsammosLiquids.ammonia, 3/60f);
             craftTime = 90;
 
-            heatRequirement = 8;
-            consumePower(2f);
-            consumeLiquid(Liquids.nitrogen, (2/3f)/60f);
-            consumeLiquid(Liquids.hydrogen, 2/60f);
+            heatRequirement = 32;
+            maxEfficiency = 1f;
+            consumePower(8f);
+            consumeLiquid(Liquids.nitrogen, 2f/60f);
+            consumeLiquid(Liquids.hydrogen, 8/60f);
         }};
 
         memoryAlloyCrucible = new GenericCrafter("memory-alloy-crucible"){{
