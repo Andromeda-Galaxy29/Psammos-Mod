@@ -163,7 +163,7 @@ public class PsammosPowerBlocks {
                     }}
             );
 
-            consumeLiquid(PsammosLiquids.coldWater, 3 / 60f);
+            consumeLiquid(PsammosLiquids.coldWater, 1.5f/ 60f);
         }};
 
         heatEngine = new VariableReactor("heat-engine"){{

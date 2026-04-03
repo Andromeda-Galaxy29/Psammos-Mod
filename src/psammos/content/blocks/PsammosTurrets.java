@@ -989,6 +989,7 @@ public class PsammosTurrets {
             chargeSound = Sounds.chargeLancer;
             shootSound = Sounds.shootSmite;
             extinguish = false;
+            rotateSpeed = 2.4f;
 
             heatRequirement = 32f;
             maxHeatEfficiency = 1f;
