@@ -978,7 +978,7 @@ public class PsammosTurrets {
             targetAir = true;
             targetGround = true;
             range = 360;
-            reload = 180;
+            reload = 60;
             shootY = 3;
             shake = 6f;
             recoil = 3f;
@@ -990,7 +990,8 @@ public class PsammosTurrets {
             shootSound = Sounds.shootSmite;
             extinguish = false;
 
-            heatRequirement = 16f;
+            heatRequirement = 32f;
+            maxHeatEfficiency = 1f;
 
             drawer = new DrawTurret("heatproof-"){{
                 parts.addAll(
@@ -1018,7 +1019,7 @@ public class PsammosTurrets {
 
             ammo(
                     PsammosRadTypes.light, new LightBeamBulletType(){{
-                        damage = 6f;
+                        damage = 24f;
                         length = 110;
                         angleWidth = 60;
                         buildingDamageMultiplier = 0f;
@@ -1047,6 +1048,8 @@ public class PsammosTurrets {
             Color hc = Pal.accent;
             heatColor = hc;
             rotateSpeed = 0.9f;
+            radiationRequirement = 30f;
+            maxRadiationEfficiency = 1f;
 
             drawer = new DrawTurret("heatproof-"){{
                 parts.addAll(
