@@ -637,7 +637,7 @@ public class PsammosCraftingBlocks {
                     new DrawHeatInput()
             );
 
-            outputLiquid = new LiquidStack(PsammosLiquids.ammonia, 3/60f);
+            outputLiquid = new LiquidStack(PsammosLiquids.ammonia, 12/60f);
             craftTime = 90;
 
             heatRequirement = 32;
