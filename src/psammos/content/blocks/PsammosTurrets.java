@@ -1047,7 +1047,7 @@ public class PsammosTurrets {
             shootSound = Sounds.shootFlamePlasma;
             Color hc = Pal.accent;
             heatColor = hc;
-            rotateSpeed = 0.9f;
+            rotateSpeed = 3f;
             radiationRequirement = 30f;
             maxRadiationEfficiency = 1f;
 
