@@ -789,7 +789,7 @@ public class PsammosUnitTypes {
             crashDamageMultiplier = 0f;
 
             abilities.addAll(
-                new RepairFieldAbility(25, 200, 80)
+                new RepairFieldAbility(10, 200, 80)
             );
 
             weapons.addAll(

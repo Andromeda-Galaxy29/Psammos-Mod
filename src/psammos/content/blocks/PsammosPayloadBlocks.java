@@ -236,15 +236,15 @@ public class PsammosPayloadBlocks {
         repairDroneAssembler = new RepairDroneAssembler("repair-drone-assembler"){{
             requirements(Category.units, with(PsammosItems.osmium, 20, Items.silicon, 80, PsammosItems.refinedMetal, 80));
             size = 2;
-            unitBuildTime = 2f * 60f;
-            range = 10 * 8f;
+            unitBuildTime = 30f;
+            range = 24 * 8f;
             statsRepairSpeed = 30;
 
             unitType = PsammosUnitTypes.repairDrone;
 
             squareSprite = false;
 
-            consumeLiquid(Liquids.oil, 10f / 60f);
+            consumeLiquid(Liquids.oil, 6f / 60f);
             consumePower(1f);
         }};
 
