@@ -1521,7 +1521,7 @@ public class PsammosUnitTypes {
                         shootSound = Sounds.shootEnergyField;
                         bullet = new LightningBulletType(){{
                             lightningColor = hitColor = Pal.techBlue;
-                            damage = 14f;
+                            damage = 11f;
                             lightningLength = 7;
                             lightningLengthRand = 7;
                             shootEffect = Fx.shootSmallColor.wrap(Pal.techBlue);
