@@ -30,7 +30,7 @@ public class PsammosEffectBlocks {
             size = 3;
             absorbLasers = true;
             itemCapacity = 6000;
-            unitCapModifier = 12;
+            unitCapModifier = 18;
             squareSprite = false;
             unitType = PsammosUnitTypes.gradient;
         }};
@@ -43,7 +43,7 @@ public class PsammosEffectBlocks {
             size = 4;
             absorbLasers = true;
             itemCapacity = 11000;
-            unitCapModifier = 20;
+            unitCapModifier = 30;
             squareSprite = false;
             unitType = PsammosUnitTypes.ascent;
         }};

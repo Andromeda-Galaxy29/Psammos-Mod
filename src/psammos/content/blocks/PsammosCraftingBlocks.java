@@ -181,7 +181,7 @@ public class PsammosCraftingBlocks {
         }};
 
         thermolysisChamber = new AttributeCrafter("4a-thermolysis-chamber"){{
-            requirements(Category.crafting, with(PsammosItems.osmium, 20, PsammosItems.silver, 40, PsammosItems.quartz, 60, Items.silicon, 10));
+            requirements(Category.crafting, with(PsammosItems.osmium, 20, PsammosItems.silver, 40, PsammosItems.quartz, 20, Items.silicon, 10));
 
             size = 3;
             squareSprite = false;
@@ -207,11 +207,11 @@ public class PsammosCraftingBlocks {
             liquidOutputDirections = new int[]{1, 3};
             craftTime = 30;
 
-            consumePower(2f);
+            consumePower(1f);
         }};
 
         thermolysisTower = new AttributeRadiationCrafter("thermolysis-tower"){{
-            requirements(Category.crafting, with(PsammosItems.osmium, 60, PsammosItems.aerogel, 40, PsammosItems.quartz, 60, PsammosItems.desertGlassShard, 20, Items.silicon, 30));
+            requirements(Category.crafting, with(PsammosItems.osmium, 60, PsammosItems.aerogel, 40, PsammosItems.quartz, 80, PsammosItems.desertGlassShard, 20, Items.silicon, 30));
 
             size = 4;
             squareSprite = false;
