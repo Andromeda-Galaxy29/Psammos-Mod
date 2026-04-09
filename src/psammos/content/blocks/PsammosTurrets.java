@@ -407,7 +407,7 @@ public class PsammosTurrets {
                     }},
                     PsammosItems.refinedMetal, new BasicBulletType(){{
                         speed = 5;
-                        damage = 35;
+                        damage = 40;
                         width = 12;
                         height = 16;
                         lifetime = 45;
@@ -422,7 +422,7 @@ public class PsammosTurrets {
                     }},
                     PsammosItems.memoryAlloy, new BasicBulletType(){{
                         speed = 5;
-                        damage = 40;
+                        damage = 42;
                         width = 12;
                         height = 16;
                         lifetime = 45;

@@ -139,7 +139,7 @@ public class PsammosPowerBlocks {
 
             outputLiquid = new LiquidStack(Liquids.water, 6 / 60f);
 
-            consumeLiquid(Liquids.oil, 2 / 60f);
+            consumeLiquid(Liquids.oil, 6 / 60f);
             consumeLiquid(Liquids.ozone, 4 / 60f);
         }};
 
