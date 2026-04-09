@@ -101,20 +101,20 @@ public class PsammosPowerBlocks {
             requirements(Category.power, with(PsammosItems.silver, 30, PsammosItems.refinedMetal, 15, Items.silicon, 20));
 
             size = 2;
-            powerProduction = 250/60f;
+            powerProduction = 6f;
             squareSprite = true;
             itemDuration = 120f;
             drawer = new DrawMulti(new DrawDefault(), new DrawWarmupRegion());
             generateEffect = Fx.blastExplosion;
 
-            consume(new ConsumeItemExplosive(1f));
+            consumeItem(Items.blastCompound);
         }};
 
         liquidFuelBurner = new ConsumeGenerator("liquid-fuel-burner"){{
             requirements(Category.power, with(PsammosItems.osmium, 60, PsammosItems.silver, 30, PsammosItems.refinedMetal, 50, PsammosItems.quartz, 40));
 
             size = 3;
-            powerProduction = 21;
+            powerProduction = 18;
             squareSprite = false;
 
             drawer = new DrawMulti(

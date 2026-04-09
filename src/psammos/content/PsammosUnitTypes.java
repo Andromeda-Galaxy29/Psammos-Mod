@@ -721,7 +721,7 @@ public class PsammosUnitTypes {
             accel = 0.1f;
             drag = 0.04f;
             flying = true;
-            health = 275;
+            health = 225;
             hitSize = 8;
             armor = 2;
             outlineColor = PPal.unitOutline;
@@ -1422,7 +1422,7 @@ public class PsammosUnitTypes {
             speed = 1.2f;
             hitSize = 12f;
             rotateSpeed = 3.5f;
-            health = 200;
+            health = 190;
             armor = 1;
             outlineColor = PPal.unitOutline;
             faceTarget = false;
@@ -1450,7 +1450,7 @@ public class PsammosUnitTypes {
                             backSprite = "large-bomb-back";
                             sprite = "mine-bullet";
                             speed = 3f;
-                            damage = 10;
+                            damage = 8;
                             width = 8;
                             height = 8;
                             trailWidth = 1.5f;
