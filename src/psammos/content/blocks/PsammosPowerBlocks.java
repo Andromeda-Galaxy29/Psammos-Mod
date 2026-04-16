@@ -170,7 +170,7 @@ public class PsammosPowerBlocks {
             requirements(Category.power, with(PsammosItems.silver, 60, Items.silicon, 20, PsammosItems.memoryAlloy, 40, PsammosItems.aerogel, 40, PsammosItems.refinedMetal, 60));
 
             size = 4;
-            powerProduction = 46;
+            powerProduction = 54;
             squareSprite = false;
             effect = Fx.none;
             flashColor2 = Color.valueOf("d194f3");
