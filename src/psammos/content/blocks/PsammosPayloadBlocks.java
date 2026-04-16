@@ -77,8 +77,8 @@ public class PsammosPayloadBlocks {
 
             size = 3;
             consumePower(3f);
-            consumeLiquid(Liquids.oil, 6f / 60f);
-            consumeItems(with(Items.silicon, 30, PsammosItems.refinedMetal, 20));
+            consumeLiquid(Liquids.oil, 24f / 60f);
+            consumeItems(with(Items.silicon, 30, PsammosItems.refinedMetal, 15));
 
             constructTime = 60f * 18f;
 
@@ -92,8 +92,8 @@ public class PsammosPayloadBlocks {
 
             size = 3;
             consumePower(3f);
-            consumeLiquid(Liquids.oil, 6f / 60f);
-            consumeItems(with(Items.silicon, 30, PsammosItems.refinedMetal, 40));
+            consumeLiquid(Liquids.oil, 24f / 60f);
+            consumeItems(with(Items.silicon, 30, PsammosItems.refinedMetal, 25));
 
             constructTime = 60f * 28f;
 
@@ -107,8 +107,8 @@ public class PsammosPayloadBlocks {
 
             size = 3;
             consumePower(3f);
-            consumeLiquid(Liquids.oil, 6f / 60f);
-            consumeItems(with(Items.silicon, 50, PsammosItems.refinedMetal, 20));
+            consumeLiquid(Liquids.oil, 24f / 60f);
+            consumeItems(with(Items.silicon, 50, PsammosItems.refinedMetal, 25));
 
             constructTime = 60f * 30f;
 
@@ -122,8 +122,8 @@ public class PsammosPayloadBlocks {
 
             size = 3;
             consumePower(3f);
-            consumeLiquid(Liquids.oil, 6f / 60f);
-            consumeItems(with(Items.silicon, 30, PsammosItems.refinedMetal, 50));
+            consumeLiquid(Liquids.oil, 24f / 60f);
+            consumeItems(with(Items.silicon, 30, PsammosItems.refinedMetal, 30));
 
             constructTime = 60f * 33f;
 
@@ -137,8 +137,8 @@ public class PsammosPayloadBlocks {
 
             size = 3;
             consumePower(3f);
-            consumeLiquid(Liquids.oil, 6f / 60f);
-            consumeItems(with(Items.silicon, 40, PsammosItems.refinedMetal, 40));
+            consumeLiquid(Liquids.oil, 24f / 60f);
+            consumeItems(with(Items.silicon, 40, PsammosItems.refinedMetal, 30));
 
             constructTime = 60f * 30f;
 
