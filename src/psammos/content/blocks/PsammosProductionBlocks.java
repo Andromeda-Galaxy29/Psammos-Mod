@@ -58,7 +58,7 @@ public class PsammosProductionBlocks {
             itemCapacity = 40;
             size = 3;
             tier = 3;
-            drillTime = 210;
+            drillTime = 140;
             squareSprite = false;
             shake = 4;
             baseArrowColor = Color.valueOf("#a4a098");
