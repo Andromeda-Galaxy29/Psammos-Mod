@@ -2,7 +2,6 @@ package psammos.world.blocks.defense;
 
 import arc.struct.ObjectMap;
 import arc.struct.Seq;
-import arc.util.Log;
 import mindustry.Vars;
 import mindustry.world.Tile;
 import psammos.world.blocks.defense.BarrierProjectorNode.BarrierProjectorNodeBuild;
@@ -15,6 +14,11 @@ public class BarrierGraph {
 
     public BarrierGraph() {
         this.graphID = lastGraphID++;
+    }
+
+    public BarrierGraph(BarrierProjectorNodeBuild firstNode) {
+        this();
+        add(firstNode);
     }
 
     public int getID() {
