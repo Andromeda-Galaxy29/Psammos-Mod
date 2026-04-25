@@ -11,13 +11,14 @@ import psammos.world.blocks.defense.*;
 import static mindustry.type.ItemStack.mult;
 import static mindustry.type.ItemStack.with;
 
-public class PsammosWalls {
+public class PsammosDefenseBlocks {
     static final int wallHealthMultiplier = 4;
 
     public static Block
             osmiumWall, osmiumWallLarge, silverWall, silverWallLarge,
             refinedMetalWall, refinedMetalWallLarge, gate, gateLarge,
-            floatingWall, floatingWallLarge, memoryWall, memoryWallLarge;
+            floatingWall, floatingWallLarge, memoryWall, memoryWallLarge,
+            barrierProjectorNode;
 
     public static void load() {
         osmiumWall = new Wall("1a-osmium-wall"){{
@@ -95,6 +96,11 @@ public class PsammosWalls {
             size = 2;
             healPercent = 8;
             baseColor = Color.valueOf("#b15dc3");
+        }};
+
+        barrierProjectorNode = new BarrierProjectorNode("barrier-projector-node"){{
+            requirements(Category.defense, with(PsammosItems.desertGlassShard, 1));
+            size = 3;
         }};
     }
 }

@@ -14,7 +14,7 @@ public class PsammosBlocks {
         PsammosLiquidBlocks.load();
         PsammosPowerBlocks.load();
         PsammosRadiationBlocks.load();
-        PsammosWalls.load();
+        PsammosDefenseBlocks.load();
         PsammosCraftingBlocks.load();
         PsammosPayloadBlocks.load();
         PsammosEffectBlocks.load();

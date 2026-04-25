@@ -2,6 +2,7 @@ package psammos.world.blocks.defense;
 
 import arc.struct.ObjectMap;
 import arc.struct.Seq;
+import arc.util.Log;
 import mindustry.Vars;
 import mindustry.world.Tile;
 import psammos.world.blocks.defense.BarrierProjectorNode.BarrierProjectorNodeBuild;
@@ -15,7 +16,6 @@ public class BarrierGraph {
     public BarrierGraph() {
         this.graphID = lastGraphID++;
     }
-
 
     public int getID() {
         return this.graphID;
@@ -53,9 +53,9 @@ public class BarrierGraph {
 
         visited.put(node, true);
         result.add(node);
-        for (int pos : node.links.items) {
+        for (int pos : node.links.toArray()) {
             Tile tile = Vars.world.tile(pos);
-            if (!(tile != null && tile.build instanceof BarrierProjectorNodeBuild nextNode)) {
+            if (tile == null || !(tile.build instanceof BarrierProjectorNodeBuild nextNode)) {
                 continue;
             }
 
@@ -72,7 +72,12 @@ public class BarrierGraph {
     }
 
     public void addGraph(BarrierGraph graph) {
-        if (this == graph) {
+        if (this.getID() == graph.getID()) {
+            return;
+        }
+
+        if (graph.nodes.size > this.nodes.size) {
+            graph.addGraph(this);
             return;
         }
 
@@ -87,7 +92,7 @@ public class BarrierGraph {
     }
 
     public void remove(BarrierProjectorNodeBuild node) {
-        this.nodes.remove(node);
+        nodes.remove(node);
         trySplitGraph();
     }
 }
