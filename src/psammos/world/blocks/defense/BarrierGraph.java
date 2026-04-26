@@ -7,8 +7,11 @@ import mindustry.world.Tile;
 import psammos.world.blocks.defense.BarrierProjectorNode.BarrierProjectorNodeBuild;
 
 public class BarrierGraph {
-    public final Seq<BarrierProjectorNodeBuild> nodes = new Seq<>(false);
+    public final Seq<BarrierProjectorNodeBuild> nodes = new Seq<>();
     public float averageEfficiency = 0;
+    public float shieldHealth = 0;
+    public float maxShieldHealth = 0;
+
     private final int graphID;
     private static int lastGraphID;
 
@@ -23,6 +26,11 @@ public class BarrierGraph {
 
     public int getID() {
         return this.graphID;
+    }
+
+    // The controller is the one node responsible for running the graph's update code
+    public boolean isController(BarrierProjectorNodeBuild node) {
+        return node == nodes.first();
     }
 
     public void update() {
@@ -44,7 +52,7 @@ public class BarrierGraph {
                 BarrierGraph newGraph = new BarrierGraph();
                 for (BarrierProjectorNodeBuild connectedNode : connectedNodes) {
                     newGraph.add(connectedNode);
-                    nodes.remove(connectedNode);
+                    remove(connectedNode, false);
                 }
             }
         }
@@ -91,12 +99,22 @@ public class BarrierGraph {
     }
 
     public void add(BarrierProjectorNodeBuild node) {
+        maxShieldHealth += ((BarrierProjectorNode) node.block).shieldHealth;
+        shieldHealth += ((BarrierProjectorNode) node.block).shieldHealth;
         node.graph = this;
         nodes.add(node);
     }
 
-    public void remove(BarrierProjectorNodeBuild node) {
+    public void remove(BarrierProjectorNodeBuild node, boolean trySplit) {
+        maxShieldHealth -= ((BarrierProjectorNode) node.block).shieldHealth;
+        shieldHealth -= ((BarrierProjectorNode) node.block).shieldHealth;
         nodes.remove(node);
-        trySplitGraph();
+        if (trySplit) {
+            trySplitGraph();
+        }
+    }
+
+    public void remove(BarrierProjectorNodeBuild node) {
+        remove(node, true);
     }
 }
