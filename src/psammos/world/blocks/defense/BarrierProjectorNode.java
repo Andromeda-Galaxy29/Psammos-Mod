@@ -1,6 +1,7 @@
 package psammos.world.blocks.defense;
 
 import arc.Core;
+import arc.audio.Sound;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Fill;
@@ -15,10 +16,12 @@ import arc.util.Time;
 import arc.util.Tmp;
 import mindustry.Vars;
 import mindustry.content.Fx;
+import mindustry.entities.Effect;
 import mindustry.entities.Units;
 import mindustry.gen.Building;
 import mindustry.gen.Bullet;
 import mindustry.gen.Groups;
+import mindustry.gen.Sounds;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
@@ -26,15 +29,24 @@ import mindustry.input.Placement;
 import mindustry.ui.Bar;
 import mindustry.world.Block;
 import mindustry.world.Tile;
+import mindustry.world.blocks.ExplosionShield;
 import psammos.PPal;
 
 public class BarrierProjectorNode extends Block {
     public float range = 20 * Vars.tilesize;
     public int maxNodes = 3;
-    public float shieldHealth = 100;
+    public float shieldHealth = 200;
+    public float cooldown = 1.75f;
+    public float cooldownBroken = 0.5f;
     public float nodeShieldRadius = 3f * Vars.tilesize;
     public float linkShieldThickness = 2.5f * Vars.tilesize;
+
     public Color shieldColor = PPal.desertGlass;
+    public Sound breakSound = Sounds.shieldBreak;
+    public Sound hitSound = Sounds.shieldHit;
+    public float hitSoundVolume = 0.12f;
+    public Effect absorbEffect = Fx.absorb;
+    public Effect shieldBreakEffect = Fx.shieldBreak;
 
     public BarrierProjectorNode(String name) {
         super(name);
@@ -94,14 +106,15 @@ public class BarrierProjectorNode extends Block {
         addBar("shield", (BarrierProjectorNodeBuild build) -> new Bar(
                 "stat.shieldhealth",
                 Pal.accent,
-                () -> build.graph.shieldHealth / build.graph.maxShieldHealth));
+                () -> (build.graph.shieldHealth - build.graph.buildup) / build.graph.shieldHealth));
         addBar("connections", (BarrierProjectorNodeBuild build) -> new Bar(
                 () -> Core.bundle.format("bar.powerlines", build.links.size, maxNodes),
                 () -> Pal.items,
                 () -> (float) build.links.size / maxNodes));
     }
 
-    public class BarrierProjectorNodeBuild extends Building {
+    //TODO fix crash when picked up
+    public class BarrierProjectorNodeBuild extends Building implements ExplosionShield {
         public IntSeq links = new IntSeq();
         public BarrierGraph graph;
 
@@ -112,16 +125,37 @@ public class BarrierProjectorNode extends Block {
                 graph.update();
             }
 
-            // Bullet collision
+            if (graph.broken) return;
+            absorbBullets();
+            blockUnits();
+        }
+
+        public void absorbBullets() {
             Groups.bullet.intersect(x - range, y - range, range * 2, range * 2, (bullet) -> {
                 if (bullet.team != team && bullet.type.absorbable) {
                     if(bullet.within(this, realNodeShieldRadius()) || bulletIntersectsAnyLink(bullet)){
+                        hitSound.at(bullet.x, bullet.y, 1f + Mathf.range(0.1f), hitSoundVolume);
+                        absorbEffect.at(bullet);
+                        graph.damage(bullet.damage());
                         bullet.absorb();
                     }
                 }
             });
+        }
 
-            //Unit collision
+        public boolean bulletIntersectsAnyLink(Bullet bullet) {
+            for (int pos : links.toArray()) {
+                float linkX = Point2.x(pos) * Vars.tilesize;
+                float linkY = Point2.y(pos) * Vars.tilesize;
+
+                if(intersectsLine(bullet.x, bullet.y, x, y, linkX, linkY, (bullet.hitSize + realLinkShieldThickness()) / 2f)){
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void blockUnits() {
             Units.nearbyEnemies(team, x, y, range, (unit) -> {
                 // Collision with node shield
                 float overlapDst = unit.hitSize / 2f + realNodeShieldRadius() - unit.dst(this);
@@ -151,15 +185,9 @@ public class BarrierProjectorNode extends Block {
             });
         }
 
-        public boolean bulletIntersectsAnyLink(Bullet bullet) {
-            for (int pos : links.toArray()) {
-                float linkX = Point2.x(pos) * Vars.tilesize;
-                float linkY = Point2.y(pos) * Vars.tilesize;
-
-                if(intersectsLine(bullet.x, bullet.y, x, y, linkX, linkY, (bullet.hitSize + realLinkShieldThickness()) / 2f)){
-                    return true;
-                }
-            }
+        @Override
+        public boolean absorbExplosion(float v, float v1, float v2) {
+            //TODO
             return false;
         }
 
@@ -176,11 +204,11 @@ public class BarrierProjectorNode extends Block {
         }
 
         public float realNodeShieldRadius(){
-            return nodeShieldRadius * graph.averageEfficiency;
+            return nodeShieldRadius * graph.radscl;
         }
 
         public float realLinkShieldThickness(){
-            return linkShieldThickness * graph.averageEfficiency;
+            return linkShieldThickness * graph.radscl;
         }
 
         public void unlinkAll() {
@@ -229,6 +257,11 @@ public class BarrierProjectorNode extends Block {
             return out;
         }
 
+        public void breakEffect() {
+            shieldBreakEffect.at(x, y, realNodeShieldRadius(), shieldColor);
+            breakSound.at(x, y);
+        }
+
         @Override
         public void draw() {
             super.draw();
@@ -246,7 +279,7 @@ public class BarrierProjectorNode extends Block {
             // Bebug draw end
 
             //TODO change draw with turned off shield animations
-            Draw.color(shieldColor);
+            Draw.color(shieldColor, Color.white, Mathf.clamp(graph.hit));
             Draw.z(Layer.shields);
             // Node shield
             Fill.circle(x, y, realNodeShieldRadius());
@@ -276,5 +309,7 @@ public class BarrierProjectorNode extends Block {
                 Drawf.square(link.x * Vars.tilesize, link.y * Vars.tilesize, link.block().size * Vars.tilesize / 2f + 1f, Pal.place);
             }
         }
+
+        //TODO Write and read
     }
 }
