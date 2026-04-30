@@ -113,7 +113,6 @@ public class BarrierProjectorNode extends Block {
                 () -> (float) build.links.size / maxNodes));
     }
 
-    //TODO fix crash when picked up
     public class BarrierProjectorNodeBuild extends Building implements ExplosionShield {
         public IntSeq links = new IntSeq();
         public BarrierGraph graph;
@@ -133,7 +132,7 @@ public class BarrierProjectorNode extends Block {
         public void absorbBullets() {
             Groups.bullet.intersect(x - range, y - range, range * 2, range * 2, (bullet) -> {
                 if (bullet.team != team && bullet.type.absorbable) {
-                    if(bullet.within(this, realNodeShieldRadius()) || bulletIntersectsAnyLink(bullet)){
+                    if(bullet.within(this, realNodeShieldRadius()) || intersectsAnyLink(bullet.x, bullet.y, bullet.hitSize)){
                         hitSound.at(bullet.x, bullet.y, 1f + Mathf.range(0.1f), hitSoundVolume);
                         absorbEffect.at(bullet);
                         graph.damage(bullet.damage());
@@ -141,18 +140,6 @@ public class BarrierProjectorNode extends Block {
                     }
                 }
             });
-        }
-
-        public boolean bulletIntersectsAnyLink(Bullet bullet) {
-            for (int pos : links.toArray()) {
-                float linkX = Point2.x(pos) * Vars.tilesize;
-                float linkY = Point2.y(pos) * Vars.tilesize;
-
-                if(intersectsLine(bullet.x, bullet.y, x, y, linkX, linkY, (bullet.hitSize + realLinkShieldThickness()) / 2f)){
-                    return true;
-                }
-            }
-            return false;
         }
 
         public void blockUnits() {
@@ -186,8 +173,24 @@ public class BarrierProjectorNode extends Block {
         }
 
         @Override
-        public boolean absorbExplosion(float v, float v1, float v2) {
-            //TODO
+        public boolean absorbExplosion(float ex, float ey, float damage) {
+            boolean absorb = !graph.broken && (Tmp.v1.set(this).sub(ex, ey).len() <= realNodeShieldRadius() ||  intersectsAnyLink(ex, ey, 0));
+            if(absorb){
+                absorbEffect.at(ex, ey);
+                graph.damage(damage);
+            }
+            return absorb;
+        }
+
+        public boolean intersectsAnyLink(float ex, float ey, float size) {
+            for (int pos : links.toArray()) {
+                float linkX = Point2.x(pos) * Vars.tilesize;
+                float linkY = Point2.y(pos) * Vars.tilesize;
+
+                if(intersectsLine(ex, ey, x, y, linkX, linkY, (size + realLinkShieldThickness()) / 2f)){
+                    return true;
+                }
+            }
             return false;
         }
 
@@ -231,6 +234,14 @@ public class BarrierProjectorNode extends Block {
         }
 
         @Override
+        public void pickedUp() {
+            unlinkAll();
+            graph.remove(this);
+            graph.radscl = 0;
+            super.pickedUp();
+        }
+
+        @Override
         public boolean onConfigureBuildTapped(Building other) {
             // TODO link all nearby
             if (other instanceof BarrierProjectorNodeBuild otherNode && linkValid(this, otherNode, false)) {
@@ -238,8 +249,7 @@ public class BarrierProjectorNode extends Block {
                 return false;
             } else if (this == other) {
                 unlinkAll();
-                graph.remove(this);
-                graph = new BarrierGraph(this);
+                graph.trySplitGraph();
                 deselect();
                 return false;
             }
@@ -276,6 +286,7 @@ public class BarrierProjectorNode extends Block {
                 Draw.color(Pal.accent);
                 Draw.rect("white", x, y, 3, 3);
             }
+            drawPlaceText(String.valueOf(graph.buildup), tileX(), tileY(), true);
             // Bebug draw end
 
             //TODO change draw with turned off shield animations

@@ -37,7 +37,7 @@ public class BarrierGraph {
 
     // The controller is the one node responsible for running the graph's update code
     public boolean isController(BarrierProjectorNodeBuild node) {
-        return node == nodes.first();
+        return !nodes.isEmpty() && node == nodes.first();
     }
 
     public BarrierProjectorNodeBuild getController() {
@@ -61,6 +61,9 @@ public class BarrierGraph {
         if(buildup > 0){
             float scale = !broken ? getControllerBlock().cooldown : getControllerBlock().cooldownBroken; // I need to change this if I add more barrier node types
             buildup -= Time.delta * scale;
+            if (buildup < 0) {
+                buildup = 0;
+            }
         }
 
         if(broken && buildup <= 0){
@@ -82,6 +85,8 @@ public class BarrierGraph {
 
     public void trySplitGraph() {
         ObjectMap<BarrierProjectorNodeBuild, Boolean> visited = new ObjectMap<>();
+        float splitBuildup = buildup / nodes.size;
+
         for (BarrierProjectorNodeBuild node : nodes) {
             Seq<BarrierProjectorNodeBuild> connectedNodes = getAllConnected(node, visited);
             if (connectedNodes.size == nodes.size) { //If nothing changed
@@ -91,9 +96,13 @@ public class BarrierGraph {
                 BarrierGraph newGraph = new BarrierGraph();
                 for (BarrierProjectorNodeBuild connectedNode : connectedNodes) {
                     newGraph.add(connectedNode);
+                    newGraph.buildup += splitBuildup;
+                    buildup -= splitBuildup;
                     remove(connectedNode, false);
                 }
-                //TODO Split buildup
+                newGraph.radscl = radscl;
+                newGraph.warmup = warmup;
+                newGraph.broken = broken;
             }
         }
     }
@@ -136,10 +145,11 @@ public class BarrierGraph {
         for (BarrierProjectorNodeBuild node : graph.nodes) {
             add(node);
         }
+        buildup += graph.buildup;
+        broken = broken || graph.broken;
     }
 
     public void add(BarrierProjectorNodeBuild node) {
-        //TODO Add buildup
         shieldHealth += ((BarrierProjectorNode) node.block).shieldHealth;
         node.graph = this;
         nodes.add(node);
