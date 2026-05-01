@@ -173,8 +173,14 @@ public class BarrierGraph {
     }
 
     public void damage(float amount){
-        buildup += amount;
-        hit = 1f;
+        damage(amount, 1f);
+    }
+
+    public void damage(float amount, float hitPulse){
+        if (amount > 0f) {
+            buildup += amount;
+            hit = Math.max(hit, hitPulse);
+        }
     }
 
     public void write(Writes write) {

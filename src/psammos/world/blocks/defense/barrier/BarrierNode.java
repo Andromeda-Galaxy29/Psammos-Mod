@@ -41,6 +41,9 @@ public class BarrierNode extends Block {
     public float shieldHealth = 200;
     public float cooldown = 1.75f;
     public float cooldownBroken = 0.5f;
+    /** Collsion damage per hitsize */
+    public float baseCollisionDamage = 0.1f;
+
     public float nodeShieldRadius = 3f * Vars.tilesize;
     public float linkShieldThickness = 2.5f * Vars.tilesize;
 
@@ -157,7 +160,7 @@ public class BarrierNode extends Block {
 
             efficiency = graph.efficiency;
 
-            if (graph.broken) return;
+            if (graph.broken || graph.efficiency == 0f) return;
             absorbBullets();
             blockUnits();
         }
@@ -177,14 +180,14 @@ public class BarrierNode extends Block {
 
         public void blockUnits() {
             Units.nearbyEnemies(team, x, y, range, (unit) -> {
+                boolean collided = false;
+
                 // Collision with node shield
                 float overlapDst = unit.hitSize / 2f + realNodeShieldRadius() - unit.dst(this);
                 if(overlapDst > 0f){
+                    collided = true;
                     unit.vel.setZero();
                     unit.move(Tmp.v1.set(unit).sub(this).setLength(overlapDst + 0.01f));
-                    if (Mathf.chanceDelta(0.12f * Time.delta)) {
-                        Fx.circleColorSpark.at(unit.x, unit.y, shieldColor);
-                    }
                 }
 
                 // Collision with link shields
@@ -193,13 +196,18 @@ public class BarrierNode extends Block {
                     float linkY = Point2.y(pos) * Vars.tilesize;
 
                     if(intersectsLine(unit.x, unit.y, x, y, linkX, linkY, (unit.hitSize + realLinkShieldThickness()) / 2f)){
+                        collided = true;
                         float distanceToLine = Math.abs(Tmp.v1.set(linkY - y, x - linkX).nor().dot(unit.x - x, unit.y - y));
                         overlapDst = unit.hitSize / 2f + realLinkShieldThickness() / 2f - distanceToLine;
                         unit.vel.setZero();
                         unit.move(Tmp.v1.set(linkY - y, x - linkX).setLength(overlapDst + 0.01f));
-                        if (Mathf.chanceDelta(0.12f * Time.delta)) {
-                            Fx.circleColorSpark.at(unit.x, unit.y, shieldColor);
-                        }
+                    }
+                }
+
+                if (collided) {
+                    graph.damage(baseCollisionDamage * unit.type.hitSize / Vars.tilesize, 0.5f);
+                    if (Mathf.chanceDelta(0.12f * Time.delta)) {
+                        Fx.circleColorSpark.at(unit.x, unit.y, shieldColor);
                     }
                 }
             });
