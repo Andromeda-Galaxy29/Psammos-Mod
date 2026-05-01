@@ -31,6 +31,7 @@ import mindustry.ui.Bar;
 import mindustry.world.Block;
 import mindustry.world.Tile;
 import mindustry.world.blocks.ExplosionShield;
+import mindustry.world.meta.BlockStatus;
 import psammos.PPal;
 
 public class BarrierNode extends Block {
@@ -104,6 +105,10 @@ public class BarrierNode extends Block {
     @Override
     public void setBars() {
         super.setBars();
+        addBar("efficiency", (BarrierNodeBuild build) -> new Bar(
+                Core.bundle.format("bar.psammos-efficiency-percent", (int) (build.graph.efficiency * 100)),
+                Pal.ammo,
+                () -> build.graph.efficiency));
         addBar("shield", (BarrierNodeBuild build) -> new Bar(
                 "stat.shieldhealth",
                 Pal.accent,
@@ -124,6 +129,8 @@ public class BarrierNode extends Block {
             if (graph.isController(this)) {
                 graph.update();
             }
+
+            efficiency = graph.efficiency;
 
             if (graph.broken) return;
             absorbBullets();
@@ -203,6 +210,7 @@ public class BarrierNode extends Block {
             return 0 <= distanceAlongLine && distanceAlongLine <= lineLength && distanceToLine <= minDistance;
         }
 
+        /** Efficiency of this node */
         public float nodeEfficiency() {
             return 1;
         }

@@ -1,13 +1,16 @@
 package psammos.content.blocks;
 
 import arc.graphics.*;
+import arc.struct.Seq;
 import mindustry.content.*;
 import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.defense.*;
 import psammos.content.*;
+import psammos.type.RadiationStack;
 import psammos.world.blocks.defense.*;
 import psammos.world.blocks.defense.barrier.BarrierNode;
+import psammos.world.blocks.defense.barrier.RadiationBarrierNode;
 
 import static mindustry.type.ItemStack.mult;
 import static mindustry.type.ItemStack.with;
@@ -99,9 +102,10 @@ public class PsammosDefenseBlocks {
             baseColor = Color.valueOf("#b15dc3");
         }};
 
-        barrierProjectorNode = new BarrierNode("barrier-projector-node"){{
+        barrierProjectorNode = new RadiationBarrierNode("barrier-projector-node"){{
             requirements(Category.defense, with(PsammosItems.desertGlassShard, 1));
             size = 3;
+            radiationRequirements =  Seq.with(new RadiationStack(PsammosRadTypes.light, 3f));
         }};
     }
 }

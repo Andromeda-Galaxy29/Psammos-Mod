@@ -58,12 +58,13 @@ public class BarrierGraph {
             efficiency += node.nodeEfficiency();
         }
         efficiency /= nodes.size;
+        efficiency = Mathf.clamp(efficiency);
 
         radscl = Mathf.lerpDelta(radscl, broken ? 0f : warmup, 0.05f);
         warmup = Mathf.lerpDelta(warmup, efficiency, 0.1f);
 
         if(buildup > 0){
-            float scale = !broken ? getControllerBlock().cooldown : getControllerBlock().cooldownBroken; // I need to change this if I add more barrier node types
+            float scale = !broken ? getControllerBlock().cooldown * efficiency : getControllerBlock().cooldownBroken * efficiency; // I need to change this if I add more barrier node types
             buildup -= Time.delta * scale;
             if (buildup < 0) {
                 buildup = 0;
@@ -182,7 +183,6 @@ public class BarrierGraph {
             write.i(nodes.get(i).tile.pos());
         }
 
-        write.f(efficiency);
         write.bool(broken);
         write.f(buildup);
         write.f(radscl);
@@ -196,7 +196,6 @@ public class BarrierGraph {
             readNodes.add(tile);
         }
 
-        efficiency = read.f();
         broken = read.bool();
         buildup = read.f();
         radscl = read.f();
