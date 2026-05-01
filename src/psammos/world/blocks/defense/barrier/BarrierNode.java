@@ -2,10 +2,12 @@ package psammos.world.blocks.defense.barrier;
 
 import arc.Core;
 import arc.audio.Sound;
+import arc.graphics.Blending;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Fill;
 import arc.graphics.g2d.Lines;
+import arc.graphics.g2d.TextureRegion;
 import arc.math.Mathf;
 import arc.math.geom.Intersector;
 import arc.math.geom.Point2;
@@ -31,7 +33,6 @@ import mindustry.ui.Bar;
 import mindustry.world.Block;
 import mindustry.world.Tile;
 import mindustry.world.blocks.ExplosionShield;
-import mindustry.world.meta.BlockStatus;
 import psammos.PPal;
 
 public class BarrierNode extends Block {
@@ -49,6 +50,12 @@ public class BarrierNode extends Block {
     public float hitSoundVolume = 0.12f;
     public Effect absorbEffect = Fx.absorb;
     public Effect shieldBreakEffect = Fx.shieldBreak;
+    public float minBeamScale = 0.1f;
+    public float beamScale = 0.5f;
+    public float brokenBeamMag = 0.2f;
+    public float brokenBeamScl = 16f;
+
+    TextureRegion topRegion, beamRegion, beamEndRegion;
 
     public BarrierNode(String name) {
         super(name);
@@ -74,6 +81,20 @@ public class BarrierNode extends Block {
                 node.graph.addGraph(otherNode.graph);
             }
         });
+    }
+
+    @Override
+    public void init() {
+        super.init();
+        clipSize = Math.max(clipSize, range * Vars.tilesize);
+    }
+
+    @Override
+    public void load() {
+        super.load();
+        topRegion = Core.atlas.find(name + "-top");
+        beamRegion = Core.atlas.find("psammos-radiation-beam");
+        beamEndRegion = Core.atlas.find("psammos-radiation-beam-end");
     }
 
     public boolean linkValid(BarrierNodeBuild node, BarrierNodeBuild otherNode){
@@ -128,6 +149,10 @@ public class BarrierNode extends Block {
             super.updateTile();
             if (graph.isController(this)) {
                 graph.update();
+            }
+
+            if(Mathf.chanceDelta(graph.buildup / graph.shieldHealth * 0.1f)){
+                Fx.reactorsmoke.at(x + Mathf.range(Vars.tilesize / 2f), y + Mathf.range(Vars.tilesize / 2f));
             }
 
             efficiency = graph.efficiency;
@@ -285,28 +310,81 @@ public class BarrierNode extends Block {
         public void draw() {
             super.draw();
 
-            // Bebug draw
-            Draw.color(Color.HSVtoRGB((graph.getID() * 60) % 360, 100, 100));
-            links.each(pos -> {
-                Lines.line(x, y, (Point2.x(pos) * 8 + x) / 2, (Point2.y(pos) * 8 + y) / 2);
-            });
-            Draw.rect("white", x, y, 6, 6);
-            if (graph.isController(this)) {
-                Draw.color(Pal.accent);
-                Draw.rect("white", x, y, 3, 3);
+            if(graph.buildup > 0f){
+                Draw.alpha(graph.buildup / graph.shieldHealth * 0.75f);
+                Draw.z(Layer.blockAdditive);
+                Draw.blend(Blending.additive);
+                Draw.rect(topRegion, x, y);
+                Draw.blend();
+                Draw.z(Layer.block);
+                Draw.reset();
             }
-            drawPlaceText(String.valueOf(graph.buildup), tileX(), tileY(), true);
-            // Bebug draw end
 
-            //TODO change draw with turned off shield animations
+            drawShields();
+            drawBeams();
+        }
+
+        public void drawShields() {
             Draw.color(shieldColor, Color.white, Mathf.clamp(graph.hit));
             Draw.z(Layer.shields);
-            // Node shield
-            Fill.circle(x, y, realNodeShieldRadius());
-            // Link shields
-            Lines.stroke(realLinkShieldThickness());
+            if (Vars.renderer.animateShields) {
+                // Node shield
+                Fill.circle(x, y, realNodeShieldRadius());
+
+                // Link shields
+                Lines.stroke(realLinkShieldThickness());
+                links.each(pos -> Lines.line(x, y, Point2.x(pos) * Vars.tilesize, Point2.y(pos) * Vars.tilesize));
+            } else if (graph.radscl > 0f){
+                // Node shield
+                Draw.alpha(0.09f);
+                Fill.circle(x, y, realNodeShieldRadius());
+
+                Draw.alpha(1f);
+                Lines.stroke(1.5f);
+                Lines.circle(x, y, realNodeShieldRadius());
+
+                // Link shields
+                links.each(pos -> {
+                    float linkX = Point2.x(pos) * Vars.tilesize;
+                    float linkY = Point2.y(pos) * Vars.tilesize;
+
+                    // Offset to the side
+                    Tmp.v1.set(linkY - y, x - linkX).nor().scl(realLinkShieldThickness() / 2f);
+                    // Offset away from node
+                    float dist = realNodeShieldRadius() * Mathf.cos((float) Math.asin(linkShieldThickness / (nodeShieldRadius * 2f)));
+                    Tmp.v2.set(linkX - x, linkY - y).nor().scl(dist);
+
+                    Draw.alpha(0.09f);
+                    Lines.stroke(realLinkShieldThickness());
+                    Lines.line(x + Tmp.v2.x, y + Tmp.v2.y, linkX - Tmp.v2.x, linkY - Tmp.v2.y, false);
+
+                    Draw.alpha(1f);
+                    Lines.stroke(1.5f);
+                    Lines.line(x + Tmp.v1.x + Tmp.v2.x, y + Tmp.v1.y + Tmp.v2.y, linkX + Tmp.v1.x - Tmp.v2.x, linkY + Tmp.v1.y - Tmp.v2.y);
+                    Lines.line(x - Tmp.v1.x + Tmp.v2.x, y - Tmp.v1.y + Tmp.v2.y, linkX - Tmp.v1.x - Tmp.v2.x, linkY - Tmp.v1.y - Tmp.v2.y);
+                });
+            }
+        }
+
+        public void drawBeams() {
+            Draw.z(Layer.effect);
             links.each(pos -> {
-                Lines.line(x, y, Point2.x(pos) * Vars.tilesize, Point2.y(pos) * Vars.tilesize);
+                float linkX = Point2.x(pos) * Vars.tilesize;
+                float linkY = Point2.y(pos) * Vars.tilesize;
+                Block target = Vars.world.tile(pos).block();
+                if (target == null) return;
+
+                Tmp.v1.set(linkX, linkY).sub(this).nor();
+                float dx = Tmp.v1.x * size * 0.5f * Vars.tilesize;
+                float dy = Tmp.v1.y * size * 0.5f * Vars.tilesize;
+
+                Tmp.v1.scl(-1);
+                float tdx = Tmp.v1.x * target.size * 0.5f * Vars.tilesize;
+                float tdy = Tmp.v1.y * target.size * 0.5f * Vars.tilesize;
+
+                float scale = !graph.broken ? Math.max(minBeamScale, beamScale * graph.radscl) : Mathf.sin(brokenBeamScl, brokenBeamMag);
+
+                Drawf.laser(beamRegion, beamEndRegion, x + dx, y + dy, linkX + tdx, linkY + tdy, scale);
             });
         }
 
