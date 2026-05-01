@@ -7,6 +7,7 @@ import mindustry.world.*;
 import mindustry.world.blocks.defense.*;
 import psammos.content.*;
 import psammos.world.blocks.defense.*;
+import psammos.world.blocks.defense.barrier.BarrierNode;
 
 import static mindustry.type.ItemStack.mult;
 import static mindustry.type.ItemStack.with;
@@ -98,7 +99,7 @@ public class PsammosDefenseBlocks {
             baseColor = Color.valueOf("#b15dc3");
         }};
 
-        barrierProjectorNode = new BarrierProjectorNode("barrier-projector-node"){{
+        barrierProjectorNode = new BarrierNode("barrier-projector-node"){{
             requirements(Category.defense, with(PsammosItems.desertGlassShard, 1));
             size = 3;
         }};

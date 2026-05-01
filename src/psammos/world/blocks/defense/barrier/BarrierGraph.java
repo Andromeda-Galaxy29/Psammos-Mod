@@ -1,18 +1,17 @@
-package psammos.world.blocks.defense;
+package psammos.world.blocks.defense.barrier;
 
 import arc.math.Mathf;
 import arc.struct.ObjectMap;
 import arc.struct.Seq;
-import arc.util.Log;
 import arc.util.Time;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
 import mindustry.Vars;
 import mindustry.world.Tile;
-import psammos.world.blocks.defense.BarrierProjectorNode.BarrierProjectorNodeBuild;
+import psammos.world.blocks.defense.barrier.BarrierNode.BarrierNodeBuild;
 
 public class BarrierGraph {
-    public final Seq<BarrierProjectorNodeBuild> nodes = new Seq<>();
+    public final Seq<BarrierNodeBuild> nodes = new Seq<>();
     public float efficiency = 0;
     public boolean broken = false;
     public float buildup = 0;
@@ -31,7 +30,7 @@ public class BarrierGraph {
         this.graphID = lastGraphID++;
     }
 
-    public BarrierGraph(BarrierProjectorNodeBuild firstNode) {
+    public BarrierGraph(BarrierNodeBuild firstNode) {
         this();
         add(firstNode);
     }
@@ -41,21 +40,21 @@ public class BarrierGraph {
     }
 
     // The controller is the one node responsible for running the graph's update code
-    public boolean isController(BarrierProjectorNodeBuild node) {
+    public boolean isController(BarrierNodeBuild node) {
         return !nodes.isEmpty() && node == nodes.first();
     }
 
-    public BarrierProjectorNodeBuild getController() {
+    public BarrierNodeBuild getController() {
         return nodes.first();
     }
 
-    public BarrierProjectorNode getControllerBlock() {
-        return (BarrierProjectorNode) getController().block;
+    public BarrierNode getControllerBlock() {
+        return (BarrierNode) getController().block;
     }
 
     public void update() {
         efficiency = 0;
-        for (BarrierProjectorNodeBuild node : nodes) {
+        for (BarrierNodeBuild node : nodes) {
             efficiency += node.nodeEfficiency();
         }
         efficiency /= nodes.size;
@@ -78,7 +77,7 @@ public class BarrierGraph {
         if(buildup >= shieldHealth && !broken){
             broken = true;
             buildup = shieldHealth;
-            for (BarrierProjectorNodeBuild node : nodes) {
+            for (BarrierNodeBuild node : nodes) {
                 node.breakEffect();
             }
         }
@@ -89,17 +88,17 @@ public class BarrierGraph {
     }
 
     public void trySplitGraph() {
-        ObjectMap<BarrierProjectorNodeBuild, Boolean> visited = new ObjectMap<>();
+        ObjectMap<BarrierNodeBuild, Boolean> visited = new ObjectMap<>();
         float splitBuildup = buildup / nodes.size;
 
-        for (BarrierProjectorNodeBuild node : nodes) {
-            Seq<BarrierProjectorNodeBuild> connectedNodes = getAllConnected(node, visited);
+        for (BarrierNodeBuild node : nodes) {
+            Seq<BarrierNodeBuild> connectedNodes = getAllConnected(node, visited);
             if (connectedNodes.size == nodes.size) { //If nothing changed
                 return;
             }
             if (connectedNodes.size > 0) {
                 BarrierGraph newGraph = new BarrierGraph();
-                for (BarrierProjectorNodeBuild connectedNode : connectedNodes) {
+                for (BarrierNodeBuild connectedNode : connectedNodes) {
                     newGraph.add(connectedNode);
                     newGraph.buildup += splitBuildup;
                     buildup -= splitBuildup;
@@ -112,7 +111,7 @@ public class BarrierGraph {
         }
     }
     
-    public Seq<BarrierProjectorNodeBuild> getAllConnected(BarrierProjectorNodeBuild node, ObjectMap<BarrierProjectorNodeBuild, Boolean> visited, Seq<BarrierProjectorNodeBuild> result) {
+    public Seq<BarrierNodeBuild> getAllConnected(BarrierNodeBuild node, ObjectMap<BarrierNodeBuild, Boolean> visited, Seq<BarrierNodeBuild> result) {
         if (visited.containsKey(node) && visited.get(node)) {
             return result;
         }
@@ -121,7 +120,7 @@ public class BarrierGraph {
         result.add(node);
         for (int pos : node.links.toArray()) {
             Tile tile = Vars.world.tile(pos);
-            if (tile == null || !(tile.build instanceof BarrierProjectorNodeBuild nextNode)) {
+            if (tile == null || !(tile.build instanceof BarrierNodeBuild nextNode)) {
                 continue;
             }
 
@@ -132,8 +131,8 @@ public class BarrierGraph {
         return result;
     }
 
-    public Seq<BarrierProjectorNodeBuild> getAllConnected(BarrierProjectorNodeBuild node, ObjectMap<BarrierProjectorNodeBuild, Boolean> visited) {
-        Seq<BarrierProjectorNodeBuild> result = new Seq<>();
+    public Seq<BarrierNodeBuild> getAllConnected(BarrierNodeBuild node, ObjectMap<BarrierNodeBuild, Boolean> visited) {
+        Seq<BarrierNodeBuild> result = new Seq<>();
         return getAllConnected(node, visited, result);
     }
 
@@ -147,28 +146,28 @@ public class BarrierGraph {
             return;
         }
 
-        for (BarrierProjectorNodeBuild node : graph.nodes) {
+        for (BarrierNodeBuild node : graph.nodes) {
             add(node);
         }
         buildup += graph.buildup;
         broken = broken || graph.broken;
     }
 
-    public void add(BarrierProjectorNodeBuild node) {
-        shieldHealth += ((BarrierProjectorNode) node.block).shieldHealth;
+    public void add(BarrierNodeBuild node) {
+        shieldHealth += ((BarrierNode) node.block).shieldHealth;
         node.graph = this;
         nodes.add(node);
     }
 
-    public void remove(BarrierProjectorNodeBuild node, boolean trySplit) {
-        shieldHealth -= ((BarrierProjectorNode) node.block).shieldHealth;
+    public void remove(BarrierNodeBuild node, boolean trySplit) {
+        shieldHealth -= ((BarrierNode) node.block).shieldHealth;
         nodes.remove(node);
         if (trySplit) {
             trySplitGraph();
         }
     }
 
-    public void remove(BarrierProjectorNodeBuild node) {
+    public void remove(BarrierNodeBuild node) {
         remove(node, true);
     }
 
@@ -206,7 +205,7 @@ public class BarrierGraph {
 
     public void afterReadAll() {
         for (Tile tile : readNodes) {
-            if (tile.build instanceof BarrierProjectorNodeBuild node) {
+            if (tile.build instanceof BarrierNodeBuild node) {
                 add(node);
             }
         }

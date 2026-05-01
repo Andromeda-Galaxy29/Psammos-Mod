@@ -1,4 +1,4 @@
-package psammos.world.blocks.defense;
+package psammos.world.blocks.defense.barrier;
 
 import arc.Core;
 import arc.audio.Sound;
@@ -11,7 +11,6 @@ import arc.math.geom.Intersector;
 import arc.math.geom.Point2;
 import arc.struct.IntSeq;
 import arc.struct.Seq;
-import arc.util.Log;
 import arc.util.Nullable;
 import arc.util.Time;
 import arc.util.Tmp;
@@ -22,7 +21,6 @@ import mindustry.content.Fx;
 import mindustry.entities.Effect;
 import mindustry.entities.Units;
 import mindustry.gen.Building;
-import mindustry.gen.Bullet;
 import mindustry.gen.Groups;
 import mindustry.gen.Sounds;
 import mindustry.graphics.Drawf;
@@ -35,7 +33,7 @@ import mindustry.world.Tile;
 import mindustry.world.blocks.ExplosionShield;
 import psammos.PPal;
 
-public class BarrierProjectorNode extends Block {
+public class BarrierNode extends Block {
     public float range = 20 * Vars.tilesize;
     public int maxNodes = 3;
     public float shieldHealth = 200;
@@ -51,7 +49,7 @@ public class BarrierProjectorNode extends Block {
     public Effect absorbEffect = Fx.absorb;
     public Effect shieldBreakEffect = Fx.shieldBreak;
 
-    public BarrierProjectorNode(String name) {
+    public BarrierNode(String name) {
         super(name);
         update = true;
         configurable = true;
@@ -59,7 +57,7 @@ public class BarrierProjectorNode extends Block {
 
         config(Integer.class, (entity, pos) -> {
             Building other = Vars.world.build(pos);
-            if (!(other instanceof BarrierProjectorNodeBuild otherNode && entity instanceof BarrierProjectorNodeBuild node)){
+            if (!(other instanceof BarrierNodeBuild otherNode && entity instanceof BarrierNodeBuild node)){
                 return;
             }
 
@@ -77,13 +75,13 @@ public class BarrierProjectorNode extends Block {
         });
     }
 
-    public boolean linkValid(BarrierProjectorNodeBuild node, BarrierProjectorNodeBuild otherNode){
+    public boolean linkValid(BarrierNodeBuild node, BarrierNodeBuild otherNode){
         return linkValid(node, otherNode, true);
     }
 
-    public boolean linkValid(BarrierProjectorNodeBuild node, BarrierProjectorNodeBuild otherNode, boolean checkMaxNodes) {
+    public boolean linkValid(BarrierNodeBuild node, BarrierNodeBuild otherNode, boolean checkMaxNodes) {
         if (checkMaxNodes) {
-            if (node.links.size >= maxNodes || otherNode.links.size >= ((BarrierProjectorNode) otherNode.block).maxNodes) {
+            if (node.links.size >= maxNodes || otherNode.links.size >= ((BarrierNode) otherNode.block).maxNodes) {
                 return false;
             }
         }
@@ -106,17 +104,17 @@ public class BarrierProjectorNode extends Block {
     @Override
     public void setBars() {
         super.setBars();
-        addBar("shield", (BarrierProjectorNodeBuild build) -> new Bar(
+        addBar("shield", (BarrierNodeBuild build) -> new Bar(
                 "stat.shieldhealth",
                 Pal.accent,
                 () -> (build.graph.shieldHealth - build.graph.buildup) / build.graph.shieldHealth));
-        addBar("connections", (BarrierProjectorNodeBuild build) -> new Bar(
+        addBar("connections", (BarrierNodeBuild build) -> new Bar(
                 () -> Core.bundle.format("bar.powerlines", build.links.size, maxNodes),
                 () -> Pal.items,
                 () -> (float) build.links.size / maxNodes));
     }
 
-    public class BarrierProjectorNodeBuild extends Building implements ExplosionShield {
+    public class BarrierNodeBuild extends Building implements ExplosionShield {
         public IntSeq links = new IntSeq();
         public BarrierGraph graph;
 
@@ -247,7 +245,7 @@ public class BarrierProjectorNode extends Block {
         @Override
         public boolean onConfigureBuildTapped(Building other) {
             // TODO link all nearby
-            if (other instanceof BarrierProjectorNodeBuild otherNode && linkValid(this, otherNode, false)) {
+            if (other instanceof BarrierNodeBuild otherNode && linkValid(this, otherNode, false)) {
                 configure(otherNode.pos());
                 return false;
             } else if (this == other) {
