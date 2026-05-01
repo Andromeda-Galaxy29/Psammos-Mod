@@ -33,7 +33,10 @@ import mindustry.ui.Bar;
 import mindustry.world.Block;
 import mindustry.world.Tile;
 import mindustry.world.blocks.ExplosionShield;
+import mindustry.world.meta.Stat;
+import mindustry.world.meta.StatUnit;
 import psammos.PPal;
+import psammos.world.meta.PsammosStats;
 
 public class BarrierNode extends Block {
     public float range = 20 * Vars.tilesize;
@@ -125,6 +128,14 @@ public class BarrierNode extends Block {
         return Intersector.overlaps(Tmp.cr1.set(src.worldx() + offset, src.worldy() + offset, range), Tmp.r1.setSize(size * Vars.tilesize).setCenter(other.worldx() + offset, other.worldy() + offset));
     }
 
+    @Override
+    public void setStats() {
+        super.setStats();
+        stats.add(Stat.linkRange, range);
+        stats.add(Stat.shieldHealth, shieldHealth, PsammosStats.perNode);
+        stats.add(Stat.regenerationRate, cooldown * 60f, StatUnit.perSecond);
+        stats.add(Stat.cooldownTime, (int) (shieldHealth / cooldownBroken / 60f), PsammosStats.secondsPerNode);
+    }
 
     @Override
     public void setBars() {

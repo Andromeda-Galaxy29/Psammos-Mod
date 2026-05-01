@@ -2,6 +2,7 @@ package psammos.content.blocks;
 
 import arc.graphics.*;
 import arc.struct.Seq;
+import mindustry.Vars;
 import mindustry.content.*;
 import mindustry.type.*;
 import mindustry.world.*;
@@ -105,6 +106,12 @@ public class PsammosDefenseBlocks {
         barrierProjectorNode = new RadiationBarrierNode("barrier-projector-node"){{
             requirements(Category.defense, with(PsammosItems.desertGlassShard, 1));
             size = 3;
+            shieldHealth = 200;
+            baseCollisionDamage = 0.1f;
+            maxNodes = 4;
+            range = 20 * Vars.tilesize;
+            nodeShieldRadius = 3f * Vars.tilesize;
+            linkShieldThickness = 2.5f * Vars.tilesize;
             radiationRequirements =  Seq.with(new RadiationStack(PsammosRadTypes.light, 3f));
         }};
     }
