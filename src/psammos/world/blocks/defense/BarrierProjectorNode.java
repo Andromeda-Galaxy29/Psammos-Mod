@@ -11,9 +11,12 @@ import arc.math.geom.Intersector;
 import arc.math.geom.Point2;
 import arc.struct.IntSeq;
 import arc.struct.Seq;
+import arc.util.Log;
 import arc.util.Nullable;
 import arc.util.Time;
 import arc.util.Tmp;
+import arc.util.io.Reads;
+import arc.util.io.Writes;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.entities.Effect;
@@ -321,6 +324,44 @@ public class BarrierProjectorNode extends Block {
             }
         }
 
-        //TODO Write and read
+        @Override
+        public void write(Writes write) {
+            super.write(write);
+
+            write.s(links.size);
+            for(int i = 0; i < links.size; i++) {
+                write.i(links.get(i));
+            }
+
+            if (graph.isController(this)) {
+                write.bool(true);
+                graph.write(write);
+            }else {
+                write.bool(false);
+            }
+
+        }
+
+        @Override
+        public void read(Reads read, byte revision) {
+            super.read(read, revision);
+
+            links.clear();
+            short amount = read.s();
+            for(int i = 0; i < amount; i++) {
+                links.add(read.i());
+            }
+
+            graph = new BarrierGraph();
+            if (read.bool()) {
+                graph.read(read, revision);
+            }
+        }
+
+        @Override
+        public void afterReadAll() {
+            super.afterReadAll();
+            graph.afterReadAll();
+        }
     }
 }

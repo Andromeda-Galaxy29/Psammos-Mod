@@ -3,7 +3,10 @@ package psammos.world.blocks.defense;
 import arc.math.Mathf;
 import arc.struct.ObjectMap;
 import arc.struct.Seq;
+import arc.util.Log;
 import arc.util.Time;
+import arc.util.io.Reads;
+import arc.util.io.Writes;
 import mindustry.Vars;
 import mindustry.world.Tile;
 import psammos.world.blocks.defense.BarrierProjectorNode.BarrierProjectorNodeBuild;
@@ -16,8 +19,10 @@ public class BarrierGraph {
     public float radscl = 0;
     public float warmup = 0;
     public float hit = 0;
-
     public float shieldHealth = 0;
+
+    //Temporary storage for nodes when loading saves (not all buildings exist yet when reading save data)
+    public final Seq<Tile> readNodes = new Seq<>();
 
     private final int graphID;
     private static int lastGraphID;
@@ -170,5 +175,41 @@ public class BarrierGraph {
     public void damage(float amount){
         buildup += amount;
         hit = 1f;
+    }
+
+    public void write(Writes write) {
+        write.s(nodes.size);
+        for(int i = 0; i < nodes.size; i++) {
+            write.i(nodes.get(i).tile.pos());
+        }
+
+        write.f(efficiency);
+        write.bool(broken);
+        write.f(buildup);
+        write.f(radscl);
+        write.f(warmup);
+    }
+
+    public void read(Reads read, byte revision) {
+        short amount = read.s();
+        for(int i = 0; i < amount; i++) {
+            Tile tile = Vars.world.tile(read.i());
+            readNodes.add(tile);
+        }
+
+        efficiency = read.f();
+        broken = read.bool();
+        buildup = read.f();
+        radscl = read.f();
+        warmup = read.f();
+    }
+
+    public void afterReadAll() {
+        for (Tile tile : readNodes) {
+            if (tile.build instanceof BarrierProjectorNodeBuild node) {
+                add(node);
+            }
+        }
+        readNodes.clear();
     }
 }
