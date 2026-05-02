@@ -104,7 +104,7 @@ public class PsammosDefenseBlocks {
         }};
 
         barrierProjectorNode = new RadiationBarrierNode("barrier-projector-node"){{
-            requirements(Category.defense, with(PsammosItems.desertGlassShard, 1));
+            requirements(Category.defense, with(PsammosItems.refinedMetal, 80, PsammosItems.desertGlassShard, 50, Items.silicon, 60));
             size = 3;
             shieldHealth = 200;
             baseCollisionDamage = 0.1f;
