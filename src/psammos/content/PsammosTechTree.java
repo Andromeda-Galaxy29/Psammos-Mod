@@ -373,7 +373,7 @@ public class PsammosTechTree {
                                     node(oilRefiningFacility, Seq.with(new SectorComplete(evaporatedBasin)), ()->{
                                         node(erodedDesert, Seq.with(new SectorComplete(oilRefiningFacility), new Research(coreDune)), ()->{
                                             node(ruinousHollow, Seq.with(new SectorComplete(erodedDesert)), ()->{
-                                                node(scaldedPlains, Seq.with(new SectorComplete(ruinousHollow)), ()->{
+                                                node(scaldedPlains, Seq.with(new SectorComplete(ruinousHollow), new SectorComplete(craterousRange)), ()->{
                                                     node(searingChasms, Seq.with(new SectorComplete(scaldedPlains), new SectorComplete(craterousRange)), ()->{
 
                                                     });
