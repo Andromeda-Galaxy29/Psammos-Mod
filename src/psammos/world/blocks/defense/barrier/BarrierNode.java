@@ -154,6 +154,14 @@ public class BarrierNode extends Block {
                 () -> (float) build.links.size / maxNodes));
     }
 
+    @Override
+    public void drawPlace(int x, int y, int rotation, boolean valid) {
+        super.drawPlace(x, y, rotation, valid);
+        Lines.stroke(1);
+        Drawf.circles(x * Vars.tilesize, y * Vars.tilesize, range, shieldColor);
+        Draw.reset();
+    }
+
     public class BarrierNodeBuild extends Building implements ExplosionShield {
         public IntSeq links = new IntSeq();
         public BarrierGraph graph;
@@ -273,10 +281,19 @@ public class BarrierNode extends Block {
             }
         }
 
+        public void linkAllNear() {
+            team.data().buildingTree.intersect(x - range, y - range, range * 2, range * 2, b -> {
+                if (b instanceof BarrierNodeBuild node && linkValid(this, node)) {
+                    configure(node.pos());
+                }
+            });
+        }
+
         @Override
         public void created() {
             super.created();
             graph = new BarrierGraph(this);
+            linkAllNear();
         }
 
         @Override
@@ -296,13 +313,16 @@ public class BarrierNode extends Block {
 
         @Override
         public boolean onConfigureBuildTapped(Building other) {
-            // TODO link all nearby
             if (other instanceof BarrierNodeBuild otherNode && linkValid(this, otherNode, false)) {
                 configure(otherNode.pos());
                 return false;
             } else if (this == other) {
-                unlinkAll();
-                graph.trySplitGraph();
+                if (links.size == 0) {
+                    linkAllNear();
+                } else {
+                    unlinkAll();
+                    graph.trySplitGraph();
+                }
                 deselect();
                 return false;
             }
@@ -340,6 +360,10 @@ public class BarrierNode extends Block {
             }
 
             drawShields();
+            if (Core.settings.getBool("psammos-graph-debug")) {
+                drawDebug();
+                return;
+            }
             drawBeams();
         }
 
@@ -405,6 +429,24 @@ public class BarrierNode extends Block {
 
                 Drawf.laser(beamRegion, beamEndRegion, x + dx, y + dy, linkX + tdx, linkY + tdy, scale);
             });
+        }
+
+        public void drawDebug() {
+            Draw.z(Layer.blockOver);
+            Draw.color(Color.HSVtoRGB((graph.getID() * 30) % 360, 100, 100));
+            Lines.stroke(2);
+            links.each(pos -> {
+                Lines.line(x, y, (Point2.x(pos) * 8 + x) / 2, (Point2.y(pos) * 8 + y) / 2);
+            });
+            Draw.rect("white", x, y, 6, 6);
+            if (graph.isController(this)) {
+                Draw.color(Pal.accent);
+                Draw.rect("white", x, y, 3, 3);
+            }
+            drawPlaceText("Graph ID: " + graph.getID() +
+                    (graph.isController(this) ? "\nIs controller" : "") +
+                    "\nBuildup: " + graph.buildup,
+                    tileX(), tileY(), true);
         }
 
         @Override

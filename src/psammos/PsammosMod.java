@@ -94,6 +94,7 @@ public class PsammosMod extends Mod{
         ui.settings.addCategory(bundle.get("setting.psammos-category"), "psammos-settings-icon", t -> {
             t.checkPref("psammos-warning", true);
             t.checkPref("psammos-custom-menu", true);
+            t.checkPref("psammos-graph-debug", false);
 
             // Thank you, developers of Subvoyage, for this code
             t.pref(new ButtonPref(bundle.get("setting.psammos-clear-tech-tree"),Icon.trash,() -> {
