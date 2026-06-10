@@ -7,7 +7,7 @@ public class PsammosSectors {
 
     landing, quartzValley, cavern, driedRiver, excavationSite, shatteredPathway, ancientSwamp,
     evaporatedBasin, coruscatedCrevice, oilRefiningFacility, ferricSummit, craterousRange, erodedDesert,
-    enfer, ruinousHollow, scaldedPlains, searingChasms;
+    enfer, ruinousHollow, scaldedPlains, searingChasms, weaponTestingSite;
 
     public static void load(){
         landing = new SectorPreset("landing", PsammosPlanets.psammos, 0){{
@@ -83,6 +83,10 @@ public class PsammosSectors {
         }};
 
         searingChasms = new SectorPreset("searing-chasms", PsammosPlanets.psammos, 48){{
+            difficulty = 6;
+        }};
+
+        weaponTestingSite = new SectorPreset("weapon-testing-site", PsammosPlanets.psammos, 49){{
             difficulty = 6;
         }};
     }

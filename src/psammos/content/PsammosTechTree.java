@@ -16,6 +16,7 @@ import static psammos.content.blocks.PsammosEffectBlocks.*;
 import static psammos.content.blocks.PsammosLogicBlocks.*;
 import static psammos.content.PsammosItems.*;
 import static psammos.content.PsammosLiquids.*;
+import static psammos.content.PsammosRadTypes.*;
 import static psammos.content.PsammosSectors.*;
 import static psammos.content.PsammosUnitTypes.*;
 import static mindustry.content.Items.*;
@@ -59,9 +60,6 @@ public class PsammosTechTree {
             });
 
             node(osmiumDrill, ()->{
-                node(crystalSampler, ()->{
-
-                });
                 node(heatproofPump, Seq.with(new OnSector(quartzValley)), ()->{
                     node(pipe, ()->{
                         node(pipeJunction, ()->{
@@ -91,8 +89,8 @@ public class PsammosTechTree {
                                 node(heatPumpRouter, ()->{
 
                                 });
-                                node(heatRadiator, ()-> {
-                                    node(infraredHeater, ()-> {
+                                node(heatRadiator, Seq.with(new OnSector(weaponTestingSite), new Research(desertGlassShard)), ()-> {
+                                    node(infraredHeater, Seq.with(new OnSector(weaponTestingSite), new Research(desertGlassShard)), ()-> {
 
                                     });
                                 });
@@ -111,6 +109,10 @@ public class PsammosTechTree {
                     });
                 });
 
+                node(crystalSampler, Seq.with(new OnSector(weaponTestingSite)), ()->{
+
+                });
+
                 node(excavatorDrill, Seq.with(new OnSector(quartzValley)), ()->{
                     node(quarryDrill, Seq.with(new OnSector(scaldedPlains), new Research(memoryAlloyCrucible)), ()->{
 
@@ -122,19 +124,19 @@ public class PsammosTechTree {
                 });
 
                 node(windTurbine, Seq.with(new OnSector(quartzValley)), ()->{
-                    node(solarCollector, ()->{
-                        node(ultravioletLamp, ()-> {
+                    node(solarCollector, Seq.with(new OnSector(weaponTestingSite), new Research(desertGlassShard)), ()->{
+                        node(ultravioletLamp, Seq.with(new OnSector(weaponTestingSite), new Research(desertGlassShard)), ()-> {
 
                         });
-                        node(photovoltaicCell, ()-> {
+                        node(photovoltaicCell, Seq.with(new OnSector(weaponTestingSite), new Research(desertGlassShard), new Research(light)), ()-> {
 
                         });
-                        node(mirror, ()->{
-                            node(focuser, ()->{
-                                node(concaveLens, ()->{
+                        node(mirror, Seq.with(new OnSector(weaponTestingSite), new Research(desertGlassShard)), ()->{
+                            node(focuser, Seq.with(new OnSector(weaponTestingSite), new Research(desertGlassShard)), ()->{
+                                node(concaveLens, Seq.with(new OnSector(weaponTestingSite), new Research(desertGlassShard)), ()->{
 
                                 });
-                                node(convexLens, ()->{
+                                node(convexLens, Seq.with(new OnSector(weaponTestingSite), new Research(desertGlassShard)), ()->{
 
                                 });
                             });
@@ -243,7 +245,9 @@ public class PsammosTechTree {
                             });
                             node(memoryWall, Seq.with(new OnSector(scaldedPlains), new Research(memoryAlloyCrucible)), ()->{
                                 node(memoryWallLarge, ()->{
+                                    node(barrierProjectorNode, Seq.with(new OnSector(weaponTestingSite), new Research(desertGlassShard), new Research(light)), ()->{
 
+                                    });
                                 });
                             });
                         });
@@ -261,17 +265,16 @@ public class PsammosTechTree {
                         node(spray, ()->{
                             node(burst, Seq.with(new OnSector(erodedDesert), new Research(aerogelPressurizer)), ()->{
                                 node(burden, Seq.with(new OnSector(searingChasms), new Research(memoryAlloyCrucible)), ()->{
+                                    node(meteor, Seq.with(new OnSector(weaponTestingSite), new Research(desertGlassShard), new Research(UV)), ()->{
 
-                                });
-                                node(meteor, ()->{
-
+                                    });
                                 });
                             });
                         });
                     });
                     node(influence, Seq.with(new OnSector(quartzValley)), ()->{
                         node(overflow, Seq.with(new OnSector(erodedDesert)), ()->{
-                            node(luminosity, ()->{
+                            node(luminosity, Seq.with(new OnSector(weaponTestingSite), new Research(desertGlassShard), new Research(light)), ()->{
 
                             });
                         });
@@ -375,7 +378,9 @@ public class PsammosTechTree {
                                             node(ruinousHollow, Seq.with(new SectorComplete(erodedDesert)), ()->{
                                                 node(scaldedPlains, Seq.with(new SectorComplete(ruinousHollow), new SectorComplete(craterousRange)), ()->{
                                                     node(searingChasms, Seq.with(new SectorComplete(scaldedPlains), new SectorComplete(craterousRange)), ()->{
+                                                        node(weaponTestingSite, Seq.with(new SectorComplete(searingChasms)), ()->{
 
+                                                        });
                                                     });
                                                     node(enfer, Seq.with(new SectorComplete(scaldedPlains)), ()->{
 
@@ -447,7 +452,14 @@ public class PsammosTechTree {
 
                         });
                         nodeProduce(desertGlassShard, ()->{
+                            nodeProduce(IR, ()->{
 
+                            });
+                            nodeProduce(light, ()->{
+                                nodeProduce(UV, ()->{
+
+                                });
+                            });
                         });
                     });
                 });

@@ -25,6 +25,10 @@ public interface RadiationEmitter {
     }
 
     default void handleRadiationEmission(Building build, int rotation){
+        if (outputRadiation()[rotation] != null && outputRadiation()[rotation].type != null &&
+                outputRadiation()[rotation].amount > 0 && !outputRadiation()[rotation].type.unlockedNowHost()) {
+            outputRadiation()[rotation].type.unlock();
+        }
         Tile target = findRadiationTarget(build, rotation);
         if (target != null && target.build instanceof RadiationConsumer consumer){
             consumer.addRadiationInput(build);
