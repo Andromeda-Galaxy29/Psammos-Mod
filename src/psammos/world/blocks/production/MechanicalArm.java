@@ -31,8 +31,6 @@ import psammos.graphics.PDraw;
 
 import static mindustry.Vars.*;
 
-
-//This code is probably attrociously bad but if it works it works I guess
 public class MechanicalArm extends Block {
 
     public int outputAmount = 5;
