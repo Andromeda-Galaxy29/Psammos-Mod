@@ -1,7 +1,6 @@
 package psammos.world.blocks.production;
 
 import arc.Core;
-import arc.graphics.Blending;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.TextureRegion;
@@ -160,9 +159,9 @@ public class MechanicalArm extends Block {
 
             if (armPos == null) armPos = new Vec2(x - tilesize * size / 2f, y + tilesize * size / 2f);
 
-            //TODO: Maybe don't make this run every frame? Might be laggy
             targets = getPossibleTargets(tileX(), tileY());
             if (targets.isEmpty()) {
+                target = null;
                 return;
             }
             if (target == null){
@@ -210,6 +209,10 @@ public class MechanicalArm extends Block {
         @Override
         public void draw() {
             super.draw();
+
+            if (armPos == null) {
+                return;
+            }
 
             float armLength = range / 2f;
             float armAngle = new Vec2(x, y).angleTo(armPos.x, armPos.y);
@@ -267,11 +270,17 @@ public class MechanicalArm extends Block {
         @Override
         public void write(Writes write) {
             super.write(write);
+            if (armPos == null) armPos = new Vec2(x - tilesize * size / 2f, y + tilesize * size / 2f);
             write.f(armPos.x);
             write.f(armPos.y);
 
-            write.f(target.x);
-            write.f(target.y);
+            if (target != null) {
+                write.f(target.x);
+                write.f(target.y);
+            }else{
+                write.f(0);
+                write.f(0);
+            }
 
             write.f(progress);
         }
