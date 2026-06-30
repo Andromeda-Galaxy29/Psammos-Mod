@@ -55,15 +55,14 @@ public class DrawRadiationBeams extends DrawBlock {
                 if (target.build instanceof RadiationConsumer consumer){
                     incomingOffset += consumer.incomingBeamOffset();
                 }
-                Draw.color(color);
-                Drawf.laser(beam, beamEnd,
+                PDraw.laser(radStack.type.beam, radStack.type.beamEnd,
                         build.x + dx * emittedOffset, build.y + dy * emittedOffset,
                         target.worldx() - dx * incomingOffset, target.worldy() - dy * incomingOffset,
-                        scale);
+                        scale, color);
                 Draw.color();
             }else{
                 float rangeOffset = emitter.radBeamRange() * tilesize * 1.2f;
-                PDraw.gradientLaser(beam, beamEnd,
+                PDraw.laser(radStack.type.beam, radStack.type.beamEnd,
                         build.x + dx * emittedOffset, build.y + dy * emittedOffset, color,
                         build.x + dx * rangeOffset, build.y + dy * rangeOffset, color.cpy().a(0),
                         scale);

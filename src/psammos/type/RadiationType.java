@@ -2,6 +2,7 @@ package psammos.type;
 
 import arc.Core;
 import arc.graphics.Color;
+import arc.graphics.g2d.TextureRegion;
 import mindustry.ctype.ContentType;
 import mindustry.ctype.UnlockableContent;
 import mindustry.logic.LAccess;
@@ -14,6 +15,8 @@ public class RadiationType extends UnlockableContent implements Senseable {
 
     public Color color = Color.black;
     public boolean hidden;
+    public TextureRegion beam;
+    public TextureRegion beamEnd;
 
     public RadiationType(String name, Color color) {
         this(name);
@@ -26,6 +29,13 @@ public class RadiationType extends UnlockableContent implements Senseable {
         this.description = Core.bundle.getOrNull("radiation." + this.name + ".description");
         this.details = Core.bundle.getOrNull("radiation." + this.name + ".details");
         this.credit = Core.bundle.getOrNull("radiation." + this.name + ".credit");
+    }
+
+    @Override
+    public void load() {
+        super.load();
+        beam = Core.atlas.find(this.name + "-beam", "psammos-radiation-beam");
+        beamEnd = Core.atlas.find(this.name + "-beam-end", "psammos-radiation-beam-end");
     }
 
     @Override
