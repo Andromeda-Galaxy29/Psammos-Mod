@@ -1,5 +1,6 @@
 package psammos.type;
 
+import arc.Core;
 import arc.graphics.Color;
 import mindustry.ctype.ContentType;
 import mindustry.ctype.UnlockableContent;
@@ -15,12 +16,16 @@ public class RadiationType extends UnlockableContent implements Senseable {
     public boolean hidden;
 
     public RadiationType(String name, Color color) {
-        super(name);
+        this(name);
         this.color = color;
     }
 
     public RadiationType(String name) {
         super(name);
+        this.localizedName = Core.bundle.get("radiation." + this.name + ".name", this.name);
+        this.description = Core.bundle.getOrNull("radiation." + this.name + ".description");
+        this.details = Core.bundle.getOrNull("radiation." + this.name + ".details");
+        this.credit = Core.bundle.getOrNull("radiation." + this.name + ".credit");
     }
 
     @Override
@@ -41,6 +46,12 @@ public class RadiationType extends UnlockableContent implements Senseable {
     @Override
     public String toString() {
         return this.localizedName;
+    }
+
+    @Override
+    public void postInit() {
+        super.postInit();
+        this.databaseCategory = "radiation";
     }
 
     @Override

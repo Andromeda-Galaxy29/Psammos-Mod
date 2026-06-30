@@ -1041,6 +1041,8 @@ public class PsammosUnitTypes {
         }};
 
         sciur = new UnitType("5a-sciur"){{
+            databaseTag = "psammos-hover-units";
+
             constructor = ElevationMoveUnit::create;
             researchCostMultiplier = 0;
 
@@ -1133,6 +1135,8 @@ public class PsammosUnitTypes {
         }};
 
         glirid = new UnitType("5b-glirid"){{
+            databaseTag = "psammos-hover-units";
+
             researchCostMultiplier = 0f;
             constructor = ElevationMoveUnit::create;
 
@@ -1206,6 +1210,8 @@ public class PsammosUnitTypes {
         }};
 
         exilis = new UnitType("exilis"){{
+            databaseTag = "psammos-hover-units";
+
             constructor = ElevationMoveUnit::create;
 
             speed = 3.2f;
@@ -1286,6 +1292,8 @@ public class PsammosUnitTypes {
         }};
 
         aeretes = new UnitType("aeretes"){{
+            databaseTag = "psammos-hover-units";
+
             constructor = ElevationMoveUnit::create;
 
             speed = 3.2f;

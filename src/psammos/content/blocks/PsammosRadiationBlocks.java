@@ -1,5 +1,6 @@
 package psammos.content.blocks;
 
+import arc.Core;
 import arc.graphics.Color;
 import mindustry.content.Items;
 import mindustry.type.Category;
@@ -8,9 +9,7 @@ import mindustry.world.draw.DrawDefault;
 import mindustry.world.draw.DrawGlowRegion;
 import mindustry.world.draw.DrawMulti;
 import psammos.content.PsammosItems;
-import psammos.content.PsammosLiquids;
 import psammos.content.PsammosRadTypes;
-import psammos.type.RadiationType;
 import psammos.world.blocks.radiation.*;
 import psammos.world.draw.DrawDirectionalRegion;
 import psammos.world.draw.DrawRadiationBeams;
@@ -24,32 +23,42 @@ public class PsammosRadiationBlocks {
     public static void load() {
         radiationSource = new RadiationSource("radiation-source"){{
             category = Category.power;
+            databaseTag = "psammos-radiation-blocks";
         }};
 
         radiationVoid = new RadiationVoid("radiation-void"){{
             category = Category.power;
+            databaseTag = "psammos-radiation-blocks";
         }};
 
         focuser = new Focuser("focuser"){{
             requirements(Category.power, with(PsammosItems.silver, 5, PsammosItems.desertGlassShard, 3));
+            databaseTag = "psammos-radiation-blocks";
         }};
 
         mirror = new Mirror("mirror"){{
             requirements(Category.power, with(PsammosItems.silver, 7, PsammosItems.desertGlassShard, 5));
+            databaseTag = "psammos-radiation-blocks";
         }};
 
         convexLens = new Lens("convex-lens"){{
             requirements(Category.power, with(PsammosItems.osmium, 5, PsammosItems.silver, 10, PsammosItems.desertGlassShard, 20));
+            databaseTag = "psammos-radiation-blocks";
+
             concave = false;
         }};
 
         concaveLens = new Lens("concave-lens"){{
             requirements(Category.power, with(PsammosItems.osmium, 5, PsammosItems.silver, 10, PsammosItems.desertGlassShard, 20));
+            databaseTag = "psammos-radiation-blocks";
+
             concave = true;
         }};
 
         solarCollector = new SolarCollector("solar-collector") {{
             requirements(Category.power, with(PsammosItems.refinedMetal, 10, PsammosItems.silver, 30, PsammosItems.desertGlassShard, 30));
+            databaseTag = "psammos-radiation-blocks";
+
             size = 3;
             radOutputAmount = 3f;
             radOutputType = PsammosRadTypes.light;
@@ -57,6 +66,7 @@ public class PsammosRadiationBlocks {
 
         ultravioletLamp = new RadiationProducer("uv-lamp"){{
             requirements(Category.power, with( Items.silicon, 20, PsammosItems.refinedMetal, 30, PsammosItems.desertGlassShard, 20, PsammosItems.osmium, 60));
+            databaseTag = "psammos-radiation-blocks";
 
             size = 3;
             squareSprite = false;
