@@ -92,7 +92,7 @@ public class PsammosRadiationBlocks {
 
             radOutputAmount = 10;
             radOutputType = PsammosRadTypes.UV;
-            craftTime = 240;
+            craftTime = 60;
         }};
     }
 }
