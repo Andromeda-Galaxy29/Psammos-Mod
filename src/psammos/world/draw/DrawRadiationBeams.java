@@ -17,7 +17,7 @@ import psammos.world.blocks.radiation.*;
 import static mindustry.Vars.tilesize;
 
 public class DrawRadiationBeams extends DrawBlock {
-    public TextureRegion beam, beamEnd;
+    public TextureRegion defaultBeam, defaultBeamEnd;
 
     public float maxRadiation = 80;
     public float minBeamScale = 0.2f;
@@ -27,8 +27,8 @@ public class DrawRadiationBeams extends DrawBlock {
     @Override
     public void load(Block block) {
         super.load(block);
-        beam = Core.atlas.find("psammos-radiation-beam");
-        beamEnd = Core.atlas.find("psammos-radiation-beam-end");
+        defaultBeam = Core.atlas.find("psammos-radiation-beam");
+        defaultBeamEnd = Core.atlas.find("psammos-radiation-beam-end");
     }
 
     @Override
@@ -53,22 +53,28 @@ public class DrawRadiationBeams extends DrawBlock {
             float dx = Geometry.d4x[rotation];
             float dy = Geometry.d4y[rotation];
             float emittedOffset = build.block.size * tilesize * 0.5f + emitter.emittedBeamOffset();
-            Color color = radStack.type.color.cpy();
+            Color color = radStack.type.color.cpy()
+                    .a(Core.settings.getInt("psammos-radiation-beam-opacity", 100) / 100f);
             float scale = Mathf.lerp(minBeamScale, maxBeamScale, interp.apply(Mathf.clamp(radStack.amount / maxRadiation)));
+
+            TextureRegion beam = Core.settings.getBool("psammos-uniform-radiation-beams", false) ?
+                    defaultBeam : radStack.type.beam;
+            TextureRegion beamEnd = Core.settings.getBool("psammos-uniform-radiation-beams", false) ?
+                    defaultBeamEnd : radStack.type.beamEnd;
 
             if (target != null){
                 float incomingOffset = tilesize * 0.5f;
                 if (target.build instanceof RadiationConsumer consumer){
                     incomingOffset += consumer.incomingBeamOffset();
                 }
-                PDraw.laser(radStack.type.beam, radStack.type.beamEnd,
+                PDraw.laser(beam, beamEnd,
                         build.x + dx * emittedOffset, build.y + dy * emittedOffset,
                         target.worldx() - dx * incomingOffset, target.worldy() - dy * incomingOffset,
                         scale, color);
                 Draw.color();
             }else{
                 float rangeOffset = emitter.radBeamRange() * tilesize * 1.2f;
-                PDraw.laser(radStack.type.beam, radStack.type.beamEnd,
+                PDraw.laser(beam, beamEnd,
                         build.x + dx * emittedOffset, build.y + dy * emittedOffset, color,
                         build.x + dx * rangeOffset, build.y + dy * rangeOffset, color.cpy().a(0),
                         scale);

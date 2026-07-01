@@ -94,6 +94,8 @@ public class PsammosMod extends Mod{
         ui.settings.addCategory(bundle.get("setting.psammos-category"), "psammos-settings-icon", t -> {
             t.checkPref("psammos-warning", true);
             t.checkPref("psammos-custom-menu", true);
+            t.sliderPref("psammos-radiation-beam-opacity", 100, 0, 100, 5, s -> s + "%");
+            t.checkPref("psammos-uniform-radiation-beams", false);
             t.checkPref("psammos-graph-debug", false);
 
             // Thank you, developers of Subvoyage, for this code
