@@ -3,6 +3,7 @@ package psammos.world.blocks.radiation;
 import arc.math.Mathf;
 import arc.math.geom.Geometry;
 import arc.math.geom.Point2;
+import arc.util.Nullable;
 import mindustry.gen.Building;
 import mindustry.world.Tile;
 import mindustry.world.blocks.environment.StaticWall;
@@ -11,7 +12,7 @@ import psammos.type.RadiationStack;
 import static mindustry.Vars.world;
 
 public interface RadiationEmitter {
-    RadiationStack[] outputRadiation();
+    @Nullable RadiationStack[] outputRadiation();
     float radBeamRange();
     default float emittedBeamOffset() {
         return 0;

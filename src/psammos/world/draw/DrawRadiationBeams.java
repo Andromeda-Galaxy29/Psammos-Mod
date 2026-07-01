@@ -3,6 +3,7 @@ package psammos.world.draw;
 import arc.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
+import arc.math.Interp;
 import arc.math.Mathf;
 import arc.math.geom.*;
 import mindustry.gen.*;
@@ -21,6 +22,7 @@ public class DrawRadiationBeams extends DrawBlock {
     public float maxRadiation = 80;
     public float minBeamScale = 0.2f;
     public float maxBeamScale = 1f;
+    public Interp interp = Interp.pow2Out;
 
     @Override
     public void load(Block block) {
@@ -35,9 +37,13 @@ public class DrawRadiationBeams extends DrawBlock {
             return;
         }
 
+        RadiationStack[] output = emitter.outputRadiation();
+        if (output == null) {
+            return;
+        }
         Draw.z(Layer.effect);
-        for (int rotation = 0; rotation < 4; rotation++){
-            RadiationStack radStack = emitter.outputRadiation()[rotation];
+        for (int rotation = 0; rotation < 4; rotation++) {
+            RadiationStack radStack = output[rotation];
 
             if (radStack == null || radStack.type == null || radStack.amount == 0){
                 continue;
@@ -48,7 +54,7 @@ public class DrawRadiationBeams extends DrawBlock {
             float dy = Geometry.d4y[rotation];
             float emittedOffset = build.block.size * tilesize * 0.5f + emitter.emittedBeamOffset();
             Color color = radStack.type.color.cpy();
-            float scale = Mathf.lerp(minBeamScale, maxBeamScale, Mathf.clamp(radStack.amount / maxRadiation));
+            float scale = Mathf.lerp(minBeamScale, maxBeamScale, interp.apply(Mathf.clamp(radStack.amount / maxRadiation)));
 
             if (target != null){
                 float incomingOffset = tilesize * 0.5f;

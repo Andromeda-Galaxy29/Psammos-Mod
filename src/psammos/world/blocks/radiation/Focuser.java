@@ -87,6 +87,9 @@ public class Focuser extends Block {
         public RadiationStack[] sideRadiation;
 
         public RadiationStack barRad(){
+            if (sideRadiation == null) {
+                return null;
+            }
             return sideRadiation[(rotation + 2) % 4];
         }
 
@@ -110,6 +113,10 @@ public class Focuser extends Block {
 
         @Override
         public RadiationStack[] outputRadiation() {
+            if (sideRadiation == null) {
+                return null;
+            }
+
             RadiationStack[] output = new RadiationStack[4];
             output[rotation] = sideRadiation[(rotation + 2) % 4];
             return output;

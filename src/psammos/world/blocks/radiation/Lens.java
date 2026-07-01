@@ -113,6 +113,10 @@ public class Lens extends Block {
         public RadiationStack[] sideRadiation;
 
         public RadiationStack barRad(){
+            if (sideRadiation == null) {
+                return null;
+            }
+
             RadiationStack radiation = null;
             if (!concave){
                 for (int i = 0; i < 4; i++){
@@ -161,6 +165,10 @@ public class Lens extends Block {
 
         @Override
         public RadiationStack[] outputRadiation() {
+            if (sideRadiation == null) {
+                return null;
+            }
+
             RadiationStack radiation = null;
             RadiationStack[] output = new RadiationStack[4];
             if (!concave){

@@ -72,9 +72,9 @@ public class Mirror extends Block {
     public void addRadiationBar(int i){
         addBar("psammos-radiation-" + i, (MirrorBuild b) -> new Bar(
                 () -> Core.bundle.format("bar.psammos-" + (i == 0 ? "right" : i == 1 ? "up" : i == 2 ? "left" : "down"),
-                        b.outputRadiation()[i] == null ? Core.bundle.get("bar.psammos-radiation") : Core.bundle.format("bar.psammos-radiation-amount", b.outputRadiation()[i].type.localizedName, b.outputRadiation()[i].amount)),
-                () -> b.outputRadiation()[i] == null ? Color.clear : b.outputRadiation()[i].type.color,
-                () -> b.outputRadiation()[i] == null ?  0f : b.outputRadiation()[i].amount / visualMaxRadiation
+                        b.outputRadiation() == null || b.outputRadiation()[i] == null ? Core.bundle.get("bar.psammos-radiation") : Core.bundle.format("bar.psammos-radiation-amount", b.outputRadiation()[i].type.localizedName, b.outputRadiation()[i].amount)),
+                () -> b.outputRadiation() == null || b.outputRadiation()[i] == null ? Color.clear : b.outputRadiation()[i].type.color,
+                () -> b.outputRadiation() == null || b.outputRadiation()[i] == null ?  0f : b.outputRadiation()[i].amount / visualMaxRadiation
         ));
     }
 
@@ -153,6 +153,10 @@ public class Mirror extends Block {
 
         @Override
         public RadiationStack[] outputRadiation() {
+            if (sideRadiation == null) {
+                return null;
+            }
+
             if (rotation % 2 == 0){
                 return new RadiationStack[]{sideRadiation[3], sideRadiation[2], sideRadiation[1], sideRadiation[0]};
             }else{
