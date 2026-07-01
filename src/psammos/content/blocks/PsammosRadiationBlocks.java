@@ -86,11 +86,11 @@ public class PsammosRadiationBlocks {
             rotate = true;
             rotateDraw = false;
 
-            consumePower(240f/60f*4f);
+            consumePower(240f/60f);
             consumeItem(PsammosItems.peat, 2);
             consumeItem(PsammosItems.quartz, 1);
 
-            radOutputAmount = 40;
+            radOutputAmount = 10;
             radOutputType = PsammosRadTypes.UV;
             craftTime = 240;
         }};
