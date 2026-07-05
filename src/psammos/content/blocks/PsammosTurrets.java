@@ -1021,7 +1021,7 @@ public class PsammosTurrets {
             ammo(
                     PsammosRadTypes.light, new LightBeamBulletType(){{
                         damage = 24f;
-                        length = 110;
+                        length = 200;
                         angleWidth = 60;
                         buildingDamageMultiplier = 0f;
                         timescaleDamage = true;
@@ -1040,7 +1040,7 @@ public class PsammosTurrets {
             targetGround = true;
             targetAir = true;
             targetBlocks = false;
-            range = 110;
+            range = 200;
             shootY = 2;
             recoil = 0;
             loopSound = Sounds.loopFlux;
