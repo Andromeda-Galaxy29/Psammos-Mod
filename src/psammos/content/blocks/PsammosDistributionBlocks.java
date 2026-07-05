@@ -40,7 +40,8 @@ public class PsammosDistributionBlocks {
             alwaysUnlocked = true;
 
             health = 30;
-            speed = 26;
+            speed = 22.5f;
+            displayedSpeed = 16;
             capacity = 6;
             buildCostMultiplier = 2f;
         }};
@@ -61,6 +62,7 @@ public class PsammosDistributionBlocks {
             health = 40;
             range = 4;
             speed = 55f;
+            displayedSpeed = 14f;
             arrowSpacing = 4;
             bufferCapacity = 14;
             buildCostMultiplier = 3;
