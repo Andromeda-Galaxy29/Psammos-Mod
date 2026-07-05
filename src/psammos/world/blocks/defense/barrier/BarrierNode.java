@@ -282,7 +282,9 @@ public class BarrierNode extends Block {
         }
 
         public void linkAllNear() {
-            if (team.data() == null || team.data().buildingTree == null) {return;}
+            if (team.data() == null || team.data().buildingTree == null) {
+                return;
+            }
             team.data().buildingTree.intersect(x - range, y - range, range * 2, range * 2, b -> {
                 if (b instanceof BarrierNodeBuild node && linkValid(this, node)) {
                     configure(node.pos());
