@@ -22,6 +22,7 @@ import static psammos.content.PsammosUnitTypes.*;
 import static mindustry.content.Items.*;
 import static mindustry.content.Liquids.*;
 import static mindustry.game.Objectives.*;
+import static psammos.game.PsammosObjectives.*;
 
 public class PsammosTechTree {
     public static void load(){
@@ -171,7 +172,7 @@ public class PsammosTechTree {
 
                             });
                             node(thermolysisChamber, Seq.with(new OnSector(excavationSite)), ()->{
-                                node(thermolysisTower, ()-> {
+                                node(thermolysisTower, Seq.with(new Research(light), new SectorComplete(weaponTestingSite)), ()-> {
 
                                 });
                                 node(refinery, ()->{
@@ -192,7 +193,7 @@ public class PsammosTechTree {
                                                 node(memoryAlloyCrucible, Seq.with(new OnSector(scaldedPlains)), ()->{
 
                                                 });
-                                                node(splitterCell, ()-> {
+                                                node(splitterCell, Seq.with(new Research(UV), new SectorComplete(weaponTestingSite)), ()-> {
 
                                                 });
                                             });
@@ -299,7 +300,7 @@ public class PsammosTechTree {
                     node(jaw, ()->{
 
                     });
-                    node(specialistUnitWelder, ()-> {
+                    node(specialistUnitWelder, Seq.with(new FutureUpdate()), ()-> {
                         node(maw, () -> {
 
                         });
@@ -313,7 +314,7 @@ public class PsammosTechTree {
                         node(pike, ()->{
 
                         });
-                        node(assaultUnitWelder, ()-> {
+                        node(assaultUnitWelder, Seq.with(new FutureUpdate()), ()-> {
                             node(spear, () -> {
 
                             });
@@ -327,7 +328,7 @@ public class PsammosTechTree {
                             node(glirid, ()->{
 
                             });
-                            node(scoutUnitWelder, ()-> {
+                            node(scoutUnitWelder, Seq.with(new FutureUpdate()), ()-> {
                                 node(exilis, () -> {
 
                                 });
@@ -341,7 +342,7 @@ public class PsammosTechTree {
                                 node(helix, ()->{
 
                                 });
-                                node(supportUnitWelder, ()-> {
+                                node(supportUnitWelder, Seq.with(new FutureUpdate()), ()-> {
                                     node(trisect, () -> {
 
                                     });
@@ -356,7 +357,7 @@ public class PsammosTechTree {
                                 node(knight, ()->{
 
                                 });
-                                node(frontlineUnitWelder, ()-> {
+                                node(frontlineUnitWelder, Seq.with(new FutureUpdate()), ()-> {
                                     node(bishop, () -> {
 
                                     });

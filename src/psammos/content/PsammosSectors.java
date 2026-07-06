@@ -87,6 +87,7 @@ public class PsammosSectors {
         }};
 
         weaponTestingSite = new SectorPreset("weapon-testing-site", PsammosPlanets.psammos, 49){{
+            captureWave = 40;
             difficulty = 6;
         }};
     }
