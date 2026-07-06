@@ -388,7 +388,7 @@ public class PsammosTechTree {
                                                     });
                                                 });
                                             });
-                                            node(coruscatedCrevice, Seq.with(new SectorComplete(erodedDesert), new SectorComplete(ferricSummit)), ()->{
+                                            node(depositoryCrevice, Seq.with(new SectorComplete(erodedDesert), new SectorComplete(ferricSummit)), ()->{
 
                                             });
                                         });
