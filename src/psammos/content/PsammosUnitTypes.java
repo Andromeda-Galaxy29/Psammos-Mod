@@ -167,11 +167,9 @@ public class PsammosUnitTypes {
                     }}
             );
 
-            immunities.addAll(
-                    PsammosStatusEffects.infested,
-                    StatusEffects.melting,
-                    StatusEffects.burning
-            );
+            immunities.add(PsammosStatusEffects.infested);
+            immunities.add(StatusEffects.melting);
+            immunities.add(StatusEffects.burning);
 
             weapons.addAll(
                     new Weapon(){{
@@ -322,10 +320,8 @@ public class PsammosUnitTypes {
             segmentMag = 0.8f;
             segmentRotSpeed = 1f;
 
-            immunities.addAll(
-                    StatusEffects.melting,
-                    StatusEffects.burning
-            );
+            immunities.add(StatusEffects.melting);
+            immunities.add(StatusEffects.burning);
 
             abilities.add(new SwarmAbility(32));
             immunities.add(PsammosStatusEffects.infested);
