@@ -5,6 +5,7 @@ import arc.graphics.g2d.*;
 import arc.math.*;
 import mindustry.content.*;
 import mindustry.entities.*;
+import mindustry.entities.units.StatusEntry;
 import mindustry.gen.*;
 import mindustry.type.*;
 
@@ -83,17 +84,20 @@ public class PsammosStatusEffects {
                 });
             });
         }
+
             @Override
-            public void update(Unit unit, float time) {
-                super.update(unit, time);
+            public void update(Unit unit, StatusEntry entry) {
+                super.update(unit, entry);
                 if(unit.hasEffect(StatusEffects.burning) || unit.hasEffect(StatusEffects.melting)){
                     unit.damageContinuousPierce(0.2f);
                 }
             }
+            
             @Override
             public String emoji() {
                 return "\uECC7";
             }
+
             @Override
             public boolean hasEmoji() {
                 return true;

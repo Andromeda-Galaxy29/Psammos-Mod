@@ -17,6 +17,7 @@ public class PsammosIcons {
         loadIcon(60613, "psammos-infested"); // \uECC5
         loadIcon(60614, "psammos-swarm-protection"); // \uECC6
         loadIcon(60615, "psammos-combustible"); // \uECC7
+        loadIcon(60616, "psammos-radiation"); // \uECC8
     }
 
     public static void loadIcon(int id, String regionName){

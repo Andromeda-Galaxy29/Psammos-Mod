@@ -99,6 +99,7 @@ public class SwarmAbility extends Ability {
         swarm = new Seq<>();
     }
 
+    //TODO: Quite laggy
     public void updateSwarm(Unit unit, Seq<Unit> unitSeq){
         shouldUpdate = false; // Prevents it from updating multiple times per tick
         swarm = unitSeq;

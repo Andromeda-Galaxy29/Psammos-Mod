@@ -3,11 +3,14 @@ package psammos.world.blocks.power;
 import arc.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
+import arc.math.geom.Point2;
+import arc.struct.Seq;
 import arc.util.*;
 import mindustry.content.*;
 import mindustry.entities.*;
 import mindustry.gen.Building;
 import mindustry.graphics.*;
+import mindustry.input.Placement;
 import mindustry.world.Tile;
 import mindustry.world.blocks.power.*;
 import mindustry.world.meta.Stat;
@@ -27,6 +30,7 @@ public class WindTurbine extends PowerGenerator {
 
     public WindTurbine(String name){
         super(name);
+        allowDiagonal = false;
     }
 
     @Override
@@ -59,6 +63,13 @@ public class WindTurbine extends PowerGenerator {
         y += offset;
 
         Drawf.dashSquare(Pal.techBlue, x, y, range * tilesize);
+    }
+
+    @Override
+    public void changePlacementPath(Seq<Point2> points, int rotation, boolean diagonal){
+        if(!diagonal){
+            Placement.calculateNodes(points, this, rotation, (point, other) -> Math.max(Math.abs(point.x - other.x), Math.abs(point.y - other.y)) <= Math.ceil(range / 2f) + Math.floor(size / 2f));
+        }
     }
 
     @Override

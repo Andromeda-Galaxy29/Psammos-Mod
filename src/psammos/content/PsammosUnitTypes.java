@@ -51,7 +51,7 @@ public class PsammosUnitTypes {
     pawn, knight, bishop, rook, queen,
 
     //Other
-    repairDrone, secretGerb;
+    weldingDrone, repairDrone, secretGerb;
 
     public static void load() {
         gradient = new UnitType("1a-gradient"){{
@@ -245,7 +245,7 @@ public class PsammosUnitTypes {
                     x = 0;
                     y = 3;
                     reload = 20;
-                    shootSound = Sounds.shootAlt;
+                    shootSound = Sounds.shootCleroi;
                     mirror = false;
                     bullet = new ArtilleryBulletType(){{
                         damage = 25;
@@ -286,7 +286,7 @@ public class PsammosUnitTypes {
                     x = 0;
                     y = 7;
                     reload = 50;
-                    shootSound = Sounds.cannon;
+                    shootSound = Sounds.shootArtillerySap;
                     mirror = false;
                     bullet = new ArtilleryBulletType(){{
                         damage = 30;
@@ -335,7 +335,7 @@ public class PsammosUnitTypes {
                         x = 0;
                         y = 8;
                         reload = 120;
-                        shootSound = Sounds.splash;
+                        shootSound = Sounds.stepWater;
                         mirror = false;
                         alwaysShooting = true;
                         minShootVelocity = 0.1f;
@@ -408,7 +408,7 @@ public class PsammosUnitTypes {
                     x = 0;
                     y = -4;
                     reload = 24;
-                    shootSound = Sounds.shootAlt;
+                    shootSound = Sounds.shootDuo;
                     mirror = false;
                     rotate = true;
                     bullet = new BasicBulletType(){{
@@ -462,7 +462,7 @@ public class PsammosUnitTypes {
                     x = 6;
                     y = -4;
                     reload = 18;
-                    shootSound = Sounds.artillery;
+                    shootSound = Sounds.shootArtillerySmall;
                     mirror = true;
                     rotate = true;
                     bullet = new BasicBulletType(){{
@@ -548,7 +548,7 @@ public class PsammosUnitTypes {
                     x = 0;
                     y = -6;
                     reload = 80;
-                    shootSound = Sounds.cannon;
+                    shootSound = Sounds.shootArtillery;
                     mirror = false;
                     rotate = true;
                     bullet = new ArtilleryBulletType(){{
@@ -629,7 +629,7 @@ public class PsammosUnitTypes {
                             lifetime = 30;
                             shootEffect = Fx.shootSmall;
                             smokeEffect = Fx.shootSmallSmoke;
-                            shootSound = Sounds.shootAlt;
+                            shootSound = Sounds.shootScatter;
                         }};
                     }},
                     new Weapon("psammos-javelin-weapon"){{
@@ -651,14 +651,14 @@ public class PsammosUnitTypes {
                             lifetime = 30;
                             shootEffect = Fx.shootSmall;
                             smokeEffect = Fx.shootSmallSmoke;
-                            shootSound = Sounds.shootAlt;
+                            shootSound = Sounds.shootScatter;
                         }};
                     }},
                     new Weapon("psammos-javelin-cannon"){{
                         x = 0;
                         y = -9;
                         reload = 80;
-                        shootSound = Sounds.explosionbig;
+                        shootSound = Sounds.explosionTitan;
                         mirror = false;
                         rotate = true;
                         rotateSpeed = 1f;
@@ -675,7 +675,7 @@ public class PsammosUnitTypes {
                             shootEffect = Fx.shootTitan;
                             smokeEffect = Fx.shootSmokeTitan;
                             hitEffect = despawnEffect = Fx.blastExplosion;
-                            despawnSound = Sounds.dullExplosion;
+                            despawnSound = Sounds.explosionDull;
                             trailEffect = Fx.hitSquaresColor;
                             trailRotation = true;
                             trailInterval = 3f;
@@ -721,7 +721,7 @@ public class PsammosUnitTypes {
             accel = 0.1f;
             drag = 0.04f;
             flying = true;
-            health = 275;
+            health = 225;
             hitSize = 8;
             armor = 2;
             outlineColor = PPal.unitOutline;
@@ -735,10 +735,10 @@ public class PsammosUnitTypes {
 
             weapons.addAll(
                 new Weapon("psammos-sine-gun"){{
-                    x = 3;
-                    y = -2;
+                    x = -4f;
+                    y = -1;
                     reload = 18;
-                    shootSound = Sounds.lasershoot;
+                    shootSound = Sounds.shootAlpha;
                     ejectEffect = Fx.none;
                     bullet = new BasicBulletType(){{
                         speed = 3;
@@ -789,7 +789,7 @@ public class PsammosUnitTypes {
             crashDamageMultiplier = 0f;
 
             abilities.addAll(
-                new RepairFieldAbility(25, 200, 80)
+                new RepairFieldAbility(10, 200, 80)
             );
 
             weapons.addAll(
@@ -797,7 +797,7 @@ public class PsammosUnitTypes {
                     x = 0;
                     y = 3;
                     reload = 24;
-                    shootSound = Sounds.lasershoot;
+                    shootSound = Sounds.shootLaser;
                     ejectEffect = Fx.none;
                     shoot = new ShootHelix(){{
                         scl = 2;
@@ -861,7 +861,7 @@ public class PsammosUnitTypes {
                     y = 1;
                     reload = 38;
                     layerOffset = -0.01f;
-                    shootSound = Sounds.malignShoot;
+                    shootSound = Sounds.shootMalign;
                     ejectEffect = Fx.none;
                     bullet = new BasicBulletType(){{
                         speed = 3;
@@ -903,7 +903,7 @@ public class PsammosUnitTypes {
                     x = 0;
                     y = 5;
                     reload = 110;
-                    shootSound = Sounds.laser;
+                    shootSound = Sounds.shootLaser;
                     mirror = false;
                     rotate = false;
                     bullet = new LaserBulletType(){{
@@ -964,7 +964,7 @@ public class PsammosUnitTypes {
                         y = 30f / 4f;
                         reload = 40;
                         layerOffset = -0.01f;
-                        shootSound = Sounds.missileLarge;
+                        shootSound = Sounds.shootMissileLarge;
                         ejectEffect = Fx.shootSmokeSquareBig;
                         shootY = 2f;
                         bullet = new BasicBulletType(){{
@@ -995,7 +995,7 @@ public class PsammosUnitTypes {
                             homingRange = 60;
                             homingPower = 0.15f;
 
-                            hitSound = Sounds.dullExplosion;
+                            hitSound = Sounds.explosionDull;
                             hitShake = 4;
 
                             Effect effect = new Effect(40f, e -> {
@@ -1041,6 +1041,8 @@ public class PsammosUnitTypes {
         }};
 
         sciur = new UnitType("5a-sciur"){{
+            databaseTag = "psammos-hover-units";
+
             constructor = ElevationMoveUnit::create;
             researchCostMultiplier = 0;
 
@@ -1091,7 +1093,7 @@ public class PsammosUnitTypes {
                     x = 0;
                     y = -3.5f;
                     reload = 28;
-                    shootSound = Sounds.missile;
+                    shootSound = Sounds.shootMissile;
                     inaccuracy = 2;
                     velocityRnd = 0.1f;
                     mirror = false;
@@ -1133,6 +1135,8 @@ public class PsammosUnitTypes {
         }};
 
         glirid = new UnitType("5b-glirid"){{
+            databaseTag = "psammos-hover-units";
+
             researchCostMultiplier = 0f;
             constructor = ElevationMoveUnit::create;
 
@@ -1183,7 +1187,7 @@ public class PsammosUnitTypes {
                     x = -3.5f;
                     y = 0;
                     reload = 28;
-                    shootSound = Sounds.laser;
+                    shootSound = Sounds.shootLaser;
                     mirror = true;
                     rotate = true;
                     bullet = new LaserBulletType(){{
@@ -1206,6 +1210,8 @@ public class PsammosUnitTypes {
         }};
 
         exilis = new UnitType("exilis"){{
+            databaseTag = "psammos-hover-units";
+
             constructor = ElevationMoveUnit::create;
 
             speed = 3.2f;
@@ -1259,7 +1265,7 @@ public class PsammosUnitTypes {
                         y = 0;
                         reload = 50;
                         shootY = 3f;
-                        shootSound = Sounds.pulseBlast;
+                        shootSound = Sounds.shootPulsar;
                         mirror = true;
                         rotate = true;
                         shoot = new ShootSpread(3, 15f);
@@ -1286,6 +1292,8 @@ public class PsammosUnitTypes {
         }};
 
         aeretes = new UnitType("aeretes"){{
+            databaseTag = "psammos-hover-units";
+
             constructor = ElevationMoveUnit::create;
 
             speed = 3.2f;
@@ -1355,14 +1363,14 @@ public class PsammosUnitTypes {
                             y = -1;
                             reload = 50;
                             shootY = 3f;
-                            shootSound = Sounds.laser;
+                            shootSound = Sounds.shootMissilePlasma;
                             mirror = true;
                             rotate = true;
 
                             BulletType myBullet = new BasicBulletType() {{
                                 backSprite = "large-bomb-back";
                                 sprite = "large-bomb";
-                                hitSound = Sounds.plasmaboom;
+                                hitSound = Sounds.explosionPlasmaSmall;
                                 width = 11f;
                                 height = 11;
                                 speed = 3;
@@ -1422,7 +1430,7 @@ public class PsammosUnitTypes {
             speed = 1.2f;
             hitSize = 12f;
             rotateSpeed = 3.5f;
-            health = 200;
+            health = 190;
             armor = 1;
             outlineColor = PPal.unitOutline;
             faceTarget = false;
@@ -1445,12 +1453,12 @@ public class PsammosUnitTypes {
                         mirror = true;
                         rotate = true;
                         alternate = false;
-                        shootSound = Sounds.lasershoot;
+                        shootSound = Sounds.shootLaser;
                         bullet = new BasicBulletType(){{
                             backSprite = "large-bomb-back";
                             sprite = "mine-bullet";
                             speed = 3f;
-                            damage = 10;
+                            damage = 8;
                             width = 8;
                             height = 8;
                             trailWidth = 1.5f;
@@ -1518,10 +1526,10 @@ public class PsammosUnitTypes {
                         shoot.shotDelay = 0.5f;
                         ejectEffect = Fx.none;
                         recoil = 2.5f;
-                        shootSound = Sounds.spark;
+                        shootSound = Sounds.shootEnergyField;
                         bullet = new LightningBulletType(){{
                             lightningColor = hitColor = Pal.techBlue;
-                            damage = 14f;
+                            damage = 11f;
                             lightningLength = 7;
                             lightningLengthRand = 7;
                             shootEffect = Fx.shootSmallColor.wrap(Pal.techBlue);
@@ -1569,7 +1577,7 @@ public class PsammosUnitTypes {
                         mirror = true;
                         rotate = true;
                         alternate = true;
-                        shootSound = Sounds.shockBlast;
+                        shootSound = Sounds.shootCleroi;
 
                         shootY = 6f;
                         shoot = new ShootBarrel(){{
@@ -1610,7 +1618,7 @@ public class PsammosUnitTypes {
                         reload = 100;
                         mirror = false;
                         rotate = true;
-                        shootSound = Sounds.mediumCannon;
+                        shootSound = Sounds.shootMissilePlasma;
                         inaccuracy = 15;
 
                         bullet = new BasicBulletType(){{
@@ -1724,8 +1732,8 @@ public class PsammosUnitTypes {
                             }};
                             bulletInterval = 4f;
 
-                            hitSound = Sounds.dullExplosion;
-                            shootSound = Sounds.malignShoot;
+                            hitSound = Sounds.explosionDull;
+                            shootSound = Sounds.shootMalign;
                             hitShake = 1;
                             shootEffect = Fx.shootBig2;
                             smokeEffect = Fx.shootSmokeTitan;
@@ -1753,10 +1761,35 @@ public class PsammosUnitTypes {
                             knockback = 2.2f;
                             speed = 6;
                             layer = Layer.bullet - 2f;
-                            shootSound = Sounds.cannon;
+                            shootSound = Sounds.shootAtrax;
                         }};
                     }}
             );
+        }};
+
+        weldingDrone = new UnitType("welding-drone"){{
+            controller = u -> new AssemblerAI();
+            constructor = BuildingTetherPayloadUnit::create;
+
+            flying = true;
+            drag = 0.06f;
+            accel = 0.11f;
+            speed = 1.3f;
+            health = 90;
+            engineSize = 2f;
+            engineOffset = 6.5f;
+            payloadCapacity = 0f;
+            targetable = false;
+            bounded = false;
+
+            outlineColor = PPal.unitOutline;
+            isEnemy = false;
+            hidden = true;
+            useUnitCap = false;
+            logicControllable = false;
+            playerControllable = false;
+            allowedInPayloads = false;
+            createWreck = false;
         }};
 
         repairDrone = new UnitType("repair-drone"){{

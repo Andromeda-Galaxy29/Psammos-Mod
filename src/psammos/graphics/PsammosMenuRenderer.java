@@ -14,6 +14,7 @@ import arc.util.noise.*;
 import mindustry.content.*;
 import mindustry.type.*;
 import mindustry.world.*;
+import psammos.content.blocks.PsammosEnvironmentBlocks;
 import psammos.content.*;
 
 import static mindustry.Vars.*;
@@ -33,23 +34,23 @@ public class PsammosMenuRenderer extends MenuRenderer {
     private final UnitType flyerType = (UnitType) randomFromArray(new UnitType[]{PsammosUnitTypes.sine, PsammosUnitTypes.helix, PsammosUnitTypes.trisect, PsammosUnitTypes.gradient, PsammosUnitTypes.ascent});
     private final Block[][] biomes = new Block[][]{
             new Block[]{Blocks.sand, Blocks.ferricStone},
-            new Block[]{Blocks.sand, PsammosBlocks.quartzFloor},
-            new Block[]{PsammosBlocks.peatFloor, PsammosBlocks.burningPeatFloor},
-            new Block[]{PsammosBlocks.burningPeatFloor, PsammosBlocks.ash},
-            new Block[]{PsammosBlocks.peatFloor, PsammosBlocks.packedPeatFloor},
-            new Block[]{PsammosBlocks.peatFloor, PsammosBlocks.decayingFloor},
+            new Block[]{Blocks.sand, PsammosEnvironmentBlocks.quartzFloor},
+            new Block[]{PsammosEnvironmentBlocks.peatFloor, PsammosEnvironmentBlocks.burningPeatFloor},
+            new Block[]{PsammosEnvironmentBlocks.burningPeatFloor, PsammosEnvironmentBlocks.ash},
+            new Block[]{PsammosEnvironmentBlocks.peatFloor, PsammosEnvironmentBlocks.packedPeatFloor},
+            new Block[]{PsammosEnvironmentBlocks.peatFloor, PsammosEnvironmentBlocks.decayingFloor},
             new Block[]{Blocks.darksand, Blocks.carbonStone},
-            new Block[]{Blocks.carbonStone, PsammosBlocks.slate},
-            new Block[]{PsammosBlocks.slate, PsammosBlocks.osmicStone},
-            new Block[]{PsammosBlocks.osmicStone, PsammosBlocks.desertGlass},
-            new Block[]{PsammosBlocks.metallicFloor, PsammosBlocks.rustedMetallicFloor}
+            new Block[]{Blocks.carbonStone, PsammosEnvironmentBlocks.slate},
+            new Block[]{PsammosEnvironmentBlocks.slate, PsammosEnvironmentBlocks.osmicStone},
+            new Block[]{PsammosEnvironmentBlocks.osmicStone, PsammosEnvironmentBlocks.desertGlass},
+            new Block[]{PsammosEnvironmentBlocks.metallicFloor, PsammosEnvironmentBlocks.rustedMetallicFloor}
     };
     private final Block[] noOreFloors = {
-            PsammosBlocks.burningPeatFloor,
-            PsammosBlocks.ash,
-            PsammosBlocks.decayingFloor,
-            PsammosBlocks.metallicFloor,
-            PsammosBlocks.rustedMetallicFloor
+            PsammosEnvironmentBlocks.burningPeatFloor,
+            PsammosEnvironmentBlocks.ash,
+            PsammosEnvironmentBlocks.decayingFloor,
+            PsammosEnvironmentBlocks.metallicFloor,
+            PsammosEnvironmentBlocks.rustedMetallicFloor
     };
 
     public PsammosMenuRenderer(){
@@ -74,7 +75,7 @@ public class PsammosMenuRenderer extends MenuRenderer {
         world.setGenerating(true);
 
         Tiles tiles = world.resize(width, height);
-        Seq<Block> ores = Seq.with(PsammosBlocks.osmiumOre, PsammosBlocks.silverOre);
+        Seq<Block> ores = Seq.with(PsammosEnvironmentBlocks.osmiumOre, PsammosEnvironmentBlocks.silverOre);
         shadows = new FrameBuffer(width, height);
         int offset = (int) random(100000);
         int s1 = offset, s2 = offset + 1, s3 = offset + 2;

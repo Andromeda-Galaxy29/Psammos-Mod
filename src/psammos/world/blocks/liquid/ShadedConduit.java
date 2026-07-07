@@ -43,7 +43,7 @@ public class ShadedConduit extends Conduit {
         Draw.color(botColor);
         Draw.alpha(0.5f);
         Draw.rect(botRegions[bits[0]], plan.drawx(), plan.drawy(), plan.rotation * 90);
-        Draw.reset();
+        Draw.color();
 
         int blendbits2 = bits[0];
         if (blendbits2 == 1 && (bits[1] != 1 || bits[2] != 1)) { //Flips corner conduits
@@ -53,6 +53,7 @@ public class ShadedConduit extends Conduit {
             blendbits2 = 6;
         }
         Draw.rect(regions[blendbits2][plan.rotation], plan.drawx(), plan.drawy());
+        Draw.scl();
     }
 
     @Override

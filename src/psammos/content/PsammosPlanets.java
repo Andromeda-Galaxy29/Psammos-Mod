@@ -2,6 +2,7 @@ package psammos.content;
 
 import arc.graphics.*;
 import mindustry.game.Gamemode;
+import psammos.content.blocks.PsammosEffectBlocks;
 import psammos.planet.PsammosPlanetGenerator;
 import mindustry.content.*;
 import mindustry.game.Team;
@@ -28,11 +29,10 @@ public class PsammosPlanets {
             allowLaunchLoadout = false;
             allowSectorInvasion = false;
             startSector = 0;
-            allowWaveSimulation = true;
             clearSectorOnLose = true;
             allowWaves = true;
             prebuildBase = false;
-            defaultCore = PsammosBlocks.coreDust;
+            defaultCore = PsammosEffectBlocks.coreDust;
 
             defaultEnv = Env.oxygen | Env.terrestrial | Env.groundOil;
 

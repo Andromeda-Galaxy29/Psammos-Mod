@@ -11,5 +11,8 @@ public class PPal {
     scoutPink = Color.valueOf("#c3aedd"),
 
     memoryAlloy = Color.valueOf("#dc88e7"),
-    electric = Color.valueOf("#a9d8ff");
+    desertGlass = Color.valueOf("#6ddac3"),
+    electric = Color.valueOf("#a9d8ff"),
+    blast = Color.valueOf("#fdb380"),
+    blast2 = Color.valueOf("#eb8778");
 }
