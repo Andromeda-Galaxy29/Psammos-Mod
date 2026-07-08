@@ -41,7 +41,7 @@ public interface RadiationConsumer {
 
     default RadiationStack[] calculateSideRadiation(Building build, Seq<Building> inputs){
         RadiationStack[] sideRadiation = new RadiationStack[4];
-        inputs.forEach(b -> {
+        inputs.each(b -> {
             if (!(b instanceof RadiationEmitter emitter) || b.dead){
                 return;
             }
@@ -65,7 +65,7 @@ public interface RadiationConsumer {
 
     default ArrayMap<RadiationType, Float> calculateRadiationTypes(Building build, Seq<Building> inputs){
         ArrayMap<RadiationType, Float> radiations = new ArrayMap<>();
-        inputs.forEach(b -> {
+        inputs.each(b -> {
             if (!(b instanceof RadiationEmitter emitter) || b.dead){
                 return;
             }
