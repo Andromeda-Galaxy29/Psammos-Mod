@@ -112,7 +112,8 @@ public class PsammosDefenseBlocks {
             range = 20 * Vars.tilesize;
             nodeShieldRadius = 3f * Vars.tilesize;
             linkShieldThickness = 2.5f * Vars.tilesize;
-            radiationRequirements =  Seq.with(new RadiationStack(PsammosRadTypes.light, 4.5f));
+            radiationRequirements = new Seq<>();
+            radiationRequirements.add(new RadiationStack(PsammosRadTypes.light, 4.5f));
         }};
     }
 }
