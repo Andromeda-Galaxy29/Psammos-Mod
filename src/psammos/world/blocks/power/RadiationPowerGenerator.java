@@ -32,7 +32,7 @@ public class RadiationPowerGenerator extends PowerGenerator {
     @Override
     public void setBars() {
         super.setBars();
-        radiationRequirements.forEach(req -> {
+        radiationRequirements.each(req -> {
             addBar(req.type.name, (RadiationPowerGeneratorBuild b) -> new Bar(
                     () -> Core.bundle.format("bar.psammos-radiation-percent",
                             req.type.localizedName,
@@ -52,17 +52,7 @@ public class RadiationPowerGenerator extends PowerGenerator {
         public void updateTile() {
             radiations = calculateRadiationTypes(this, radiationInputs);
             
-            float efficiencyPercent = maxEfficiency;
-            for(RadiationStack req : radiationRequirements){
-                if (radiations.containsKey(req.type)){
-                    if (radiations.get(req.type) / req.amount < efficiencyPercent){
-                        efficiencyPercent = radiations.get(req.type) / req.amount;
-                    }
-                }else{
-                    efficiencyPercent = 0;
-                }
-            }
-
+            float efficiencyPercent = efficiencyFromRequirements(radiations, radiationRequirements, maxEfficiency);
             productionEfficiency = efficiency * efficiencyPercent;
         }
 

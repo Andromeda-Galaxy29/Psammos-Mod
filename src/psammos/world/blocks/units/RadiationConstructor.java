@@ -35,7 +35,7 @@ public class RadiationConstructor extends Constructor {
     @Override
     public void setBars() {
         super.setBars();
-        radiationRequirements.forEach(req -> {
+        radiationRequirements.each(req -> {
             addBar(req.type.name, (RadiationConstructorBuild b) -> new Bar(
                     () -> Core.bundle.format("bar.psammos-radiation-percent",
                             req.type.localizedName,
@@ -53,17 +53,7 @@ public class RadiationConstructor extends Constructor {
 
         @Override
         public float efficiencyScale() {
-            float efficiencyPercent = maxEfficiency;
-            for(RadiationStack req : radiationRequirements){
-                if (radiations.containsKey(req.type)){
-                    if (radiations.get(req.type) / req.amount < efficiencyPercent){
-                        efficiencyPercent = radiations.get(req.type) / req.amount;
-                    }
-                }else{
-                    efficiencyPercent = 0;
-                }
-            }
-            return Math.min(efficiencyPercent, maxEfficiency);
+            return efficiencyFromRequirements(radiations, radiationRequirements, maxEfficiency);
         }
 
         @Override

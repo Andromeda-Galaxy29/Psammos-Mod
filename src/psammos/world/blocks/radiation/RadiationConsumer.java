@@ -12,6 +12,20 @@ public interface RadiationConsumer {
         return 0;
     }
 
+    default float efficiencyFromRequirements(ArrayMap<RadiationType, Float> radiations, Seq<RadiationStack> radiationRequirements, float maxEfficiency){
+        float efficiencyPercent = maxEfficiency;
+        for(RadiationStack req : radiationRequirements){
+            if (radiations.containsKey(req.type)){
+                if (radiations.get(req.type) / req.amount < efficiencyPercent){
+                    efficiencyPercent = radiations.get(req.type) / req.amount;
+                }
+            }else{
+                efficiencyPercent = 0;
+            }
+        }
+        return Math.min(efficiencyPercent, maxEfficiency);
+    }
+
     default RadiationStack calculateHighestRadiation(Building build, Seq<Building> inputs){
         ArrayMap<RadiationType, Float> all = calculateRadiationTypes(build, inputs);
         RadiationType type = null;
@@ -27,7 +41,7 @@ public interface RadiationConsumer {
 
     default RadiationStack[] calculateSideRadiation(Building build, Seq<Building> inputs){
         RadiationStack[] sideRadiation = new RadiationStack[4];
-        inputs.forEach(b -> {
+        inputs.each(b -> {
             if (!(b instanceof RadiationEmitter emitter) || b.dead){
                 return;
             }
@@ -51,7 +65,7 @@ public interface RadiationConsumer {
 
     default ArrayMap<RadiationType, Float> calculateRadiationTypes(Building build, Seq<Building> inputs){
         ArrayMap<RadiationType, Float> radiations = new ArrayMap<>();
-        inputs.forEach(b -> {
+        inputs.each(b -> {
             if (!(b instanceof RadiationEmitter emitter) || b.dead){
                 return;
             }

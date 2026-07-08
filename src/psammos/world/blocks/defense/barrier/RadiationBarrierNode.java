@@ -30,7 +30,7 @@ public class RadiationBarrierNode extends BarrierNode{
     @Override
     public void setBars() {
         super.setBars();
-        radiationRequirements.forEach(req -> {
+        radiationRequirements.each(req -> {
             addBar(req.type.name, (RadiationBarrierNodeBuild b) -> new Bar(
                     () -> Core.bundle.format("bar.psammos-radiation-amount",
                             req.type.localizedName,
@@ -53,17 +53,7 @@ public class RadiationBarrierNode extends BarrierNode{
 
         @Override
         public float nodeEfficiency() {
-            float efficiencyPercent = graph.nodes.size;
-            for(RadiationStack req : radiationRequirements){
-                if (radiations.containsKey(req.type)){
-                    if (radiations.get(req.type) / req.amount < efficiencyPercent){
-                        efficiencyPercent = radiations.get(req.type) / req.amount;
-                    }
-                }else{
-                    efficiencyPercent = 0;
-                }
-            }
-            return efficiencyPercent;
+            return efficiencyFromRequirements(radiations, radiationRequirements, graph.nodes.size);
         }
 
         @Override

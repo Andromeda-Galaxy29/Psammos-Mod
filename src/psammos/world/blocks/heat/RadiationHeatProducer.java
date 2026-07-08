@@ -39,7 +39,7 @@ public class RadiationHeatProducer extends HeatProducer {
                 () -> Pal.lightOrange,
                 b::heatFrac));
 
-        radiationRequirements.forEach(req -> {
+        radiationRequirements.each(req -> {
             addBar(req.type.name, (RadiationHeatProducerBuild b) -> new Bar(
                     () -> Core.bundle.format("bar.psammos-radiation-percent",
                             req.type.localizedName,
@@ -57,17 +57,7 @@ public class RadiationHeatProducer extends HeatProducer {
 
         @Override
         public float efficiencyScale() {
-            float efficiencyPercent = maxEfficiency;
-            for(RadiationStack req : radiationRequirements){
-                if (radiations.containsKey(req.type)){
-                    if (radiations.get(req.type) / req.amount < efficiencyPercent){
-                        efficiencyPercent = radiations.get(req.type) / req.amount;
-                    }
-                }else{
-                    efficiencyPercent = 0;
-                }
-            }
-            return efficiencyPercent;
+            return efficiencyFromRequirements(radiations, radiationRequirements, maxEfficiency);
         }
 
         @Override

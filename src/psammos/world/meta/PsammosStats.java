@@ -18,7 +18,7 @@ public class PsammosStats {
 
     public static StatValue radiations(Seq<RadiationStack> stacks){
         return table -> {
-            stacks.forEach(stack -> {
+            stacks.each(stack -> {
                 table.add(displayRadiation(stack)).padRight(5);
             });
         };
