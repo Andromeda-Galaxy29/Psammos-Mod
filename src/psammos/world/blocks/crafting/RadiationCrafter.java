@@ -74,7 +74,8 @@ public class RadiationCrafter extends GenericCrafter {
 
         @Override
         public boolean acceptsRadiation(RadiationType type, int from) {
-            for (RadiationStack req : radiationRequirements){
+            for(int i = 0; i < radiationRequirements.size; i++){
+                RadiationStack req = radiationRequirements.get(i);
                 if (type == req.type){
                     return true;
                 }
