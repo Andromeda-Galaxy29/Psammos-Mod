@@ -30,7 +30,7 @@ public class RadiationBarrierNode extends BarrierNode{
     @Override
     public void setBars() {
         super.setBars();
-        radiationRequirements.forEach(req -> {
+        radiationRequirements.each(req -> {
             addBar(req.type.name, (RadiationBarrierNodeBuild b) -> new Bar(
                     () -> Core.bundle.format("bar.psammos-radiation-amount",
                             req.type.localizedName,

@@ -32,7 +32,7 @@ public class RadiationPowerGenerator extends PowerGenerator {
     @Override
     public void setBars() {
         super.setBars();
-        radiationRequirements.forEach(req -> {
+        radiationRequirements.each(req -> {
             addBar(req.type.name, (RadiationPowerGeneratorBuild b) -> new Bar(
                     () -> Core.bundle.format("bar.psammos-radiation-percent",
                             req.type.localizedName,

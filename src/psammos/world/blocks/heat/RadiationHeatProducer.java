@@ -39,7 +39,7 @@ public class RadiationHeatProducer extends HeatProducer {
                 () -> Pal.lightOrange,
                 b::heatFrac));
 
-        radiationRequirements.forEach(req -> {
+        radiationRequirements.each(req -> {
             addBar(req.type.name, (RadiationHeatProducerBuild b) -> new Bar(
                     () -> Core.bundle.format("bar.psammos-radiation-percent",
                             req.type.localizedName,
