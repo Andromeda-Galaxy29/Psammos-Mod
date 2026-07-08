@@ -209,8 +209,7 @@ public class BarrierGraph {
     }
 
     public void afterReadAll() {
-        for(int i = 0; i < readNodes.size; i++){
-            Tile tile = readNodes.get(i);
+        for (Tile tile : readNodes) {
             if (tile.build instanceof BarrierNodeBuild node) {
                 add(node);
             }

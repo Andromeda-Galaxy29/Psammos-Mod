@@ -70,8 +70,7 @@ public class RadiationPowerGenerator extends PowerGenerator {
 
         @Override
         public boolean acceptsRadiation(RadiationType type, int from) {
-            for(int i = 0; i < radiationRequirements.size; i++){
-                RadiationStack req = radiationRequirements.get(i);
+            for (RadiationStack req : radiationRequirements){
                 if (type == req.type){
                     return true;
                 }
