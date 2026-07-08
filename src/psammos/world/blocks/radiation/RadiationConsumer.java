@@ -14,7 +14,7 @@ public interface RadiationConsumer {
 
     default float efficiencyFromRequirements(ArrayMap<RadiationType, Float> radiations, Seq<RadiationStack> radiationRequirements, float maxEfficiency){
         float efficiencyPercent = maxEfficiency;
-        for(RadiationStack req : radiationRequirements/){
+        for(RadiationStack req : radiationRequirements){
             if (radiations.containsKey(req.type)){
                 if (radiations.get(req.type) / req.amount < efficiencyPercent){
                     efficiencyPercent = radiations.get(req.type) / req.amount;
