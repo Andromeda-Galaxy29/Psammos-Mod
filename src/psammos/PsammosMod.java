@@ -16,6 +16,7 @@ import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 import psammos.graphics.*;
 import psammos.ui.*;
+import psammos.world.blocks.defense.barrier.BarrierNode;
 
 import static arc.Core.*;
 import static mindustry.Vars.*;
@@ -36,6 +37,14 @@ public class PsammosMod extends Mod{
         PsammosTeams.init();
 
         loadSettings();
+
+        Events.on(WorldLoadEndEvent.class, e -> {
+            Groups.build.each(b -> {
+                if (b instanceof BarrierNode.BarrierNodeBuild node && node.graph != null) {
+                    node.graph.afterReadAll();
+                }
+            });
+        });
 
         Events.on(ClientLoadEvent.class, e -> {
             if (Core.settings.getBool("psammos-custom-menu", true)) {

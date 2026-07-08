@@ -13,6 +13,7 @@ import arc.math.geom.Intersector;
 import arc.math.geom.Point2;
 import arc.struct.IntSeq;
 import arc.struct.Seq;
+import arc.util.Log;
 import arc.util.Nullable;
 import arc.util.Time;
 import arc.util.Tmp;
@@ -504,12 +505,8 @@ public class BarrierNode extends Block {
             if (read.bool()) {
                 graph.read(read, revision);
             }
-        }
 
-        @Override
-        public void afterReadAll() {
-            super.afterReadAll();
-            graph.afterReadAll();
+            Log.info("test");
         }
     }
 }
