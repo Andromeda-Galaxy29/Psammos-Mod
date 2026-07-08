@@ -64,16 +64,7 @@ public class RadiationItemTurret extends ItemTurret {
         public void updateEfficiencyMultiplier(){
             super.updateEfficiencyMultiplier();
 
-            float efficiencyPercent = maxRadiationEfficiency;
-            for(RadiationStack req : radiationRequirements){
-                if (radiations.containsKey(req.type)){
-                    if (radiations.get(req.type) / req.amount < efficiencyPercent){
-                        efficiencyPercent = radiations.get(req.type) / req.amount;
-                    }
-                }else{
-                    efficiencyPercent = 0;
-                }
-            }
+            float efficiencyPercent = efficiencyFromRequirements(radiations, radiationRequirements, maxRadiationEfficiency);
             efficiency *= efficiencyPercent;
         }
 
