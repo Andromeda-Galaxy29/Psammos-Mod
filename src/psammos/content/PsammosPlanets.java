@@ -53,7 +53,7 @@ public class PsammosPlanets {
 
             ruleSetter = r -> {
                 r.waveTeam = PsammosTeams.erimos;
-                r.showSpawns = true;
+//                r.showSpawns = true;
                 r.teams.get(r.waveTeam).rtsAi = false;
 
                 r.weather.addAll(
