@@ -10,6 +10,10 @@ import mindustry.world.blocks.liquid.*;
 public class OverflowConduit extends LiquidBlock {
     public float liquidPadding = 0f;
     public boolean invert = false;
+    /** The percentage of liquid in the nearby block required for the gate to start overflowing */
+    public float highThreshold = 0.9f;
+    /** The percentage of liquid in the nearby block required for the gate to stop overflowing */
+    public float lowThreshold = 0.8f;
 
     public OverflowConduit(String name){
         super(name);
@@ -38,8 +42,15 @@ public class OverflowConduit extends LiquidBlock {
     }
 
     public class OverflowConduitBuild extends LiquidBuild{
+        /** Whether the block in front (on the left when reversed) is considered to be overflowing */
+        public boolean overflowing = false;
+        /** Whether the block on the right is considered to be overflowing */
+        public boolean overflowing2 = false;
+
         @Override
         public void updateTile(){
+            updateOverflowState();
+
             if(liquids.currentAmount() > 0.01f){
                 var target = target();
                 if(target != null){
@@ -49,41 +60,77 @@ public class OverflowConduit extends LiquidBlock {
             }
         }
 
+        public void updateOverflowState() {
+            if(liquids.current() == null) return;
+
+            if (!invert) {
+                if (shouldOverflow(front(), liquids.current())) {
+                    overflowing = true;
+                } else if (shouldStopOverflowing(front(), liquids.current())) {
+                    overflowing = false;
+                }
+            } else {
+                if (shouldOverflow(left(), liquids.current())) {
+                    overflowing = true;
+                } else if (shouldStopOverflowing(left(), liquids.current())) {
+                    overflowing = false;
+                }
+
+                if (shouldOverflow(right(), liquids.current())) {
+                    overflowing2 = true;
+                } else if (shouldStopOverflowing(right(), liquids.current())) {
+                    overflowing2 = false;
+                }
+            }
+        }
+
+        public boolean shouldOverflow(Building b, Liquid liquid) {
+            return !canAcceptLiquid(b, liquid) || liquidAboveThreshold(b, liquid, highThreshold);
+        }
+
+        public boolean shouldStopOverflowing(Building b, Liquid liquid) {
+            return canAcceptLiquid(b, liquid) && !liquidAboveThreshold(b, liquid, lowThreshold);
+        }
+
         @Nullable
         public Integer target(){
             if(liquids.current() == null) return null;
 
-            if(invert){
+            int forward = 0;
+            int leftward = 1;
+            int rightward = 3;
+
+            if(!invert){
+                if(!overflowing){
+                    return forward;
+                }
+
                 Building l = left(), r = right();
                 boolean lc = canAcceptLiquid(l, liquids.current()),
                         rc = canAcceptLiquid(r, liquids.current());
 
                 if(lc && !rc){
-                    return 1;
+                    return leftward;
                 }else if(rc && !lc){
-                    return 3;
+                    return rightward;
                 }else if(lc && rc){
-                    return cdump == 0 ? 1 : 3;
+                    return cdump == 0 ? leftward : rightward;
                 }
-            }
+            } else {
+                boolean lc = !overflowing,
+                        rc = !overflowing2;
 
-            Building front = front();
-            if(canAcceptLiquid(front, liquids.current())){
-                return 0;
-            }
+                if(lc && !rc){
+                    return leftward;
+                }else if(rc && !lc){
+                    return rightward;
+                }else if(lc && rc){
+                    return cdump == 0 ? leftward : rightward;
+                }
 
-            if(invert) return null;
-
-            Building l = left(), r = right();
-            boolean lc = canAcceptLiquid(l, liquids.current()),
-                    rc = canAcceptLiquid(r, liquids.current());
-
-            if(lc && !rc){
-                return 1;
-            }else if(rc && !lc){
-                return 3;
-            }else if(lc && rc){
-                return cdump == 0 ? 1 : 3;
+                if(canAcceptLiquid(front(), liquids.current())){
+                    return forward;
+                }
             }
 
             return null;
@@ -92,10 +139,14 @@ public class OverflowConduit extends LiquidBlock {
         public boolean canAcceptLiquid(Building b, Liquid liquid){
             if (b == null || b.team != team) return false;
             if (b.block instanceof LiquidJunction) {
-                b = b.getLiquidDestination(this, liquids.current());
+                b = b.getLiquidDestination(this, liquid);
             }
-            return  b.acceptLiquid(this, liquid) &&
+            return b.acceptLiquid(this, liquid) &&
                     b.liquids.get(liquid) < b.block.liquidCapacity - 0.05f;
+        }
+
+        public boolean liquidAboveThreshold(Building b, Liquid liquid, float threshold) {
+            return b.liquids.get(liquid) / b.block.liquidCapacity >= threshold;
         }
 
         @Override
