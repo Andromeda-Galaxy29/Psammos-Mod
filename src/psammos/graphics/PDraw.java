@@ -1,15 +1,11 @@
 package psammos.graphics;
 
-import arc.graphics.Color;
-import arc.graphics.Texture;
-import arc.graphics.g2d.Draw;
-import arc.graphics.g2d.Fill;
-import arc.graphics.g2d.Lines;
-import arc.graphics.g2d.TextureRegion;
-import arc.math.Mathf;
-import arc.util.Log;
-import mindustry.Vars;
-import mindustry.graphics.Drawf;
+import arc.graphics.*;
+import arc.graphics.g2d.*;
+import arc.math.*;
+import mindustry.graphics.*;
+
+import static mindustry.Vars.*;
 
 public class PDraw {
     public static void spinLineSprite(TextureRegion region, float x, float y, float r){

@@ -37,23 +37,27 @@ public class ShadedConduit extends Conduit {
     public void drawPlanRegion(BuildPlan plan, Eachable<BuildPlan> list) {
         int[] bits = getTiling(plan, list);
 
-        if (bits == null) return;
+        if(bits == null) return;
 
         Draw.scl(bits[1], bits[2]);
         Draw.color(botColor);
         Draw.alpha(0.5f);
         Draw.rect(botRegions[bits[0]], plan.drawx(), plan.drawy(), plan.rotation * 90);
+        
         Draw.color();
+        Draw.scl();
+
+        TextureRegion region = regions[bits[0]][0];
+        Draw.rect(region, plan.drawx(), plan.drawy(), region.width * bits[1] * region.scl(), region.height * bits[2] * region.scl(), plan.rotation * 90);
 
         int blendbits2 = bits[0];
-        if (blendbits2 == 1 && (bits[1] != 1 || bits[2] != 1)) { //Flips corner conduits
+        if(blendbits2 == 1 && (bits[1] != 1 || bits[2] != 1)){ //Flips corner conveyors
             blendbits2 = 5;
         }
-        if (blendbits2 == 2 && (bits[1] != 1 || bits[2] != 1)) { //Flips T junction conduits
+        if(blendbits2 == 2 && (bits[1] != 1 || bits[2] != 1)){ //Flips T junction conveyors
             blendbits2 = 6;
         }
-        Draw.rect(regions[blendbits2][plan.rotation], plan.drawx(), plan.drawy());
-        Draw.scl();
+        Draw.rect(regions[blendbits2][plan.rotation], plan.drawx(), plan.drawy(), region.width * region.scl(), region.height * region.scl());
     }
 
     @Override
@@ -76,6 +80,7 @@ public class ShadedConduit extends Conduit {
 
                     float rot = i == 0 ? r * 90 : (dir)*90;
                     if(Mathf.mod(dir, 4) == 1 || Mathf.mod(dir, 4) == 2) Draw.yscl = -1;
+                    Draw.color();
                     Draw.rect(sliced(regions[0][0], i != 0 ? SliceMode.bottom : SliceMode.top), x + Geometry.d4x(dir) * tilesize*0.75f, y + Geometry.d4y(dir) * tilesize*0.75f, rot);
                 }
             }
@@ -108,6 +113,7 @@ public class ShadedConduit extends Conduit {
 
             int offset = yscl == -1 ? 3 : 0;
 
+            if (liquids.current() == null) return;
             int frame = liquids.current().getAnimationFrame();
             int gas = liquids.current().gas ? 1 : 0;
             float ox = 0f, oy = 0f;
