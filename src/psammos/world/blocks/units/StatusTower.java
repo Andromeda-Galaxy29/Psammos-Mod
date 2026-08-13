@@ -79,7 +79,7 @@ public class StatusTower extends Block {
 
             if(efficiency > 0){
                 for(Unit target : targets){
-                    target.apply(status, statusDuration);
+                    target.apply(status, statusDuration * efficiency);
                 }
             }
 
