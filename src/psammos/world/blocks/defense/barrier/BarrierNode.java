@@ -505,8 +505,6 @@ public class BarrierNode extends Block {
             if (read.bool()) {
                 graph.read(read, revision);
             }
-
-            Log.info("test");
         }
     }
 }
