@@ -41,9 +41,9 @@ public class PsammosDistributionBlocks {
 
             health = 30;
             speed = 22.5f;
-            displayedSpeed = 16;
-            capacity = 6;
+            displayedSpeed = 16f;
             buildCostMultiplier = 2f;
+            capacity = 6;
         }};
         ((Conveyor) heatproofConveyor).junctionReplacement = heatproofJunction;
         ((Conveyor) platedConveyor).junctionReplacement = heatproofJunction;
