@@ -3,6 +3,7 @@ package psammos.world.blocks.turrets;
 import arc.Core;
 import arc.graphics.Color;
 import arc.struct.*;
+import mindustry.ctype.UnlockableContent;
 import mindustry.entities.bullet.*;
 import mindustry.gen.Building;
 import mindustry.ui.Bar;
@@ -77,14 +78,22 @@ public class ContinuousRadiationTurret extends ContinuousTurret {
         }
 
         @Override
+        public UnlockableContent getAmmoContent(){
+            return currentRadiation != null && currentRadiation.amount > 0f ? currentRadiation.type : null;
+        }
+
+        @Override
+        public float getAmmoFraction(){
+            return currentRadiation != null ? currentRadiation.amount / radiationRequirement : 0f;
+        }
+
+        @Override
         public void updateTile(){
             super.updateTile();
 
             currentRadiation = calculateHighestRadiation(this, radiationInputs);
 
             if (currentRadiation != null) {
-                unit.ammo(unit.type().ammoCapacity * currentRadiation.amount / radiationRequirement);
-
                 activated = currentRadiation.amount > 0f;
             }else{
                 activated = false;
