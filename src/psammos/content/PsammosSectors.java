@@ -1,6 +1,7 @@
 package psammos.content;
 
 import mindustry.type.*;
+import psammos.type.PsammosSector;
 
 public class PsammosSectors {
     public static SectorPreset
@@ -10,83 +11,83 @@ public class PsammosSectors {
     enfer, ruinousHollow, scaldedPlains, searingChasms, weaponTestingSite;
 
     public static void load(){
-        landing = new SectorPreset("landing", PsammosPlanets.psammos, 0){{
+        landing = new PsammosSector("landing", 0){{
             difficulty = 1;
             captureWave = 15;
             alwaysUnlocked = true;
         }};
 
-        quartzValley = new SectorPreset("quartz-valley", PsammosPlanets.psammos, 3){{
+        quartzValley = new PsammosSector("quartz-valley", 3){{
             difficulty = 1;
             captureWave = 21;
         }};
 
-        cavern = new SectorPreset("cavern", PsammosPlanets.psammos, 5){{
+        cavern = new PsammosSector("cavern", 5){{
             difficulty = 4;
             captureWave = 30;
         }};
 
-        driedRiver = new SectorPreset("dried-river", PsammosPlanets.psammos, 4){{
+        driedRiver = new PsammosSector("dried-river", 4){{
             difficulty = 2;
         }};
 
-        excavationSite = new SectorPreset("excavation-site", PsammosPlanets.psammos, 6){{
+        excavationSite = new PsammosSector("excavation-site", 6){{
             difficulty = 2;
         }};
 
-        shatteredPathway = new SectorPreset("shattered-pathway", PsammosPlanets.psammos, 10){{
+        shatteredPathway = new PsammosSector("shattered-pathway", 10){{
             difficulty = 2;
         }};
 
-        ancientSwamp = new SectorPreset("ancient-swamp", PsammosPlanets.psammos, 14){{
+        ancientSwamp = new PsammosSector("ancient-swamp", 14){{
             difficulty = 3;
             captureWave = 18;
         }};
 
-        evaporatedBasin = new SectorPreset("evaporated-basin", PsammosPlanets.psammos, 28){{
+        evaporatedBasin = new PsammosSector("evaporated-basin", 28){{
             difficulty = 3;
         }};
 
-        depositoryCrevice = new SectorPreset("depository-crevice", PsammosPlanets.psammos, 35){{
+        depositoryCrevice = new PsammosSector("depository-crevice", 35){{
             difficulty = 3;
             captureWave = 35;
         }};
 
-        oilRefiningFacility = new SectorPreset("oil-refining-facility", PsammosPlanets.psammos, 25){{
+        oilRefiningFacility = new PsammosSector("oil-refining-facility", 25){{
             difficulty = 4;
         }};
 
-        ferricSummit = new SectorPreset("ferric-summit", PsammosPlanets.psammos, 18){{
+        ferricSummit = new PsammosSector("ferric-summit", 18){{
             difficulty = 4;
         }};
 
-        craterousRange = new SectorPreset("craterous-range", PsammosPlanets.psammos, 32){{
+        craterousRange = new PsammosSector("craterous-range", 32){{
             difficulty = 4;
         }};
 
-        erodedDesert = new SectorPreset("eroded-desert", PsammosPlanets.psammos, 27){{
+        erodedDesert = new PsammosSector("eroded-desert", 27){{
             difficulty = 4;
             captureWave = 35;
         }};
 
-        enfer = new SectorPreset("enfer", PsammosPlanets.psammos, 31){{
+        enfer = new PsammosSector("enfer", 31){{
             difficulty = 2;
             captureWave = 40;
         }};
 
-        ruinousHollow = new SectorPreset("ruinous-hollow", PsammosPlanets.psammos, 39){{
+        ruinousHollow = new PsammosSector("ruinous-hollow", 39){{
             difficulty = 4;
         }};
 
-        scaldedPlains = new SectorPreset("scalded-plains", PsammosPlanets.psammos, 45){{
+        scaldedPlains = new PsammosSector("scalded-plains", 45){{
             difficulty = 5;
         }};
 
-        searingChasms = new SectorPreset("searing-chasms", PsammosPlanets.psammos, 48){{
+        searingChasms = new PsammosSector("searing-chasms", 48){{
             difficulty = 6;
         }};
 
-        weaponTestingSite = new SectorPreset("weapon-testing-site", PsammosPlanets.psammos, 49){{
+        weaponTestingSite = new PsammosSector("weapon-testing-site", 49){{
             captureWave = 40;
             difficulty = 6;
         }};

@@ -17,27 +17,25 @@ import java.util.Arrays;
 import static mindustry.Vars.*;
 
 public class BetterJunction extends Junction {
-
-    public float itemSpeed = 0.12f;
-
-    public TextureRegion bottomRegion;
-    public TextureRegion[] inRegions;
-    public TextureRegion[] outRegions;
+    public TextureRegion bottomRegion, plugRegion1, plugRegion2;
+    public TextureRegion[] inRegions, outRegions;
 
     public BetterJunction(String name) {
         super(name);
+        drawCached = false;
+        drawDynamic = true;
     }
 
     @Override
     public void load(){
         super.load();
         bottomRegion = Core.atlas.find(name+"-bottom");
+        plugRegion1 = Core.atlas.find(name+"-plug0");
+        plugRegion2 = Core.atlas.find(name+"-plug1");
         inRegions = new TextureRegion[4];
-        for(int i = 0; i < 4; i++){
-            inRegions[i] = Core.atlas.find(name+"-in-"+i);
-        }
         outRegions = new TextureRegion[4];
         for(int i = 0; i < 4; i++){
+            inRegions[i] = Core.atlas.find(name+"-in-"+i);
             outRegions[i] = Core.atlas.find(name+"-out-"+i);
         }
     }
@@ -49,64 +47,51 @@ public class BetterJunction extends Junction {
 
     public class BetterJunctionBuild extends JunctionBuild {
 
-        private Seq<Item> dItems = new Seq<Item>();
-        private Seq<Integer> dItemRotations = new Seq<Integer>();
-        private Seq<Float> dItemMoves = new Seq<Float>();
-
         @Override
         public void draw(){
             Draw.z(Layer.block - 0.2f);
             Draw.rect(bottomRegion, x, y);
 
-            for(int i = 0; i < 4; i++){
-
+            for(int i = 0; i <= 1; i++){
                 Building other = findNextBuild(tileX(), tileY(), i);
+                Building other2 = findNextBuild(tileX(), tileY(), i + 2);
 
-                if(other != null && other.team == this.team() && other instanceof Conveyor.ConveyorBuild){
-                    Conveyor.ConveyorBuild b = (Conveyor.ConveyorBuild) other;
+                int dir = 0;
+                float conveyorSpeed = 0;
 
-                    int frame = enabled ? (int)(((Time.time * ((Conveyor)b.block).speed * 8f * timeScale * efficiency)) % 4) : 0;
-
-                    Draw.z(Layer.block - 0.2f);
-                    if(b.rotation == Mathf.mod((i + 2), 4)){ //If the conveyor faces this junction, draw input in its direction,
-                        Draw.rect(inRegions[frame], x, y, i * 90);
-                        Draw.rect(outRegions[frame], x, y, (i + 2) * 90);
-                    }else{ // else draw output in the direction of the conveyor
-                        if(b.block.noSideBlend && b.rotation != i) continue;
-
-                        Draw.rect(inRegions[frame], x, y, (i + 2) * 90);
-                        Draw.rect(outRegions[frame], x, y, i * 90);
-
-                        if(nearby(i) instanceof JunctionBuild){ // Draws items between junctions
-                            drawItems(i);
-                        }
-                    }
+                if(other != null && other.team == this.team() && other instanceof Conveyor.ConveyorBuild b) {
+                    conveyorSpeed = Math.max(conveyorSpeed, ((Conveyor) b.block).speed);
+                    dir += b.rotation == (i + 2) % 4 ? -1 : (b.block.noSideBlend && b.rotation != i ? 0 : 1);
                 }
+                if(other2 != null && other2.team == this.team() && other2 instanceof Conveyor.ConveyorBuild b) {
+                    conveyorSpeed = Math.max(conveyorSpeed, ((Conveyor) b.block).speed);
+                    dir += b.rotation == i ? 1 : (b.block.noSideBlend && b.rotation != (i + 2) % 4 ? 0 : -1);
+                }
+
+                int frame = enabled ? (int)(((Time.time * conveyorSpeed * 8f * timeScale * efficiency)) % 4) : 0;
+
+                if (dir < 0) {
+                    Draw.rect(inRegions[frame], x, y, i * 90);
+                    Draw.rect(outRegions[frame], x, y, (i + 2) * 90);
+                } else if (dir > 0) {
+                    Draw.rect(inRegions[frame], x, y, (i + 2) * 90);
+                    Draw.rect(outRegions[frame], x, y, i * 90);
+                }
+            }
+
+            for (int i = 0; i < 4; i++) {
+                drawItems(i);
             }
 
             Draw.z(Layer.block);
             Draw.rect(region, x, y);
-        }
 
-        @Override
-        public void updateTile(){
-            super.updateTile();
-            for(int i = 0; i < dItems.size; i++){
-                dItemMoves.set(i, dItemMoves.get(i) + (enabled && !state.isPaused() ? itemSpeed * timeScale * efficiency : 0));
-                if(dItemMoves.get(i) > 1){
-                    dItems.remove(i);
-                    dItemRotations.remove(i);
-                    dItemMoves.remove(i);
+            for(int i = 0; i < 4; i++) {
+                TextureRegion plugRegion = i <= 1 ? plugRegion1 : plugRegion2;
+                if ((nearby(i) == null || !nearby(i).block.hasItems) && !(nearby(i) instanceof BetterJunctionBuild)) {
+                    Draw.rect(plugRegion, x, y, i * 90);
                 }
             }
-        }
-
-        @Override
-        public void handleItem(Building source, Item item){
-            super.handleItem(source, item);
-            dItems.add(item);
-            dItemRotations.add((int)source.relativeTo(this));
-            dItemMoves.add(0f);
         }
 
         public Building findNextBuild(int x, int y, int rot){
@@ -121,12 +106,8 @@ public class BetterJunction extends Junction {
             return b;
         }
 
-        public void drawItems(int dir){ //When erekir junctions are added, replace this with the better code from them
-            Draw.z(Layer.block - 0.1f);
-            for(int i = 0; i < dItems.size; i++){
-                if(dItemRotations.get(i) != dir) continue;
-                Draw.rect(dItems.get(i).fullIcon, x + Geometry.d4x(dir) * tilesize * dItemMoves.get(i), y + Geometry.d4y(dir) * tilesize * dItemMoves.get(i), itemSize, itemSize);
-            }
+        public void drawItems(int dir){
+            // TODO;
         }
     }
 }

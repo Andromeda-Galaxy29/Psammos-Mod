@@ -66,7 +66,7 @@ public class LightBeamBulletType extends ContinuousBulletType {
             b.damage *= build.timeScale();
         }
 
-        Units.nearbyEnemies(b.team, b.x, b.y, length, (u) -> {
+        Units.nearbyEnemies(b.team, b.x, b.y, currentLength(b), (u) -> {
             Tmp.v2.set(u.x - b.x, u.y - b.y); // Vector from bullet to enemy
 
             float angleToEnemy = Tmp.v1.set(1, 0).rotate(b.rotation()).angleTo(Tmp.v2);

@@ -258,26 +258,41 @@ public class MechanicalArm extends Block {
         }
 
         @Override
+        public byte version() {
+            return 1;
+        }
+
+        @Override
         public void read(Reads read, byte revision) {
             super.read(read, revision);
+            if (revision == 0) {
+                armPos = new Vec2(read.f(), read.f());
+                target = new Vec2(read.f(), read.f());
+                progress = read.f();
+                return;
+            }
+
             armPos = new Vec2(read.f(), read.f());
-            target = new Vec2(read.f(), read.f());
+            boolean hasTarget = read.bool();
+            if (hasTarget) {
+                target = new Vec2(read.f(), read.f());
+            }
             progress = read.f();
         }
 
         @Override
         public void write(Writes write) {
             super.write(write);
+
             if (armPos == null) armPos = new Vec2(x - tilesize * size / 2f, y + tilesize * size / 2f);
             write.f(armPos.x);
             write.f(armPos.y);
 
-            if (target != null) {
+            boolean hasTarget = target != null;
+            write.bool(hasTarget);
+            if (hasTarget) {
                 write.f(target.x);
                 write.f(target.y);
-            }else{
-                write.f(0);
-                write.f(0);
             }
 
             write.f(progress);

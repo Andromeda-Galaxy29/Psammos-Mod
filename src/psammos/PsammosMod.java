@@ -50,11 +50,12 @@ public class PsammosMod extends Mod{
             if (Core.settings.getBool("psammos-custom-menu", true)) {
                 try {
                     Reflect.set(MenuFragment.class, Vars.ui.menufrag, "renderer", new PsammosMenuRenderer());
+                    Log.infoTag("Psammos Mod", "Menu renderer replaced successfully");
                 } catch (Exception except) {
-                    Log.err("Failed to replace renderer", except);
+                    Log.errTag("Psammos Mod", "Failed to replace renderer");
+                    Log.err(except);
                 }
             }
-
 
             if(settings.getBool("psammos-warning", true)) {
                 Time.runTask(10f, () -> {
