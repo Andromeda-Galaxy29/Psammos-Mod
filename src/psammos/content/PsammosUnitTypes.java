@@ -7,6 +7,7 @@ import arc.math.*;
 import arc.math.geom.*;
 import arc.struct.Seq;
 import mindustry.*;
+import mindustry.ai.UnitStance;
 import mindustry.ai.types.*;
 import mindustry.content.*;
 import mindustry.entities.*;
@@ -55,7 +56,7 @@ public class PsammosUnitTypes {
 
     public static void load() {
         gradient = new UnitType("1a-gradient"){{
-            aiController = BuilderAI::new;
+            controller = u -> u.team.isAI() ? new BuilderAI(true, 400f) : new CommandAI();
             constructor = UnitEntity::create;
 
             lowAltitude = true;
@@ -97,7 +98,7 @@ public class PsammosUnitTypes {
         }};
 
         ascent = new UnitType("ascent"){{
-            aiController = BuilderAI::new;
+            controller = u -> u.team.isAI() ? new BuilderAI(true, 400f) : new CommandAI();
             constructor = UnitEntity::create;
 
             lowAltitude = true;
@@ -217,6 +218,13 @@ public class PsammosUnitTypes {
 
             abilities.add(new SwarmAbility(24));
             immunities.add(PsammosStatusEffects.infested);
+
+            stances.addAll(
+                    UnitStance.stop,
+                    UnitStance.pursueTarget,
+                    UnitStance.patrol,
+                    UnitStance.ram
+            );
         }};
 
         jaw = new CrawlUnitType("2b-jaw"){{
